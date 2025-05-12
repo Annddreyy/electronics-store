@@ -1,0 +1,37 @@
+@use './../../../../scss/variables' as *;
+@use './../../../../scss/colors' as *;
+
+.nav {
+    @extend .bg-primary-dark-7;
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+
+        li {
+            &:first-child {
+                a {
+                    display: flex;
+                    gap: $base-gap;
+                    align-items: center;
+                    padding-right: $base-padding-9 * 3.5;
+
+                    img {
+                        height: 1em;
+                    }
+                }
+            }
+        }
+
+        a {
+            @extend .text-white;
+            text-decoration: none;
+            display: inline-block;
+            padding: $base-padding-4;
+
+            &:hover {
+                @extend .bg-primary-dark-1;
+            }
+        }
+    }
+}
