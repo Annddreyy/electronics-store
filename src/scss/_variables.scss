@@ -1,0 +1,24 @@
+@use 'sass:map';
+
+$primary: #4878a6 !default;
+$secondary: #edf2f6 !default;
+$error: #d32752 !default;
+
+$colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'error': $error,
+    'red': #d73838,
+    'green': #48a69b,
+    'yellow': #fbb13c,
+    'orange': #f37748,
+    'gray': #838688,
+    'black': #1d2226,
+    'white': #ffffff,
+);
+
+$base-font-size: 1rem !default;
+$font-size-sm: $base-font-size * 0.75 !default;
+$font-size-lg: $base-font-size * 1.5 !default;
+$font-size-xl: $base-font-size * 2 !default;
+$font-size-xxl: $base-font-size * 3 !default;

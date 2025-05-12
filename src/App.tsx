@@ -1,5 +1,5 @@
 const App: React.FC = () => {
-    return <div>App</div>;
+    return <div className="container">App</div>;
 };
 
 export default App;
