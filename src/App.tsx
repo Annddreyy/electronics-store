@@ -1,5 +1,12 @@
+import { Header } from './components/common/Header/Header';
+
 const App: React.FC = () => {
-    return <div className="container">App</div>;
+    return (
+        <>
+            <Header />
+            <div className="container">App</div>
+        </>
+    );
 };
 
 export default App;

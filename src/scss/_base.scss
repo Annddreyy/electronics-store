@@ -1,12 +1,21 @@
+@use './variables' as *;
+
 *,
 *::after,
 *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Exo 2", sans-serif;
+    font-size: $base-font-size;
 }
 
 .container {
     width: min(80%, 150em);
     margin: 0 auto;
 }
+
+.row {
+    display: flex;
+}
+
