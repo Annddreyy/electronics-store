@@ -1,4 +1,8 @@
-import { Card, PropsType, StatusType } from './components/common/ProductCard/ProductCard';
+import {
+    ProductCard,
+    PropsType,
+    StatusType,
+} from './components/common/ProductCard/ProductCard';
 import { Header } from './components/common/Header/Header';
 import productImg from './assets/productDefault.png';
 
@@ -17,7 +21,7 @@ const App: React.FC = () => {
     return (
         <>
             <Header />
-            <Card {...card} />
+            <ProductCard {...card} />
         </>
     );
 };

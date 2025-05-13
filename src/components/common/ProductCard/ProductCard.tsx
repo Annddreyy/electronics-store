@@ -1,4 +1,4 @@
-import classes from './Card.module.scss';
+import classes from './ProductCard.module.scss';
 import messageSquare from './../../../assets/card/message-square.png';
 import starFill from './../../../assets/card/starFill.png';
 import star from './../../../assets/card/star.png';
@@ -20,7 +20,7 @@ export type PropsType = {
     statusList?: StatusType[];
 };
 
-export const Card: React.FC<PropsType> = ({
+export const ProductCard: React.FC<PropsType> = ({
     title,
     img,
     type,
