@@ -1,5 +1,5 @@
 import classes from './NewsCard.module.scss';
-import news from './../../../assets/news/news-img.png';
+import cn from 'classnames';
 
 type PropsType = {
     title: string;
@@ -18,14 +18,18 @@ export const NewsCard: React.FC<PropsType> = ({ title, text, date, img }) => {
     const dateString = dateFormatter.format(date);
 
     return (
-        <article className={classes.news}>
+        <article className={cn(classes.news, 'bg-primary-light-8')}>
             {img && <img src={img} alt="" />}
             <div className={classes.information}>
                 <h3 className={classes.title}>{title}</h3>
                 <p>{text}</p>
                 <div className={classes.bottom}>
-                    <button>Подробнее ▶</button>
-                    <time dateTime="2021-06-05 00:00">{dateString}</time>
+                    <button className={'text-primary-dark-4'}>
+                        Подробнее ▶
+                    </button>
+                    <time dateTime="2021-06-05 00:00" className={'text-gray'}>
+                        {dateString}
+                    </time>
                 </div>
             </div>
         </article>

@@ -2,9 +2,9 @@ import classes from './TopPart.module.scss';
 import eye from './../../../../assets/header/eye.png';
 import compare from './../../../../assets/header/compare.png';
 import like from './../../../../assets/header/like.png';
-import likeFill from './../../../../assets/header/like-fill.png';
 import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
+import cn from 'classnames';
 
 export const TopPart: React.FC = () => {
     return (
@@ -21,7 +21,7 @@ export const TopPart: React.FC = () => {
                                 +7(958) 111-95-03
                             </span>
                         </div>
-                        <span className={classes.time}>
+                        <span className={'text-gray-dark-3'}>
                             Пн-вс: с 10:00 до 21:00
                         </span>
                     </div>
@@ -39,7 +39,15 @@ export const TopPart: React.FC = () => {
                         <button>
                             <img src={bin} alt="" />
                         </button>
-                        <button className={classes.login}>Войти</button>
+                        <button
+                            className={cn(
+                                classes.login,
+                                'bg-primary-dark-1',
+                                'text-white',
+                            )}
+                        >
+                            Войти
+                        </button>
                     </div>
                 </div>
             </div>

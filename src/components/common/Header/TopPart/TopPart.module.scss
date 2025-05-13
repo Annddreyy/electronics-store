@@ -1,6 +1,4 @@
 @use './../../../../scss/variables' as *;
-@use './../../../../scss/colors' as *;
-
 @use 'sass:map';
 
 .header {
@@ -18,15 +16,11 @@
             .phones {
                 display: flex;
                 gap: $base-gap;
-    
+
                 .phone {
                     color: map.get($colors, 'black');
                     font-weight: 500;
                 }
-            }
-
-            .time {
-                @extend .text-gray-dark-3;
             }
         }
 
@@ -34,14 +28,7 @@
             display: flex;
             gap: $gap-mini;
 
-            button {
-                border: none;
-                background-color: transparent;
-            }
-            
             .login {
-                @extend .bg-primary-dark-1;
-                @extend .text-white;
                 padding: $base-padding-3 $base-padding-8;
                 border-radius: $base-border-radius;
                 font-size: $font-size-md;

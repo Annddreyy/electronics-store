@@ -4,6 +4,7 @@ import facebook from './../../../../assets/social/facebook.png';
 import twitter from './../../../../assets/social/twitter.png';
 import instagram from './../../../../assets/social/instagram.png';
 import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 
 type SocialLink = {
     icon: string;
@@ -20,7 +21,7 @@ const socialLinks: SocialLink[] = [
 export const FooterBottom: React.FC = () => {
     return (
         <div className={classes.footerBottom}>
-            <span className={classes.rightsReceived}>
+            <span className={cn(classes.rightsReceived, 'text-gray')}>
                 SmartТехника © 2021 Все права защищены
             </span>
             <div className={classes.socialLinks}>
@@ -30,7 +31,9 @@ export const FooterBottom: React.FC = () => {
                     </NavLink>
                 ))}
             </div>
-            <span className={classes.author}>Разработка: Пучков Андрей</span>
+            <span className={cn(classes.author, 'text-gray')}>
+                Разработка: Пучков Андрей
+            </span>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { LinkType } from '../../../../types';
 import logo from './../../../../assets/logo.png';
 import classes from './Information.module.scss';
+import cn from 'classnames';
 
 type FooterLinksType = {
     group: string;
@@ -43,23 +44,29 @@ const links: FooterLinksType[] = [
 export const Information: React.FC = () => {
     const linksGroups = links.map((group) => (
         <div className={classes.linksGroup}>
-            <h3 className={classes.groupTitle}>{group.group}</h3>
+            <h3 className={cn(classes.groupTitle, 'text-gray')}>
+                {group.group}
+            </h3>
             <div className={classes.links}>
                 {group.links.map((link) => (
-                    <NavLink to={link.link}>{link.title}</NavLink>
+                    <NavLink to={link.link} className={'text-black'}>
+                        {link.title}
+                    </NavLink>
                 ))}
             </div>
         </div>
     ));
 
     return (
-        <div className={classes.information}>
+        <div className={cn(classes.information, 'text-gray')}>
             <div className={classes.contacts}>
                 <img src={logo} alt="" />
                 <div className={classes.connection}>
                     <p className={classes.phone}>+7 (958) 111-95-03</p>
                     <p className={classes.phone}>+7 (812) 660-50-54</p>
-                    <p className={classes.time}>Пн-вс: с 10:00 до 21:00</p>
+                    <p className={cn(classes.time, 'text-gray')}>
+                        Пн-вс: с 10:00 до 21:00
+                    </p>
                 </div>
                 <div className={classes.addresses}>
                     <address>Проспект Стачек 67 к.5</address>

@@ -1,12 +1,10 @@
 @use './../../../scss/variables' as *;
-@use './../../../scss/colors' as *;
 
 .news {
-    @extend .bg-primary-light-8;
-    padding: $base-padding-6;
     width: 640px;
     display: flex;
     gap: $base-gap-2;
+    padding: $base-padding-6;
     border-radius: $base-border-radius-2;
 
     .information {
@@ -21,14 +19,6 @@
         .bottom {
             display: flex;
             justify-content: space-between;
-
-            button {
-                @extend .text-primary-dark-4;
-            }
-
-            time {
-                @extend .text-gray;
-            }
         }
     }
 }
