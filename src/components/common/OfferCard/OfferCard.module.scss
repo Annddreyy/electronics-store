@@ -1,0 +1,20 @@
+@use './../../../scss/variables' as *;
+
+.card {
+    width: 640px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: $base-padding-6;
+    align-items: center;
+    border-radius: $base-border-radius-2;
+
+    .title {
+        font-size: $font-size-lg;
+        grid-column: 1;
+    }
+
+    .img {
+        justify-self: end;
+        grid-column: 3 / 4;
+    }
+}

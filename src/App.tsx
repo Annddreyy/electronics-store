@@ -8,6 +8,8 @@ import productImg from './assets/productDefault.png';
 import { NewsCard } from './components/common/NewsCard/NewsCard';
 import newsImg from './assets/news/news-img.png';
 import { Footer } from './components/common/Footer/Footer';
+import { OfferCard } from './components/common/OfferCard/OfferCard';
+import img from './assets/offer_card/img.png';
 
 const App: React.FC = () => {
     const card: PropsType = {
@@ -29,11 +31,17 @@ const App: React.FC = () => {
         date: new Date(2021, 5, 21),
     };
 
+    const offerCard = {
+        img: img,
+        title: 'Скидка до 30% на сигвеи',
+    };
+
     return (
         <>
             <Header />
             <ProductCard {...card} />
             <NewsCard {...news} />
+            <OfferCard {...offerCard} />
             <Footer />
         </>
     );
