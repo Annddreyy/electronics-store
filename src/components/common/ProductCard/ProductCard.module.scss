@@ -82,7 +82,7 @@
                 border-radius: $base-border-radius-9;
                 font-size: $font-size-sm * 1.25;
             }
-        
+
             .promotionValue {
                 font-size: $font-size-sm * 1.25;
             }
@@ -100,13 +100,13 @@
 
         .buy {
             width: 100%;
-            
+
             border-width: 1px;
             border-style: solid;
-            
+
             background-color: transparent;
             padding: $base-padding-4;
-            
+
             &:hover {
                 @extend .bg-primary-dark-2;
                 @extend .text-white;
