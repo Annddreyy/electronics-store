@@ -1,0 +1,67 @@
+@use './../../../../scss/colors' as *;
+@use './../../../../scss/variables' as *;
+@use 'sass:math';
+
+.information {
+    display: flex;
+    gap: $base-gap-6;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: $base-padding-6;
+    @extend .border-gray-light-3;
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+
+        img {
+            width: 150px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: math.div($gap-mini, 2);
+        }
+
+        .connection {
+            .phone {
+                font-weight: 600;
+            }
+            .time {
+                font-size: $font-size-sm * 1.1;
+                @extend .text-gray;
+            }
+        }
+
+        .addresses {
+            address {
+                font-style: normal;
+            }
+        }
+    }
+
+    .linksGroup {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+
+        .groupTitle {
+            font-size: $font-size-md;
+            font-weight: 500;
+            @extend .text-gray;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-mini;
+
+            a {
+                text-decoration: none;
+                @extend .text-black;
+            }
+        }
+    }
+}

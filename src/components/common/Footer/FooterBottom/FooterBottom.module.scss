@@ -1,0 +1,13 @@
+@use './../../../../scss/colors' as *;
+@use './../../../../scss/variables' as *;
+
+.footerBottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $base-padding-6;
+
+    .rightsReceived, .author {
+        @extend .text-gray;
+    }
+}

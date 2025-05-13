@@ -1,0 +1,8 @@
+@use './../../../scss/colors' as *;
+@use './../../../scss/variables' as *;
+
+.footer {
+    @extend .bg-primary-light-8;
+    margin-top: 10em;
+    padding: $base-padding-6; 
+}

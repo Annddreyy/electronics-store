@@ -7,6 +7,7 @@ import { Header } from './components/common/Header/Header';
 import productImg from './assets/productDefault.png';
 import { NewsCard } from './components/common/NewsCard/NewsCard';
 import newsImg from './assets/news/news-img.png';
+import { Footer } from './components/common/Footer/Footer';
 
 const App: React.FC = () => {
     const card: PropsType = {
@@ -33,6 +34,7 @@ const App: React.FC = () => {
             <Header />
             <ProductCard {...card} />
             <NewsCard {...news} />
+            <Footer />
         </>
     );
 };
