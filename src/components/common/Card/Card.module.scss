@@ -1,0 +1,126 @@
+@use './../../../scss/variables' as *;
+@use './../../../scss/colors' as *;
+
+@use 'sass:map';
+@use 'sass:math';
+
+.card {
+    width: 326px;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    @extend .border-gray-light-6;
+    border-radius: $base-border-radius-2;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-mini * 1.5;
+    padding: $base-padding-4;
+
+    .type {
+        @extend .text-gray-dark-1;
+    }
+
+    .title {
+        font-size: $font-size-md;
+        font-weight: normal;
+    }
+
+    .buy {
+        border-width: 1px;
+        border-style: solid;
+        @extend .border-primary-dark-2;
+        background-color: transparent;
+        @extend .text-primary-dark-2;
+        padding: $base-padding-4;
+        width: 100%;
+
+        &:hover {
+            @extend .bg-primary-dark-2;
+            @extend .text-white;
+        }
+    }
+
+    .oldPrice {
+        @extend .text-gray-dark-2;
+        text-decoration: line-through;
+    }
+
+    .price {
+        font-weight: bold;
+        font-size: $font-size-md;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 1em;
+    }
+
+    .messages {
+        display: flex;
+        gap: $gap-mini;
+        align-items: center;
+    }
+
+    .statistics, .stars {
+        display: flex;
+        gap: $gap-mini;
+    }
+
+    .stars {
+        gap: 0;
+    }
+
+    .promotion {
+        @extend .bg-orange;
+        padding: $base-padding;
+        padding-right: $base-padding-2;
+        border-radius: $base-border-radius-9;
+        display: flex;
+        gap: $gap-mini;
+    }
+
+    .percentCount {
+        @extend .bg-white;
+        margin-left: $base-margin;
+        padding: math.div($base-padding, 4) $base-padding-2;
+        border-radius: $base-border-radius-9;
+        font-size: $font-size-sm * 1.25;
+    }
+
+    .promotionValue {
+        @extend .text-white;
+        font-size: $font-size-sm * 1.25;
+    }
+
+    .bottomInformation {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .buttonsInf {
+        display: flex;
+        gap: $gap-mini;
+    }
+
+    .statuses {
+        position: absolute;
+        right: $base-padding-4;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: $gap-mini;
+    }
+
+    .status {
+        border-width: 1px;
+        border-radius: $base-border-radius-2;
+        @extend .bg-red;
+        @extend .text-white;
+        padding: $base-padding $base-padding-2;
+        width: max-content;
+    }
+
+    .status[data-type='Новинка'] {
+        @extend .bg-green;
+    }
+}

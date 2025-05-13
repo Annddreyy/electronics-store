@@ -12,6 +12,10 @@
         background-color: $val;
     }
 
+    .border-#{$key} {
+        border-color: $val;
+    }
+
     @for $i from 1 to 9 {
         .text-#{$key}-light-#{$i} {
            color: color.mix(white, $val, $i * 10%);
@@ -21,12 +25,20 @@
             background-color: color.mix(white, $val, $i * 10%);
         }
 
+        .border-#{$key}-light-#{$i} {
+            border-color: color.mix(white, $val, $i * 10%);
+        }
+
         .text-#{$key}-dark-#{$i} {
             color: color.mix(black, $val, $i * 10%);
         }
 
         .bg-#{$key}-dark-#{$i} {
             background-color: color.mix(black, $val, $i * 10%);
+        }
+
+        .border-#{$key}-dark-#{$i} {
+            border-color: color.mix(black, $val, $i * 10%);
         }
     }
 }
