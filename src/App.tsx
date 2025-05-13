@@ -10,6 +10,7 @@ import newsImg from './assets/news/news-img.png';
 import { Footer } from './components/common/Footer/Footer';
 import { OfferCard } from './components/common/OfferCard/OfferCard';
 import img from './assets/offer_card/img.png';
+import { Paginator } from './components/common/Paginator/Paginator';
 
 const App: React.FC = () => {
     const card: PropsType = {
@@ -36,12 +37,19 @@ const App: React.FC = () => {
         title: 'Скидка до 30% на сигвеи',
     };
 
+    const paginator = {
+        pageSize: 10,
+        totalItemsCount: 61,
+        pagesPerGroup: 3,
+    };
+
     return (
         <>
             <Header />
             <ProductCard {...card} />
             <NewsCard {...news} />
             <OfferCard {...offerCard} />
+            <Paginator {...paginator} />
             <Footer />
         </>
     );
