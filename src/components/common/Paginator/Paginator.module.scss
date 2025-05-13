@@ -1,0 +1,23 @@
+@use './../../../scss/variables' as *;
+
+.paginator {
+    display: flex;
+    gap: $gap-mini;
+
+    margin: $base-margin-8 0;
+
+    button {
+        width: 48px;
+        height: 48px;
+
+        border-width: 1px;
+        border-style: solid;
+        border-radius: $base-border-radius;
+    }
+
+    .elipsiss {
+        font-size: $font-size-lg;
+        font-weight: 500;
+        align-self: self-end;
+    }
+}
