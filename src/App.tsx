@@ -1,9 +1,7 @@
-import newsImg from './assets/news/news-img.png';
 import { BreadCrumbs } from './components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from './components/common/Footer/Footer';
 import { Header } from './components/common/Header/Header';
 import { NewsCard } from './components/common/NewsCard/NewsCard';
-import { OfferCard } from './components/common/OfferCard/OfferCard';
 import { OfferCardsGroup } from './components/common/OfferCardsGroup/OfferCardsGroup';
 import { Paginator } from './components/common/Paginator/Paginator';
 import { ProductCardsGroup } from './components/common/ProductCardsGroup/ProductCardsGroup';
@@ -16,13 +14,6 @@ import {
 import { LinkType } from './types';
 
 const App: React.FC = () => {
-    const news = {
-        img: newsImg,
-        title: 'Открытие нового магазина',
-        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, recusandae odio omnis quas dolorum commodi culpa nam? Ex, nemo nisi.',
-        date: new Date(2021, 5, 21),
-    };
-
     const paginator = {
         pageSize: 10,
         totalItemsCount: 61,
@@ -66,7 +57,6 @@ const App: React.FC = () => {
                         ProductTypeEnum.ELECTRIC_BICYCLE,
                     )}
                 />
-                <NewsCard {...news} />
                 <Paginator {...paginator} />
                 <BreadCrumbs {...breadCrumbs} />
             </div>
