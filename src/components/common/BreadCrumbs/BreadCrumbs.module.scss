@@ -1,0 +1,21 @@
+@use './../../../scss/variables' as *;
+@use './../../../scss/colors' as *;
+
+.links {
+    display: flex;
+    gap: $base-gap-2;
+
+    .link[data-active] {
+        @extend .text-gray;
+    }
+
+    .link + .link {
+        position: relative;
+    }
+
+    .link + .link::before{
+        position: absolute;
+        content: "►";
+        left: -1.5em;
+    }
+};
