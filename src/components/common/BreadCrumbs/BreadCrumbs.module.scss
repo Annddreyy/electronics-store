@@ -13,9 +13,9 @@
         position: relative;
     }
 
-    .link + .link::before{
+    .link + .link::before {
         position: absolute;
-        content: "►";
+        content: '►';
         left: -1.5em;
     }
-};
+}
