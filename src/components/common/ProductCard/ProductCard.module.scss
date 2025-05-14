@@ -20,7 +20,7 @@
     padding: $base-padding-4;
 
     &:hover {
-        @include box-shadow(2px, 4px, 8px, map.get($colors, 'gray'))
+        @include box-shadow(2px, 4px, 8px, map.get($colors, 'gray'));
     }
 
     .statuses {
