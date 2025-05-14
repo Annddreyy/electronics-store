@@ -11,6 +11,8 @@ import { Footer } from './components/common/Footer/Footer';
 import { OfferCard } from './components/common/OfferCard/OfferCard';
 import img from './assets/offer_card/img.png';
 import { Paginator } from './components/common/Paginator/Paginator';
+import { BreadCrumbs } from './components/common/BreadCrumbs/BreadCrumbs';
+import { LinkType } from './types';
 
 const App: React.FC = () => {
     const card: PropsType = {
@@ -43,6 +45,14 @@ const App: React.FC = () => {
         pagesPerGroup: 3,
     };
 
+    const breadCrumbs = {
+        path: [
+            { link: '/', title: 'Главная' },
+            { link: '/path1', title: 'Путь1' },
+            { link: '/path2', title: 'Путь2' },
+        ] as LinkType[],
+    };
+
     return (
         <>
             <Header />
@@ -50,6 +60,7 @@ const App: React.FC = () => {
             <NewsCard {...news} />
             <OfferCard {...offerCard} />
             <Paginator {...paginator} />
+            <BreadCrumbs {...breadCrumbs} />
             <Footer />
         </>
     );
