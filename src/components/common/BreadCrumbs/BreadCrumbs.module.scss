@@ -4,6 +4,7 @@
 .links {
     display: flex;
     gap: $base-gap-2;
+    margin-top: $base-margin-8;
 
     .link[data-active] {
         @extend .text-gray;

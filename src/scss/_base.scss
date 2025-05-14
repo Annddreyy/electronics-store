@@ -21,6 +21,16 @@
     display: flex;
 }
 
+.pageTitle {
+    font-size: $font-size-xl;
+    padding: $base-padding-6 0;
+}
+
+.sectionTitle {
+    font-size: $font-size-md;
+    padding: $base-padding-6 0;
+}
+
 button {
     background-color: transparent;
     border: none;
