@@ -1,14 +1,8 @@
+import { NewsType } from '../../../redux/news/newsReducer';
 import classes from './NewsCard.module.scss';
 import cn from 'classnames';
 
-type PropsType = {
-    title: string;
-    text: string;
-    date: Date;
-    img?: string;
-};
-
-export const NewsCard: React.FC<PropsType> = ({ title, text, date, img }) => {
+export const NewsCard: React.FC<NewsType> = ({ title, text, date, img }) => {
     const dateFormatter = Intl.DateTimeFormat('ru', {
         day: '2-digit',
         month: 'long',
