@@ -1,0 +1,23 @@
+@use './../../../scss/variables' as *;
+
+.productsGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+    margin: $base-margin-8 0;
+
+    .top {
+        display: flex;
+        gap: $base-gap-2;
+        align-items: center;
+
+        .title {
+            font-size: $font-size-xl;
+        }
+    }
+
+    .productCards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

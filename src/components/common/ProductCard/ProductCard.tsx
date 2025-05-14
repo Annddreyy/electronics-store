@@ -6,27 +6,13 @@ import { CompareButton } from './CompareButton/CompareButton';
 import { LikeButton } from './LikeButton/LikeButton';
 import { BinButton } from './BinButton/BinButton';
 import cn from 'classnames';
+import { ProductType } from '../../../redux/products/productsReducer';
 
-export type StatusType = 'Новинка' | 'Хит продаж';
-
-export type PropsType = {
-    title: string;
-    img: string;
-    type: string;
-    grade: 0 | 1 | 2 | 3 | 4 | 5;
-    oldPrice?: number;
-    price: number;
-    commentsCount: number;
-    promotionPercent?: number;
-    statusList?: StatusType[];
-};
-
-export const ProductCard: React.FC<PropsType> = ({
+export const ProductCard: React.FC<ProductType> = ({
     title,
     img,
     type,
     grade,
-    oldPrice,
     price,
     commentsCount,
     promotionPercent,
@@ -36,6 +22,11 @@ export const ProductCard: React.FC<PropsType> = ({
     for (let i = 0; i < 5; i++) {
         stars.push(<img src={i < grade ? starFill : star} />);
     }
+
+    const oldPrice = promotionPercent
+        ? price * (1 + promotionPercent / 100)
+        : undefined;
+
     return (
         <article className={cn(classes.card, 'border-gray-light-6')}>
             <div className={classes.statuses}>
@@ -68,11 +59,13 @@ export const ProductCard: React.FC<PropsType> = ({
             <div className={classes.bottomInformation}>
                 <div>
                     <p className={classes.price}>{price}</p>
-                    <p className={cn(classes.promotion, 'bg-orange')}>
-                        <span className={cn(classes.percentCount, 'bg-white')}>
-                            {promotionPercent}%
-                        </span>
-                        {promotionPercent && (
+                    {promotionPercent && (
+                        <p className={cn(classes.promotion, 'bg-orange')}>
+                            <span
+                                className={cn(classes.percentCount, 'bg-white')}
+                            >
+                                {promotionPercent}%
+                            </span>
                             <span
                                 className={cn(
                                     classes.promotionValue,
@@ -81,8 +74,8 @@ export const ProductCard: React.FC<PropsType> = ({
                             >
                                 — {(promotionPercent * price) / 100}₽
                             </span>
-                        )}
-                    </p>
+                        </p>
+                    )}
                 </div>
                 <div className={classes.buttonsInf}>
                     <CompareButton />
