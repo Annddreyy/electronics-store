@@ -1,0 +1,22 @@
+@use './../../../../../scss/variables' as *;
+@use './../../../../../scss/colors' as *;
+
+.links {
+    width: 375px;
+    
+    .link {
+        display: flex;
+        align-items: center;
+        gap: $base-gap;
+        padding: $base-padding-2;
+
+        &:last-of-type {
+            border-bottom-left-radius: $base-padding-2;
+            border-bottom-right-radius: $base-padding-2;
+        }
+
+        &:hover {
+            @extend .bg-primary-light-6;
+        }
+    }
+}

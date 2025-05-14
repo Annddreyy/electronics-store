@@ -1,17 +1,17 @@
+import newsImg from './assets/news/news-img.png';
+import img from './assets/offer_card/img.png';
+import productImg from './assets/productDefault.png';
+import { BreadCrumbs } from './components/common/BreadCrumbs/BreadCrumbs';
+import { Footer } from './components/common/Footer/Footer';
+import { Header } from './components/common/Header/Header';
+import { NewsCard } from './components/common/NewsCard/NewsCard';
+import { OfferCard } from './components/common/OfferCard/OfferCard';
+import { Paginator } from './components/common/Paginator/Paginator';
 import {
     ProductCard,
     PropsType,
-    StatusType,
 } from './components/common/ProductCard/ProductCard';
-import { Header } from './components/common/Header/Header';
-import productImg from './assets/productDefault.png';
-import { NewsCard } from './components/common/NewsCard/NewsCard';
-import newsImg from './assets/news/news-img.png';
-import { Footer } from './components/common/Footer/Footer';
-import { OfferCard } from './components/common/OfferCard/OfferCard';
-import img from './assets/offer_card/img.png';
-import { Paginator } from './components/common/Paginator/Paginator';
-import { BreadCrumbs } from './components/common/BreadCrumbs/BreadCrumbs';
+import { TopPart } from './components/pages/Main/TopPart/TopPart';
 import { LinkType } from './types';
 
 const App: React.FC = () => {
@@ -56,11 +56,14 @@ const App: React.FC = () => {
     return (
         <>
             <Header />
-            <ProductCard {...card} />
-            <NewsCard {...news} />
-            <OfferCard {...offerCard} />
-            <Paginator {...paginator} />
-            <BreadCrumbs {...breadCrumbs} />
+            <div className="container">
+                <TopPart />
+                <ProductCard {...card} />
+                <NewsCard {...news} />
+                <OfferCard {...offerCard} />
+                <Paginator {...paginator} />
+                <BreadCrumbs {...breadCrumbs} />
+            </div>
             <Footer />
         </>
     );
