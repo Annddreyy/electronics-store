@@ -7,7 +7,7 @@ import { newsReducer } from './news/newsReducer';
 const rootReducer = combineReducers({
     products: productsReducer,
     offers: offersReducer,
-    news: newsReducer
+    news: newsReducer,
 });
 
 export type AppStateType = ReturnType<typeof rootReducer>;
