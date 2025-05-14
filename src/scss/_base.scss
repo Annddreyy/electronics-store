@@ -7,13 +7,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Exo 2', sans-serif; 
     font-size: $base-font-size;
     color: map.get($colors, 'black');
 }
 
 .container {
-    width: min(94%, 150em);
+    width: min(94%, 100em);
     margin: 0 auto;
 }
 

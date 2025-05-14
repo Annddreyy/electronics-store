@@ -2,19 +2,26 @@
 @use './../../../../scss/colors' as *;
 
 .nav {
+    width: 100%;
     @extend .bg-primary-dark-7;
+
     ul {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         list-style: none;
 
         li {
             &:first-child {
+                width: 20%;
                 a {
                     display: flex;
                     gap: $base-gap;
                     align-items: center;
-                    padding-right: $base-padding-9 * 3.5;
+
+                    span {
+                        @extend .text-white;
+                    }
 
                     img {
                         height: 1em;

@@ -1,7 +1,8 @@
 @use './../../../scss/variables' as *;
 
 .card {
-    width: 640px;
+    width: 50%;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: $base-padding-6;

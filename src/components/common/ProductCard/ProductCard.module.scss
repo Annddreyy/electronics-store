@@ -1,5 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/colors' as *;
+@use './../../../scss/mixins' as *;
 
 @use 'sass:map';
 @use 'sass:math';
@@ -17,6 +18,10 @@
     border-radius: $base-border-radius-2;
 
     padding: $base-padding-4;
+
+    &:hover {
+        @include box-shadow(2px, 4px, 8px, map.get($colors, 'gray'))
+    }
 
     .statuses {
         position: absolute;
