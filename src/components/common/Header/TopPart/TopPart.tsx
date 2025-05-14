@@ -5,13 +5,16 @@ import like from './../../../../assets/header/like.png';
 import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
 import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 export const TopPart: React.FC = () => {
     return (
         <header className={`${classes.header} bg-white`}>
             <div className="container">
                 <div className={classes.topPart}>
-                    <img src={logo} alt="" />
+                    <NavLink to={'/'}>
+                        <img src={logo} alt="" />
+                    </NavLink>
                     <div className={classes.information}>
                         <div className={classes.phones}>
                             <span className={classes.phone}>

@@ -1,0 +1,14 @@
+@use './../../../../scss/variables' as *;
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: $base-padding-6;
+    row-gap: $base-gap-2;
+
+    .product {
+        display: flex;
+        align-items: center;
+        gap: $base-gap;
+    }
+}
