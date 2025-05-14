@@ -1,10 +1,10 @@
 import newsImg from './assets/news/news-img.png';
-import img from './assets/offer_card/img.png';
 import { BreadCrumbs } from './components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from './components/common/Footer/Footer';
 import { Header } from './components/common/Header/Header';
 import { NewsCard } from './components/common/NewsCard/NewsCard';
 import { OfferCard } from './components/common/OfferCard/OfferCard';
+import { OfferCardsGroup } from './components/common/OfferCardsGroup/OfferCardsGroup';
 import { Paginator } from './components/common/Paginator/Paginator';
 import { ProductCardsGroup } from './components/common/ProductCardsGroup/ProductCardsGroup';
 import { TopPart } from './components/pages/Main/TopPart/TopPart';
@@ -21,11 +21,6 @@ const App: React.FC = () => {
         title: 'Открытие нового магазина',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, recusandae odio omnis quas dolorum commodi culpa nam? Ex, nemo nisi.',
         date: new Date(2021, 5, 21),
-    };
-
-    const offerCard = {
-        img: img,
-        title: 'Скидка до 30% на сигвеи',
     };
 
     const paginator = {
@@ -55,6 +50,7 @@ const App: React.FC = () => {
                     title={'Новинки'}
                     selector={getProductsByStatus('Новинка')}
                 />
+                <OfferCardsGroup id1={1} id2={2} />
                 <ProductCardsGroup
                     title={'Сигвеи'}
                     selector={getProductsByType(ProductTypeEnum.SEGWAY)}
@@ -63,6 +59,7 @@ const App: React.FC = () => {
                     title={'Моноколеса'}
                     selector={getProductsByType(ProductTypeEnum.UNICYCLE)}
                 />
+                <OfferCardsGroup id1={3} id2={4} />
                 <ProductCardsGroup
                     title={'Электровелосипеды'}
                     selector={getProductsByType(
@@ -70,7 +67,6 @@ const App: React.FC = () => {
                     )}
                 />
                 <NewsCard {...news} />
-                <OfferCard {...offerCard} />
                 <Paginator {...paginator} />
                 <BreadCrumbs {...breadCrumbs} />
             </div>
