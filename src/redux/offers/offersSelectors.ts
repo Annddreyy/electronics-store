@@ -9,3 +9,8 @@ export const getOfferById = (id: number) =>
     createSelector(getOffersSelector, (offers) =>
         offers.find((offer) => offer.id === id),
     );
+
+
+export const getOneOffer = (state: AppStateType) => {
+    return state.offers.selectedOffer;
+}
