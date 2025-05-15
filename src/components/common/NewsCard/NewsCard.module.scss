@@ -1,7 +1,7 @@
 @use './../../../scss/variables' as *;
 
 .news {
-    width: 640px;
+    width: 100%;
     display: flex;
     gap: $base-gap-2;
     padding: $base-padding-6;
