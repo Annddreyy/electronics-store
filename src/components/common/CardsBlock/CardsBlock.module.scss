@@ -1,6 +1,6 @@
-@use './../../../../scss/variables' as *;
+@use './../../../scss/variables' as *;
 
-.newsBlock {
+.cardsBlock {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
