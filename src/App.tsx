@@ -5,6 +5,7 @@ import { WarrantyConditions } from './pages/WarrantyConditons';
 import { News } from './pages/News';
 import { OneNews } from './pages/OneNews';
 import { Offers } from './pages/Offers';
+import { Offer } from './pages/Offer';
 
 const App: React.FC = () => {
     return (
@@ -15,9 +16,12 @@ const App: React.FC = () => {
                 path="/warranty-conditions"
                 element={<WarrantyConditions />}
             />
+
             <Route path="/news" element={<News />} />
-            <Route path="/offers" element={<Offers />} />
             <Route path="/news/:newsId" element={<OneNews />} />
+
+            <Route path="/offers" element={<Offers />} />
+            <Route path="offers/:offerId" element={<Offer />} />
         </Routes>
     );
 };
