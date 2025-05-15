@@ -3,6 +3,7 @@ import { Main } from './pages/Main';
 import { AboutUs } from './pages/AboutUs';
 import { WarrantyConditions } from './pages/WarrantyConditons';
 import { News } from './pages/News';
+import { OneNews } from './pages/OneNews';
 
 const App: React.FC = () => {
     return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
                 element={<WarrantyConditions />}
             />
             <Route path="/news" element={<News />} />
+            <Route path="/news/:newsId" element={<OneNews />} />
         </Routes>
     );
 };

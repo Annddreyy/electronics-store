@@ -7,6 +7,10 @@
     padding: $base-padding-6;
     border-radius: $base-border-radius-2;
 
+    img {
+        width: 150px;
+    }
+
     .information {
         display: flex;
         flex-direction: column;
