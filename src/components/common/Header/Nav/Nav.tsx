@@ -6,9 +6,9 @@ import { LinkType } from '../../../../types';
 const links: LinkType[] = [
     { link: '/catalog', title: 'Каталог товаров' },
     { link: '/about-us', title: 'О компании' },
-    { link: '/promotions', title: 'Акции' },
+    { link: '/offers', title: 'Акции' },
     { link: '/installment-plan', title: 'Рассрочка 0|0|18' },
-    { link: '/service', title: 'Сервис и гарантия' },
+    { link: '/warranty-conditions', title: 'Сервис и гарантия' },
     { link: '/opt-dropshipping', title: 'Опт/дропшиппинг' },
     { link: '/contacts', title: 'Контакты' },
 ];
