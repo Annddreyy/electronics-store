@@ -18,7 +18,7 @@ const links: FooterLinksType[] = [
             { link: '/news', title: 'Кредит' },
             { link: '/news', title: 'Политка конфиденциальности' },
             { link: '/news', title: 'Вопросы и ответы (F.A.Q.)' },
-            { link: '/news', title: 'Сервис и гаратия' },
+            { link: '/warranty-conditions', title: 'Сервис и гаратия' },
         ],
     },
     {
