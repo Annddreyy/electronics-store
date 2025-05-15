@@ -1,6 +1,6 @@
-import { MouseEvent, useEffect, useState } from 'react';
-import classes from './Paginator.module.scss';
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
+import classes from './Paginator.module.scss';
 
 type PropsType = {
     totalItemsCount: number;

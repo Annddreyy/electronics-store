@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Main } from './pages/Main';
 import { AboutUs } from './pages/AboutUs';
 import { WarrantyConditions } from './pages/WarrantyConditons';
+import { News } from './pages/News';
 
 const App: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
                 path="/warranty-conditions"
                 element={<WarrantyConditions />}
             />
+            <Route path="/news" element={<News />} />
         </Routes>
     );
 };

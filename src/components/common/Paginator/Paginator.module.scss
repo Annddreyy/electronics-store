@@ -2,6 +2,7 @@
 
 .paginator {
     display: flex;
+    justify-content: center;
     gap: $gap-mini;
 
     margin: $base-margin-8 0;
