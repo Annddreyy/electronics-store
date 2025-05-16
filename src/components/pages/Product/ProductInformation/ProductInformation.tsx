@@ -63,7 +63,7 @@ export const ProductInformation: React.FC = () => {
 
     return (
         <section>
-            <div className={cn(classes.buttons, 'bg-primary-light-8')}>
+            <div className={cn(classes.buttons, 'bg-secondary')}>
                 <button
                     onClick={() => setCurrentTab(TabsEnum.ProductDescription)}
                     data-type={

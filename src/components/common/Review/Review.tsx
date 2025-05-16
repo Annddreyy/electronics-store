@@ -21,7 +21,7 @@ export const Review: React.FC<PropsType> = ({
     text,
 }) => {
     return (
-        <article className={cn(classes.review, 'bg-primary-light-8')}>
+        <article className={cn(classes.review, 'bg-secondary')}>
             <div className={classes.top}>
                 {img ? (
                     <img src="" alt="" className={classes.img} />

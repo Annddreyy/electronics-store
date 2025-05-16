@@ -14,7 +14,7 @@ export const NewsCard: React.FC<NewsType> = ({
     const dateString = formatDate(date);
     return (
         <NavLink to={`/news/${id}`}>
-            <article className={cn(classes.news, 'bg-primary-light-8')}>
+            <article className={cn(classes.news, 'bg-secondary')}>
                 {img && <img src={img} alt="" />}
                 <div className={classes.information}>
                     <h3 className={classes.title}>{title}</h3>

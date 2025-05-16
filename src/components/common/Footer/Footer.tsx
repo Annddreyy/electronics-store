@@ -5,7 +5,7 @@ import cn from 'classnames';
 
 export const Footer: React.FC = () => {
     return (
-        <footer className={cn(classes.footer, 'bg-primary-light-8')}>
+        <footer className={cn(classes.footer, 'bg-secondary')}>
             <div className="container">
                 <Information />
                 <FooterBottom />
