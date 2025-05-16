@@ -26,7 +26,7 @@ export const Review: React.FC<PropsType> = ({
                 {img ? (
                     <img src="" alt="" className={classes.img} />
                 ) : (
-                    <div className={cn(classes.img, 'bg-gray-light-3')}>
+                    <div className={cn(classes.img, 'bg-gray-light-6')}>
                         <span className={classes.letter}>{authorName[0]}</span>
                     </div>
                 )}

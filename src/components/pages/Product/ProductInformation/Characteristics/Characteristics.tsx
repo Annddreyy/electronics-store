@@ -1,4 +1,5 @@
 import classes from './Characteristics.module.scss';
+import cn from 'classnames';
 
 type Characteristic = [title: string, value: number | string | boolean | null];
 
@@ -21,9 +22,9 @@ export const Characteristics: React.FC<PropsType> = ({
         }
 
         return (
-            <tr className={classes.characteristic}>
-                <td>{characteristic[0]}</td>
-                <td>{characteristic[1]}</td>
+            <tr className={cn(classes.characteristic, 'border-secondary')}>
+                <td className={classes.title}>{characteristic[0]}</td>
+                <td className="text-gray">{characteristic[1]}</td>
             </tr>
         );
     });

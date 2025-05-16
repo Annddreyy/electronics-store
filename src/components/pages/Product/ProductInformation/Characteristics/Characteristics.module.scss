@@ -2,9 +2,13 @@
 @use 'sass:map';
 
 .characteristic {
-    border-bottom: 1px solid map.get($colors, 'gray');
-    
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     td {
         padding: $base-padding-4;
+    }
+
+    .title {
+        font-weight: 600;
     }
 }
