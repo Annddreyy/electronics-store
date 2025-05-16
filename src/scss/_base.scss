@@ -48,3 +48,34 @@ table {
 address {
     font-style: normal;
 }
+
+.button-primary {
+    font-weight: 600;
+    border-radius: $base-border-radius;
+    border: 1px solid map.get($colors, 'primary');
+    background-color: map.get($colors, 'primary');
+    color: map.get($colors, 'white');
+
+    width: 100%;
+    height: 48px;
+
+    &:hover {
+        background-color: map.get($colors, 'white');
+        color: map.get($colors, 'primary');
+    }
+}
+
+.button-primary-outlined {
+    font-weight: 600;
+    border-radius: $base-border-radius;
+    border: 1px solid map.get($colors, 'primary');
+    background-color: map.get($colors, 'white');
+    color: map.get($colors, 'primary');
+    width: 100%;
+    height: 48px;
+
+    &:hover {
+        background-color: map.get($colors, 'primary');
+        color: map.get($colors, 'white');
+    }
+}

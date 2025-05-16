@@ -1,0 +1,22 @@
+@use './../../../../../scss/variables' as *;
+@use 'sass:math';
+
+.promotion {
+    display: flex;
+    gap: $gap-mini;
+
+    padding: $base-padding;
+    padding-right: $base-padding-2;
+    border-radius: $base-border-radius-9;
+
+    .percentCount {
+        margin-left: $base-margin;
+        padding: math.div($base-padding, 4) $base-padding-2;
+        border-radius: $base-border-radius-9;
+        font-size: $font-size-sm * 1.25;
+    }
+
+    .promotionValue {
+        font-size: $font-size-sm * 1.25;
+    }
+};

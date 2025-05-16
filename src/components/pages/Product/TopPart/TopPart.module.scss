@@ -1,0 +1,14 @@
+@use './../../../../scss/variables' as *;
+
+.topPart {
+    display: flex;
+    gap: $base-gap-6;
+
+    margin-top: $base-margin-6;
+
+    .productMainInformation {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+    }
+}

@@ -6,6 +6,7 @@ import { News } from './pages/News';
 import { OneNews } from './pages/OneNews';
 import { Offers } from './pages/Offers';
 import { Offer } from './pages/Offer';
+import { Product } from './pages/Product';
 
 const App: React.FC = () => {
     return (
@@ -22,6 +23,8 @@ const App: React.FC = () => {
 
             <Route path="/offers" element={<Offers />} />
             <Route path="offers/:offerId" element={<Offer />} />
+
+            <Route path="products/:productId" element={<Product />} />
         </Routes>
     );
 };

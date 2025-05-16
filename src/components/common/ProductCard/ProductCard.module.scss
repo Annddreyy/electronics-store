@@ -1,5 +1,4 @@
 @use './../../../scss/variables' as *;
-@use './../../../scss/colors' as *;
 @use './../../../scss/mixins' as *;
 
 @use 'sass:map';
@@ -45,78 +44,18 @@
         font-weight: normal;
     }
 
-    .statistics {
-        display: flex;
-        gap: $gap-mini;
-
-        .stars {
-            gap: 0;
-        }
-
-        .messages {
-            display: flex;
-            gap: $gap-mini;
-            align-items: center;
-        }
-    }
-
-    .oldPrice {
-        text-decoration: line-through;
-    }
-
     .bottomInformation {
         display: flex;
         justify-content: space-between;
-
-        .price {
-            font-weight: bold;
-            font-size: $font-size-md;
-        }
-
-        .promotion {
-            display: flex;
-            gap: $gap-mini;
-
-            padding: $base-padding;
-            padding-right: $base-padding-2;
-            border-radius: $base-border-radius-9;
-
-            .percentCount {
-                margin-left: $base-margin;
-                padding: math.div($base-padding, 4) $base-padding-2;
-                border-radius: $base-border-radius-9;
-                font-size: $font-size-sm * 1.25;
-            }
-
-            .promotionValue {
-                font-size: $font-size-sm * 1.25;
-            }
-        }
-
-        .buttonsInf {
-            display: flex;
-            gap: $gap-mini;
-        }
     }
 
     .buttons {
         display: flex;
         gap: 1em;
+    }
 
-        .buy {
-            width: 100%;
-            height: 48px;
-
-            border-width: 1px;
-            border-style: solid;
-
-            background-color: transparent;
-            padding: $base-padding-4;
-
-            &:hover {
-                @extend .bg-primary-dark-2;
-                @extend .text-white;
-            }
-        }
+    .buttonsInf {
+        display: flex;
+        gap: $gap-mini;
     }
 }

@@ -1,0 +1,52 @@
+@use './../../../../../scss/variables' as *;
+@use 'sass:map';
+
+.mainInformation {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+    padding: $base-padding-4;
+    
+    border: 1px solid map.get($colors, 'gray');
+    border-radius: $base-border-radius-3;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .buttons {
+            display: flex;
+            gap: $gap-mini;
+        }
+    }
+
+    .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .price {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-mini;
+
+            .top {
+                display: flex;
+                align-items: center;
+                gap: $gap-mini;
+                width: max-content;
+            }
+        }
+
+        .buttons {
+            width: min(600px, 100%);
+            display: flex;
+            gap: $gap-mini;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
