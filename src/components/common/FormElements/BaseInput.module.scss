@@ -1,0 +1,20 @@
+@use './../../../scss/variables' as *;
+@use 'sass:map';
+
+.input {
+    display: flex;
+    width: max-content;
+
+    border: 1px solid #EAEAF0;
+    padding: $base-padding-4;
+    border-radius: $base-border-radius;
+
+    &::placeholder {
+        color: map.get($colors, 'gray');
+    }
+
+    input {
+        border: none;
+        outline: none;
+    }
+}
