@@ -13,9 +13,7 @@ enum TabsEnum {
 }
 
 export const ProductInformation: React.FC = () => {
-    const [currentTab, setCurrentTab] = useState<TabsEnum>(
-        TabsEnum.ProductDescription,
-    );
+    const [currentTab, setCurrentTab] = useState<TabsEnum>(TabsEnum.Reviews);
 
     const html = createNewHTML(`
         <абзац>
