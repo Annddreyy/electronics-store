@@ -1,4 +1,6 @@
 import { Footer } from '../components/common/Footer/Footer';
+import { BaseInput } from '../components/common/FormElements/BaseInput';
+import { PasswordInput } from '../components/common/FormElements/PasswordInput/PasswordInput';
 import { Header } from '../components/common/Header/Header';
 import { OfferCardsGroup } from '../components/common/OfferCardsGroup/OfferCardsGroup';
 import { ProductCardsGroup } from '../components/common/ProductCardsGroup/ProductCardsGroup';
