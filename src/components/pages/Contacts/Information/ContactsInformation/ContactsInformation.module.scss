@@ -1,0 +1,16 @@
+@use './../../../../../scss/variables' as *;
+@use 'sass:map';
+
+.contactsInformation {
+    width: 100%;
+    border-radius: $base-border-radius-2;
+
+    .card {
+        background-color: map.get($colors, 'secondary');
+        padding: $base-padding-2 $base-padding-6;
+        
+        * {
+            color: map.get($colors, 'primary');
+        }
+    }
+}

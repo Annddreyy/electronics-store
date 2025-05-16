@@ -79,3 +79,27 @@ address {
         color: map.get($colors, 'white');
     }
 }
+
+.form-block {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+}
+
+.errorMessage {
+    color: map.get($colors, 'error');
+}
+
+.inputError {
+    border-color: map.get($colors, 'error') !important;
+    input {
+        color: map.get($colors, 'error');
+    }
+}
+
+.inputCorrect {
+    border-color: map.get($colors, 'green') !important;
+    input {
+        color: map.get($colors, 'green');
+    }
+}
