@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { NewsType } from '../../../redux/news/newsReducer';
 import classes from './NewsCard.module.scss';
 import cn from 'classnames';
+import { formatDate } from '../../../utils/formatDate';
 
 export const NewsCard: React.FC<NewsType> = ({
     id,
@@ -10,17 +11,10 @@ export const NewsCard: React.FC<NewsType> = ({
     date,
     img,
 }) => {
-    const dateFormatter = Intl.DateTimeFormat('ru', {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric',
-    });
-
-    const dateString = dateFormatter.format(date);
-
+    const dateString = formatDate(date);
     return (
         <NavLink to={`/news/${id}`}>
-            <article className={cn(classes.news, 'bg-primary-light-8')}>
+            <article className={cn(classes.news, 'bg-secondary')}>
                 {img && <img src={img} alt="" />}
                 <div className={classes.information}>
                     <h3 className={classes.title}>{title}</h3>

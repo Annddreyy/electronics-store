@@ -10,7 +10,7 @@ export const Navigation: React.FC<TopLinksType> = ({ links }) => {
                 <NavLink
                     key={link.link}
                     to={link.link}
-                    className={cn(classes.link, 'bg-primary-light-8')}
+                    className={cn(classes.link, 'bg-secondary')}
                 >
                     <img src={link.img} alt="" />
                     <span className={classes.title}>{link.title}</span>

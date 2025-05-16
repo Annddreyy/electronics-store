@@ -1,14 +1,17 @@
-import classes from './ProductCard.module.scss';
-import messageSquare from './../../../assets/card/message-square.png';
-import starFill from './../../../assets/card/starFill.png';
-import star from './../../../assets/card/star.png';
+import cn from 'classnames';
+import { NavLink } from 'react-router-dom';
+import { ProductType } from '../../../redux/products/productsReducer';
+import { BinButton } from './BinButton/BinButton';
 import { CompareButton } from './CompareButton/CompareButton';
 import { LikeButton } from './LikeButton/LikeButton';
-import { BinButton } from './BinButton/BinButton';
-import cn from 'classnames';
-import { ProductType } from '../../../redux/products/productsReducer';
+import classes from './ProductCard.module.scss';
+import { Statistics } from './Statistics/Statistics';
+import { OldPrice } from './OldPrice/OldPrice';
+import { Price } from './Price/Price';
+import { Promotion } from './Price/Promotion/Promotion';
 
 export const ProductCard: React.FC<ProductType> = ({
+    id,
     title,
     img,
     type,
@@ -18,82 +21,44 @@ export const ProductCard: React.FC<ProductType> = ({
     promotionPercent,
     statusList,
 }) => {
-    const stars = [];
-    for (let i = 0; i < 5; i++) {
-        stars.push(<img src={i < grade ? starFill : star} />);
-    }
-
-    const oldPrice = promotionPercent
-        ? price * (1 + promotionPercent / 100)
-        : undefined;
-
     return (
-        <article className={cn(classes.card, 'border-gray-light-6')}>
-            <div className={classes.statuses}>
-                {statusList?.map((status) => (
-                    <div
-                        className={cn(classes.status, 'text-white', {
-                            'bg-green': status === 'Новинка',
-                            'bg-red': status !== 'Новинка',
-                        })}
-                    >
-                        {status}
+        <NavLink to={`/products/${id}`}>
+            <article className={cn(classes.card, 'border-gray-light-6')}>
+                <div className={classes.statuses}>
+                    {statusList?.map((status) => (
+                        <div
+                            className={cn(classes.status, 'text-white', {
+                                'bg-green': status === 'Новинка',
+                                'bg-red': status !== 'Новинка',
+                            })}
+                        >
+                            {status}
+                        </div>
+                    ))}
+                </div>
+                <img src={img} alt="" />
+                <span className={'text-gray-dark-1'}>{type}</span>
+                <h3 className={classes.title}>{title}</h3>
+                <Statistics grade={grade} commentsCount={commentsCount} />
+                <OldPrice promotionPercent={promotionPercent} price={price} />
+                <div className={classes.bottomInformation}>
+                    <div>
+                        <Price price={price} />
+                        <Promotion
+                            price={price}
+                            promotionPercent={promotionPercent}
+                        />
                     </div>
-                ))}
-            </div>
-            <img src={img} alt="" />
-            <span className={'text-gray-dark-1'}>{type}</span>
-            <h3 className={classes.title}>{title}</h3>
-            <div className={classes.statistics}>
-                <div className={classes.stars}>{stars}</div>
-                <span className={classes.messages}>
-                    <img src={messageSquare} alt="" />({commentsCount})
-                </span>
-            </div>
-            {oldPrice && (
-                <p className={cn(classes.oldPrice, 'text-gray-dark-2')}>
-                    {oldPrice}
-                </p>
-            )}
-
-            <div className={classes.bottomInformation}>
-                <div>
-                    <p className={classes.price}>{price}</p>
-                    {promotionPercent && (
-                        <p className={cn(classes.promotion, 'bg-orange')}>
-                            <span
-                                className={cn(classes.percentCount, 'bg-white')}
-                            >
-                                {promotionPercent}%
-                            </span>
-                            <span
-                                className={cn(
-                                    classes.promotionValue,
-                                    'text-white',
-                                )}
-                            >
-                                — {(promotionPercent * price) / 100}₽
-                            </span>
-                        </p>
-                    )}
+                    <div className={classes.buttonsInf}>
+                        <CompareButton />
+                        <LikeButton />
+                    </div>
                 </div>
-                <div className={classes.buttonsInf}>
-                    <CompareButton />
-                    <LikeButton />
+                <div className={classes.buttons}>
+                    <button className="button-primary">Купить в 1 клик</button>
+                    <BinButton />
                 </div>
-            </div>
-            <div className={classes.buttons}>
-                <button
-                    className={cn(
-                        classes.buy,
-                        'border-primary-dark-2',
-                        'text-primary-dark-2',
-                    )}
-                >
-                    Купить в 1 клик
-                </button>
-                <BinButton />
-            </div>
-        </article>
+            </article>
+        </NavLink>
     );
 };

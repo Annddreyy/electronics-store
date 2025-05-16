@@ -1,0 +1,18 @@
+@use './../../../../../scss/variables' as *;
+
+.reviewsBottom {
+    display: flex;
+    gap: $base-gap-4;
+
+    .reviews {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap-2;
+    }
+
+    .addReview {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+    }
+}

@@ -1,0 +1,31 @@
+@use './../../../../scss/variables' as *;
+@use 'sass:map';
+
+.buttons {
+    display: flex;
+    gap: $base-gap-2;
+    padding: $base-padding-6;
+
+    border-radius: $base-border-radius-2;
+
+    margin: $base-margin-8 0;
+    margin-bottom: 0;
+
+    button {
+        font-weight: bolder;
+    }
+
+    button[data-type="active"] {
+        position: relative;
+        color: map.get($colors, 'primary');
+
+        &::after {
+            position: absolute;
+            bottom: -$base-padding-6;
+            content: " ";
+            border: 1.5px solid map.get($colors, 'primary');
+            left: 0;
+            right: 0
+        }
+    }
+};

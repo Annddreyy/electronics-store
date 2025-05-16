@@ -1,0 +1,14 @@
+@use './../../../../../scss/variables' as *;
+@use 'sass:map';
+
+.characteristic {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    td {
+        padding: $base-padding-4;
+    }
+
+    .title {
+        font-weight: 600;
+    }
+}
