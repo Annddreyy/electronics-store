@@ -1,9 +1,15 @@
 @use './../../../../../scss/variables' as *;
+@use './../../../../../scss/colors' as *;
+@use 'sass:map';
 
 .productImages {
     display: flex;
     flex-direction: column;
     gap: $base-gap;
+
+    .selectedImg {
+        width: 100%;
+    }
 
     .slider {
         display: flex;
@@ -13,9 +19,11 @@
         button {
             width: 50px;
             height: 50px;
-            background-color: gray;
             border-radius: 50%;
+            border-width: 1px;
+            border-style: solid;
         }
+
 
         .images {
             display: flex;
@@ -23,6 +31,11 @@
             img {
                 width: 70px;
                 height: 70px;
+            }
+
+            img[data-selected=true] {
+                border: 3px solid map.get($colors, 'primary');
+                border-radius: $base-border-radius;
             }
         }
     }
