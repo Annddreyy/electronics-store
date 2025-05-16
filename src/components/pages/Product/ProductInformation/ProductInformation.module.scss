@@ -15,17 +15,17 @@
         font-weight: bolder;
     }
 
-    button[data-type="active"] {
+    button[data-type='active'] {
         position: relative;
         color: map.get($colors, 'primary');
 
         &::after {
             position: absolute;
             bottom: -$base-padding-6;
-            content: " ";
+            content: ' ';
             border: 1.5px solid map.get($colors, 'primary');
             left: 0;
-            right: 0
+            right: 0;
         }
     }
-};
+}

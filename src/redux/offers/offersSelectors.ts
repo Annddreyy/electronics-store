@@ -10,7 +10,6 @@ export const getOfferById = (id: number) =>
         offers.find((offer) => offer.id === id),
     );
 
-
 export const getOneOffer = (state: AppStateType) => {
     return state.offers.selectedOffer;
-}
+};

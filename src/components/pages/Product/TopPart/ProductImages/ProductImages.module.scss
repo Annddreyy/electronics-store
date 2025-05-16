@@ -24,7 +24,6 @@
             border-style: solid;
         }
 
-
         .images {
             display: flex;
 
@@ -33,7 +32,7 @@
                 height: 70px;
             }
 
-            img[data-selected=true] {
+            img[data-selected='true'] {
                 border: 3px solid map.get($colors, 'primary');
                 border-radius: $base-border-radius;
             }

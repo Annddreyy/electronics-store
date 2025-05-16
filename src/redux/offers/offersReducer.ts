@@ -58,8 +58,8 @@ const initialState: {
                 </пункт>
             </нумСписок>
         `,
-        img: offer1
-    }
+        img: offer1,
+    },
 };
 
 type InitialStateType = typeof initialState;

@@ -33,7 +33,9 @@
             gap: $gap-mini;
         }
 
-        .author, .time, .grade {
+        .author,
+        .time,
+        .grade {
             font-weight: bolder;
         }
     }
