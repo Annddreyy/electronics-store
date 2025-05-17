@@ -9,6 +9,7 @@ import { Offer } from './pages/Offer';
 import { Product } from './pages/Product';
 import { Contacts } from './pages/Contacts';
 import { Wholesale } from './pages/Wholesale';
+import { Dropshipping } from './pages/Dropshipping';
 
 const App: React.FC = () => {
     return (
@@ -31,6 +32,8 @@ const App: React.FC = () => {
             <Route path="/contacts" element={<Contacts />} />
 
             <Route path="/wholesale" element={<Wholesale />} />
+
+            <Route path="/dropshipping" element={<Dropshipping />} />
         </Routes>
     );
 };
