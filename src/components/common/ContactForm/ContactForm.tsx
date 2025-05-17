@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import { useForm } from 'react-hook-form';
-import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
-import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
-import { Field } from '../../../common/FormElements/Field';
+import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
+import { Checkbox } from '../FormElements/Checkbox/Checkbox';
+import { Field } from '../FormElements/Field';
 import classes from './Contact.module.scss';
 
 type FormValuesType = {
@@ -12,7 +12,11 @@ type FormValuesType = {
     agree: boolean;
 };
 
-export const ContactForm: React.FC = () => {
+type PropsType = {
+    formTitle: string;
+};
+
+export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
     const {
         register,
         handleSubmit,
@@ -25,7 +29,7 @@ export const ContactForm: React.FC = () => {
 
     return (
         <section>
-            <h2 className="pageTitle">Связаться с нами</h2>
+            <h2 className="pageTitle">{formTitle}</h2>
             <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-block" style={{ gridArea: 'name' }}>
                     <label htmlFor="name">Имя</label>

@@ -8,6 +8,7 @@ import { Offers } from './pages/Offers';
 import { Offer } from './pages/Offer';
 import { Product } from './pages/Product';
 import { Contacts } from './pages/Contacts';
+import { Wholesale } from './pages/Wholesale';
 
 const App: React.FC = () => {
     return (
@@ -28,6 +29,8 @@ const App: React.FC = () => {
             <Route path="products/:productId" element={<Product />} />
 
             <Route path="/contacts" element={<Contacts />} />
+
+            <Route path="/wholesale" element={<Wholesale />} />
         </Routes>
     );
 };
