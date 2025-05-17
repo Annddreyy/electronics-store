@@ -1,0 +1,50 @@
+@use './../../../../../scss/variables' as *;
+@use 'sass:map';
+
+.contactsInformation {
+    width: 100%;
+
+    .bottom {
+        .card {
+            display: flex;
+            align-items: flex-start;
+            gap: $gap-mini;
+
+            background-color: map.get($colors, 'secondary');
+            padding: $base-padding-4 $base-padding-6;
+
+            &:first-child {
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: $base-padding-6;
+                    right: $base-padding-6;
+                    border-bottom: 1px solid map.get($colors, 'gray');
+                }
+            }
+
+            &:last-child {
+                border-bottom-left-radius: $base-border-radius-3;
+                border-bottom-right-radius: $base-border-radius-3;
+            }
+
+            .email {
+                color: map.get($colors, 'primary');
+                font-size: $font-size-md;
+                font-weight: 600;
+            }
+
+            .workTime {
+                color: map.get($colors, 'gray');
+            }
+
+            .time {
+                font-weight: 600;
+                margin-top: $gap-mini;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+@use './../../../../../../scss/variables' as *;
+@use 'sass:map';
+
+.addressCard {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-mini;
+    padding: $base-padding-4 $base-padding-6;
+    background-color: map.get($colors, 'secondary');
+
+    &:hover {
+        position: relative;
+        background-color: #dae7f3;
+
+        &::after {
+            position: absolute;
+            content: '▶';
+            color: map.get($colors, 'black');
+            right: $base-padding-6;
+            top: $base-padding-8;
+        }
+    }
+
+    &:first-child {
+        border-top-left-radius: $base-border-radius-3;
+        border-top-right-radius: $base-border-radius-3;
+    }
+
+    .phone {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        color: map.get($colors, 'primary');
+    }
+}

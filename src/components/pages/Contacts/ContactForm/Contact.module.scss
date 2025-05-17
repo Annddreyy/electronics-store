@@ -1,0 +1,12 @@
+@use './../../../../scss/variables' as *;
+
+.form {
+    width: 70%;
+    display: grid;
+    grid-template-areas:
+        'name message'
+        'phone message'
+        'button checkbox';
+    grid-template-columns: 3fr 7fr;
+    gap: 1rem;
+}

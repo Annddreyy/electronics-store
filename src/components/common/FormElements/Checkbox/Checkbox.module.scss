@@ -1,0 +1,12 @@
+@use './../../../../scss/variables' as *;
+
+.label {
+    display: flex;
+    align-items: center;
+    margin-bottom: $base-margin-2;
+    gap: $gap-mini;
+
+    input {
+        display: none;
+    }
+}
