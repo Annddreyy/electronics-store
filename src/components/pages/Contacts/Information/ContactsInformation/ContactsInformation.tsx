@@ -22,16 +22,18 @@ export const ContactsInformation: React.FC = () => {
     return (
         <div className={classes.contactsInformation}>
             {addressesElem}
-            <div>
+            <div className={classes.bottom}>
                 <div className={classes.card}>
                     <img src={emailIcon} alt="" />
-                    <span>smart-tekhnika@gmail.com</span>
+                    <span className={classes.email}>
+                        smart-tekhnika@gmail.com
+                    </span>
                 </div>
                 <div className={classes.card}>
                     <img src={clockIcon} alt="" />
                     <div>
-                        <p>Режим работы</p>
-                        <p>Пн-вс с 10:00 до 21:00</p>
+                        <p className={classes.workTime}>Режим работы</p>
+                        <p className={classes.time}>Пн-вс с 10:00 до 21:00</p>
                     </div>
                 </div>
             </div>
