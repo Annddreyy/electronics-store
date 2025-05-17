@@ -1,9 +1,8 @@
 import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
-import { BaseInput } from '../../../common/FormElements/BaseInput';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
-import { Textarea } from '../../../common/FormElements/Textarea/Textarea';
+import { Field } from '../../../common/FormElements/Field';
 import classes from './Contact.module.scss';
 
 type FormValuesType = {
@@ -22,7 +21,6 @@ export const ContactForm: React.FC = () => {
 
     const onSubmit = (data: FormValuesType) => {
         console.log(data);
-        console.log(errors);
     };
 
     return (
@@ -31,7 +29,7 @@ export const ContactForm: React.FC = () => {
             <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-block" style={{ gridArea: 'name' }}>
                     <label htmlFor="name">Имя</label>
-                    <BaseInput
+                    <Field
                         type="text"
                         id="name"
                         name="name"
@@ -48,7 +46,7 @@ export const ContactForm: React.FC = () => {
                 </div>
                 <div className="form-block" style={{ gridArea: 'phone' }}>
                     <label htmlFor="phone">Телефон</label>
-                    <BaseInput
+                    <Field
                         type="text"
                         id="phone"
                         name="phone"
@@ -62,20 +60,41 @@ export const ContactForm: React.FC = () => {
                         register={register}
                         placeholder="Введите номер телефона"
                         style={{ width: '100%' }}
-                        className={cn({ inputError: errors.phone })}
+                        className={cn({
+                            inputError: errors.phone,
+                            inputCorrect: !errors.phone && dirtyFields.phone,
+                        })}
                     />
                     <ErrorMessage error={errors.phone} />
                 </div>
                 <div className="form-block" style={{ gridArea: 'message' }}>
-                    <label htmlFor="">Сообщение</label>
-                    <Textarea
+                    <label htmlFor="message">Сообщение</label>
+                    <Field
+                        id="message"
+                        type="textarea"
+                        name="message"
                         placeholder="Введите сообщение"
+                        register={register}
+                        options={{
+                            required: 'Это поле обязательное',
+                            maxLength: {
+                                value: 300,
+                                message:
+                                    'Макисмальная длина сообщения - 300 символов',
+                            },
+                        }}
+                        className={cn({
+                            inputError: errors.message,
+                            inputCorrect:
+                                !errors.message && dirtyFields.message,
+                        })}
                         style={{
                             resize: 'none',
                             height: '100%',
                             width: '100%',
                         }}
                     />
+                    <ErrorMessage error={errors.message} />
                 </div>
                 <button
                     className="button-primary"
@@ -83,10 +102,20 @@ export const ContactForm: React.FC = () => {
                 >
                     Отправить
                 </button>
-                <Checkbox
-                    text="Отправляя данную форму вы соглашаетесь с политикой конфиденциальности"
-                    style={{ gridArea: 'checkbox' }}
-                />
+                <div style={{ gridArea: 'checkbox' }}>
+                    <Checkbox
+                        text="Отправляя данную форму вы соглашаетесь с политикой конфиденциальности"
+                        name="agree"
+                        register={register}
+                        options={{
+                            required: 'Вы должны подтверить свое согласие',
+                        }}
+                        className={cn({
+                            inputError: errors.agree,
+                        })}
+                    />
+                    <ErrorMessage error={errors.agree} />
+                </div>
             </form>
         </section>
     );

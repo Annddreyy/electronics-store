@@ -1,7 +1,7 @@
 @use './../../../scss/variables' as *;
 @use 'sass:map';
 
-.input {
+.field {
     display: flex;
 
     border: 1px solid #eaeaf0;
@@ -12,7 +12,7 @@
         color: map.get($colors, 'gray');
     }
 
-    input {
+    input, textarea {
         border: none;
         outline: none;
     }
