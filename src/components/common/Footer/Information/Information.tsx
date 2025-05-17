@@ -37,7 +37,7 @@ const links: FooterLinksType[] = [
         group: 'Сотрудничество',
         links: [
             { link: '/wholesale', title: 'Оптом' },
-            { link: '/news', title: 'Дропшиппинг' },
+            { link: '/dropshipping', title: 'Дропшиппинг' },
         ],
     },
 ];
