@@ -1,0 +1,23 @@
+@use './../../../scss/breakpoints' as *;
+
+.article {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    gap: 4em;
+}
+
+@include breakpoint(1100px) {
+    .article {
+        grid-template-columns: 1fr;
+        img {
+            width: 100%;
+            height: 500px;
+        }
+    }
+}
+
+@include breakpoint(500px) {
+    img {
+        display: none;
+    }
+}

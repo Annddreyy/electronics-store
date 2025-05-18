@@ -6,6 +6,7 @@ import { getOneNews } from '../redux/news/newsSelector';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { useParams } from 'react-router-dom';
 import { LinkType } from '../types';
+import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
 export const OneNews: React.FC = () => {
     const oneNews = useSelector(getOneNews);
@@ -31,13 +32,7 @@ export const OneNews: React.FC = () => {
             <div className="container">
                 <BreadCrumbs path={path} />
                 <h1 className="pageTitle">{oneNews.title}</h1>
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: '6fr 4fr',
-                        gap: '4em',
-                    }}
-                >
+                <div className={classes.article}>
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                     <img src={oneNews.img} alt="" />
                 </div>
