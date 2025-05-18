@@ -15,3 +15,19 @@ export const getProductsByType = (type: string) =>
     createSelector(getProductsSelector, (products) =>
         products.filter((product) => product.type === type),
     );
+
+export const getViewedProducts = (state: AppStateType) => {
+    return state.products.viewed;
+};
+
+export const getFavorityProducts = (state: AppStateType) => {
+    return state.products.favorite;
+};
+
+export const getCompareProducts = (state: AppStateType) => {
+    return state.products.compare;
+};
+
+export const getBinProducts = (state: AppStateType) => {
+    return state.products.bin;
+};
