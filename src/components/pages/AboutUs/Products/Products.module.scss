@@ -1,14 +1,28 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/breakpoints' as *;
 
 .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding-bottom: $base-padding-6;
+    gap: $base-gap;
     row-gap: $base-gap-2;
 
     .product {
         display: flex;
         align-items: center;
         gap: $base-gap;
+    }
+}
+
+@include md {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include breakpoint(500px) {
+    .products {
+        grid-template-columns: 1fr;
     }
 }
