@@ -1,0 +1,26 @@
+@use './../../../../scss/variables' as *;
+
+.data {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+
+    margin: -$base-margin-6 $base-margin-8 * 2;
+
+    .top {
+        display: flex;
+        gap: $base-gap-3;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-mini;
+        }
+    }
+
+    .button {
+        width: max-content;
+        height: max-content;
+        padding: $base-padding-4;
+    }
+}

@@ -4,6 +4,7 @@
 .links {
     display: flex;
     flex-direction: column;
+    width: 370px;
     border: 1.5px solid map.get($colors, 'secondary');
     border-radius: $base-border-radius-2;
 }
