@@ -107,3 +107,9 @@ address {
         color: map.get($colors, 'green');
     }
 }
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+}

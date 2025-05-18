@@ -5,6 +5,7 @@
     display: flex;
 
     border: 1px solid #eaeaf0;
+    background-color: map.get($colors, 'white');
     padding: $base-padding-4;
     border-radius: $base-border-radius;
 

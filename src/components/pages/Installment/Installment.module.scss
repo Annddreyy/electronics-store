@@ -1,0 +1,20 @@
+@use './../../../scss/variables' as *;
+
+.bottom {
+    display: flex;
+    align-items: center;
+    gap: $base-gap-3;
+
+    h2 {
+        font-size: $font-size-lg;
+    }
+
+    .information {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-mini;
+        h2 {
+            font-weight: 600;
+        }
+    }
+}

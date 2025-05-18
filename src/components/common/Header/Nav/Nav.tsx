@@ -7,7 +7,7 @@ const links: LinkType[] = [
     { link: '/catalog', title: 'Каталог товаров' },
     { link: '/about-us', title: 'О компании' },
     { link: '/offers', title: 'Акции' },
-    { link: '/installment-plan', title: 'Рассрочка 0|0|18' },
+    { link: '/installment', title: 'Рассрочка 0|0|18' },
     { link: '/warranty-conditions', title: 'Сервис и гарантия' },
     { link: '/opt-dropshipping', title: 'Опт/дропшиппинг' },
     { link: '/contacts', title: 'Контакты' },
