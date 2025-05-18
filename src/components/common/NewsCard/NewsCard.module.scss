@@ -1,4 +1,5 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
 
 .news {
     width: 100%;
@@ -23,6 +24,18 @@
         .bottom {
             display: flex;
             justify-content: space-between;
+        }
+    }
+}
+
+@include breakpoint(500px) {
+    .news {
+        flex-direction: column;
+        
+        img {
+            height: 160px;
+            width: 100%;
+            object-fit: cover;
         }
     }
 }

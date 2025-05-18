@@ -1,4 +1,5 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
 
 .cardsBlock {
     display: grid;
@@ -6,4 +7,13 @@
 
     gap: $base-gap-2;
     row-gap: $base-gap;
+    @include md {
+        grid-template-columns: 1fr;
+    }
+}
+
+@include breakpoint(1100px) {
+    .cardsBlock {
+        grid-template-columns: 1fr;
+    }
 }
