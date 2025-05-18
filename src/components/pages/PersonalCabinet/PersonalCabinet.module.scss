@@ -1,0 +1,6 @@
+@use './../../../scss/variables' as *;
+
+.information {
+    display: flex;
+    gap: $base-gap-2;
+}

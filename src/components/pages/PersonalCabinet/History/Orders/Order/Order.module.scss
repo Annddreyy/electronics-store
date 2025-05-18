@@ -1,0 +1,104 @@
+@use './../../../../../../scss/variables' as *;
+@use 'sass:map';
+@use 'sass:math';
+
+.order {
+    .title {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: $base-padding-2 0;
+
+        &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            top: math.div(-$base-gap, 2);
+            border-top: 1px solid map.get($colors, 'gray');
+        }
+
+        &::after {
+            justify-self: end;
+            content: '►';
+            transition: transform 0.2s linear;
+        }
+    }
+
+    &:last-child {
+        .title {
+            &::before {
+                bottom: math.div(-$base-gap, 2);
+                border-bottom: 1px solid map.get($colors, 'gray');
+            }
+        }
+    }
+
+    .information {
+        margin-top: $base-margin-4;
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+
+        .orderComposition {
+            display: flex;
+            flex-direction: column;
+            gap: $base-gap;
+
+            .products {
+                display: flex;
+                flex-wrap: wrap;
+                gap: $base-gap;
+
+                .product {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $base-gap;
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+
+        .history {
+            display: flex;
+            flex-direction: column;
+            gap: $base-gap;
+
+            .historyElems {
+                display: flex;
+                flex-direction: column;
+                gap: $base-gap;
+
+                .stage {
+                    display: flex;
+                    gap: $base-gap;
+                }
+            }
+        }
+    }
+
+    &[open] {
+        .title {
+            &::after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .status {
+        color: map.get($colors, 'yellow');
+    }
+
+    .status[data-status='Выполнен'] {
+        color: map.get($colors, 'green');
+    }
+
+    .date {
+        color: map.get($colors, 'gray');
+    }
+}

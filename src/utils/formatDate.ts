@@ -1,8 +1,11 @@
-export const formatDate = (date: Date): string => {
+export const formatDate = (
+    date: Date,
+    options: Intl.DateTimeFormatOptions | undefined = undefined,
+): string => {
     const dateFormatter = Intl.DateTimeFormat('ru', {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric',
+        day: options?.day || '2-digit',
+        month: options?.month || 'long',
+        year: options?.year || 'numeric',
     });
 
     return dateFormatter.format(date);

@@ -1,0 +1,7 @@
+@use './../../../../../scss/variables' as *;
+
+.orders {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+}

@@ -8,6 +8,10 @@
     padding: $base-padding-4;
     border-radius: $base-border-radius;
 
+    datalist {
+        display: block;
+    }
+
     &::placeholder {
         color: map.get($colors, 'gray');
     }
