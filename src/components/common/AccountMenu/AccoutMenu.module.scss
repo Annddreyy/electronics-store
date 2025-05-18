@@ -2,6 +2,7 @@
 @use 'sass:map';
 
 .links {
+    height: max-content;
     display: flex;
     flex-direction: column;
     width: 370px;
