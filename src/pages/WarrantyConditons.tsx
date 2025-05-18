@@ -192,7 +192,7 @@ export const WarrantyConditions: React.FC = () => {
                     заряда батареи. Такими условиями являются:
                 </p>
                 <br />
-                <ul style={{ listStyle: 'inside', paddingLeft: '12px' }}>
+                <ul style={{ paddingLeft: '12px' }}>
                     <li>
                         загруженность электротранспорта, которая складывается
                         из веса водителя и иных вещей (к примеру вес портфеля).
@@ -234,12 +234,7 @@ export const WarrantyConditions: React.FC = () => {
                     отличаться от заявленных продавцом или производителем.
                 </p>
                 <br />
-                <h3
-                    className="sectionTitle text-gray"
-                    style={{ fontSize: '28px' }}
-                >
-                    Запрещается!
-                </h3>
+                <h3 className="pageTitle text-gray">Запрещается!</h3>
                 <ul style={{ listStyle: 'inside', paddingLeft: '12px' }}>
                     <li>
                         Использовать электротранспорт при низком заряде батареи
@@ -289,10 +284,7 @@ export const WarrantyConditions: React.FC = () => {
                         поребриков и.т.д. выше 5 см.
                     </li>
                 </ul>
-                <h3
-                    className="sectionTitle text-gray"
-                    style={{ fontSize: '28px' }}
-                >
+                <h3 className="pageTitle text-gray">
                     Правила гарантийного обслуживания
                 </h3>
                 <ol style={{ paddingLeft: '16px' }}>
@@ -341,10 +333,7 @@ export const WarrantyConditions: React.FC = () => {
                         и печати продавца.
                     </li>
                 </ol>
-                <h3
-                    className="sectionTitle text-gray"
-                    style={{ fontSize: '28px' }}
-                >
+                <h3 className="pageTitle text-gray">
                     Порядок обращения потребителей за гарантийным обслуживанием
                 </h3>
                 <ol style={{ paddingLeft: '16px' }}>
@@ -471,7 +460,7 @@ export const WarrantyConditions: React.FC = () => {
                         товар.
                     </li>
                 </ol>
-                <h3 className="sectionTitle" style={{ fontSize: '36px' }}>
+                <h3 className="pageTitle">
                     Информационное письмо о порядке урегулирования требований
                     потребителя
                 </h3>
@@ -566,38 +555,35 @@ export const WarrantyConditions: React.FC = () => {
                     двигательной и рулевой системы.
                 </p>
                 <br />
-                <p style={{ fontSize: '28px', fontWeight: '600' }}>
+                <p className="textLg" style={{ fontWeight: 600 }}>
                     В случае наличия вопросов вы можете обратиться
                     в наш Юридический отдел.
                 </p>
-                <br />
-                <p style={{ fontSize: '28px', fontWeight: '600' }}>
+                <p className="textLg" style={{ fontWeight: 600, padding: '0' }}>
                     Адрес отдела по урегулированию претензий:
                     <br />
                     <address
-                        className={'text-primary'}
-                        style={{ fontSize: '28px', fontWeight: '600' }}
+                        className="textLg text-primary"
+                        style={{ fontWeight: 600 }}
                     >
                         173004 г. В. Новгород ул. Тимура Фрунзе-Оловянка
                         17/3 оф. 5.
                     </address>
                 </p>
-                <br />
-                <p style={{ fontSize: '28px', fontWeight: '600' }}>
+                <p className="textLg" style={{ fontWeight: 600, padding: '0' }}>
                     Тел.{' '}
                     <span
-                        className={'text-primary'}
-                        style={{ fontSize: '28px', fontWeight: '600' }}
+                        className="text-primary textLg"
+                        style={{ fontWeight: 600, padding: '0' }}
                     >
                         +7 (996) 067-00-96
                     </span>
                 </p>
-                <br />
-                <p style={{ fontSize: '28px', fontWeight: '600' }}>
+                <p className="textLg" style={{ fontWeight: '600' }}>
                     эл. почта:{' '}
                     <span
-                        className={'text-primary'}
-                        style={{ fontSize: '28px', fontWeight: '600' }}
+                        className="text-primary textLg"
+                        style={{ fontWeight: '600' }}
                     >
                         mdsmbr@gmail.com
                     </span>
