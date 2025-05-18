@@ -57,8 +57,8 @@ export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
                         options={{
                             required: 'Это поле является обязательным',
                             pattern: {
-                                value: /^\+7\(\d{3}\)-(\d{3})-(\d{2})-(\d{2})$/,
-                                message: 'Шаблон: +7(999)-999-99-99',
+                                value: /^\+7\(\d{3}\)(\d{3})-(\d{2})-(\d{2})$/,
+                                message: 'Шаблон: +7(999)999-99-99',
                             },
                         }}
                         register={register}

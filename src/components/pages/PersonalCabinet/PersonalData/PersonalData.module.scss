@@ -1,0 +1,11 @@
+@use './../../../../scss/variables' as *;
+
+.personalData {
+    display: flex;
+    gap: $base-gap;
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+    }
+}
