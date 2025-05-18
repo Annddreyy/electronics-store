@@ -1,0 +1,14 @@
+@use './../../../../scss/variables' as *;
+@use 'sass:map';
+
+.button {
+    padding: $base-padding-4;
+    &:hover {
+        background-color: map.get($colors, 'secondary');
+    }
+
+    &:last-child {
+        color: map.get($colors, 'red');
+        border-top: 1.5px solid map.get($colors, 'light-gray');
+    }
+}
