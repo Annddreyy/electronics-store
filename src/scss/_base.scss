@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './breakpoints' as *;
 @use 'sass:map';
 
 *,
@@ -26,9 +27,19 @@
     padding: $base-padding-6 0;
 }
 
+.textLg {
+    font-size: 28px;
+}
+
 .sectionTitle {
     font-size: $font-size-md;
     padding: $base-padding-6 0;
+}
+
+@include md {
+    .pageTitle, .textLg {
+        font-size: $font-size-md;
+    }
 }
 
 button {
