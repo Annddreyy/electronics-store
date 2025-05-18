@@ -30,7 +30,7 @@ export const Nav: React.FC = () => {
                             <span>{links[0].title}</span>
                         </NavLink>
                     </li>
-                    {linksElements}
+                    {linksElements.slice(1, linksElements.length)}
                 </ul>
             </div>
         </nav>

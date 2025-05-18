@@ -1,11 +1,19 @@
 import classes from './TopPart.module.scss';
-import eye from './../../../../assets/header/eye.png';
-import compare from './../../../../assets/header/compare.png';
-import like from './../../../../assets/header/like.png';
 import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
+import { ProductsCount } from './ProductsCount/ProductsCount';
+import {
+    getBinProducts,
+    getCompareProducts,
+    getFavorityProducts,
+    getViewedProducts,
+} from '../../../../redux/products/productsSelectors';
+import eye from './../../../../assets/header/eye.png';
+import like from './../../../../assets/header/like.png';
+import likeFill from './../../../../assets/header/like-fill.png';
+import compare from './../../../../assets/header/compare.png';
 
 export const TopPart: React.FC = () => {
     return (
@@ -30,18 +38,27 @@ export const TopPart: React.FC = () => {
                     </div>
                     <div className={classes.buttons}>
                         <search></search>
-                        <button>
-                            <img src={eye} alt="" />
-                        </button>
-                        <button>
-                            <img src={like} alt="" />
-                        </button>
-                        <button>
-                            <img src={compare} alt="" />
-                        </button>
-                        <button>
-                            <img src={bin} alt="" />
-                        </button>
+                        <ProductsCount
+                            selector={getViewedProducts}
+                            link="/viewed"
+                            iconBase={eye}
+                        />
+                        <ProductsCount
+                            selector={getFavorityProducts}
+                            link="/favorite"
+                            iconBase={like}
+                            iconActive={likeFill}
+                        />
+                        <ProductsCount
+                            selector={getCompareProducts}
+                            link="/compare"
+                            iconBase={compare}
+                        />
+                        <ProductsCount
+                            selector={getBinProducts}
+                            link="/bin"
+                            iconBase={bin}
+                        />
                         <button
                             className={cn(
                                 classes.login,
