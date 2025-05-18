@@ -7,6 +7,7 @@ import { Header } from '../components/common/Header/Header';
 import { getOneOffer } from '../redux/offers/offersSelectors';
 import { LinkType } from '../types';
 import { createNewHTML } from '../utils/createNewHTML';
+import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
 export const Offer: React.FC = () => {
     const oneOffer = useSelector(getOneOffer);
@@ -28,13 +29,7 @@ export const Offer: React.FC = () => {
             <div className="container">
                 <BreadCrumbs path={path} />
                 <h1 className="pageTitle">{oneOffer.title}</h1>
-                <div
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: '6fr 4fr',
-                        gap: '4em',
-                    }}
-                >
+                <div className={classes.article}>
                     <div dangerouslySetInnerHTML={{ __html: html }} />
                     <img src={oneOffer.img} alt="" />
                 </div>
