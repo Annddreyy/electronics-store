@@ -37,6 +37,10 @@ button {
     cursor: pointer;
 }
 
+ul, li {
+    list-style-position: inside;
+}
+
 a {
     text-decoration: none;
 }

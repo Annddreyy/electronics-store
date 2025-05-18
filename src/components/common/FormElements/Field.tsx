@@ -15,6 +15,7 @@ type FieldType = {
     icon?: string;
     className?: string;
     style?: CSSProperties;
+    accept?: string;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -27,6 +28,7 @@ export const Field: React.FC<FieldType> = ({
     className,
     placeholder,
     style,
+    accept,
 }) => {
     return (
         <>
@@ -39,6 +41,7 @@ export const Field: React.FC<FieldType> = ({
                         placeholder={placeholder}
                         style={style}
                         {...register(name, options)}
+                        accept={accept}
                     />
                     {className && (
                         <img

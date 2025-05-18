@@ -1,0 +1,7 @@
+@use './../../../scss/variables' as *;
+
+.mainPart {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: $base-gap-6;
+}

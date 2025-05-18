@@ -29,7 +29,7 @@ const links: FooterLinksType[] = [
             { link: '/news', title: 'История компании' },
             { link: '/news', title: 'Сотрудничество' },
             { link: '/news', title: 'Партнёрская программа' },
-            { link: '/news', title: 'Вакансии' },
+            { link: '/vacancies', title: 'Вакансии' },
             { link: '/news', title: 'Новости' },
         ],
     },

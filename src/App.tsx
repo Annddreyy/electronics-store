@@ -10,6 +10,7 @@ import { Product } from './pages/Product';
 import { Contacts } from './pages/Contacts';
 import { Wholesale } from './pages/Wholesale';
 import { Dropshipping } from './pages/Dropshipping';
+import { Vacancies } from './pages/Vacancies';
 
 const App: React.FC = () => {
     return (
@@ -34,6 +35,8 @@ const App: React.FC = () => {
             <Route path="/wholesale" element={<Wholesale />} />
 
             <Route path="/dropshipping" element={<Dropshipping />} />
+
+            <Route path="/vacancies" element={<Vacancies />} />
         </Routes>
     );
 };

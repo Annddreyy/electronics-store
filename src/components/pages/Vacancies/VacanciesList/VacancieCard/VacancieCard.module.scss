@@ -1,0 +1,67 @@
+@use './../../../../../scss/variables' as *;
+@use 'sass:map';
+
+.vacancieCard {
+    .title {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        background-color: map.get($colors, 'secondary');
+        padding: $base-padding-6;
+
+        &::before {
+            position: absolute;
+            content: '';
+            left: $base-padding-6;
+            right: $base-padding-6;
+            bottom: 0;
+            border-bottom: 0.5px solid map.get($colors, 'gray');
+        }
+
+        &::after {
+            content: "►";
+            transition: transform .2s linear;
+        }
+    }
+
+    &:open {
+        .title {
+            color: map.get($colors, 'primary');
+
+            &::before {
+                border-bottom: none;
+            }
+
+            &::after {
+                transform: rotate(90deg)
+            }
+        }
+    }
+
+    .information {
+        padding: 0 $base-padding-6;
+        padding-bottom: $base-padding-6;
+        border: 1.5px solid map.get($colors, 'light-gray');
+    }
+
+    li {
+        padding-bottom: $base-padding-2;
+    }
+
+    &:first-child {
+        .title {
+            border-top-left-radius: $base-border-radius-2;
+            border-top-right-radius: $base-border-radius-2;
+        }
+    }
+
+    &:last-child {
+        .title {
+            border-bottom-left-radius: $base-border-radius-2;
+            border-bottom-right-radius: $base-border-radius-2;
+            &::before {
+                border-bottom: none;
+            }
+        }
+    }
+}
