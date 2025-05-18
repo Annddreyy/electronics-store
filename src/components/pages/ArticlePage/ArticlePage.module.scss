@@ -17,7 +17,9 @@
 }
 
 @include breakpoint(500px) {
-    img {
-        display: none;
+    .article {
+        img {
+            display: none;
+        }
     }
 }
