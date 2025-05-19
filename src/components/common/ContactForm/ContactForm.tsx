@@ -69,7 +69,10 @@ export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
                     />
                     <ErrorMessage error={errors.phone} />
                 </div>
-                <div className="form-block" style={{ gridArea: 'message' }}>
+                <div
+                    className={'form-block ' + classes.checkbox}
+                    style={{ gridArea: 'message' }}
+                >
                     <label htmlFor="message">Сообщение</label>
                     <Field
                         id="message"

@@ -3,6 +3,7 @@ import { Field } from '../../../common/FormElements/Field';
 import classes from './VacancieForm.module.scss';
 import cn from 'classnames';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
+import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
 
 type FormValuesType = {
     surname: string;
@@ -11,6 +12,7 @@ type FormValuesType = {
     phone: string;
     rezume: File;
     transmittalLetter: string;
+    agree: boolean;
 };
 
 export const VacancieForm: React.FC = () => {
@@ -30,8 +32,10 @@ export const VacancieForm: React.FC = () => {
                 className={classes.vacancieForm}
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <h2 className="sectionTitle">Присоединяйся к команде</h2>
-                <div className="form-block">
+                <h2 className="sectionTitle" style={{ gridArea: 'title' }}>
+                    Присоединяйся к команде
+                </h2>
+                <div className="form-block" style={{ gridArea: 'name' }}>
                     <label htmlFor="name">Имя</label>
                     <Field
                         type="text"
@@ -49,7 +53,7 @@ export const VacancieForm: React.FC = () => {
                     />
                     <ErrorMessage error={errors.name} />
                 </div>
-                <div className="form-block">
+                <div className="form-block" style={{ gridArea: 'surname' }}>
                     <label htmlFor="surname">Фамилия</label>
                     <Field
                         type="text"
@@ -68,7 +72,7 @@ export const VacancieForm: React.FC = () => {
                     />
                     <ErrorMessage error={errors.surname} />
                 </div>
-                <div className="form-block">
+                <div className="form-block" style={{ gridArea: 'patronymic' }}>
                     <label htmlFor="patronymic">Отчество</label>
                     <Field
                         type="text"
@@ -84,7 +88,7 @@ export const VacancieForm: React.FC = () => {
                     />
                     <ErrorMessage error={errors.surname} />
                 </div>
-                <div className="form-block">
+                <div className="form-block" style={{ gridArea: 'phone' }}>
                     <label htmlFor="phone">Телефон</label>
                     <Field
                         type="text"
@@ -107,7 +111,7 @@ export const VacancieForm: React.FC = () => {
                     />
                     <ErrorMessage error={errors.phone} />
                 </div>
-                <div className="form-block">
+                <div className="form-block" style={{ gridArea: 'rezume' }}>
                     <label htmlFor="rezume">Добавьте файл резюме</label>
                     <Field
                         type="file"
@@ -127,7 +131,10 @@ export const VacancieForm: React.FC = () => {
                     />
                     <ErrorMessage error={errors.rezume} />
                 </div>
-                <div className="form-block">
+                <div
+                    className="form-block"
+                    style={{ gridArea: 'transmittalLetter' }}
+                >
                     <label htmlFor="transmittalLetter">
                         Сопроводительное письмо
                     </label>
@@ -139,7 +146,7 @@ export const VacancieForm: React.FC = () => {
                             required: 'Это поле обязательное',
                         }}
                         register={register}
-                        placeholder="Введите номер телефона"
+                        placeholder="Введите сообщение"
                         style={{ width: '100%', resize: 'vertical' }}
                         className={cn({
                             inputError: errors.transmittalLetter,
@@ -150,7 +157,38 @@ export const VacancieForm: React.FC = () => {
                     />
                     <ErrorMessage error={errors.transmittalLetter} />
                 </div>
-                <button className="button-primary">Отправить</button>
+                <button
+                    className="button-primary"
+                    style={{ gridArea: 'button' }}
+                >
+                    Отправить
+                </button>
+                <div
+                    style={{ gridArea: 'checkbox' }}
+                    className={classes.checkbox}
+                >
+                    <Checkbox
+                        text="Отправляя данную форму вы соглашаетесь с политикой конфиденциальности"
+                        name="agree"
+                        register={register}
+                        options={{
+                            required: 'Вы должны подтверить свое согласие',
+                        }}
+                        className={cn({
+                            inputError: errors.agree,
+                        })}
+                    />
+                    <ErrorMessage error={errors.agree} />
+                </div>
+                <div
+                    style={{ gridArea: 'phone-information' }}
+                    className={classes.phoneInformation}
+                >
+                    <p className="sectionTitle" style={{ fontWeight: 600 }}>
+                        Номер отдела кадров
+                    </p>
+                    <p className={classes.phoneNumber}>+7 (996) 067-00-96</p>
+                </div>
             </form>
         </>
     );

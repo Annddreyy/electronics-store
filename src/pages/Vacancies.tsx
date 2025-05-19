@@ -1,4 +1,5 @@
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
+import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { VacancieForm } from '../components/pages/Vacancies/VacancieForm/VacancieForm';
 import { VacanciesList } from '../components/pages/Vacancies/VacanciesList/VacanciesList';
@@ -115,6 +116,7 @@ export const Vacancies: React.FC = () => {
                     <VacancieForm />
                 </div>
             </div>
+            <Footer />
         </>
     );
 };
