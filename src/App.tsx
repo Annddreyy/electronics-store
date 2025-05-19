@@ -13,6 +13,7 @@ import { Dropshipping } from './pages/Dropshipping';
 import { Vacancies } from './pages/Vacancies';
 import { PersonalCabinet } from './pages/PersonalCabinet';
 import { Installment } from './pages/Installment';
+import { PlacingAnOrder } from './pages/PlacingAnOrder';
 
 const App: React.FC = () => {
     return (
@@ -43,6 +44,8 @@ const App: React.FC = () => {
             <Route path="/personal-cabinet/*" element={<PersonalCabinet />} />
 
             <Route path="/installment" element={<Installment />} />
+
+            <Route path="/bin" element={<PlacingAnOrder />} />
         </Routes>
     );
 };

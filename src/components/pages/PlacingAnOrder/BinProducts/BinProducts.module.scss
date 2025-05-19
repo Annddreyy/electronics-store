@@ -1,0 +1,12 @@
+@use './../../../../scss/display' as *;
+@use './../../../../scss/variables' as *;
+
+@use 'sass:map';
+
+
+.binProducts {
+    padding: $base-padding-8;
+    padding-top: 0;
+    border: 1.75px solid map.get($colors, 'secondary');
+    border-radius: $base-border-radius-3;
+}
