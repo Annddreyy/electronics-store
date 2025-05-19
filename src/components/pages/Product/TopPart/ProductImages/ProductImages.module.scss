@@ -1,9 +1,12 @@
 @use './../../../../../scss/variables' as *;
 @use './../../../../../scss/colors' as *;
 @use './../../../../../scss/display' as *;
+@use './../../../../../scss/breakpoints' as *;
+
 @use 'sass:map';
 
 .productImages {
+    grid-area: 'img';
     @extend .column;
 
     .selectedImg {
@@ -36,6 +39,48 @@
                 border: 3px solid map.get($colors, 'primary');
                 border-radius: $base-border-radius;
             }
+        }
+    }
+}
+
+@include breakpoint(1350px) {
+    .productImages {
+        .slider {
+            justify-content: center;
+        }
+        img {
+            height: 600px;
+            object-fit: contain;
+            width: auto;
+        }
+    }
+}
+
+
+@include breakpoint(600px) {
+    .productImages {
+        .slider {
+            justify-content: center !important;
+            gap: $base-gap;
+        }
+        img {
+            height: 300px;
+        }
+    }
+}
+
+@include breakpoint(400px) {
+    .productImages {
+        .slider {
+            .images {
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+        img {
+            height: 200px;
         }
     }
 }

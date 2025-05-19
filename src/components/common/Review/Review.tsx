@@ -23,21 +23,25 @@ export const Review: React.FC<PropsType> = ({
     return (
         <article className={classes.review}>
             <div className={classes.top}>
-                {img ? (
-                    <img src="" alt="" className={classes.img} />
-                ) : (
-                    <div className={cn(classes.img, 'bg-gray-light-6')}>
-                        <span className={classes.letter}>{authorName[0]}</span>
+                <div className={classes.left}>
+                    {img ? (
+                        <img src="" alt="" className={classes.img} />
+                    ) : (
+                        <div className={cn(classes.img, 'bg-gray-light-6')}>
+                            <span className={classes.letter}>
+                                {authorName[0]}
+                            </span>
+                        </div>
+                    )}
+                    <div className={classes.block}>
+                        <span className={classes.author}>{authorName}</span>
+                        <time
+                            dateTime={date.toDateString()}
+                            className={classes.time}
+                        >
+                            {formatDate(date)}
+                        </time>
                     </div>
-                )}
-                <div className={classes.block}>
-                    <span className={classes.author}>{authorName}</span>
-                    <time
-                        dateTime={date.toDateString()}
-                        className={classes.time}
-                    >
-                        {formatDate(date)}
-                    </time>
                 </div>
                 <div className={classes.block}>
                     {<Stars grade={grade} />}

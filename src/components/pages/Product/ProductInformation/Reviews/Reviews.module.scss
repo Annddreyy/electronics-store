@@ -1,4 +1,5 @@
 @use './../../../../../scss/variables' as *;
+@use './../../../../../scss/breakpoints' as *;
 
 .reviewsBottom {
     display: flex;
@@ -14,5 +15,16 @@
         display: flex;
         flex-direction: column;
         gap: $base-gap;
+    }
+}
+
+@include breakpoint(1100px) {
+    .reviewsBottom {
+        flex-direction: column;
+        gap: $base-gap;
+        button {
+            width: max-content;
+            padding: 0 $base-padding-8 * 2;
+        }
     }
 }

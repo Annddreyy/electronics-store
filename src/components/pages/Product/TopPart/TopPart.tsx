@@ -10,7 +10,7 @@ export const TopPart: React.FC = () => {
         <section className={classes.topPart}>
             <ProductImages images={[img1, img2]} />
             <div className={classes.productMainInformation}>
-                <h1 className="pageTitle">
+                <h1 className="pageTitle" style={{ gridArea: 'title' }}>
                     Гироскутер Smart Balance Well 6.5 Хип-Хоп (АКВАЗАЩИТА)
                 </h1>
                 <MainInformation grade={3} commentsCount={10} />

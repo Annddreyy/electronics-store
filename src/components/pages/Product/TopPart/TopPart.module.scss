@@ -1,13 +1,28 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
+@use './../../../../scss/breakpoints' as *;
 
 .topPart {
-    display: flex;
-    gap: $base-gap-6;
+    display: grid;
+    grid-template-areas:
+        'img title'
+        'img information'
+        'img mini-information';
+    gap: $base-gap-2;
 
     margin-top: $base-margin-6;
 
     .productMainInformation {
         @extend .column;
+    }
+}
+
+@include breakpoint(1350px) {
+    .topPart {
+        grid-template-areas:
+        'title'
+        'img'
+        'information'
+        'mini-information';
     }
 }
