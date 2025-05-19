@@ -1,14 +1,49 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/breakpoints' as *;
+
 @use 'sass:map';
 
 .footerBottom {
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+        'rightsReceived socialLinks author';
     align-items: center;
+    gap: $gap-mini;
     justify-content: space-between;
     padding-top: $base-padding-6;
 
     .rightsReceived,
     .author {
         color: map.get($colors, 'gray');
+    }
+
+    .rightsReceived {
+        grid-area: rightsReceived;
+    }
+
+    .author {
+        grid-area: author;
+        font-size: $font-size-sm;
+    }
+
+    .socialLinks {
+        grid-area: socialLinks;
+    }
+}
+
+@include breakpoint(1000px) {
+    .footerBottom {
+        grid-template-areas: 
+            'rightsReceived socialLinks'
+            'author socialLinks';
+    }
+}
+
+@include breakpoint(650px) {
+    .footerBottom {
+        grid-template-areas: 
+            'socialLinks'
+            'rightsReceived'
+            'author';
     }
 }

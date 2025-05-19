@@ -1,12 +1,14 @@
 @use './../../../../scss/colors' as *;
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
+@use './../../../../scss/breakpoints' as *;
 
 @use 'sass:map';
 @use 'sass:math';
 
 .information {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: $base-gap-6;
 
     border-bottom: 1px solid map.get($colors, 'black');
@@ -51,5 +53,20 @@
         .links {
             @extend .column-mini;
         }
+    }
+}
+
+@include breakpoint(1000px) {
+    .information {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $base-gap-3;
+    }
+}
+
+@include breakpoint(500px) {
+    .information {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }
