@@ -1,5 +1,6 @@
 @use './../../../../../../scss/variables' as *;
 @use './../../../../../../scss/display' as *;
+@use './../../../../../../scss/breakpoints' as *;
 
 @use 'sass:map';
 @use 'sass:math';
@@ -8,8 +9,13 @@
     .title {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
         padding: $base-padding-2 0;
+
+        .left {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: $base-gap;
+        }
 
         &::before {
             position: absolute;
@@ -21,6 +27,7 @@
         }
 
         &::after {
+            position: absolute;
             justify-self: end;
             content: '►';
             transition: transform 0.2s linear;
@@ -90,5 +97,21 @@
 
     .date {
         color: map.get($colors, 'gray');
+    }
+}
+
+@include breakpoint(600px) {
+    .order {
+        .title {
+            .left {
+                grid-template-columns: 1fr;
+                gap: $gap-mini;
+                .orderNumber {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap-mini;
+                }
+            }
+        }
     }
 }
