@@ -1,9 +1,57 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
+@use './../../../../scss/breakpoints' as *;
 
 .personalData {
-    @extend .row;
-    .formContainer {
-        @extend .column;
+    display: grid;
+    grid-template-areas:
+        'name address'
+        'email paymentMethod'
+        'phone deliveryMethod'
+        'city avatar'
+        'index button';
+    gap: $base-gap;
+    grid-template-columns: repeat(2, 1fr);
+
+    .form-block,
+    button {
+        align-self: flex-end;
+    }
+
+    button {
+        padding-block: calc($base-padding-6 + 2px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@include breakpoint(650px) {
+    .personalData {
+        grid-template-areas:
+            'name'
+            'email'
+            'phone'
+            'city'
+            'index'
+            'address'
+            'paymentMethod'
+            'deliveryMethod'
+            'avatar'
+            'button';
+        grid-template-columns: 1fr;
+
+        button {
+            width: 100%;
+        }
+    }
+}
+
+@include breakpoint(400px) {
+    .personalData {
+        button {
+            width: 200px;
+            padding-inline: $base-padding-2;
+        }
     }
 }

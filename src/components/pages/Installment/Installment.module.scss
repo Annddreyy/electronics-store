@@ -2,25 +2,26 @@
 @use './../../../scss/display' as *;
 @use './../../../scss/breakpoints' as *;
 
-.bottom {
-    display: flex;
-    align-items: center;
-    gap: $base-gap-3;
+.installment {
+    .bottom {
+        display: flex;
+        align-items: center;
+        gap: $base-gap-3;
 
-    h2 {
-        font-size: $font-size-lg;
-    }
-
-    .information {
-        @extend .column-mini;
         h2 {
-            font-weight: 600;
+            font-size: $font-size-lg;
+        }
+
+        .information {
+            @extend .column-mini;
+            h2 {
+                font-weight: 600;
+            }
         }
     }
-}
-
-img {
-    max-width: 100%;
+    img {
+        max-width: 100%;
+    }
 }
 
 @include breakpoint(750px) {

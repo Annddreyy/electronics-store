@@ -6,6 +6,7 @@ import { LinkType } from '../types';
 import imgTop from './../assets/installment/img.png';
 import imgBottom from './../assets/installment/img_2.png';
 import classes from './../components/pages/Installment/Installment.module.scss';
+import cn from 'classnames';
 
 export const Installment: React.FC = () => {
     const path: LinkType[] = [
@@ -16,7 +17,7 @@ export const Installment: React.FC = () => {
     return (
         <>
             <Header />
-            <div className="container">
+            <div className={cn('container', classes.installment)}>
                 <BreadCrumbs path={path} />
                 <h1 className="pageTitle">Рассрочка 0|0|18</h1>
                 <img src={imgTop} alt="" />

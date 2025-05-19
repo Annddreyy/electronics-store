@@ -1,4 +1,6 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
+
 @use 'sass:map';
 
 .links {
@@ -10,4 +12,10 @@
 
     border: 1.5px solid map.get($colors, 'secondary');
     border-radius: $base-border-radius-2;
+}
+
+@include breakpoint(450px) {
+    .links {
+        width: 300px;
+    }
 }
