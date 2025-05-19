@@ -1,4 +1,5 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
 
 .form {
     width: 70%;
@@ -10,4 +11,20 @@
         'button checkbox';
     grid-template-columns: 3fr 7fr;
     gap: 1rem;
+
+    .message {
+        width: 100%;
+    }
+}
+
+@include breakpoint(800px) {
+    .form {
+        grid-template-areas:
+            'name'
+            'phone'
+            'message'
+            'checkbox'
+            'button';
+        grid-template-columns: 1fr;
+    }
 }
