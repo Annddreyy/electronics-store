@@ -1,4 +1,6 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
+
 @use 'sass:map';
 
 .form {
@@ -9,3 +11,16 @@
 
     border-radius: $base-border-radius-2;
 }
+
+@include breakpoint(750px) {
+    .form {
+        align-self: flex-start;
+    }
+}
+
+@include breakpoint(400px) {
+    .form {
+        padding: $base-padding-4;
+    }
+}
+
