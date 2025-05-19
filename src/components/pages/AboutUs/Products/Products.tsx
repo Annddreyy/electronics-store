@@ -7,32 +7,20 @@ import img5 from './../../../../assets/menu-icons/icons for menu 4.png';
 import img6 from './../../../../assets/menu-icons/icon-more.png';
 
 export const Products: React.FC = () => {
-    return (
-        <div className={classes.products}>
-            <div className={classes.product}>
-                <img src={img1} alt="" />
-                <span>гироскутеров</span>
-            </div>
-            <div className={classes.product}>
-                <img src={img2} alt="" />
-                <span>сигвеев и мини сигвеев</span>
-            </div>
-            <div className={classes.product}>
-                <img src={img3} alt="" />
-                <span>электросамокатов, стандартных и полноприводных</span>
-            </div>
-            <div className={classes.product}>
-                <img src={img4} alt="" />
-                <span>электроскейтов</span>
-            </div>
-            <div className={classes.product}>
-                <img src={img5} alt="" />
-                <span>электровелосипедов</span>
-            </div>
-            <div className={classes.product}>
-                <img src={img6} alt="" />
-                <span>и многое другое</span>
-            </div>
+    const products = [
+        { img: img1, title: 'гироскутеров' },
+        { img: img2, title: 'сигвеев и мини сигвеев' },
+        { img: img3, title: 'электросамокатов, стандартных и полноприводных' },
+        { img: img4, title: 'электроскейтов' },
+        { img: img5, title: 'электровелосипедов' },
+        { img: img6, title: 'и многое другое' },
+    ];
+
+    const productsElem = products.map((product) => (
+        <div className={classes.product}>
+            <img src={product.img} alt="" />
+            <span>{product.title}</span>
         </div>
-    );
+    ));
+    return <div className={classes.products}>{productsElem}</div>;
 };

@@ -6,16 +6,13 @@ import { getOneNews } from '../redux/news/newsSelector';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { useParams } from 'react-router-dom';
 import { LinkType } from '../types';
+import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
 export const OneNews: React.FC = () => {
     const oneNews = useSelector(getOneNews);
 
-    let html = oneNews.html;
-    html = html.replaceAll('<абзац>', '<p>');
-    html = html.replaceAll('</абзац>', '</p></br>');
-    html = html.replaceAll('<заголовок>', '<h2 class="sectionTitle">');
-    html = html.replaceAll('</заголовок>', '</h2>');
+    let html = createNewHTML(oneNews.html);
 
     const params = useParams();
     const newsId = params.newsId;

@@ -7,9 +7,6 @@
 
     gap: $base-gap-2;
     row-gap: $base-gap;
-    @include md {
-        grid-template-columns: 1fr;
-    }
 }
 
 @include breakpoint(1100px) {

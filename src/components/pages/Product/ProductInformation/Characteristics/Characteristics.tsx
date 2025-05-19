@@ -22,9 +22,9 @@ export const Characteristics: React.FC<PropsType> = ({
         }
 
         return (
-            <tr className={cn(classes.characteristic, 'border-secondary')}>
+            <tr className={classes.characteristic}>
                 <td className={classes.title}>{characteristic[0]}</td>
-                <td className="text-gray">{characteristic[1]}</td>
+                <td className={classes.value}>{characteristic[1]}</td>
             </tr>
         );
     });

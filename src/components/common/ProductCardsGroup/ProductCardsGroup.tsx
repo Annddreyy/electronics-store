@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
-import { AppStateType } from '../../../redux/store';
-import { ProductCard } from '../ProductCard/ProductCard';
-import { ProductType } from '../../../redux/products/productsReducer';
-import classes from './ProductCardsGroup.module.scss';
 import { NavLink } from 'react-router-dom';
+import { ProductType } from '../../../redux/products/productsReducer';
+import { SelectorType } from '../../../types';
+import { ProductCard } from '../ProductCard/ProductCard';
+import classes from './ProductCardsGroup.module.scss';
 
 type PropsType = {
     title: string;
-    selector: (state: AppStateType) => ProductType[];
+    selector: SelectorType<ProductType>;
 };
 
 export const ProductCardsGroup: React.FC<PropsType> = ({ title, selector }) => {
@@ -21,7 +21,7 @@ export const ProductCardsGroup: React.FC<PropsType> = ({ title, selector }) => {
         <div className={classes.productsGroup}>
             <div className={classes.top}>
                 <h2 className={classes.title}>{title}</h2>
-                <NavLink to={'/products'} className={'text-primary-dark-4'}>
+                <NavLink to={'/products'} className="text-primary-dark-4">
                     Все товары ▶
                 </NavLink>
             </div>

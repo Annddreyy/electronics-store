@@ -1,0 +1,28 @@
+@use './variables' as *;
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: $base-gap;
+}
+
+.column {
+    @extend .row;
+    flex-direction: column;
+}
+
+.row-mini {
+    @extend .row;
+    gap: $gap-mini;
+}
+
+.column-mini {
+    @extend .column;
+    gap: $gap-mini;
+}
+
+.row-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

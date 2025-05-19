@@ -18,25 +18,25 @@ export const Main: React.FC = () => {
                 Добро пожаловать в панель управления. Здесь вы можете{' '}
                 <NavLink
                     to="/personal-cabinet/personal-data"
-                    className="text-primary"
+                    className={classes.link}
                 >
                     изменить свои регистрационные данные
                 </NavLink>{' '}
                 и{' '}
-                <NavLink to="/personal-cabinet/pass" className="text-primary">
+                <NavLink to="/personal-cabinet/pass" className={classes.link}>
                     cменить пароль
                 </NavLink>
                 . Зарегистрированные пользователи имеют доступ к 
                 <NavLink
                     to="/personal-cabinet/history"
-                    className="text-primary"
+                    className={classes.link}
                 >
                     истории заказов
                 </NavLink>{' '}
                 и возможность{' '}
                 <NavLink
                     to="/personal-cabinet/history"
-                    className="text-primary"
+                    className={classes.link}
                 >
                     добавлять в избранное товары для будущих покупок
                 </NavLink>

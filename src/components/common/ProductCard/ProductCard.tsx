@@ -22,43 +22,38 @@ export const ProductCard: React.FC<ProductType> = ({
     statusList,
 }) => {
     return (
-        <NavLink to={`/products/${id}`}>
-            <article className={cn(classes.card, 'border-gray-light-6')}>
-                <div className={classes.statuses}>
-                    {statusList?.map((status) => (
-                        <div
-                            className={cn(classes.status, 'text-white', {
-                                'bg-green': status === 'Новинка',
-                                'bg-red': status !== 'Новинка',
-                            })}
-                        >
-                            {status}
-                        </div>
-                    ))}
-                </div>
+        <article className={cn(classes.card, 'border-gray-light-6')}>
+            <div className={classes.statuses}>
+                {statusList?.map((status) => (
+                    <div data-status={status} className={classes.status}>
+                        {status}
+                    </div>
+                ))}
+            </div>
+            <NavLink to={`/products/${id}`}>
                 <img src={img} alt="" />
-                <span className={'text-gray-dark-1'}>{type}</span>
-                <h3 className={classes.title}>{title}</h3>
-                <Statistics grade={grade} commentsCount={commentsCount} />
-                <OldPrice promotionPercent={promotionPercent} price={price} />
-                <div className={classes.bottomInformation}>
-                    <div>
-                        <Price price={price} />
-                        <Promotion
-                            price={price}
-                            promotionPercent={promotionPercent}
-                        />
-                    </div>
-                    <div className={classes.buttonsInf}>
-                        <CompareButton />
-                        <LikeButton />
-                    </div>
+            </NavLink>
+            <span className={'text-gray-dark-1'}>{type}</span>
+            <h3 className={classes.title}>{title}</h3>
+            <Statistics grade={grade} commentsCount={commentsCount} />
+            <OldPrice promotionPercent={promotionPercent} price={price} />
+            <div className={classes.bottomInformation}>
+                <div>
+                    <Price price={price} />
+                    <Promotion
+                        price={price}
+                        promotionPercent={promotionPercent}
+                    />
                 </div>
-                <div className={classes.buttons}>
-                    <button className="button-primary">Купить в 1 клик</button>
-                    <BinButton />
+                <div className={classes.buttonsInf}>
+                    <CompareButton />
+                    <LikeButton />
                 </div>
-            </article>
-        </NavLink>
+            </div>
+            <div className={classes.buttons}>
+                <button className="button-primary">Купить в 1 клик</button>
+                <BinButton />
+            </div>
+        </article>
     );
 };

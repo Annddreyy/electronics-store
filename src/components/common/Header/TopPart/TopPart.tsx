@@ -1,7 +1,3 @@
-import classes from './TopPart.module.scss';
-import bin from './../../../../assets/header/bin.png';
-import logo from './../../../../assets/logo.png';
-import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { ProductsCount } from './ProductsCount/ProductsCount';
 import {
@@ -10,10 +6,17 @@ import {
     getFavorityProducts,
     getViewedProducts,
 } from '../../../../redux/products/productsSelectors';
+
+import cn from 'classnames';
+
+import classes from './TopPart.module.scss';
+
 import eye from './../../../../assets/header/eye.png';
 import like from './../../../../assets/header/like.png';
 import likeFill from './../../../../assets/header/like-fill.png';
 import compare from './../../../../assets/header/compare.png';
+import bin from './../../../../assets/header/bin.png';
+import logo from './../../../../assets/logo.png';
 
 export const TopPart: React.FC = () => {
     return (
@@ -59,13 +62,7 @@ export const TopPart: React.FC = () => {
                             link="/bin"
                             iconBase={bin}
                         />
-                        <button
-                            className={cn(
-                                classes.login,
-                                'bg-primary-dark-1',
-                                'text-white',
-                            )}
-                        >
+                        <button className={cn('button-primary', classes.login)}>
                             Войти
                         </button>
                     </div>

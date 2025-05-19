@@ -1,5 +1,5 @@
 import { InferActionsType } from '../store';
-import productImg from './../../assets/productDefault.png';
+import productImg from './../../assets/card/productDefault.png';
 
 export enum ProductTypeEnum {
     GYRO_SCOOTER = 'Гироскутер',

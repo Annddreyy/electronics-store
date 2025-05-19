@@ -1,6 +1,5 @@
-import starFill from './../../../../../assets/card/starFill.png';
 import star from './../../../../../assets/card/star.png';
-import classes from './Stars.module.scss';
+import starFill from './../../../../../assets/card/starFill.png';
 
 type PropsType = {
     grade: number;
@@ -9,7 +8,7 @@ type PropsType = {
 export const Stars: React.FC<PropsType> = ({ grade }) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
-        stars.push(<img src={i < grade ? starFill : star} />);
+        stars.push(<img src={i < grade ? starFill : star} alt="" />);
     }
-    return <div className={classes.stars}>{stars}</div>;
+    return <div>{stars}</div>;
 };

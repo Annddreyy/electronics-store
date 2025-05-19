@@ -2,7 +2,7 @@ import {
     ProductType,
     ProductTypeEnum,
 } from '../../../../../redux/products/productsReducer';
-import productImg from './../../../../../assets/productDefault.png';
+import productImg from './../../../../../assets/card/productDefault.png';
 import { Order } from './Order/Order';
 import classes from './Orders.module.scss';
 

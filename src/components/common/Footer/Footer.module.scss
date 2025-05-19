@@ -1,6 +1,8 @@
 @use './../../../scss/variables' as *;
+@use 'sass:map';
 
 .footer {
     margin-top: $base-margin-8;
     padding: $base-padding-6;
+    background-color: map.get($colors, 'secondary');
 }

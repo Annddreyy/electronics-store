@@ -5,7 +5,6 @@ import { Price } from '../../../../common/ProductCard/Price/Price';
 import { Promotion } from '../../../../common/ProductCard/Price/Promotion/Promotion';
 import { Statistics } from '../../../../common/ProductCard/Statistics/Statistics';
 import classes from './MainInformation.module.scss';
-import cn from 'classnames';
 
 type PropsType = {
     grade: 1 | 2 | 3 | 4 | 5;
@@ -17,7 +16,7 @@ export const MainInformation: React.FC<PropsType> = ({
     commentsCount,
 }) => {
     return (
-        <div className={cn(classes.mainInformation, 'border-secondary')}>
+        <div className={classes.mainInformation}>
             <div className={classes.top}>
                 <Statistics grade={grade} commentsCount={commentsCount} />
                 <div className={classes.buttons}>

@@ -1,22 +1,18 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
+
 @use 'sass:map';
 
 .header {
     padding: $base-padding-3;
 
     .topPart {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @extend .row-center;
 
         .information {
-            display: flex;
-            gap: $base-gap;
-
+            @extend .row;
             .phones {
-                display: flex;
-                gap: $base-gap;
-
+                @extend .row;
                 .phone {
                     color: map.get($colors, 'black');
                     font-weight: 500;
@@ -25,13 +21,10 @@
         }
 
         .buttons {
-            display: flex;
-            gap: $gap-mini;
+            @extend .row-mini;
 
             .login {
-                padding: $base-padding-3 $base-padding-8;
-                border-radius: $base-border-radius;
-                font-size: $font-size-md;
+                padding: $base-padding-3 $base-padding-8 !important;
             }
         }
     }

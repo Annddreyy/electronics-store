@@ -1,10 +1,9 @@
 @use './../../../../../../scss/variables' as *;
+@use './../../../../../../scss/display' as *;
 @use 'sass:map';
 
 .addressCard {
-    display: flex;
-    flex-direction: column;
-    gap: $gap-mini;
+    @extend .column-mini;
     padding: $base-padding-4 $base-padding-6;
     background-color: map.get($colors, 'secondary');
 

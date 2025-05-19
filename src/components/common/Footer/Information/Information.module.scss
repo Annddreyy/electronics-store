@@ -1,26 +1,26 @@
 @use './../../../../scss/colors' as *;
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
+
+@use 'sass:map';
 @use 'sass:math';
 
 .information {
     display: flex;
     gap: $base-gap-6;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+
+    border-bottom: 1px solid map.get($colors, 'black');
     padding-bottom: $base-padding-6;
 
     .contacts {
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
+        @extend .column;
 
         img {
             width: 150px;
         }
 
         div {
-            display: flex;
-            flex-direction: column;
+            @extend .column-mini;
             gap: math.div($gap-mini, 2);
         }
 
@@ -41,9 +41,7 @@
     }
 
     .linksGroup {
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
+        @extend .column;
 
         .groupTitle {
             font-size: $font-size-md;
@@ -51,9 +49,7 @@
         }
 
         .links {
-            display: flex;
-            flex-direction: column;
-            gap: $gap-mini;
+            @extend .column-mini;
         }
     }
 }

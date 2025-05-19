@@ -1,7 +1,6 @@
-@use './../../../../../scss/variables' as *;
+@use './../../../../../scss/display' as *;
 
 .reviews {
-    display: flex;
-    gap: $gap-mini;
+    @extend .row-mini;
     align-items: center;
 }

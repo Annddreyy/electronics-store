@@ -1,20 +1,26 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
+@use './../../../scss/display' as *;
+
+@use 'sass:map';
 
 .news {
     width: 100%;
-    display: flex;
+
+    @extend .row;
     gap: $base-gap-2;
+
     padding: $base-padding-6;
     border-radius: $base-border-radius-2;
+
+    background-color: map.get($colors, 'secondary');
 
     img {
         width: 150px;
     }
 
     .information {
-        display: flex;
-        flex-direction: column;
+        @extend .column;
         gap: $base-gap-2;
 
         .title {
@@ -22,8 +28,11 @@
         }
 
         .bottom {
-            display: flex;
-            justify-content: space-between;
+            @extend .row-center;
+
+            time {
+                color: map.get($colors, 'gray');
+            }
         }
     }
 }
@@ -31,7 +40,7 @@
 @include breakpoint(500px) {
     .news {
         flex-direction: column;
-        
+
         img {
             height: 160px;
             width: 100%;

@@ -1,11 +1,10 @@
 import { Information } from './Information/Information';
-import classes from './Footer.module.scss';
 import { FooterBottom } from './FooterBottom/FooterBottom';
-import cn from 'classnames';
+import classes from './Footer.module.scss';
 
 export const Footer: React.FC = () => {
     return (
-        <footer className={cn(classes.footer, 'bg-secondary')}>
+        <footer className={classes.footer}>
             <div className="container">
                 <Information />
                 <FooterBottom />

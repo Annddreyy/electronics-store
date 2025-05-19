@@ -1,4 +1,5 @@
 @use './../../../../../scss/variables' as *;
+@use './../../../../../scss/display' as *;
 @use 'sass:map';
 
 .contactsInformation {
@@ -6,9 +7,8 @@
 
     .bottom {
         .card {
-            display: flex;
+            @extend .row-mini;
             align-items: flex-start;
-            gap: $gap-mini;
 
             background-color: map.get($colors, 'secondary');
             padding: $base-padding-4 $base-padding-6;
@@ -17,8 +17,8 @@
                 position: relative;
 
                 &::before {
-                    content: '';
                     position: absolute;
+                    content: '';
                     top: 0;
                     left: $base-padding-6;
                     right: $base-padding-6;

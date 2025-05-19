@@ -19,8 +19,8 @@
         }
 
         &::after {
-            content: "►";
-            transition: transform .2s linear;
+            content: '►';
+            transition: transform 0.2s linear;
         }
     }
 
@@ -33,7 +33,7 @@
             }
 
             &::after {
-                transform: rotate(90deg)
+                transform: rotate(90deg);
             }
         }
     }

@@ -20,11 +20,7 @@ export const News: React.FC = () => {
                 <BreadCrumbs path={path} />
                 <h2 className="pageTitle">Новости</h2>
                 <CardsBlock selector={getNews} Card={NewsCard} />
-                <Paginator
-                    totalItemsCount={100}
-                    pageSize={10}
-                    pagesPerGroup={3}
-                />
+                <Paginator totalItemsCount={100} pageSize={10} />
             </div>
             <Footer />
         </>

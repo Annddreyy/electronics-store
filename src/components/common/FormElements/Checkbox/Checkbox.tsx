@@ -1,9 +1,9 @@
 import { CSSProperties, useState } from 'react';
-import checkedImg from './../../../../assets/input/check.png';
-import uncheckedImg from './../../../../assets/input/uncheck.png';
-import classes from './Checkbox.module.scss';
 import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 import cn from 'classnames';
+import classes from './Checkbox.module.scss';
+import checkedImg from './../../../../assets/input/check.png';
+import uncheckedImg from './../../../../assets/input/uncheck.png';
 
 type PropsType = {
     text: string;

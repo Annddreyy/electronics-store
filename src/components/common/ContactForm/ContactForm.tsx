@@ -39,8 +39,7 @@ export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
                         name="name"
                         placeholder="Введите имя"
                         register={register}
-                        options={{ required: 'Это поле является обязательным' }}
-                        style={{ width: '100%' }}
+                        options={{ required: 'Поле обязательное' }}
                         className={cn({
                             inputError: errors.name,
                             inputCorrect: !errors.name && dirtyFields.name,
@@ -55,7 +54,7 @@ export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
                         id="phone"
                         name="phone"
                         options={{
-                            required: 'Это поле является обязательным',
+                            required: 'Поле обязательное',
                             pattern: {
                                 value: /^\+7\(\d{3}\)(\d{3})-(\d{2})-(\d{2})$/,
                                 message: 'Шаблон: +7(999)999-99-99',
@@ -63,7 +62,6 @@ export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
                         }}
                         register={register}
                         placeholder="Введите номер телефона"
-                        style={{ width: '100%' }}
                         className={cn({
                             inputError: errors.phone,
                             inputCorrect: !errors.phone && dirtyFields.phone,
@@ -80,7 +78,7 @@ export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
                         placeholder="Введите сообщение"
                         register={register}
                         options={{
-                            required: 'Это поле обязательное',
+                            required: 'Поле обязательное',
                             maxLength: {
                                 value: 300,
                                 message:

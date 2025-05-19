@@ -1,5 +1,6 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/breakpoints' as *;
+@use './../../../../scss/display' as *;
 
 .products {
     display: grid;
@@ -9,9 +10,8 @@
     row-gap: $base-gap-2;
 
     .product {
-        display: flex;
+        @extend .row;
         align-items: center;
-        gap: $base-gap;
     }
 }
 

@@ -1,9 +1,10 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
+
+@use 'sass:map';
 
 .data {
-    display: flex;
-    flex-direction: column;
-    gap: $base-gap;
+    @extend .column;
 
     margin: -$base-margin-6 $base-margin-8 * 2;
 
@@ -12,9 +13,11 @@
         gap: $base-gap-3;
 
         div {
-            display: flex;
-            flex-direction: column;
-            gap: $gap-mini;
+            @extend .column-mini;
+        }
+
+        .link {
+            color: map.get($colors, 'primary');
         }
     }
 

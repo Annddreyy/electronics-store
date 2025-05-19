@@ -3,19 +3,21 @@
 
 .block {
     position: relative;
+
     .products {
         position: absolute;
         right: 0;
+
         display: inline-block;
-    
+
         width: 20px;
         height: 20px;
 
         text-align: center;
-    
+
         color: map.get($colors, 'white');
         background-color: map.get($colors, 'primary');
-    
+
         border-radius: 50%;
     }
 }

@@ -1,12 +1,15 @@
 @use './../../../../../scss/variables' as *;
 @use './../../../../../scss/colors' as *;
+@use './../../../../../scss/display' as *;
+
+@use 'sass:map';
 
 .links {
     .link {
-        display: flex;
+        @extend .row;
         align-items: center;
-        gap: $base-gap;
         padding: $base-padding-2;
+        background-color: map.get($colors, 'secondary');
 
         &:last-of-type {
             border-bottom-left-radius: $base-padding-2;

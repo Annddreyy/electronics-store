@@ -1,5 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/colors' as *;
+@use 'sass:map';
 
 .links {
     display: flex;
@@ -7,7 +8,7 @@
     margin-top: $base-margin-8;
 
     .link[data-active] {
-        @extend .text-gray;
+        color: map.get($colors, 'gray');
     }
 
     .link + .link {

@@ -21,7 +21,7 @@ export const Review: React.FC<PropsType> = ({
     text,
 }) => {
     return (
-        <article className={cn(classes.review, 'bg-secondary')}>
+        <article className={classes.review}>
             <div className={classes.top}>
                 {img ? (
                     <img src="" alt="" className={classes.img} />
@@ -34,16 +34,14 @@ export const Review: React.FC<PropsType> = ({
                     <span className={classes.author}>{authorName}</span>
                     <time
                         dateTime={date.toDateString()}
-                        className={cn(classes.time, 'text-gray')}
+                        className={classes.time}
                     >
                         {formatDate(date)}
                     </time>
                 </div>
                 <div className={classes.block}>
                     {<Stars grade={grade} />}
-                    <span className={cn(classes.grade, 'text-gray')}>
-                        ({grade} из 5)
-                    </span>
+                    <span className={classes.grade}>({grade} из 5)</span>
                 </div>
             </div>
             <h3>{title}</h3>

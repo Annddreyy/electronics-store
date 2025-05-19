@@ -1,5 +1,8 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/colors' as *;
+@use './../../../../scss/display' as *;
+
+@use 'sass:map';
 
 .nav {
     width: 100%;
@@ -14,13 +17,13 @@
         li {
             &:first-child {
                 width: 20%;
+
                 a {
-                    display: flex;
-                    gap: $base-gap;
+                    @extend .row;
                     align-items: center;
 
                     span {
-                        @extend .text-white;
+                        color: map.get($colors, 'white');
                     }
 
                     img {
@@ -31,13 +34,14 @@
         }
 
         a {
-            @extend .text-white;
-            text-decoration: none;
             display: inline-block;
+
+            color: map.get($colors, 'white');
+            text-decoration: none;
             padding: $base-padding-4;
 
             &:hover {
-                @extend .bg-primary-dark-1;
+                background-color: map.get($colors, 'primary');
             }
         }
     }

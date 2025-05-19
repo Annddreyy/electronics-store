@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import classes from './Navigation.module.scss';
 import { TopLinksType } from '../TopPart';
-import cn from 'classnames';
+import classes from './Navigation.module.scss';
 
 export const Navigation: React.FC<TopLinksType> = ({ links }) => {
     return (
@@ -10,7 +9,7 @@ export const Navigation: React.FC<TopLinksType> = ({ links }) => {
                 <NavLink
                     key={link.link}
                     to={link.link}
-                    className={cn(classes.link, 'bg-secondary')}
+                    className={classes.link}
                 >
                     <img src={link.img} alt="" />
                     <span className={classes.title}>{link.title}</span>

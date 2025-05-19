@@ -1,5 +1,4 @@
 import classes from './Map.module.scss';
-
 import map from './../../../../../assets/contacts/map.png';
 
 export const Map: React.FC = () => {

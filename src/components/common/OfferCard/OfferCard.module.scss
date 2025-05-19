@@ -1,5 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
+@use 'sass:map';
 
 .card {
     width: 100%;
@@ -7,9 +8,12 @@
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: $base-padding-6;
     align-items: center;
+
+    padding: $base-padding-6;
     border-radius: $base-border-radius-2;
+
+    background-color: map.get($colors, 'secondary');
 
     .title {
         font-size: $font-size-lg;

@@ -21,11 +21,11 @@
 
         &::after {
             position: absolute;
+            content: '';
             bottom: -$base-padding-6;
-            content: ' ';
-            border: 1.5px solid map.get($colors, 'primary');
             left: 0;
             right: 0;
+            border: 1.5px solid map.get($colors, 'primary');
         }
     }
 }

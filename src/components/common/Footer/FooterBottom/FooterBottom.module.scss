@@ -1,8 +1,14 @@
 @use './../../../../scss/variables' as *;
+@use 'sass:map';
 
 .footerBottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: $base-padding-6;
+
+    .rightsReceived,
+    .author {
+        color: map.get($colors, 'gray');
+    }
 }

@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import { AppStateType } from '../../../../../redux/store';
 import { NavLink } from 'react-router-dom';
+import { LinkStringType, SelectorType } from '../../../../../types';
 import classes from './ProductsCount.module.scss';
 
 type PropsType = {
-    selector: (state: AppStateType) => any[];
-    link: `/${string}`;
+    selector: SelectorType<any>;
+    link: LinkStringType;
     iconBase: string;
     iconActive?: string;
 };
@@ -17,7 +17,6 @@ export const ProductsCount: React.FC<PropsType> = ({
     iconActive,
 }) => {
     const products = useSelector(selector).length;
-    console.log(iconActive);
     return (
         <NavLink to={link} className={classes.block}>
             {iconActive ? (

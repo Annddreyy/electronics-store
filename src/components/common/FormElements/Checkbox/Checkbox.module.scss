@@ -1,10 +1,11 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
 
 .label {
-    display: flex;
+    @extend .row-mini;
+
     align-items: center;
     margin-bottom: $base-margin-2;
-    gap: $gap-mini;
 
     input {
         display: none;

@@ -21,11 +21,7 @@ export const Offers: React.FC = () => {
                 <BreadCrumbs path={path} />
                 <h2 className="pageTitle">Акции</h2>
                 <CardsBlock selector={getOffersSelector} Card={OfferCard} />
-                <Paginator
-                    totalItemsCount={100}
-                    pageSize={10}
-                    pagesPerGroup={3}
-                />
+                <Paginator totalItemsCount={100} pageSize={10} />
             </div>
             <Footer />
         </>

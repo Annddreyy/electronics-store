@@ -1,17 +1,16 @@
-import cn from 'classnames';
 import { useEffect, useState } from 'react';
 import classes from './Paginator.module.scss';
 
 type PropsType = {
     totalItemsCount: number;
     pageSize: number;
-    pagesPerGroup: number;
+    pagesPerGroup?: number;
 };
 
 export const Paginator: React.FC<PropsType> = ({
     totalItemsCount,
     pageSize,
-    pagesPerGroup,
+    pagesPerGroup = 3,
 }) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -25,13 +24,13 @@ export const Paginator: React.FC<PropsType> = ({
 
     const elipsiss = <div className={classes.elipsiss}>...</div>;
 
-    const first = () => {
+    const setAllPages = () => {
         for (let i = 1; i <= totalPagesCount; i++) {
             pages.push(i);
         }
     };
 
-    const second = () => {
+    const setCurrentPages = () => {
         if (currentPage > pagesPerGroup) {
             pages.push(1, 0);
         } else {
@@ -65,22 +64,13 @@ export const Paginator: React.FC<PropsType> = ({
 
     const setPaginator = () => {
         if (totalPagesCount >= pagesPerGroup + 4) {
-            second();
+            setCurrentPages();
         } else {
-            first();
+            setAllPages();
         }
     };
 
     setPaginator();
-
-    const buttonStyleBase = cn('border-gray', 'text-gray');
-    const buttonStyleCurrentPage = cn(
-        'text-white',
-        'bg-primary',
-        'border-primary',
-    );
-    const buttonStyleActive = cn('border-gray', 'text-black');
-    const buttonStyleDisabled = cn('border-gray', 'text-gray');
 
     const nextButtonHandler = () => {
         setCurrentPage((prev) => prev + 1);
@@ -99,9 +89,9 @@ export const Paginator: React.FC<PropsType> = ({
             {page !== 0 ? (
                 <button
                     className={
-                        currentPage !== page
-                            ? buttonStyleBase
-                            : buttonStyleCurrentPage
+                        currentPage === page
+                            ? 'button-primary'
+                            : classes.buttonStyleBase
                     }
                     onClick={onPageButtonClick}
                 >
@@ -116,9 +106,7 @@ export const Paginator: React.FC<PropsType> = ({
     return (
         <div className={classes.paginator}>
             <button
-                className={
-                    currentPage !== 1 ? buttonStyleActive : buttonStyleDisabled
-                }
+                className={currentPage === 1 ? classes.buttonStyleDisabled : ''}
                 onClick={prevButtonHandler}
                 disabled={currentPage === 1}
             >
@@ -127,9 +115,9 @@ export const Paginator: React.FC<PropsType> = ({
             {pagesElems}
             <button
                 className={
-                    currentPage !== totalPagesCount
-                        ? buttonStyleActive
-                        : buttonStyleDisabled
+                    currentPage === totalPagesCount
+                        ? classes.buttonStyleDisabled
+                        : ''
                 }
                 onClick={nextButtonHandler}
                 disabled={currentPage === totalPagesCount}

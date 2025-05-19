@@ -1,14 +1,12 @@
 @use './../../../../../scss/variables' as *;
+@use './../../../../../scss/display' as *;
 @use 'sass:map';
 
 .mainInformation {
-    display: flex;
-    flex-direction: column;
-    gap: $base-gap;
+    @extend .column;
     padding: $base-padding-4;
 
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid map.get($colors, 'secondary');
     border-radius: $base-border-radius-3;
 
     .top {
@@ -17,33 +15,26 @@
         align-items: flex-start;
 
         .buttons {
-            display: flex;
-            gap: $gap-mini;
+            @extend .row-mini;
         }
     }
 
     .bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        @extend .row-center;
 
         .price {
-            display: flex;
-            flex-direction: column;
-            gap: $gap-mini;
+            @extend .column-mini;
 
             .top {
-                display: flex;
+                @extend .row-mini;
                 align-items: center;
-                gap: $gap-mini;
                 width: max-content;
             }
         }
 
         .buttons {
             width: min(600px, 100%);
-            display: flex;
-            gap: $gap-mini;
+            @extend .row-mini;
 
             button {
                 width: 100%;

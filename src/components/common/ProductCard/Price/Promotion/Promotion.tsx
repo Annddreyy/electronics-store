@@ -1,5 +1,4 @@
 import classes from './Promotion.module.scss';
-import cn from 'classnames';
 
 type PropsType = {
     price: number;
@@ -10,11 +9,11 @@ export const Promotion: React.FC<PropsType> = ({ price, promotionPercent }) => {
     return (
         <>
             {promotionPercent && (
-                <p className={cn(classes.promotion, 'bg-orange')}>
-                    <span className={cn(classes.percentCount, 'bg-white')}>
+                <p className={classes.promotion}>
+                    <span className={classes.percentCount}>
                         {promotionPercent}%
                     </span>
-                    <span className={cn(classes.promotionValue, 'text-white')}>
+                    <span className={classes.promotionValue}>
                         — {(promotionPercent * price) / 100}₽
                     </span>
                 </p>

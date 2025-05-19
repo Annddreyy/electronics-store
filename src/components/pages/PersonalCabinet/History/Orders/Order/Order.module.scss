@@ -1,4 +1,6 @@
 @use './../../../../../../scss/variables' as *;
+@use './../../../../../../scss/display' as *;
+
 @use 'sass:map';
 @use 'sass:math';
 
@@ -11,7 +13,7 @@
 
         &::before {
             position: absolute;
-            content: "";
+            content: '';
             left: 0;
             right: 0;
             top: math.div(-$base-gap, 2);
@@ -36,24 +38,17 @@
 
     .information {
         margin-top: $base-margin-4;
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
+        @extend .column;
 
         .orderComposition {
-            display: flex;
-            flex-direction: column;
-            gap: $base-gap;
+            @extend .column;
 
             .products {
-                display: flex;
+                @extend .row;
                 flex-wrap: wrap;
-                gap: $base-gap;
 
                 .product {
-                    display: flex;
-                    flex-direction: column;
-                    gap: $base-gap;
+                    @extend .column;
 
                     img {
                         width: 100px;
@@ -65,18 +60,13 @@
         }
 
         .history {
-            display: flex;
-            flex-direction: column;
-            gap: $base-gap;
+            @extend .column;
 
             .historyElems {
-                display: flex;
-                flex-direction: column;
-                gap: $base-gap;
+                @extend .column;
 
                 .stage {
-                    display: flex;
-                    gap: $base-gap;
+                    @extend .row;
                 }
             }
         }

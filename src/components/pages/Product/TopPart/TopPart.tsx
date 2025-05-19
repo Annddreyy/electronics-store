@@ -3,7 +3,7 @@ import { MainInformation } from './MainInformation/MainInformation';
 import { ProductImages } from './ProductImages/ProductImages';
 import classes from './TopPart.module.scss';
 import img1 from './../../../../assets/card/card.png';
-import img2 from './../../../../assets/productDefault.png';
+import img2 from './../../../../assets/card/productDefault.png';
 
 export const TopPart: React.FC = () => {
     return (

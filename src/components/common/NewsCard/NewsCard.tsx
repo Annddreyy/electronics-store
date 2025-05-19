@@ -1,8 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { NewsType } from '../../../redux/news/newsReducer';
-import classes from './NewsCard.module.scss';
-import cn from 'classnames';
 import { formatDate } from '../../../utils/formatDate';
+import classes from './NewsCard.module.scss';
 
 export const NewsCard: React.FC<NewsType> = ({
     id,
@@ -14,7 +13,7 @@ export const NewsCard: React.FC<NewsType> = ({
     const dateString = formatDate(date);
     return (
         <NavLink to={`/news/${id}`}>
-            <article className={cn(classes.news, 'bg-secondary')}>
+            <article className={classes.news}>
                 {img && <img src={img} alt="" />}
                 <div className={classes.information}>
                     <h3 className={classes.title}>{title}</h3>
@@ -23,12 +22,7 @@ export const NewsCard: React.FC<NewsType> = ({
                         <button className={'text-primary-dark-4'}>
                             Подробнее ▶
                         </button>
-                        <time
-                            dateTime="2021-06-05 00:00"
-                            className={'text-gray'}
-                        >
-                            {dateString}
-                        </time>
+                        <time dateTime="2021-06-05 00:00">{dateString}</time>
                     </div>
                 </div>
             </article>

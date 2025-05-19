@@ -18,10 +18,6 @@
     margin: 0 auto;
 }
 
-.row {
-    display: flex;
-}
-
 .pageTitle {
     font-size: $font-size-xl;
     padding: $base-padding-6 0;
@@ -37,7 +33,8 @@
 }
 
 @include md {
-    .pageTitle, .textLg {
+    .pageTitle,
+    .textLg {
         font-size: $font-size-md;
     }
 }
@@ -48,7 +45,8 @@ button {
     cursor: pointer;
 }
 
-ul, li {
+ul,
+li {
     list-style-position: inside;
 }
 
@@ -99,10 +97,6 @@ address {
     display: flex;
     flex-direction: column;
     gap: $base-gap;
-}
-
-.errorMessage {
-    color: map.get($colors, 'error');
 }
 
 .inputError {

@@ -5,9 +5,5 @@ type PropsType = {
 };
 
 export const Price: React.FC<PropsType> = ({ price }) => {
-    return (
-        <div>
-            <p className={classes.price}>{price}₽</p>
-        </div>
-    );
+    return <p className={classes.price}>{price}₽</p>;
 };

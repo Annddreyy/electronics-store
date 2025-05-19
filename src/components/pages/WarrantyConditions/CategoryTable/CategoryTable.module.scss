@@ -11,10 +11,10 @@
             border: 1px solid map.get($colors, 'gray');
             padding: $base-padding-4;
         }
-    
+
         td {
             color: map.get($colors, 'gray');
-    
+
             &:first-child {
                 color: map.get($colors, 'black');
                 font-weight: bolder;
