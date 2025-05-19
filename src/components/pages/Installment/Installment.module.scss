@@ -1,5 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/display' as *;
+@use './../../../scss/breakpoints' as *;
 
 .bottom {
     display: flex;
@@ -14,6 +15,21 @@
         @extend .column-mini;
         h2 {
             font-weight: 600;
+        }
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+@include breakpoint(750px) {
+    .bottom {
+        flex-direction: column;
+
+        h2,
+        .information {
+            align-self: flex-start;
         }
     }
 }
