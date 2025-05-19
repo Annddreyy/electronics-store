@@ -1,7 +1,20 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/breakpoints' as *;
 
 .information {
     display: grid;
     grid-template-columns: 4fr 7fr;
     gap: $base-gap-2;
+}
+
+@include breakpoint(850px) {
+    .information {
+        grid-template-columns: 3fr 10fr;
+    }
+}
+
+@include breakpoint(730px) {
+    .information {
+        grid-template-columns: 1fr;
+    }
 }
