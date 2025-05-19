@@ -1,7 +1,9 @@
 @use './../../../../../scss/variables' as *;
 @use './../../../../../scss/display' as *;
+@use './../../../../../scss/breakpoints' as *;
 
 .information {
+    grid-area: 'mini-information';
     display: flex;
     gap: $base-gap-2;
 
@@ -12,5 +14,11 @@
         .text {
             @extend .column-mini;
         }
+    }
+}
+
+@include breakpoint(950px) {
+    .information {
+        flex-direction: column;
     }
 }

@@ -4,6 +4,7 @@
 
 .links {
     display: flex;
+    flex-wrap: wrap;
     gap: $base-gap-2;
     margin-top: $base-margin-8;
 
@@ -13,10 +14,12 @@
 
     .link + .link {
         position: relative;
+        left: 1em;
     }
 
     .link + .link::before {
         position: absolute;
+        width: 1em;
         content: '►';
         left: -1.5em;
     }
