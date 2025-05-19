@@ -1,6 +1,27 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/display' as *;
 
+@use 'sass:map';
+
 .mainPart {
-    @extend .row
+    @extend .row;
+
+    .left {
+        @extend .column;
+        .orderBlock {
+            padding: $base-padding-8;
+            border: 1.75px solid map.get($colors, 'secondary');
+            border-radius: $base-border-radius-3;
+
+            .blockTitle, .blockTitleGray {
+                font-size: $font-size-lg;
+                padding-bottom: $base-padding-4;
+            }
+
+            .blockTitleGray {
+                color: map.get($colors, 'gray');
+                padding-bottom: 0;
+            }
+        }
+    }
 }

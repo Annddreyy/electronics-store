@@ -1,5 +1,5 @@
 import { ProductCard } from './ProductCard/ProductCard';
-import classes from './BinProducts.module.scss';
+import classes from './../PlacingAnOrder.module.scss';
 import img from './../../../../assets/card/productDefault.png';
 
 export type ProductCardType = {
@@ -38,8 +38,8 @@ export const BinProducts: React.FC = () => {
         <ProductCard {...product} />
     ));
     return (
-        <section className={classes.binProducts}>
-            <h2 className="sectionTitle">Ваш заказ</h2>
+        <section className={classes.orderBlock}>
+            <h2 className={classes.blockTitle}>Ваш заказ</h2>
             <table>
                 <tbody>{productsElem}</tbody>
             </table>

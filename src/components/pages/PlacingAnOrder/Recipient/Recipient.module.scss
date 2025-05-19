@@ -1,0 +1,11 @@
+@use './../../../../scss/variables' as *;
+
+.recipientForm {
+    display: grid;
+    grid-template-areas: 
+        'title title'
+        'name surname'
+        'phone email'
+        'checkbox checkbox';
+    gap: $base-gap;
+}
