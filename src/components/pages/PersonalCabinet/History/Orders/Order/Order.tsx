@@ -35,18 +35,20 @@ export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
     return (
         <details className={classes.order}>
             <summary className={classes.title}>
-                <div>
-                    Заказ #{id}{' '}
-                    <span className={classes.date}>от {stringDate}</span>
-                </div>
-                <div>
-                    {productsCount} товара на сумму {productsSum}₽
-                </div>
-                <div
-                    className={classes.status}
-                    data-status={history.at(-1)?.status}
-                >
-                    {history.at(-1)?.status}
+                <div className={classes.left}>
+                    <div className={classes.orderNumber}>
+                        <span>Заказ #{id} </span>
+                        <span className={classes.date}>от {stringDate}</span>
+                    </div>
+                    <div>
+                        {productsCount} товара на сумму {productsSum}₽
+                    </div>
+                    <div
+                        className={classes.status}
+                        data-status={history.at(-1)?.status}
+                    >
+                        {history.at(-1)?.status}
+                    </div>
                 </div>
             </summary>
             <div className={classes.information}>
