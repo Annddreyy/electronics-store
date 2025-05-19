@@ -1,3 +1,13 @@
+@use './../../../../../scss/variables' as *;
+@use './../../../../../scss/breakpoints' as *;
+
 .map {
-    width: 100%;
+    max-width: 100%;
+    border-radius: $base-border-radius;
+}
+
+@include breakpoint(730px) {
+    .map {
+        height: 500px;
+    }
 }
