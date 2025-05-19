@@ -1,6 +1,13 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
 
 .information {
     display: flex;
     gap: $base-gap-2;
+}
+
+@include breakpoint(1000px) {
+    .information {
+        flex-direction: column;
+    }
 }
