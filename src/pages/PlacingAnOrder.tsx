@@ -32,7 +32,10 @@ export type OrderBlockProps = {
 export const PlacingAnOrder: React.FC = () => {
     const products = useSelector(getProducts);
 
-    const productsCount = products.length;
+    const productsCount = products.reduce(
+        (sum, product) => sum + product.count,
+        0,
+    );
     const sum = products.reduce(
         (sum, product) => sum + product.price * product.count,
         0,

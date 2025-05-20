@@ -6,6 +6,7 @@ import classes from './Delivery.module.scss';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../../../../redux/order/orderReducer';
 import { DeliveryType } from '../../../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
+import { NextButton } from '../../../NextButton/NextButton';
 
 type FormDataType = {
     date: string;
@@ -15,7 +16,11 @@ type FormDataType = {
     comment: string;
 };
 
-export const Delivery: React.FC = () => {
+type PropsType = {
+    changeNextOrderStep: () => void;
+};
+
+export const Delivery: React.FC<PropsType> = ({ changeNextOrderStep }) => {
     const {
         register,
         handleSubmit,
@@ -30,10 +35,14 @@ export const Delivery: React.FC = () => {
             method: 'Доставка',
         };
         dispatch(actions.setReceivingMethod(data));
+        changeNextOrderStep();
     };
 
     return (
-        <form onBlur={handleSubmit(onSubmit)} className={classes.deliveryForm}>
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={classes.deliveryForm}
+        >
             <div className="form-block" style={{ gridArea: 'date' }}>
                 <label htmlFor="date">Дата</label>
                 <Field
@@ -51,11 +60,11 @@ export const Delivery: React.FC = () => {
                 <ErrorMessage error={errors.date} />
             </div>
             <div className="form-block" style={{ gridArea: 'street' }}>
-                <label htmlFor="street">Улица, дом/корпус</label>
+                <label htmlFor="addressDelivery">Улица, дом/корпус</label>
                 <Field
                     type="text"
-                    id="street"
-                    name="street"
+                    id="addressDelivery"
+                    name="addressDelivery"
                     register={register}
                     options={{ required: 'Поле обязательное' }}
                     className={cn({
@@ -123,6 +132,7 @@ export const Delivery: React.FC = () => {
                 <option value="12:00 - 15:00 (бесплатно)"></option>
                 <option value="09:00 - 12:00 (бесплатно)"></option>
             </datalist>
+            <NextButton />
         </form>
     );
 };

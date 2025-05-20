@@ -52,10 +52,7 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
                             <h2 className={classes.blockTitle}>
                                 Способ получения
                             </h2>
-                            <form
-                                onBlur={handleSubmit(onSubmit)}
-                                className={styles.methodOfReceivingForm}
-                            >
+                            <form className={styles.methodOfReceivingForm}>
                                 <div
                                     className="form-block"
                                     style={{ gridArea: 'city' }}
@@ -103,9 +100,10 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
                                                     dirtyFields.method,
                                             })}
                                             style={{ border: 'none' }}
-                                            onChange={() =>
-                                                setFormType(FormType.DELIVERY)
-                                            }
+                                            onChange={() => {
+                                                console.log(1);
+                                                setFormType(FormType.DELIVERY);
+                                            }}
                                         />
                                         <label htmlFor="deliveryMethod">
                                             Доставка
@@ -134,14 +132,15 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
                                                     !errors.method &&
                                                     dirtyFields.method,
                                             })}
-                                            onChange={() =>
+                                            onChange={() => {
+                                                console.log(2);
                                                 setFormType(
                                                     FormType.SELF_PICKUP,
-                                                )
-                                            }
+                                                );
+                                            }}
                                         />
                                         <label htmlFor="selfPickupMethod">
-                                            Ваш город
+                                            Самовывоз
                                         </label>
                                         <ErrorMessage error={errors.method} />
                                     </div>
@@ -154,15 +153,18 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
                         </div>
                         {formType !== FormType.NOT_CHANGE ? (
                             formType === FormType.DELIVERY ? (
-                                <Delivery />
+                                <Delivery
+                                    changeNextOrderStep={changeNextOrderStep}
+                                />
                             ) : (
-                                <SelfPickup />
+                                <SelfPickup
+                                    changeNextOrderStep={changeNextOrderStep}
+                                />
                             )
                         ) : (
                             <></>
                         )}
                     </section>
-                    <NextButton setNextOrderStage={changeNextOrderStep} />
                 </>
             ) : (
                 <MethodOfReceivingFill changeStage={changeFillingStage} />

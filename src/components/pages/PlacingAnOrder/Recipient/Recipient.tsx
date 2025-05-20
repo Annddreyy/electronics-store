@@ -7,6 +7,7 @@ import styles from './Recipient.module.scss';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../../redux/order/orderReducer';
+import { NextButton } from '../NextButton/NextButton';
 
 export type RecipientType = {
     name: string;
@@ -33,7 +34,7 @@ export const Recipient: React.FC = () => {
         <section className={classes.orderBlock}>
             <form
                 className={styles.recipientForm}
-                onBlur={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 <h2
                     className={classes.blockTitle}
@@ -123,6 +124,7 @@ export const Recipient: React.FC = () => {
                     />
                     <ErrorMessage error={errors.agree} />
                 </div>
+                <NextButton />
             </form>
         </section>
     );

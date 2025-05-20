@@ -7,12 +7,17 @@ import styles from './SelfPickup.module.scss';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../../../../redux/order/orderReducer';
 import { SelfPickUpType } from '../../../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
+import { NextButton } from '../../../NextButton/NextButton';
 
 type FormDataValues = {
     magazine: string;
 };
 
-export const SelfPickup: React.FC = () => {
+type PropsType = {
+    changeNextOrderStep: () => void;
+};
+
+export const SelfPickup: React.FC<PropsType> = ({ changeNextOrderStep }) => {
     const {
         register,
         handleSubmit,
@@ -29,6 +34,7 @@ export const SelfPickup: React.FC = () => {
             workingTime,
         };
         dispatch(actions.setReceivingMethod(data));
+        changeNextOrderStep();
     };
 
     const magazines = [
@@ -72,9 +78,10 @@ export const SelfPickup: React.FC = () => {
 
     return (
         <div className={styles.information}>
-            <form onBlur={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <h3>Товар доступен в 15 магазинах</h3>
                 <div className={styles.magazines}>{magazinesElems}</div>
+                <NextButton />
             </form>
             <MapComponent />
         </div>
