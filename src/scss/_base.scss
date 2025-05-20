@@ -78,6 +78,16 @@ address {
     }
 }
 
+.button-primary:disabled {
+    border: 1px solid map.get($colors, 'gray');
+    background-color: map.get($colors, 'gray');
+
+    &:hover {
+        background-color: map.get($colors, 'white');
+        color: map.get($colors, 'gray');
+    }
+}
+
 .button-primary-outlined {
     font-weight: 600;
     border-radius: $base-border-radius;

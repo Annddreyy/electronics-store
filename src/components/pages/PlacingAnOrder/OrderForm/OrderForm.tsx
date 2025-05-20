@@ -3,6 +3,8 @@ import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
 import classes from './OrderForm.module.scss';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
+import { getIsCompleted } from '../../../../redux/order/orderSelectors';
 
 type PropsType = {
     productsCount: number;
@@ -14,6 +16,8 @@ type FormValuesType = {
 };
 
 export const OrderForm: React.FC<PropsType> = ({ productsCount, sum }) => {
+    const isCompleted = useSelector(getIsCompleted);
+
     let deliveryCost;
 
     if (sum >= 10000) {
@@ -63,7 +67,9 @@ export const OrderForm: React.FC<PropsType> = ({ productsCount, sum }) => {
                             {sum + deliveryCost} ₽
                         </span>
                     </p>
-                    <button className="button-primary">Оформить заказ</button>
+                    <button className="button-primary" disabled={!isCompleted}>
+                        Оформить заказ
+                    </button>
                 </div>
             </section>
             <div className={classes.checkbox}>

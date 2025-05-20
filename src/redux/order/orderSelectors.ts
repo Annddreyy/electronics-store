@@ -15,3 +15,7 @@ export const getPayMethod = (state: AppStateType) => {
 export const getRecipient = (state: AppStateType) => {
     return state.order.recipient;
 };
+
+export const getIsCompleted = (state: AppStateType) => {
+    return state.order.isCompleted;
+};

@@ -12,6 +12,7 @@ export type OrderProductsInformation = ProductType & { count: number };
 export type PayMethodType = 'Картой' | 'Наличными';
 
 const initialState = {
+    isCompleted: false,
     products: [
         {
             id: 1,
@@ -76,7 +77,6 @@ const initialState = {
     ] as OrderProductsInformation[],
     receivingMethod: {} as SelfPickUpType | DeliveryType,
     city: '',
-    // FIXME: Создать отдельный тип
     payMethod: '' as PayMethodType,
     recipient: {} as RecipientType,
 };
@@ -143,6 +143,11 @@ export const orderReducer = (
                 ...state,
                 city: action.payload.city,
             };
+        case 'electronic-store/order/SET_IS_COMPLETED':
+            return {
+                ...state,
+                isCompleted: true,
+            };
         default:
             return state;
     }
@@ -189,4 +194,6 @@ export const actions = {
             type: 'electronic-store/order/SET_CITY',
             payload: { city },
         }) as const,
+    setIsCompleted: () =>
+        ({ type: 'electronic-store/order/SET_IS_COMPLETED' }) as const,
 };

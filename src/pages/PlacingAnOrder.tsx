@@ -8,7 +8,7 @@ import { MethodOfReceiving } from '../components/pages/PlacingAnOrder/MethodOfRe
 import { OrderForm } from '../components/pages/PlacingAnOrder/OrderForm/OrderForm';
 import { PayMethod } from '../components/pages/PlacingAnOrder/PayMethod/PayMethod';
 import { Recipient } from '../components/pages/PlacingAnOrder/Recipient/Recipient';
-import { getProducts } from '../redux/order/orderSelectors';
+import { getIsCompleted, getProducts } from '../redux/order/orderSelectors';
 import classes from './../components/pages/PlacingAnOrder/PlacingAnOrder.module.scss';
 
 export enum OrderSteps {

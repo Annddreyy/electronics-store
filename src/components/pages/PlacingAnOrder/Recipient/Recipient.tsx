@@ -28,6 +28,7 @@ export const Recipient: React.FC = () => {
 
     const onSubmit = (formData: RecipientType) => {
         dispatch(actions.setRecipient(formData));
+        dispatch(actions.setIsCompleted());
     };
 
     return (
