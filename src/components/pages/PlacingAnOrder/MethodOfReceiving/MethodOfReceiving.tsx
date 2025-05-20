@@ -22,12 +22,7 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
                     <NextButton setNextOrderStage={changeNextOrderStep} />
                 </>
             ) : (
-                <MethodOfReceivingFill
-                    method="Самовывоз"
-                    addressSelfPickUp="1"
-                    workingTime="1"
-                    changeStage={changeFillingStage}
-                />
+                <MethodOfReceivingFill changeStage={changeFillingStage} />
             )}
         </>
     );

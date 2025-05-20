@@ -6,6 +6,8 @@ import classes from './../PlacingAnOrder.module.scss';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
+import { actions } from '../../../../redux/order/orderReducer';
+import { useDispatch } from 'react-redux';
 
 type FormValuesType = {
     paymentMethod: string;
@@ -22,8 +24,15 @@ export const PayMethod: React.FC<OrderBlockProps> = ({
         formState: { errors, dirtyFields },
     } = useForm<FormValuesType>();
 
+    const dispatch = useDispatch();
+
     const changeFillingStage = () => {
         setCurrentOrderStep(OrderSteps.PAYMENT_METHOD);
+    };
+
+    const onSubmit = (formData: FormValuesType) => {
+        console.log(1);
+        dispatch(actions.setPayMethod(formData.paymentMethod));
     };
 
     return (
@@ -31,7 +40,7 @@ export const PayMethod: React.FC<OrderBlockProps> = ({
             {currentOrderState === OrderSteps.PAYMENT_METHOD ? (
                 <>
                     <section className={classes.orderBlock}>
-                        <form>
+                        <form onBlur={handleSubmit(onSubmit)}>
                             <h2 className={classes.blockTitle}>
                                 Способ оплаты
                             </h2>
@@ -62,10 +71,7 @@ export const PayMethod: React.FC<OrderBlockProps> = ({
                     <NextButton setNextOrderStage={changeNextOrderStep} />
                 </>
             ) : (
-                <PayMethodFill
-                    type={'Наличными'}
-                    changeStage={changeFillingStage}
-                />
+                <PayMethodFill changeStage={changeFillingStage} />
             )}
         </>
     );

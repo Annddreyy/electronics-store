@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux';
 import { formatDate } from '../../../../../utils/formatDate';
 import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './MethodOfReceivingFill.module.scss';
+import { getReceivingMethod } from '../../../../../redux/order/orderSelectors';
 
 export type SelfPickUpType = {
     method: 'Самовывоз';
@@ -19,29 +21,32 @@ export type DeliveryType = {
     changeStage: () => void;
 };
 
-type PropsType = SelfPickUpType | DeliveryType;
+type PropsType = {
+    changeStage: () => void;
+};
 
-export const MethodOfReceivingFill: React.FC<PropsType> = (props) => {
+export const MethodOfReceivingFill: React.FC<PropsType> = ({ changeStage }) => {
+    const information = useSelector(getReceivingMethod);
     return (
         <section className={classes.orderBlock}>
             <h2 className={classes.blockTitle}>Способ получения</h2>
             <div className={styles.selectedInformation}>
-                {props.method === 'Доставка' ? (
+                {information.method === 'Доставка' ? (
                     <div>
                         <p>Доставка:</p>
-                        <p>{props.addressDelivery}</p>
-                        <p>{props.appartment}</p>
-                        <p>{formatDate(props.date)}</p>
-                        <p>{props.time}</p>
+                        <p>{information.addressDelivery}</p>
+                        <p>{information.appartment}</p>
+                        <p>{formatDate(information.date)}</p>
+                        <p>{information.time}</p>
                     </div>
                 ) : (
                     <div>
                         <p>Самовывоз из:</p>
-                        <p>{props.addressSelfPickUp}</p>
-                        <p>{props.workingTime}</p>
+                        <p>{information.addressSelfPickUp}</p>
+                        <p>{information.workingTime}</p>
                     </div>
                 )}
-                <ChangeButton changeStage={props.changeStage} />
+                <ChangeButton changeStage={changeStage} />
             </div>
         </section>
     );
