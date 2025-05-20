@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { BinProducts } from '../components/pages/PlacingAnOrder/BinProducts/BinProducts';
@@ -7,6 +8,7 @@ import { MethodOfReceiving } from '../components/pages/PlacingAnOrder/MethodOfRe
 import { OrderForm } from '../components/pages/PlacingAnOrder/OrderForm/OrderForm';
 import { PayMethod } from '../components/pages/PlacingAnOrder/PayMethod/PayMethod';
 import { Recipient } from '../components/pages/PlacingAnOrder/Recipient/Recipient';
+import { getProducts } from '../redux/order/orderSelectors';
 import classes from './../components/pages/PlacingAnOrder/PlacingAnOrder.module.scss';
 
 export enum OrderSteps {
@@ -28,7 +30,17 @@ export type OrderBlockProps = {
 };
 
 export const PlacingAnOrder: React.FC = () => {
-    const [currentOrderState, setCurrentOrderStep] = useState(OrderSteps.ORDER);
+    const products = useSelector(getProducts);
+
+    const productsCount = products.length;
+    const sum = products.reduce(
+        (sum, product) => sum + product.price * product.count,
+        0,
+    );
+
+    const [currentOrderState, setCurrentOrderStep] = useState(
+        OrderSteps.METHOD_OF_RECEIVING,
+    );
 
     const ActiveBlocks = {
         [OrderSteps.ORDER]: BinProducts,
@@ -119,7 +131,7 @@ export const PlacingAnOrder: React.FC = () => {
                             DisabledBlocks[OrderSteps.RECIPIENT]
                         )}
                     </div>
-                    <OrderForm productsCount={2} sum={9000} />
+                    <OrderForm productsCount={productsCount} sum={sum} />
                 </div>
             </div>
             <Footer />

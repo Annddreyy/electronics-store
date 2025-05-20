@@ -6,11 +6,11 @@ import classes from './../PlacingAnOrder.module.scss';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
-import { actions } from '../../../../redux/order/orderReducer';
+import { actions, PayMethodType } from '../../../../redux/order/orderReducer';
 import { useDispatch } from 'react-redux';
 
 type FormValuesType = {
-    paymentMethod: string;
+    paymentMethod: PayMethodType;
 };
 
 export const PayMethod: React.FC<OrderBlockProps> = ({
@@ -31,6 +31,7 @@ export const PayMethod: React.FC<OrderBlockProps> = ({
     };
 
     const onSubmit = (formData: FormValuesType) => {
+        alert(1);
         dispatch(actions.setPayMethod(formData.paymentMethod));
     };
 
@@ -50,7 +51,13 @@ export const PayMethod: React.FC<OrderBlockProps> = ({
                                     name="paymentMethod"
                                     placeholder="Введите имя"
                                     register={register}
-                                    options={{ required: 'Поле обязательное' }}
+                                    options={{
+                                        required: 'Поле обязательное',
+                                        validate: (value) =>
+                                            ['Наличными', 'Картой'].includes(
+                                                value,
+                                            ) || 'Недопустимое значение',
+                                    }}
                                     className={cn({
                                         inputError: errors.paymentMethod,
                                         inputCorrect:

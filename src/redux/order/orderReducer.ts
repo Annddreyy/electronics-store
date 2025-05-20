@@ -9,6 +9,8 @@ import productImg from './../../assets/card/productDefault.png';
 
 export type OrderProductsInformation = ProductType & { count: number };
 
+export type PayMethodType = 'Картой' | 'Наличными';
+
 const initialState = {
     products: [
         {
@@ -73,8 +75,9 @@ const initialState = {
         },
     ] as OrderProductsInformation[],
     receivingMethod: {} as SelfPickUpType | DeliveryType,
+    city: '',
     // FIXME: Создать отдельный тип
-    payMethod: '',
+    payMethod: '' as PayMethodType,
     recipient: {} as RecipientType,
 };
 
@@ -135,6 +138,11 @@ export const orderReducer = (
                 ...state,
                 recipient: action.payload.recipient,
             };
+        case 'electronic-store/order/SET_CITY':
+            return {
+                ...state,
+                city: action.payload.city,
+            };
         default:
             return state;
     }
@@ -166,7 +174,7 @@ export const actions = {
             type: 'electronic-store/order/SET_RECEIVING_METHOD',
             payload: { receivingMethod },
         }) as const,
-    setPayMethod: (payMethod: string) =>
+    setPayMethod: (payMethod: PayMethodType) =>
         ({
             type: 'electronic-store/order/SET_PAY_METHOD',
             payload: { payMethod },
@@ -175,5 +183,10 @@ export const actions = {
         ({
             type: 'electronic-store/order/SET_RECIPIENT',
             payload: { recipient },
+        }) as const,
+    setCity: (city: string) =>
+        ({
+            type: 'electronic-store/order/SET_CITY',
+            payload: { city },
         }) as const,
 };

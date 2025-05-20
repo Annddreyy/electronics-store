@@ -1,0 +1,27 @@
+@use './../../../../../../scss/variables' as *;
+
+.information {
+    display: flex;
+    .magazines {
+        margin-top: $base-margin-6;
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+        height: 300px;
+        overflow-y: auto;
+        .radio {
+            flex-direction: row;
+            align-items: flex-start;
+
+            .radioInformation {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-mini;
+            }
+            
+            * {
+                padding: 0;
+            }
+        }
+    }
+}

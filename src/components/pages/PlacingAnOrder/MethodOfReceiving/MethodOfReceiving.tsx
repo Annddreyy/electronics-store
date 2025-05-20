@@ -7,11 +7,20 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import styles from './MethodOfReceiving.module.scss';
 import cn from 'classnames';
+import { Delivery } from './SecondPart/Delivery/Delivery';
+import { SelfPickup } from './SecondPart/SelfPickup/SelfPickup';
+import { useState } from 'react';
 
 type FormDataType = {
     city: string;
     method: 'Доставка' | 'Самовывоз';
 };
+
+enum FormType {
+    NOT_CHANGE,
+    DELIVERY,
+    SELF_PICKUP,
+}
 
 export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
     changeNextOrderStep,
@@ -32,94 +41,126 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
         console.log(formData.city);
     };
 
+    const [formType, setFormType] = useState<FormType>(FormType.NOT_CHANGE);
+
     return (
         <>
             {currentOrderState === OrderSteps.METHOD_OF_RECEIVING ? (
                 <>
-                    <section className={classes.orderBlock}>
-                        <h2 className={classes.blockTitle}>Способ получения</h2>
-                        <form
-                            onBlur={handleSubmit(onSubmit)}
-                            className={styles.methodOfReceivingForm}
-                        >
-                            <div
-                                className="form-block"
-                                style={{ gridArea: 'city' }}
+                    <section className={cn(classes.orderBlock, styles.order)}>
+                        <div className={styles.topPart}>
+                            <h2 className={classes.blockTitle}>
+                                Способ получения
+                            </h2>
+                            <form
+                                onBlur={handleSubmit(onSubmit)}
+                                className={styles.methodOfReceivingForm}
                             >
-                                <label htmlFor="city">Ваш город</label>
-                                <Field
-                                    type="text"
-                                    id="city"
-                                    name="city"
-                                    list="cities"
-                                    register={register}
-                                    options={{
-                                        required: 'Это поле обязательное',
-                                    }}
-                                    className={cn({
-                                        inputError: errors.city,
-                                        inputCorrect:
-                                            !errors.city && dirtyFields.city,
-                                    })}
-                                />
-                                <ErrorMessage error={errors.city} />
-                            </div>
-                            <div className={styles.right}>
                                 <div
-                                    className={cn('form-block', styles.radio)}
-                                    style={{ gridArea: 'delivery' }}
+                                    className="form-block"
+                                    style={{ gridArea: 'city' }}
                                 >
+                                    <label htmlFor="city">Ваш город</label>
                                     <Field
-                                        type="radio"
-                                        id="receivingMethod"
-                                        name="receivingMethod"
+                                        type="text"
+                                        id="city"
+                                        name="city"
+                                        list="cities"
                                         register={register}
                                         options={{
                                             required: 'Это поле обязательное',
                                         }}
                                         className={cn({
-                                            inputError: errors.method,
+                                            inputError: errors.city,
                                             inputCorrect:
-                                                !errors.method &&
-                                                dirtyFields.method,
-                                        })}
-                                        style={{ border: 'none' }}
-                                    />
-                                    <label htmlFor="receivingMethod">
-                                        Доставка
-                                    </label>
-                                    <ErrorMessage error={errors.method} />
-                                </div>
-                                <div
-                                    className={cn('form-block', styles.radio)}
-                                    style={{ gridArea: 'self-pick-up' }}
-                                >
-                                    <Field
-                                        type="radio"
-                                        id="receivingMethod"
-                                        name="receivingMethod"
-                                        register={register}
-                                        options={{
-                                            required: 'Это поле обязательное',
-                                        }}
-                                        className={cn({
-                                            inputError: errors.method,
-                                            inputCorrect:
-                                                !errors.method &&
-                                                dirtyFields.method,
+                                                !errors.city &&
+                                                dirtyFields.city,
                                         })}
                                     />
-                                    <label htmlFor="receivingMethod">
-                                        Ваш город
-                                    </label>
-                                    <ErrorMessage error={errors.method} />
+                                    <ErrorMessage error={errors.city} />
                                 </div>
-                            </div>
-                        </form>
-                        <datalist id="cities">
-                            <option value="Санкт-Петербург"></option>
-                            <option value="Москва"></option>
-                        </datalist>
+                                <div className={styles.right}>
+                                    <div
+                                        className={cn(
+                                            'form-block',
+                                            styles.radio,
+                                        )}
+                                        style={{ gridArea: 'delivery' }}
+                                    >
+                                        <Field
+                                            type="radio"
+                                            id="deliveryMethod"
+                                            name="receivingMethod"
+                                            register={register}
+                                            options={{
+                                                required:
+                                                    'Это поле обязательное',
+                                            }}
+                                            className={cn({
+                                                inputError: errors.method,
+                                                inputCorrect:
+                                                    !errors.method &&
+                                                    dirtyFields.method,
+                                            })}
+                                            style={{ border: 'none' }}
+                                            onChange={() =>
+                                                setFormType(FormType.DELIVERY)
+                                            }
+                                        />
+                                        <label htmlFor="deliveryMethod">
+                                            Доставка
+                                        </label>
+                                        <ErrorMessage error={errors.method} />
+                                    </div>
+                                    <div
+                                        className={cn(
+                                            'form-block',
+                                            styles.radio,
+                                        )}
+                                        style={{ gridArea: 'self-pick-up' }}
+                                    >
+                                        <Field
+                                            type="radio"
+                                            id="selfPickupMethod"
+                                            name="receivingMethod"
+                                            register={register}
+                                            options={{
+                                                required:
+                                                    'Это поле обязательное',
+                                            }}
+                                            className={cn({
+                                                inputError: errors.method,
+                                                inputCorrect:
+                                                    !errors.method &&
+                                                    dirtyFields.method,
+                                            })}
+                                            onChange={() =>
+                                                setFormType(
+                                                    FormType.SELF_PICKUP,
+                                                )
+                                            }
+                                        />
+                                        <label htmlFor="selfPickupMethod">
+                                            Ваш город
+                                        </label>
+                                        <ErrorMessage error={errors.method} />
+                                    </div>
+                                </div>
+                            </form>
+                            <datalist id="cities">
+                                <option value="Санкт-Петербург"></option>
+                                <option value="Москва"></option>
+                            </datalist>
+                        </div>
+                        {formType !== FormType.NOT_CHANGE ? (
+                            formType === FormType.DELIVERY ? (
+                                <Delivery />
+                            ) : (
+                                <SelfPickup />
+                            )
+                        ) : (
+                            <></>
+                        )}
                     </section>
                     <NextButton setNextOrderStage={changeNextOrderStep} />
                 </>
