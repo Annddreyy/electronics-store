@@ -1,0 +1,6 @@
+@use './../../../scss/variables' as *;
+
+.mainPart {
+    display: flex;
+    gap: $base-gap;
+}

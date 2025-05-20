@@ -11,62 +11,46 @@ import { Price } from './Price/Price';
 import { Promotion } from './Price/Promotion/Promotion';
 import { useDispatch } from 'react-redux';
 
-export const ProductCard: React.FC<ProductType> = ({
-    id,
-    title,
-    img,
-    type,
-    grade,
-    price,
-    commentsCount,
-    promotionPercent,
-    statusList,
-}) => {
+export const ProductCard: React.FC<ProductType> = (product) => {
     const dispatch = useDispatch();
 
     const setViewedProduct = () => {
-        dispatch(
-            actions.setViewedProduct({
-                id,
-                title,
-                img,
-                type,
-                grade,
-                price,
-                commentsCount,
-                promotionPercent,
-                statusList,
-            }),
-        );
+        dispatch(actions.setViewedProduct(product));
     };
 
     return (
         <article className={cn(classes.card, 'border-gray-light-6')}>
             <div className={classes.statuses}>
-                {statusList?.map((status) => (
+                {product.statusList?.map((status) => (
                     <div data-status={status} className={classes.status}>
                         {status}
                     </div>
                 ))}
             </div>
-            <NavLink to={`/products/${id}`}>
-                <img src={img} alt="" onClick={setViewedProduct} />
+            <NavLink to={`/products/${product.id}`}>
+                <img src={product.img} alt="" onClick={setViewedProduct} />
             </NavLink>
-            <span className={'text-gray-dark-1'}>{type}</span>
-            <h3 className={classes.title}>{title}</h3>
-            <Statistics grade={grade} commentsCount={commentsCount} />
-            <OldPrice promotionPercent={promotionPercent} price={price} />
+            <span className={'text-gray-dark-1'}>{product.type}</span>
+            <h3 className={classes.title}>{product.title}</h3>
+            <Statistics
+                grade={product.grade}
+                commentsCount={product.commentsCount}
+            />
+            <OldPrice
+                promotionPercent={product.promotionPercent}
+                price={product.price}
+            />
             <div className={classes.bottomInformation}>
                 <div>
-                    <Price price={price} />
+                    <Price price={product.price} />
                     <Promotion
-                        price={price}
-                        promotionPercent={promotionPercent}
+                        price={product.price}
+                        promotionPercent={product.promotionPercent}
                     />
                 </div>
                 <div className={classes.buttonsInf}>
                     <CompareButton />
-                    <LikeButton />
+                    <LikeButton product={product} />
                 </div>
             </div>
             <div className={classes.buttons}>

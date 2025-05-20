@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getProductById } from '../../../../../redux/products/productsSelectors';
 import { CompareButton } from '../../../../common/ProductCard/CompareButton/CompareButton';
 import { LikeButton } from '../../../../common/ProductCard/LikeButton/LikeButton';
 import { OldPrice } from '../../../../common/ProductCard/OldPrice/OldPrice';
@@ -15,12 +18,15 @@ export const MainInformation: React.FC<PropsType> = ({
     grade,
     commentsCount,
 }) => {
+    const productId = +useParams().productId!;
+    const product = useSelector(getProductById(productId))!;
+
     return (
         <div className={classes.mainInformation}>
             <div className={classes.top}>
                 <Statistics grade={grade} commentsCount={commentsCount} />
                 <div className={classes.buttons}>
-                    <LikeButton />
+                    <LikeButton product={product} />
                     <CompareButton />
                 </div>
             </div>

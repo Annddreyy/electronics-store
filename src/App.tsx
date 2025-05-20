@@ -16,6 +16,7 @@ import { Installment } from './pages/Installment';
 import { PlacingAnOrder } from './pages/PlacingAnOrder';
 import { Viewed } from './pages/Viewed';
 import { Page404 } from './pages/Page404';
+import { FavoriteProducts } from './pages/FavoriteProducts';
 
 const App: React.FC = () => {
     return (
@@ -48,8 +49,8 @@ const App: React.FC = () => {
             <Route path="/installment" element={<Installment />} />
 
             <Route path="/bin" element={<PlacingAnOrder />} />
-
             <Route path="/viewed" element={<Viewed />} />
+            <Route path="/favorite" element={<FavoriteProducts />} />
 
             <Route path="*" element={<Page404 />} />
         </Routes>

@@ -6,6 +6,10 @@ export const getProductsSelector = (state: AppStateType) => {
     return state.products.products;
 };
 
+export const getProductById = (id: number) => (state: AppStateType) => {
+    return state.products.products.find((product) => product.id === id);
+};
+
 export const getProductsByStatus = (status: StatusType) =>
     createSelector(getProductsSelector, (products) =>
         products.filter((product) => product.statusList?.includes(status)),
@@ -20,8 +24,14 @@ export const getViewedProducts = (state: AppStateType) => {
     return Array.from(state.products.viewed.values());
 };
 
-export const getFavorityProducts = (state: AppStateType) => {
-    return state.products.favorite;
+export const getFavoriteProducts = (state: AppStateType) => {
+    return Array.from(state.products.favorite.values());
+};
+
+export const getFavoriteProductById = (id: number) => (state: AppStateType) => {
+    return Array.from(state.products.favorite.values()).find(
+        (product) => product.id === id,
+    );
 };
 
 export const getCompareProducts = (state: AppStateType) => {
