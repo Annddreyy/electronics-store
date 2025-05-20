@@ -3,11 +3,13 @@ import { thunk as thunkMiddleware } from 'redux-thunk';
 import { productsReducer } from './products/productsReducer';
 import { offersReducer } from './offers/offersReducer';
 import { newsReducer } from './news/newsReducer';
+import { orderReducer } from './order/orderReducer';
 
 const rootReducer = combineReducers({
     products: productsReducer,
     offers: offersReducer,
     news: newsReducer,
+    order: orderReducer,
 });
 
 export type AppStateType = ReturnType<typeof rootReducer>;

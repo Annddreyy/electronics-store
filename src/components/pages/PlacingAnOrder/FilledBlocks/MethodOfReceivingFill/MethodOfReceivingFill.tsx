@@ -3,18 +3,20 @@ import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './MethodOfReceivingFill.module.scss';
 
-type SelfPickUpType = {
+export type SelfPickUpType = {
     method: 'Самовывоз';
     addressSelfPickUp: string;
     workingTime: string;
+    changeStage: () => void;
 };
 
-type DeliveryType = {
+export type DeliveryType = {
     method: 'Доставка';
     date: Date;
     addressDelivery: string;
     appartment: string;
     time: string;
+    changeStage: () => void;
 };
 
 type PropsType = SelfPickUpType | DeliveryType;
@@ -39,7 +41,7 @@ export const MethodOfReceivingFill: React.FC<PropsType> = (props) => {
                         <p>{props.workingTime}</p>
                     </div>
                 )}
-                <ChangeButton />
+                <ChangeButton changeStage={props.changeStage} />
             </div>
         </section>
     );

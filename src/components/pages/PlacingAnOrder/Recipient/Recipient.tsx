@@ -6,7 +6,7 @@ import classes from './../PlacingAnOrder.module.scss';
 import styles from './Recipient.module.scss';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
 
-type FormValuesType = {
+export type RecipientType = {
     name: string;
     surname: string;
     phone: string;
@@ -19,18 +19,11 @@ export const Recipient: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
-
-    const onSubmit = (data: FormValuesType) => {
-        console.log(data);
-    };
+    } = useForm<RecipientType>();
 
     return (
         <section className={classes.orderBlock}>
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                className={styles.recipientForm}
-            >
+            <form className={styles.recipientForm}>
                 <h2
                     className={classes.blockTitle}
                     style={{ gridArea: 'title' }}

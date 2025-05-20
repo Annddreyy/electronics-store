@@ -4,7 +4,9 @@
 @use 'sass:map';
 
 .mainPart {
-    @extend .row;
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    gap: $base-gap;
 
     .left {
         @extend .column;

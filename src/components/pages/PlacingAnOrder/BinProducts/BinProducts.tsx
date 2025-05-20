@@ -1,6 +1,11 @@
-import { ProductCard } from './ProductCard/ProductCard';
-import classes from './../PlacingAnOrder.module.scss';
+import { useSelector } from 'react-redux';
+import { OrderSteps } from '../../../../pages/PlacingAnOrder';
+import { getBinProducts } from '../../../../redux/products/productsSelectors';
+import { BinProductsFill } from '../FilledBlocks/BinProductsFilled/BinProductsFill';
+import { NextButton } from '../NextButton/NextButton';
 import img from './../../../../assets/card/productDefault.png';
+import classes from './../PlacingAnOrder.module.scss';
+import { ProductCard } from './ProductCard/ProductCard';
 
 export type ProductCardType = {
     img: string;
@@ -10,39 +15,44 @@ export type ProductCardType = {
     price: number;
 };
 
-export const BinProducts: React.FC = () => {
-    const products: ProductCardType[] = [
-        {
-            img: img,
-            title: 'Гироскутер Smart Balance Well 6.5 Хип-Хоп (АКВАЗАЩИТА)',
-            count: 3,
-            oldPrice: 1200,
-            price: 1400,
-        },
-        {
-            img: img,
-            title: 'Гироскутер Smart Balance Premium 10.5 Зелёный граффити',
-            count: 3,
-            oldPrice: 1200,
-            price: 1400,
-        },
-        {
-            img: img,
-            title: 'Гироскутер Smart Balance Premium 10.5 Зелёный граффити',
-            count: 2,
-            price: 1400,
-        },
-    ];
+type PropsType = {
+    currentOrderState: OrderSteps;
+    changeNextOrderStep: () => void;
+    setCurrentOrderStep: React.Dispatch<React.SetStateAction<OrderSteps>>;
+};
 
+export const BinProducts: React.FC<PropsType> = ({
+    changeNextOrderStep,
+    setCurrentOrderStep,
+    currentOrderState,
+}) => {
+    const changeFillingStage = () => {
+        setCurrentOrderStep(OrderSteps.ORDER);
+    };
+
+    const products = useSelector(getBinProducts);
     const productsElem = products.map((product) => (
-        <ProductCard {...product} />
+        <ProductCard {...product} count={1} />
     ));
+
     return (
-        <section className={classes.orderBlock}>
-            <h2 className={classes.blockTitle}>Ваш заказ</h2>
-            <table>
-                <tbody>{productsElem}</tbody>
-            </table>
-        </section>
+        <>
+            {currentOrderState === OrderSteps.ORDER ? (
+                <>
+                    <section className={classes.orderBlock}>
+                        <h2 className={classes.blockTitle}>Ваш заказ</h2>
+                        <table>
+                            <tbody>{productsElem}</tbody>
+                        </table>
+                    </section>
+                    <NextButton setNextOrderStage={changeNextOrderStep} />
+                </>
+            ) : (
+                <BinProductsFill
+                    images={[img]}
+                    changeStage={changeFillingStage}
+                />
+            )}
+        </>
     );
 };
