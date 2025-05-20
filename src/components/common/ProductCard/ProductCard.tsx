@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { ProductType } from '../../../redux/products/productsReducer';
+import { actions, ProductType } from '../../../redux/products/productsReducer';
 import { BinButton } from './BinButton/BinButton';
 import { CompareButton } from './CompareButton/CompareButton';
 import { LikeButton } from './LikeButton/LikeButton';
@@ -9,6 +9,7 @@ import { Statistics } from './Statistics/Statistics';
 import { OldPrice } from './OldPrice/OldPrice';
 import { Price } from './Price/Price';
 import { Promotion } from './Price/Promotion/Promotion';
+import { useDispatch } from 'react-redux';
 
 export const ProductCard: React.FC<ProductType> = ({
     id,
@@ -21,6 +22,24 @@ export const ProductCard: React.FC<ProductType> = ({
     promotionPercent,
     statusList,
 }) => {
+    const dispatch = useDispatch();
+
+    const setViewedProduct = () => {
+        dispatch(
+            actions.setViewedProduct({
+                id,
+                title,
+                img,
+                type,
+                grade,
+                price,
+                commentsCount,
+                promotionPercent,
+                statusList,
+            }),
+        );
+    };
+
     return (
         <article className={cn(classes.card, 'border-gray-light-6')}>
             <div className={classes.statuses}>
@@ -31,7 +50,7 @@ export const ProductCard: React.FC<ProductType> = ({
                 ))}
             </div>
             <NavLink to={`/products/${id}`}>
-                <img src={img} alt="" />
+                <img src={img} alt="" onClick={setViewedProduct} />
             </NavLink>
             <span className={'text-gray-dark-1'}>{type}</span>
             <h3 className={classes.title}>{title}</h3>
@@ -51,7 +70,9 @@ export const ProductCard: React.FC<ProductType> = ({
                 </div>
             </div>
             <div className={classes.buttons}>
-                <button className="button-primary">Купить в 1 клик</button>
+                <button className="button-primary-outlined">
+                    Купить в 1 клик
+                </button>
                 <BinButton />
             </div>
         </article>

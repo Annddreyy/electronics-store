@@ -1,0 +1,56 @@
+@use './../../../scss/variables' as *;
+@use './../../../scss/breakpoints' as *;
+
+@use 'sass:map';
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: $base-gap;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .field {
+            padding: $base-padding-4;
+            border: 1px solid map.get($colors, 'medium-gray');
+            border-radius: $base-border-radius;
+
+            select {
+                width: 200px;
+                border: none;
+                outline: none;
+                option {
+                    padding: $base-padding-4 !important;
+                }
+            }
+        }
+    }
+
+    .cards {
+        width: max-content;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $base-gap;
+    }
+}
+
+@include breakpoint(1450px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@include breakpoint(1100px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@include breakpoint(750px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
