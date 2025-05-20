@@ -27,7 +27,3 @@ export const getFavorityProducts = (state: AppStateType) => {
 export const getCompareProducts = (state: AppStateType) => {
     return state.products.compare;
 };
-
-export const getBinProducts = (state: AppStateType) => {
-    return state.products.bin;
-};

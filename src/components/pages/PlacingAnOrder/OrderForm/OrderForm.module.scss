@@ -1,0 +1,69 @@
+@use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
+
+@use 'sass:map';
+
+.orderForm {
+    @extend .column;
+    .order {
+        @extend .column;
+        gap: $base-gap-4;
+    
+        width: 400px;
+        height: max-content;
+    
+        padding: $base-padding-8;
+        padding-top: 0;
+    
+        border-radius: $base-border-radius-2;
+        background-color: map.get($colors, 'secondary');
+        
+        .informationRow {
+            @extend .row-center;
+            .information {
+                color: map.get($colors, 'gray');
+            }
+        }
+    
+        .top {
+            @extend .column-mini;
+            position: relative;
+    
+            &::before {
+                position: absolute;
+                content: '';
+                bottom: -$base-gap-2;
+                left: 0;
+                right: 0;
+                border-bottom: 1.5px solid #c8cacb;
+            }
+        }
+    
+        .bottom {
+            @extend .column;
+    
+            .informationRow {
+                align-items: flex-end;
+                .information {
+                    font-size: $font-size-md;
+                    font-weight: 600;
+                    color: map.get($colors, 'black');
+                }
+        
+                .totalSum {
+                    font-size: $font-size-xl;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .checkbox {
+        align-self: center;
+        width: 350px;
+
+        span:last-child {
+            font-size: $font-size-sm * 1.2;
+        }
+    }
+}

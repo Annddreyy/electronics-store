@@ -1,0 +1,5 @@
+@use './../../../../../scss/display' as *;
+
+.selectedInformation {
+    @extend .row-center;
+}

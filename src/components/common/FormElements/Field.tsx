@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { ChangeEvent, CSSProperties } from 'react';
 import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 import classes from './Field.module.scss';
 import cn from 'classnames';
@@ -17,6 +17,8 @@ type FieldType = {
     style?: CSSProperties;
     accept?: string;
     list?: string;
+    value?: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Field: React.FC<FieldType> = ({
@@ -31,6 +33,8 @@ export const Field: React.FC<FieldType> = ({
     style,
     accept,
     list,
+    onChange,
+    value,
 }) => {
     return (
         <>
@@ -45,6 +49,8 @@ export const Field: React.FC<FieldType> = ({
                         {...register(name, options)}
                         accept={accept}
                         list={list}
+                        onChange={onChange}
+                        value={value}
                     />
                     {className && (
                         <img

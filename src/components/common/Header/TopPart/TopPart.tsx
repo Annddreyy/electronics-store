@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { ProductsCount } from './ProductsCount/ProductsCount';
 import {
-    getBinProducts,
     getCompareProducts,
     getFavorityProducts,
     getViewedProducts,
@@ -17,6 +16,7 @@ import likeFill from './../../../../assets/header/like-fill.png';
 import compare from './../../../../assets/header/compare.png';
 import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
+import { getProducts } from '../../../../redux/order/orderSelectors';
 
 export const TopPart: React.FC = () => {
     return (
@@ -58,7 +58,7 @@ export const TopPart: React.FC = () => {
                             iconBase={compare}
                         />
                         <ProductsCount
-                            selector={getBinProducts}
+                            selector={getProducts}
                             link="/bin"
                             iconBase={bin}
                         />

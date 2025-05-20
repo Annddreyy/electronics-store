@@ -1,0 +1,10 @@
+@use './../../../../../../scss/variables' as *;
+
+.deliveryForm {
+    display: grid;
+    grid-template-areas: 
+        'date street'
+        'time apartament'
+        'comment comment';
+    gap: $base-gap;
+}

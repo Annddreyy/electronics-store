@@ -1,0 +1,43 @@
+@use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
+
+@use 'sass:map';
+
+.order {
+    @extend .column;
+    gap: $base-gap-6;
+
+    .topPart {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            content: '';
+            bottom: -$base-gap-3;
+            left: 0;
+            right: 0;
+            border: 1px solid map.get($colors, 'secondary');
+        }
+
+        .methodOfReceivingForm {
+            display: flex;
+            align-items: flex-end;
+            gap: $base-gap;
+    
+            .right {
+                @extend .column;
+                .radio {
+                    width: 500px;
+                    flex-direction: row;
+                    align-items: center;
+                    border: 1.5px solid map.get($colors, 'secondary');
+                    border-radius: $base-border-radius-2;
+                    div {
+                        border: none !important;
+                    }
+                }
+            }
+        }
+    }
+    
+}

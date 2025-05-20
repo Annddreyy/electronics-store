@@ -1,0 +1,6 @@
+@use './../../../../../scss/variables' as *;
+
+.button {
+    width: max-content;
+    padding: 0 $base-padding-8;
+}

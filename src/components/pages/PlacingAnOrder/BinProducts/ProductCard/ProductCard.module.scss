@@ -1,0 +1,74 @@
+@use './../../../../../scss/display' as *;
+@use './../../../../../scss/variables' as *;
+
+@use 'sass:map';
+
+.productCard {
+    td {
+        padding: $base-padding-6;
+    }
+
+    .productImg {
+        width: 70px;
+    }
+
+    .title {
+        font-size: $font-size-sm * 1.2;
+        font-weight: normal;
+    }
+
+    .countInformation {
+        @extend .row-mini;
+        align-items: center;
+        width: max-content;
+
+        .count {
+            width: 35px;
+            height: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid map.get($colors, 'secondary');
+            border-radius: $base-border-radius;
+
+            font-size: $font-size-sm;
+
+            padding: $base-padding-2;
+        }
+
+        .button {
+            display: flex;
+            align-self: center;
+            span {
+                font-size: $font-size-xl;
+                padding-bottom: $base-padding;
+            }
+        }
+
+        .button:disabled {
+            span {
+                color: map.get($colors, 'medium-gray');
+            }
+        }
+    }
+
+    .prices {
+        @extend .column-mini;
+        gap: 0;
+
+        .oldPrice {
+            color: map.get($colors, 'gray');
+
+            font-size: $font-size-sm;
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+
+        .totalPrice {
+            font-size: $font-size-md;
+            font-weight: 700;
+        }
+    }
+}
