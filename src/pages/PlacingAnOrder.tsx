@@ -21,6 +21,12 @@ export enum Stage {
     FILLED,
 }
 
+export type OrderBlockProps = {
+    changeNextOrderStep: () => void;
+    setCurrentOrderStep: React.Dispatch<React.SetStateAction<OrderSteps>>;
+    currentOrderState: OrderSteps;
+};
+
 export const PlacingAnOrder: React.FC = () => {
     const [currentOrderState, setCurrentOrderStep] = useState(OrderSteps.ORDER);
 

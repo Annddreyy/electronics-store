@@ -3,7 +3,7 @@ import { Field } from '../../../common/FormElements/Field';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import cn from 'classnames';
 import classes from './../PlacingAnOrder.module.scss';
-import { OrderSteps } from '../../../../pages/PlacingAnOrder';
+import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
 
@@ -11,13 +11,7 @@ type FormValuesType = {
     paymentMethod: string;
 };
 
-type PropsType = {
-    changeNextOrderStep: () => void;
-    setCurrentOrderStep: React.Dispatch<React.SetStateAction<OrderSteps>>;
-    currentOrderState: OrderSteps;
-};
-
-export const PayMethod: React.FC<PropsType> = ({
+export const PayMethod: React.FC<OrderBlockProps> = ({
     changeNextOrderStep,
     setCurrentOrderStep,
     currentOrderState,

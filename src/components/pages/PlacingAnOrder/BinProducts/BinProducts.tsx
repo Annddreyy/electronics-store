@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { OrderSteps } from '../../../../pages/PlacingAnOrder';
+import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { getBinProducts } from '../../../../redux/products/productsSelectors';
 import { BinProductsFill } from '../FilledBlocks/BinProductsFilled/BinProductsFill';
 import { NextButton } from '../NextButton/NextButton';
@@ -15,13 +15,7 @@ export type ProductCardType = {
     price: number;
 };
 
-type PropsType = {
-    currentOrderState: OrderSteps;
-    changeNextOrderStep: () => void;
-    setCurrentOrderStep: React.Dispatch<React.SetStateAction<OrderSteps>>;
-};
-
-export const BinProducts: React.FC<PropsType> = ({
+export const BinProducts: React.FC<OrderBlockProps> = ({
     changeNextOrderStep,
     setCurrentOrderStep,
     currentOrderState,

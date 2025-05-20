@@ -1,15 +1,9 @@
 import classes from './../PlacingAnOrder.module.scss';
-import { OrderSteps } from '../../../../pages/PlacingAnOrder';
+import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { NextButton } from '../NextButton/NextButton';
 import { MethodOfReceivingFill } from '../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
 
-type PropsType = {
-    changeNextOrderStep: () => void;
-    setCurrentOrderStep: React.Dispatch<React.SetStateAction<OrderSteps>>;
-    currentOrderState: OrderSteps;
-};
-
-export const MethodOfReceiving: React.FC<PropsType> = ({
+export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
     changeNextOrderStep,
     setCurrentOrderStep,
     currentOrderState,
