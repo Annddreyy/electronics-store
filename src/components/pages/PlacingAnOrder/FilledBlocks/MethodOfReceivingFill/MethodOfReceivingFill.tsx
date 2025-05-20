@@ -1,24 +1,22 @@
 import { useSelector } from 'react-redux';
-import { formatDate } from '../../../../../utils/formatDate';
+import { getReceivingMethod } from '../../../../../redux/order/orderSelectors';
 import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './MethodOfReceivingFill.module.scss';
-import { getReceivingMethod } from '../../../../../redux/order/orderSelectors';
 
 export type SelfPickUpType = {
     method: 'Самовывоз';
     addressSelfPickUp: string;
     workingTime: string;
-    changeStage: () => void;
 };
 
 export type DeliveryType = {
     method: 'Доставка';
-    date: Date;
+    date: string;
     addressDelivery: string;
-    appartment: string;
+    apartament: string;
     time: string;
-    changeStage: () => void;
+    comment?: string;
 };
 
 type PropsType = {
@@ -35,8 +33,8 @@ export const MethodOfReceivingFill: React.FC<PropsType> = ({ changeStage }) => {
                     <div>
                         <p>Доставка:</p>
                         <p>{information.addressDelivery}</p>
-                        <p>{information.appartment}</p>
-                        <p>{formatDate(information.date)}</p>
+                        <p>{information.apartament}</p>
+                        <p>{information.date}</p>
                         <p>{information.time}</p>
                     </div>
                 ) : (

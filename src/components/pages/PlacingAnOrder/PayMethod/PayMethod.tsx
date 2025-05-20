@@ -31,7 +31,6 @@ export const PayMethod: React.FC<OrderBlockProps> = ({
     };
 
     const onSubmit = (formData: FormValuesType) => {
-        alert(1);
         dispatch(actions.setPayMethod(formData.paymentMethod));
     };
 

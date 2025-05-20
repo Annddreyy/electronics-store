@@ -5,6 +5,8 @@ import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import classes from './../PlacingAnOrder.module.scss';
 import styles from './Recipient.module.scss';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
+import { useDispatch } from 'react-redux';
+import { actions } from '../../../../redux/order/orderReducer';
 
 export type RecipientType = {
     name: string;
@@ -21,9 +23,18 @@ export const Recipient: React.FC = () => {
         formState: { errors, dirtyFields },
     } = useForm<RecipientType>();
 
+    const dispatch = useDispatch();
+
+    const onSubmit = (formData: RecipientType) => {
+        dispatch(actions.setRecipient(formData));
+    };
+
     return (
         <section className={classes.orderBlock}>
-            <form className={styles.recipientForm}>
+            <form
+                className={styles.recipientForm}
+                onBlur={handleSubmit(onSubmit)}
+            >
                 <h2
                     className={classes.blockTitle}
                     style={{ gridArea: 'title' }}
@@ -71,7 +82,13 @@ export const Recipient: React.FC = () => {
                         name="phone"
                         placeholder="+7 (9__)___-__-__"
                         register={register}
-                        options={{ required: 'Поле обязательное' }}
+                        options={{
+                            required: 'Поле обязательное',
+                            pattern: {
+                                value: /^\+7\(\d{3}\)(\d{3})-(\d{2})-(\d{2})$/,
+                                message: 'Шаблон: +7(999)999-99-99',
+                            },
+                        }}
                         className={cn({
                             inputError: errors.phone,
                             inputCorrect: !errors.phone && dirtyFields.phone,

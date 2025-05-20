@@ -4,6 +4,9 @@ import { ErrorMessage } from '../../../../../common/ErrorMessage/ErrorMessage';
 import { Field } from '../../../../../common/FormElements/Field';
 import { MapComponent } from './../../../../Contacts/Information/Map/Map';
 import styles from './SelfPickup.module.scss';
+import { useDispatch } from 'react-redux';
+import { actions } from '../../../../../../redux/order/orderReducer';
+import { SelfPickUpType } from '../../../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
 
 type FormDataValues = {
     magazine: string;
@@ -13,11 +16,19 @@ export const SelfPickup: React.FC = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors, dirtyFields },
+        formState: { errors },
     } = useForm<FormDataValues>();
 
+    const dispatch = useDispatch();
+
     const onSubmit = (formData: FormDataValues) => {
-        console.log(formData);
+        const [addressSelfPickUp, workingTime] = formData.magazine.split('***');
+        const data: SelfPickUpType = {
+            method: 'Самовывоз',
+            addressSelfPickUp,
+            workingTime,
+        };
+        dispatch(actions.setReceivingMethod(data));
     };
 
     const magazines = [
@@ -46,6 +57,7 @@ export const SelfPickup: React.FC = () => {
                 className={cn({
                     inputError: errors.magazine,
                 })}
+                value={`${magazine.address}***${magazine.workingTime}`}
                 style={{ border: 'none' }}
             />
             <label htmlFor={`magazine_${index}`}>

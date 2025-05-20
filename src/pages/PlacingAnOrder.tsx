@@ -38,9 +38,7 @@ export const PlacingAnOrder: React.FC = () => {
         0,
     );
 
-    const [currentOrderState, setCurrentOrderStep] = useState(
-        OrderSteps.METHOD_OF_RECEIVING,
-    );
+    const [currentOrderState, setCurrentOrderStep] = useState(OrderSteps.ORDER);
 
     const ActiveBlocks = {
         [OrderSteps.ORDER]: BinProducts,

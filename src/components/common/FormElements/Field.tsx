@@ -17,6 +17,7 @@ type FieldType = {
     style?: CSSProperties;
     accept?: string;
     list?: string;
+    value?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -33,6 +34,7 @@ export const Field: React.FC<FieldType> = ({
     accept,
     list,
     onChange,
+    value,
 }) => {
     return (
         <>
@@ -48,6 +50,7 @@ export const Field: React.FC<FieldType> = ({
                         accept={accept}
                         list={list}
                         onChange={onChange}
+                        value={value}
                     />
                     {className && (
                         <img

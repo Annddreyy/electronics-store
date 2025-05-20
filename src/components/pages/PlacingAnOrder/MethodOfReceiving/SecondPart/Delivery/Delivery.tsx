@@ -3,12 +3,15 @@ import { Field } from '../../../../../common/FormElements/Field';
 import cn from 'classnames';
 import { ErrorMessage } from '../../../../../common/ErrorMessage/ErrorMessage';
 import classes from './Delivery.module.scss';
+import { useDispatch } from 'react-redux';
+import { actions } from '../../../../../../redux/order/orderReducer';
+import { DeliveryType } from '../../../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
 
 type FormDataType = {
-    date: Date;
-    street: string;
-    time: string;
+    date: string;
+    addressDelivery: string;
     apartament: string;
+    time: string;
     comment: string;
 };
 
@@ -19,8 +22,14 @@ export const Delivery: React.FC = () => {
         formState: { errors, dirtyFields },
     } = useForm<FormDataType>();
 
+    const dispatch = useDispatch();
+
     const onSubmit = (formData: FormDataType) => {
-        console.log(formData);
+        const data: DeliveryType = {
+            ...formData,
+            method: 'Доставка',
+        };
+        dispatch(actions.setReceivingMethod(data));
     };
 
     return (
@@ -50,11 +59,13 @@ export const Delivery: React.FC = () => {
                     register={register}
                     options={{ required: 'Поле обязательное' }}
                     className={cn({
-                        inputError: errors.street,
-                        inputCorrect: !errors.street && dirtyFields.street,
+                        inputError: errors.addressDelivery,
+                        inputCorrect:
+                            !errors.addressDelivery &&
+                            dirtyFields.addressDelivery,
                     })}
                 />
-                <ErrorMessage error={errors.street} />
+                <ErrorMessage error={errors.addressDelivery} />
             </div>
             <div className="form-block" style={{ gridArea: 'time' }}>
                 <label htmlFor="time">Время</label>
