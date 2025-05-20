@@ -34,7 +34,6 @@ const initialState: {
     viewed: ProductType[];
     favorite: ProductType[];
     compare: ProductType[];
-    bin: ProductType[];
 } = {
     products: [
         {
@@ -236,63 +235,6 @@ const initialState: {
             commentsCount: 12,
             promotionPercent: 20,
             statusList: ['Новинка', 'Хит продаж'],
-        },
-        {
-            id: 3,
-            title: 'product3',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка'],
-        },
-    ],
-    bin: [
-        {
-            id: 1,
-            title: 'product1',
-            img: productImg,
-            type: ProductTypeEnum.ACCESSORIES,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 30,
-            statusList: ['Новинка'],
-        },
-        {
-            id: 2,
-            title: 'product2',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_BICYCLE,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка', 'Хит продаж'],
-        },
-        {
-            id: 3,
-            title: 'product3',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка'],
-        },
-        {
-            id: 3,
-            title: 'product3',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка'],
         },
         {
             id: 3,

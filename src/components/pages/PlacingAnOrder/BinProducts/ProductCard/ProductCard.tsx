@@ -1,25 +1,45 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+    ActionsType,
+    OrderProductsInformation,
+} from '../../../../../redux/order/orderReducer';
 import deleteProductImg from './../../../../../assets/product/delete.png';
-import { ProductCardType } from '../BinProducts';
 import classes from './ProductCard.module.scss';
-import { table } from 'console';
 
-export const ProductCard: React.FC<ProductCardType> = ({
+type PropsType = OrderProductsInformation & {
+    increase: (id: number) => ActionsType;
+    decrease: (id: number) => ActionsType;
+    deleteProduct: (id: number) => ActionsType;
+};
+
+export const ProductCard: React.FC<PropsType> = ({
+    id,
     img,
     title,
     count,
-    oldPrice,
+    promotionPercent,
     price,
+    increase,
+    decrease,
+    deleteProduct,
 }) => {
-    const [productsCount, setProductsCount] = useState(count);
-    const totalPrice = price * productsCount;
+    const totalPrice = price * count;
+    const oldPrice = promotionPercent
+        ? price + (promotionPercent / 100) * price
+        : undefined;
+
+    const dispatch = useDispatch();
 
     const onIncreaseProductCount = () => {
-        setProductsCount((prev) => prev + 1);
+        dispatch(increase(id));
     };
 
     const onDecreaseProductCount = () => {
-        setProductsCount((prev) => (prev > 1 ? prev - 1 : prev));
+        dispatch(decrease(id));
+    };
+
+    const onDeleteProduct = () => {
+        dispatch(deleteProduct(id));
     };
 
     return (
@@ -34,11 +54,11 @@ export const ProductCard: React.FC<ProductCardType> = ({
                 <button
                     className={classes.button}
                     onClick={onDecreaseProductCount}
-                    disabled={productsCount === 1}
+                    disabled={count === 1}
                 >
                     <span>-</span>
                 </button>
-                <span className={classes.count}>{productsCount}</span>
+                <span className={classes.count}>{count}</span>
                 <button
                     className={classes.button}
                     onClick={onIncreaseProductCount}
@@ -55,7 +75,7 @@ export const ProductCard: React.FC<ProductCardType> = ({
                 </div>
             </td>
             <td>
-                <img src={deleteProductImg} alt="" />
+                <img src={deleteProductImg} alt="" onClick={onDeleteProduct} />
             </td>
         </tr>
     );

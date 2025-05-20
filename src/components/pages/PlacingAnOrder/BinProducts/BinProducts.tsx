@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
-import { getBinProducts } from '../../../../redux/products/productsSelectors';
+import { getProducts } from '../../../../redux/order/orderSelectors';
 import { BinProductsFill } from '../FilledBlocks/BinProductsFilled/BinProductsFill';
 import { NextButton } from '../NextButton/NextButton';
-import img from './../../../../assets/card/productDefault.png';
 import classes from './../PlacingAnOrder.module.scss';
 import { ProductCard } from './ProductCard/ProductCard';
+import { actions } from '../../../../redux/order/orderReducer';
 
 export type ProductCardType = {
     img: string;
@@ -24,10 +24,17 @@ export const BinProducts: React.FC<OrderBlockProps> = ({
         setCurrentOrderStep(OrderSteps.ORDER);
     };
 
-    const products = useSelector(getBinProducts);
+    const products = useSelector(getProducts);
     const productsElem = products.map((product) => (
-        <ProductCard {...product} count={1} />
+        <ProductCard
+            {...product}
+            increase={actions.increaseProduct}
+            decrease={actions.decreaseProduct}
+            deleteProduct={actions.deleteProduct}
+        />
     ));
+
+    const images = products.map((product) => product.img);
 
     return (
         <>
@@ -43,7 +50,7 @@ export const BinProducts: React.FC<OrderBlockProps> = ({
                 </>
             ) : (
                 <BinProductsFill
-                    images={[img]}
+                    images={images}
                     changeStage={changeFillingStage}
                 />
             )}
