@@ -17,7 +17,7 @@ export const getProductsByType = (type: string) =>
     );
 
 export const getViewedProducts = (state: AppStateType) => {
-    return state.products.viewed;
+    return Array.from(state.products.viewed.values());
 };
 
 export const getFavorityProducts = (state: AppStateType) => {

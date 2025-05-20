@@ -1,5 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/display' as *;
+@use './../../../scss/breakpoints' as *;
 
 @use 'sass:map';
 @use 'sass:math';
@@ -49,6 +50,10 @@
         font-weight: normal;
     }
 
+    img {
+        max-width: 100%;
+    }
+
     .bottomInformation {
         @extend .row-center;
     }
@@ -59,5 +64,11 @@
 
     .buttonsInf {
         @extend .row-mini;
+    }
+}
+
+@include breakpoint(450px) {
+    .card {
+        width: 280px;
     }
 }
