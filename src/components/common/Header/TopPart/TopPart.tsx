@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { ProductsCount } from './ProductsCount/ProductsCount';
 import {
     getCompareProducts,
-    getFavorityProducts,
+    getFavoriteProducts,
     getViewedProducts,
 } from '../../../../redux/products/productsSelectors';
 
@@ -47,7 +47,7 @@ export const TopPart: React.FC = () => {
                             iconBase={eye}
                         />
                         <ProductsCount
-                            selector={getFavorityProducts}
+                            selector={getFavoriteProducts}
                             link="/favorite"
                             iconBase={like}
                             iconActive={likeFill}

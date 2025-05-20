@@ -32,7 +32,7 @@ export type ProductType = {
 const initialState: {
     products: ProductType[];
     viewed: Map<number, ProductType>;
-    favorite: ProductType[];
+    favorite: Map<number, ProductType>;
     compare: ProductType[];
 } = {
     products: [
@@ -176,41 +176,50 @@ const initialState: {
             },
         ],
     ]),
-    favorite: [
-        {
-            id: 1,
-            title: 'product1',
-            img: productImg,
-            type: ProductTypeEnum.ACCESSORIES,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 30,
-            statusList: ['Новинка'],
-        },
-        {
-            id: 2,
-            title: 'product2',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_BICYCLE,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка', 'Хит продаж'],
-        },
-        {
-            id: 3,
-            title: 'product3',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка'],
-        },
-    ],
+    favorite: new Map<number, ProductType>([
+        [
+            1,
+            {
+                id: 1,
+                title: 'product1',
+                img: productImg,
+                type: ProductTypeEnum.ACCESSORIES,
+                grade: 4,
+                price: 1300,
+                commentsCount: 12,
+                promotionPercent: 30,
+                statusList: ['Новинка'],
+            },
+        ],
+        [
+            2,
+            {
+                id: 2,
+                title: 'product2',
+                img: productImg,
+                type: ProductTypeEnum.ELECTRIC_BICYCLE,
+                grade: 2,
+                price: 1500,
+                commentsCount: 12,
+                promotionPercent: 20,
+                statusList: ['Новинка', 'Хит продаж'],
+            },
+        ],
+        [
+            3,
+            {
+                id: 3,
+                title: 'product3',
+                img: productImg,
+                type: ProductTypeEnum.ELECTRIC_CAR,
+                grade: 3,
+                price: 1200,
+                commentsCount: 12,
+                promotionPercent: 20,
+                statusList: ['Новинка'],
+            },
+        ],
+    ]),
     compare: [
         {
             id: 1,
@@ -263,6 +272,21 @@ export const productsReducer = (
                     action.payload.product,
                 ),
             };
+        case 'electronics-store/products/SET_FAVORITE_PRODUCT':
+            return {
+                ...state,
+                favorite: state.favorite.set(
+                    action.payload.product.id,
+                    action.payload.product,
+                ),
+            };
+        case 'electronics-store/products/DELETE_FAVORITE_PRODUCT':
+            const newFavorite = state.favorite;
+            newFavorite.delete(action.payload.product.id);
+            return {
+                ...state,
+                favorite: newFavorite,
+            };
         default:
             return state;
     }
@@ -272,6 +296,16 @@ export const actions = {
     setViewedProduct: (product: ProductType) =>
         ({
             type: 'electronics-store/products/SET_VIEWED_PRODUCT',
+            payload: { product },
+        }) as const,
+    setFavoriteProduct: (product: ProductType) =>
+        ({
+            type: 'electronics-store/products/SET_FAVORITE_PRODUCT',
+            payload: { product },
+        }) as const,
+    deleteFavoriteProduct: (product: ProductType) =>
+        ({
+            type: 'electronics-store/products/DELETE_FAVORITE_PRODUCT',
             payload: { product },
         }) as const,
 };
