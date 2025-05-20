@@ -1,0 +1,25 @@
+@use './../../../../scss/variables' as *;
+
+@use 'sass:map';
+
+.methodOfReceivingForm {
+    display: flex;
+    align-items: flex-end;
+    gap: $base-gap;
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+        .radio {
+            width: 500px;
+            flex-direction: row;
+            align-items: center;
+            border: 1.5px solid map.get($colors, 'secondary');
+            border-radius: $base-border-radius-2;
+            div {
+                border: none !important;
+            }
+        }
+    }
+}
