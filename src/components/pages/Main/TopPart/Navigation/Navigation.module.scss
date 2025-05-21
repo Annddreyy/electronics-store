@@ -1,6 +1,7 @@
 @use './../../../../../scss/variables' as *;
 @use './../../../../../scss/colors' as *;
 @use './../../../../../scss/display' as *;
+@use './../../../../../scss/breakpoints' as *;
 
 @use 'sass:map';
 
@@ -19,5 +20,11 @@
         &:hover {
             @extend .bg-primary-light-6;
         }
+    }
+}
+
+@include breakpoint(1450px) {
+    .links {
+        display: none;
     }
 }

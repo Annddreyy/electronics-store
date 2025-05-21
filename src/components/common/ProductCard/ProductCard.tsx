@@ -27,37 +27,41 @@ export const ProductCard: React.FC<ProductType> = (product) => {
                     </div>
                 ))}
             </div>
-            <NavLink to={`/products/${product.id}`}>
-                <img src={product.img} alt="" onClick={setViewedProduct} />
-            </NavLink>
-            <span className={'text-gray-dark-1'}>{product.type}</span>
-            <h3 className={classes.title}>{product.title}</h3>
-            <Statistics
-                grade={product.grade}
-                commentsCount={product.commentsCount}
-            />
-            <OldPrice
-                promotionPercent={product.promotionPercent}
-                price={product.price}
-            />
-            <div className={classes.bottomInformation}>
-                <div>
-                    <Price price={product.price} />
-                    <Promotion
-                        price={product.price}
-                        promotionPercent={product.promotionPercent}
-                    />
-                </div>
-                <div className={classes.buttonsInf}>
-                    <CompareButton />
-                    <LikeButton product={product} />
-                </div>
+            <div className={classes.top}>
+                <NavLink to={`/products/${product.id}`}>
+                    <img src={product.img} alt="" onClick={setViewedProduct} />
+                </NavLink>
+                <span className={'text-gray-dark-1'}>{product.type}</span>
+                <h3 className={classes.title}>{product.title}</h3>
+                <Statistics
+                    grade={product.grade}
+                    commentsCount={product.commentsCount}
+                />
+                <OldPrice
+                    promotionPercent={product.promotionPercent}
+                    price={product.price}
+                />
             </div>
-            <div className={classes.buttons}>
-                <button className="button-primary-outlined">
-                    Купить в 1 клик
-                </button>
-                <BinButton />
+            <div className={classes.bottom}>
+                <div className={classes.bottomInformation}>
+                    <div>
+                        <Price price={product.price} />
+                        <Promotion
+                            price={product.price}
+                            promotionPercent={product.promotionPercent}
+                        />
+                    </div>
+                    <div className={classes.buttonsInf}>
+                        <CompareButton />
+                        <LikeButton product={product} />
+                    </div>
+                </div>
+                <div className={classes.buttons}>
+                    <button className="button-primary-outlined">
+                        Купить в 1 клик
+                    </button>
+                    <BinButton />
+                </div>
             </div>
         </article>
     );

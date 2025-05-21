@@ -20,7 +20,7 @@ export const ProductCardsGroup: React.FC<PropsType> = ({ title, selector }) => {
     return (
         <div className={classes.productsGroup}>
             <div className={classes.top}>
-                <h2 className={classes.title}>{title}</h2>
+                <h2 className="pageTitle">{title}</h2>
                 <NavLink to={'/products'} className="text-primary-dark-4">
                     Все товары ▶
                 </NavLink>

@@ -1,10 +1,17 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
+@use './../../../../scss/breakpoints' as *;
 
 @use 'sass:map';
 
 .header {
+    @extend .row-center;
+    gap: $base-gap-2;
     padding: $base-padding-3;
+
+    .invisible {
+        display: none !important;
+    }
 
     .topPart {
         @extend .row-center;
@@ -21,10 +28,101 @@
         }
 
         .buttons {
-            @extend .row-mini;
+            @extend .row-center;
+            .searchBlock {
+                @extend .row-center;
+                position: relative;
+                gap: $gap-mini;
+
+                input {
+                    border: none;
+                    outline: none;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    right: 0;
+                    bottom: -$base-padding-2;
+                    border-bottom: 1px solid map.get($colors, 'medium-gray');
+                }
+            }
 
             .login {
+                margin-left: $base-margin-4;
                 padding: $base-padding-3 $base-padding-8 !important;
+            }
+        }
+
+        .searchFull {
+            width: 100%;
+            border: 1px solid map.get($colors, 'medium-gray');
+            .searchBlock {
+                &::after {
+                    border: none;
+                }
+            }
+            input {
+                width: 100%;
+                padding: $base-padding-4;
+            }
+        }
+
+        .quit {
+            margin-left: $gap-mini;
+            font-size: $font-size-xl;
+            color: map.get($colors, 'red');
+        }
+    }
+}
+
+@include breakpoint(1450px) {
+    .header {
+        border-bottom: 1px solid map.get($colors, 'light-gray');
+        box-shadow: 2px 2px 4px map.get($colors, 'light-gray');
+        .topPart {
+            .information {
+                display: none;
+            }
+
+            .buttons {
+                .searchBlock {
+                    display: none;
+                }
+
+                a {
+                    &:last-of-type {
+                        background-color: red;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint(700px) {
+    .header {
+        .topPart {
+            .logo {
+                width: 120px;
+            }
+        }
+    }
+}
+
+@include breakpoint(500px) {
+    .header {
+        .topPart {
+            .buttons {
+                a {
+                    display: none;
+                }
+                button {
+                    width: max-content;
+                    padding: $base-padding-2 !important;
+                }
             }
         }
     }

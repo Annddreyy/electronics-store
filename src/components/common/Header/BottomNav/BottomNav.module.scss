@@ -1,0 +1,43 @@
+@use './../../../../scss/variables' as *;
+@use './../../../../scss/breakpoints' as *;
+
+@use 'sass:map';
+
+.bottomNav {
+    width: 100%;
+    display: none;
+
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: $base-padding-4;
+
+    background-color: map.get($colors, 'primary');
+
+    button {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-mini;
+        align-items: center;
+
+        img {
+            width: max-content;
+        }
+
+        span {
+            color: map.get($colors, 'white');
+        }
+    }
+}
+
+@include breakpoint(1450px) {
+    .bottomNav {
+        display: flex;
+        gap: $base-gap-3;
+    }
+}
