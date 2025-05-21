@@ -1,6 +1,5 @@
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getProductById } from '../../../../../redux/products/productsSelectors';
+import { ProductType } from '../../../../../redux/products/productsReducer';
+import { GradeType } from '../../../../../types';
 import { CompareButton } from '../../../../common/ProductCard/CompareButton/CompareButton';
 import { LikeButton } from '../../../../common/ProductCard/LikeButton/LikeButton';
 import { OldPrice } from '../../../../common/ProductCard/OldPrice/OldPrice';
@@ -10,21 +9,17 @@ import { Statistics } from '../../../../common/ProductCard/Statistics/Statistics
 import classes from './MainInformation.module.scss';
 
 type PropsType = {
-    grade: 1 | 2 | 3 | 4 | 5;
-    commentsCount: number;
+    product: ProductType;
 };
 
-export const MainInformation: React.FC<PropsType> = ({
-    grade,
-    commentsCount,
-}) => {
-    const productId = +useParams().productId!;
-    const product = useSelector(getProductById(productId))!;
-
+export const MainInformation: React.FC<PropsType> = ({ product }) => {
     return (
         <div className={classes.mainInformation}>
             <div className={classes.top}>
-                <Statistics grade={grade} commentsCount={commentsCount} />
+                <Statistics
+                    grade={product.grade}
+                    commentsCount={product.commentsCount}
+                />
                 <div className={classes.buttons}>
                     <LikeButton product={product} />
                     <CompareButton />
@@ -33,10 +28,16 @@ export const MainInformation: React.FC<PropsType> = ({
             <div className={classes.bottom}>
                 <div className={classes.price}>
                     <div className={classes.top}>
-                        <OldPrice price={1000} promotionPercent={20} />
-                        <Promotion price={1000} promotionPercent={20} />
+                        <OldPrice
+                            price={product.price}
+                            promotionPercent={product.promotionPercent}
+                        />
+                        <Promotion
+                            price={product.price}
+                            promotionPercent={product.promotionPercent}
+                        />
                     </div>
-                    <Price price={1000} />
+                    <Price price={product.price} />
                 </div>
                 <div className={classes.buttons}>
                     <button className="button-primary">В корзину</button>

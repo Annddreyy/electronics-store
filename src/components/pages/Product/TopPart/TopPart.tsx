@@ -1,19 +1,31 @@
+import { useSelector } from 'react-redux';
+import { getSelectedProduct } from '../../../../redux/products/productsSelectors';
 import { BuyConditions } from './BuyConditions/BuyConditions';
 import { MainInformation } from './MainInformation/MainInformation';
 import { ProductImages } from './ProductImages/ProductImages';
 import classes from './TopPart.module.scss';
-import img1 from './../../../../assets/card/card.png';
-import img2 from './../../../../assets/card/productDefault.png';
 
 export const TopPart: React.FC = () => {
+    const selectedProduct = useSelector(getSelectedProduct);
     return (
         <section className={classes.topPart}>
-            <ProductImages images={[img1, img2]} />
+            <ProductImages images={selectedProduct.images} />
             <div className={classes.productMainInformation}>
                 <h1 className="pageTitle" style={{ gridArea: 'title' }}>
-                    Гироскутер Smart Balance Well 6.5 Хип-Хоп (АКВАЗАЩИТА)
+                    {selectedProduct.title}
                 </h1>
-                <MainInformation grade={3} commentsCount={10} />
+                <MainInformation
+                    product={{
+                        id: selectedProduct.id,
+                        title: selectedProduct.title,
+                        promotionPercent: selectedProduct.promotionPercent,
+                        price: selectedProduct.price,
+                        type: selectedProduct.type,
+                        grade: selectedProduct.grade,
+                        img: selectedProduct.img,
+                        commentsCount: selectedProduct.reviews.length,
+                    }}
+                />
                 <BuyConditions />
             </div>
         </section>

@@ -1,43 +1,20 @@
+import { ReviewType } from '../../../../../redux/products/productsReducer';
 import { Review } from '../../../../common/Review/Review';
 import classes from './Reviews.module.scss';
 
-export const Reviews: React.FC = () => {
+type PropsType = {
+    title: string;
+    reviews: ReviewType[];
+};
+
+export const Reviews: React.FC<PropsType> = ({ reviews, title }) => {
+    const reviewsElem = reviews.map((review) => <Review {...review} />);
+
     return (
         <div>
-            <h2 className="sectionTitle">
-                Отзывы на гироскутер Smart Balance Well 6.5
-            </h2>
+            <h2 className="sectionTitle">{title}</h2>
             <div className={classes.reviewsBottom}>
-                <div className={classes.reviews}>
-                    <Review
-                        authorName="Александр"
-                        date={new Date(2021, 5, 7)}
-                        grade={4}
-                        title="Оличный самокат!"
-                        text="Катаюсь каждый день после работы, заряд держит отлично!"
-                    />
-                    <Review
-                        authorName="Александр"
-                        date={new Date(2021, 5, 7)}
-                        grade={4}
-                        title="Оличный самокат!"
-                        text="Катаюсь каждый день после работы, заряд держит отлично!"
-                    />
-                    <Review
-                        authorName="Александр"
-                        date={new Date(2021, 5, 7)}
-                        grade={4}
-                        title="Оличный самокат!"
-                        text="Катаюсь каждый день после работы, заряд держит отлично!"
-                    />
-                    <Review
-                        authorName="Александр"
-                        date={new Date(2021, 5, 7)}
-                        grade={4}
-                        title="Оличный самокат!"
-                        text="Катаюсь каждый день после работы, заряд держит отлично!"
-                    />
-                </div>
+                <div className={classes.reviews}>{reviewsElem}</div>
                 <div className={classes.addReview}>
                     <strong>Напишите свое мнение о товаре</strong>
                     <p>Сделайте выбор других покупателей легче</p>
