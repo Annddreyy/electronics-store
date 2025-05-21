@@ -1,20 +1,18 @@
 @use './../../../../../scss/variables' as *;
 @use './../../../../../scss/breakpoints' as *;
+@use './../../../../../scss/display' as *;
 
 .reviewsBottom {
     display: flex;
     gap: $base-gap-4;
 
     .reviews {
-        display: flex;
-        flex-direction: column;
+        @extend .column;
         gap: $base-gap-2;
     }
 
     .addReview {
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
+        @extend .column;
     }
 }
 

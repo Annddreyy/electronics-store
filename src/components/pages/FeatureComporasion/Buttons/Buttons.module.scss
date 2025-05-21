@@ -1,9 +1,9 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
 
 .buttons {
+    @extend .row-mini;
     align-self: flex-end;
-    display: flex;
-    gap: $gap-mini;
 
     button {
         width: 50px;

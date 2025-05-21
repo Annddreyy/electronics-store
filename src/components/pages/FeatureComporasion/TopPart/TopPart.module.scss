@@ -1,17 +1,15 @@
 @use './../../../../scss/variables' as *;
+@use './../../../../scss/display' as *;
 
 .top {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
     .left {
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
+        @extend .column;
 
         .check {
-            display: flex;
-            gap: $gap-mini;
+            @extend .row-mini;
         }
 
         .field {

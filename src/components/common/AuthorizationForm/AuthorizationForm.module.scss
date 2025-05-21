@@ -1,4 +1,5 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/display' as *;
 
 @use 'sass:map';
 @use 'sass:color';
@@ -24,10 +25,8 @@
         border-radius: $base-border-radius-3;
 
         .top {
-            display: flex;
+            @extend .row-center;
             padding: $base-padding-2 $base-padding-8;
-            justify-content: space-between;
-            align-items: center;
             background-color: var(--secondary);
             border-top-left-radius: $base-border-radius-3;
             border-top-right-radius: $base-border-radius-3;
@@ -39,9 +38,7 @@
         }
 
         .bottom {
-            display: flex;
-            flex-direction: column;
-            gap: $gap-mini;
+            @extend .column-mini;
             padding: $base-padding-8;
 
             .forgotPassword {
@@ -49,8 +46,7 @@
             }
 
             .checkbox {
-                display: flex;
-                gap: $gap-mini;
+                @extend .row-mini;
             }
         }
     }

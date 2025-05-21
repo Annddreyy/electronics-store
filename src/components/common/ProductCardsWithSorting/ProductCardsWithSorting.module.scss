@@ -1,15 +1,12 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
+@use './../../../scss/display' as *;
 
 .block {
-    display: flex;
-    flex-direction: column;
-    gap: $base-gap;
+    @extend .column;
 
     .top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @extend .row-center;
 
         .field {
             padding: $base-padding-4;

@@ -3,8 +3,9 @@
 @use './../../../../../scss/breakpoints' as *;
 
 .mainInformation {
-    grid-area: 'information';
     @extend .column;
+    
+    grid-area: 'information';
     padding: $base-padding-4;
 
     border: 1px solid var(--secondary);

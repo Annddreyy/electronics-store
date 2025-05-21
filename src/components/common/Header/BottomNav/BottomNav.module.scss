@@ -1,5 +1,6 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/breakpoints' as *;
+@use './../../../../scss/display' as *;
 
 .bottomNav {
     width: 100%;
@@ -10,7 +11,6 @@
     z-index: 1000;
 
     align-items: center;
-
     justify-content: center;
 
     padding: $base-padding-4;
@@ -18,9 +18,7 @@
     background-color: var(--primary);
 
     button {
-        display: flex;
-        flex-direction: column;
-        gap: $gap-mini;
+        @extend .column-mini;
         align-items: center;
 
         img {

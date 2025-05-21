@@ -1,6 +1,7 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
+@use './../../../../scss/display' as *;
 
 .personalData {
     display: grid;
@@ -20,9 +21,7 @@
 
     button {
         padding-block: calc($base-padding-6 + 2px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend .row-center;
     }
 }
 

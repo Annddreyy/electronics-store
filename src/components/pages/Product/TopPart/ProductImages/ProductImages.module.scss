@@ -4,8 +4,9 @@
 @use './../../../../../scss/breakpoints' as *;
 
 .productImages {
-    grid-area: 'img';
     @extend .column;
+    
+    grid-area: 'img';
 
     .selectedImg {
         width: 100%;
