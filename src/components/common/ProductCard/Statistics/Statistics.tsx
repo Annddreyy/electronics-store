@@ -1,10 +1,11 @@
+import { GradeType } from '../../../../types';
 import { Reviews } from './Reviews/Reviews';
 import { Stars } from './Stars/Stars';
 
 import classes from './Statistics.module.scss';
 
 type PropsType = {
-    grade: number;
+    grade: GradeType;
     commentsCount: number;
 };
 

@@ -1,0 +1,35 @@
+@use './../../../../scss/variables' as *;
+@use 'sass:map';
+
+.top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .left {
+        display: flex;
+        flex-direction: column;
+        gap: $base-gap;
+
+        .check {
+            display: flex;
+            gap: $gap-mini;
+        }
+
+        .field {
+            width: max-content;
+            padding: $base-padding-4;
+            border: 1px solid map.get($colors, 'medium-gray');
+            border-radius: $base-border-radius;
+            gap: $gap-mini;
+
+            select {
+                width: 200px;
+                border: none;
+                outline: none;
+                option {
+                    padding: $base-padding-4 !important;
+                }
+            }
+        }
+    }
+}

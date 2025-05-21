@@ -5,6 +5,8 @@ import { ProductDescription } from './ProductDescription/ProductDescription';
 import { Reviews } from './Reviews/Reviews';
 import classes from './ProductInformation.module.scss';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
+import { getSelectedProduct } from '../../../../redux/products/productsSelectors';
 
 enum TabsEnum {
     ProductDescription,
@@ -15,50 +17,29 @@ enum TabsEnum {
 export const ProductInformation: React.FC = () => {
     const [currentTab, setCurrentTab] = useState<TabsEnum>(TabsEnum.Reviews);
 
-    const html = createNewHTML(`
-        <абзац>
-            Вопрос безопасности всегда стоит очень остро, в этом году производители решили его следующим образом — снабдили модель качественной задней и передней подсветкой, поэтому пользователь может не переживать о том, что его будет незаметно на дороге в тёмное время суток.
-        </абзац>
-        <абзац>
-            На руле имеется яркий качественный дисплей, где отображается вся актуальная и необходимая информация — скорость, пробег и др. Кроме того, на руле имеется кнопка включения и выключения подсветки, звуковой сигнал и кнопка настроек. Таким образом, все необходимое для управления самокатом находится у пользователя под рукой.
-        </абзац>
-        <абзац>
-            Для комфорта прогулок электросамокат снабжён передним и задним амортизаторами. Вы можете перемещаться не только по ровному городскому асфальту, но и по неровностям, которые не затруднят ваше перемещение.
-        </абзац>
-        <абзац>
-            Складной механизм и небольшой вес (11 кг) делают модель эргономичной. В сложенном виде самокат занимает совсем мало места — его легко перевозить как в багажнике машины, так и в общественном транспорте. При складывании самокат фиксируется с помощью крючка к заднему крылу. А для того, чтобы разложить его, необходимо, нажав на заднее крыло, приподнять руль. Характерный щелчок говорит о том, что самокат разложен полностью и готов к эксплуатации.
-        </абзац>
-        <абзац>
-            Стоит отметить, что электросамокат очень быстро стартует — вам не надо отталкиваться или разгоняться. Выдерживает до 120 кг, в процессе изготовления использовались только качественные материалы.
-        </абзац>
-        <абзац>
-            Быстрый, лёгкий, компактный — прекрасный выбор для ценителей удобства!
-        </абзац>
-    `);
-
-    const characteristics = Object.entries({
-        'Тип:': null,
-        'Макс. скорость до (км/ч)': 25,
-        'Мощность двигателя': 300,
-        'Пробег на одном заряде': 36,
-        'Тип переднего тормоза': 'Дисковый маханический',
-        'Круиз-контроль': true,
-    });
+    const selectedProduct = useSelector(getSelectedProduct);
+    const html = createNewHTML(selectedProduct.description);
+    const characteristics = Object.entries(selectedProduct.characteristics);
 
     const tabs: Record<TabsEnum, React.ReactNode> = {
         [TabsEnum.ProductDescription]: (
             <ProductDescription
-                title="Описание гироскутера Smart Balance Well 6.5"
+                title={selectedProduct.descriptionTabTitle}
                 html={html}
             />
         ),
         [TabsEnum.Characteristics]: (
             <Characteristics
-                title="Характеристики гироскутера Smart Balance Well 6.5"
+                title={selectedProduct.characteristicsTabTitle}
                 characteristics={characteristics}
             />
         ),
-        [TabsEnum.Reviews]: <Reviews />,
+        [TabsEnum.Reviews]: (
+            <Reviews
+                title={selectedProduct.reviewsTabTitle}
+                reviews={selectedProduct.reviews}
+            />
+        ),
     };
 
     return (
@@ -90,7 +71,7 @@ export const ProductInformation: React.FC = () => {
                         currentTab === TabsEnum.Reviews ? 'active' : undefined
                     }
                 >
-                    Отзывы (1)
+                    Отзывы ({selectedProduct.reviews.length})
                 </button>
             </div>
             {tabs[currentTab]}

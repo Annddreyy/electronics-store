@@ -1,20 +1,12 @@
+import { ReviewType } from '../../../redux/products/productsReducer';
 import { formatDate } from '../../../utils/formatDate';
 import { Stars } from '../ProductCard/Statistics/Stars/Stars';
 import classes from './Review.module.scss';
 import cn from 'classnames';
 
-type PropsType = {
-    img?: string;
-    authorName: string;
-    date: Date;
-    grade: number;
-    title: string;
-    text: string;
-};
-
-export const Review: React.FC<PropsType> = ({
+export const Review: React.FC<ReviewType> = ({
     img,
-    authorName,
+    author,
     date,
     grade,
     title,
@@ -28,13 +20,11 @@ export const Review: React.FC<PropsType> = ({
                         <img src="" alt="" className={classes.img} />
                     ) : (
                         <div className={cn(classes.img, 'bg-gray-light-6')}>
-                            <span className={classes.letter}>
-                                {authorName[0]}
-                            </span>
+                            <span className={classes.letter}>{author[0]}</span>
                         </div>
                     )}
                     <div className={classes.block}>
-                        <span className={classes.author}>{authorName}</span>
+                        <span className={classes.author}>{author}</span>
                         <time
                             dateTime={date.toDateString()}
                             className={classes.time}

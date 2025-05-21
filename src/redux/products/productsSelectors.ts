@@ -37,3 +37,7 @@ export const getFavoriteProductById = (id: number) => (state: AppStateType) => {
 export const getCompareProducts = (state: AppStateType) => {
     return state.products.compare;
 };
+
+export const getSelectedProduct = (state: AppStateType) => {
+    return state.products.selectedProduct;
+};

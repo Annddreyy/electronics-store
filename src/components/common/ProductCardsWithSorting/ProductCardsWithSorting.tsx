@@ -19,7 +19,7 @@ enum SortTypes {
     FIRST_NOT_POPULAR = 'Сначала непопулярные',
 }
 
-enum ProductTypes {
+export enum ProductTypes {
     ALL = 'Все товары',
     NEW = 'Новинки',
     BESTSELLER = 'Хиты продаж',
