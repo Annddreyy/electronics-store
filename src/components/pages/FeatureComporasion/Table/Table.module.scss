@@ -1,0 +1,39 @@
+@use './../../../../scss/variables' as *;
+@use 'sass:map';
+
+.tableWrapper {
+    border-radius: $base-border-radius-2;
+    overflow: hidden;
+    .characteristicsTable {
+        border-radius: 100px;
+        .line {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            .td {
+                padding: $base-padding-8 $base-padding-4;
+            }
+
+            &:first-child {
+                .td:first-child {
+                    border-top-left-radius: $base-border-radius-3;
+                }
+                .td:last-child {
+                    border-top-right-radius: $base-border-radius-3;
+                }
+            }
+
+            &:last-child {
+                .td:first-child {
+                    border-bottom-left-radius: $base-border-radius-3;
+                }
+                .td:last-child {
+                    border-bottom-right-radius: $base-border-radius-3;
+                }
+            }
+        }
+        .highlight {
+            background-color: map.get($colors, 'secondary');
+        }
+    }
+}

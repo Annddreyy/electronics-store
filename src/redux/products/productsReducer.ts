@@ -30,7 +30,8 @@ export type ProductType = {
     statusList?: StatusType[];
 };
 
-type CharacteristicType = string | number | boolean | null;
+export type CharacteristicType = string | number | boolean | null;
+export type CharacteristicsType = Record<string, CharacteristicType>;
 
 export type ReviewType = {
     id: number;
@@ -44,7 +45,7 @@ export type ReviewType = {
 
 export type SelectedProductType = ProductType & {
     description: string;
-    characteristics: Record<string, CharacteristicType>;
+    characteristics: CharacteristicsType;
     reviews: ReviewType[];
     images: string[];
     descriptionTabTitle: `Описание ${string}`;
@@ -52,11 +53,15 @@ export type SelectedProductType = ProductType & {
     reviewsTabTitle: `Отзывы на ${string}`;
 };
 
+export type CompareProductType = ProductType & {
+    characteristics: CharacteristicsType;
+};
+
 const initialState: {
     products: ProductType[];
     viewed: Map<number, ProductType>;
     favorite: Map<number, ProductType>;
-    compare: ProductType[];
+    compare: CompareProductType[];
     selectedProduct: SelectedProductType;
 } = {
     products: [
@@ -255,6 +260,14 @@ const initialState: {
             commentsCount: 12,
             promotionPercent: 30,
             statusList: ['Новинка'],
+            characteristics: {
+                'Тип:': 'Сигвей',
+                'Макс. скорость до (км/ч)': 25,
+                'Мощность двигателя': 300,
+                'Пробег на одном заряде': 36,
+                'Тип переднего тормоза': 'Дисковый маханический',
+                'Круиз-контроль': true,
+            },
         },
         {
             id: 2,
@@ -266,6 +279,14 @@ const initialState: {
             commentsCount: 12,
             promotionPercent: 20,
             statusList: ['Новинка', 'Хит продаж'],
+            characteristics: {
+                'Тип:': 'Сигвей',
+                'Макс. скорость до (км/ч)': 25,
+                'Мощность двигателя': 300,
+                'Пробег на одном заряде': 36,
+                'Тип переднего тормоза': 'Дисковый маханический',
+                'Круиз-контроль': true,
+            },
         },
         {
             id: 3,
@@ -277,6 +298,71 @@ const initialState: {
             commentsCount: 12,
             promotionPercent: 20,
             statusList: ['Новинка'],
+            characteristics: {
+                'Тип:': 'Сигвей',
+                'Макс. скорость до (км/ч)': 25,
+                'Мощность двигателя': 350,
+                'Пробег на одном заряде': 36,
+                'Тип переднего тормоза': 'Дисковый маханический',
+                'Круиз-контроль': true,
+            },
+        },
+        {
+            id: 4,
+            title: 'product4',
+            img: productImg,
+            type: ProductTypeEnum.ACCESSORIES,
+            grade: 2,
+            price: 1000,
+            commentsCount: 12,
+            promotionPercent: 30,
+            statusList: ['Новинка'],
+            characteristics: {
+                'Тип:': 'Сигвей',
+                'Макс. скорость до (км/ч)': 25,
+                'Мощность двигателя': 500,
+                'Пробег на одном заряде': 36,
+                'Тип переднего тормоза': 'Дисковый маханический',
+                'Круиз-контроль': true,
+            },
+        },
+        {
+            id: 5,
+            title: 'product5',
+            img: productImg,
+            type: ProductTypeEnum.ELECTRIC_BICYCLE,
+            grade: 2,
+            price: 1000,
+            commentsCount: 12,
+            promotionPercent: 20,
+            statusList: ['Новинка', 'Хит продаж'],
+            characteristics: {
+                'Тип:': 'Сигвей',
+                'Макс. скорость до (км/ч)': 25,
+                'Мощность двигателя': 700,
+                'Пробег на одном заряде': 36,
+                'Тип переднего тормоза': 'Дисковый маханический',
+                'Круиз-контроль': true,
+            },
+        },
+        {
+            id: 6,
+            title: 'product6',
+            img: productImg,
+            type: ProductTypeEnum.ELECTRIC_CAR,
+            grade: 2,
+            price: 1000,
+            commentsCount: 12,
+            promotionPercent: 20,
+            statusList: ['Новинка'],
+            characteristics: {
+                'Тип:': 'Сигвей',
+                'Макс. скорость до (км/ч)': 25,
+                'Мощность двигателя': 850,
+                'Пробег на одном заряде': 36,
+                'Тип переднего тормоза': 'Дисковый маханический',
+                'Круиз-контроль': true,
+            },
         },
     ],
     selectedProduct: {
