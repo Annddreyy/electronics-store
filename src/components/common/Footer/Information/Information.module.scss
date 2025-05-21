@@ -3,7 +3,6 @@
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
 @use 'sass:math';
 
 .information {
@@ -11,7 +10,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: $base-gap-6;
 
-    border-bottom: 1px solid map.get($colors, 'black');
+    border-bottom: 1px solid var(--black);
     padding-bottom: $base-padding-6;
 
     .contacts {

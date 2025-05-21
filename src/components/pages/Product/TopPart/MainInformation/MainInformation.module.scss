@@ -2,14 +2,12 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .mainInformation {
     grid-area: 'information';
     @extend .column;
     padding: $base-padding-4;
 
-    border: 1px solid map.get($colors, 'secondary');
+    border: 1px solid var(--secondary);
     border-radius: $base-border-radius-3;
 
     .top {

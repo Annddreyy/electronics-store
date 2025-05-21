@@ -1,6 +1,3 @@
-@use './../../../scss/variables' as *;
-@use 'sass:map';
-
 .errorMessage {
-    color: map.get($colors, 'error');
+    color: var(--error);
 }

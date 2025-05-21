@@ -2,8 +2,6 @@
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .vacancieForm {
     display: grid;
     grid-template-areas:
@@ -20,7 +18,7 @@
 
     height: max-content;
     gap: $base-gap;
-    border: 1.5px solid map.get($colors, 'light-gray');
+    border: 1.5px solid var(--light-gray);
     border-radius: $base-border-radius-3;
     padding: $base-padding-4 $base-padding-8;
 
@@ -33,10 +31,10 @@
     }
 
     .phoneInformation {
-        border-top: 1.5px solid map.get($colors, 'secondary');
+        border-top: 1.5px solid var(--secondary);
         .phoneNumber {
             font-size: 28px;
-            color: map.get($colors, 'primary');
+            color: var(--primary);
             font-weight: 600;
             padding: 0;
         }

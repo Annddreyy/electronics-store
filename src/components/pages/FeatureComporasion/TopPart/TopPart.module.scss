@@ -1,5 +1,4 @@
 @use './../../../../scss/variables' as *;
-@use 'sass:map';
 
 .top {
     display: grid;
@@ -18,7 +17,7 @@
         .field {
             width: max-content;
             padding: $base-padding-4;
-            border: 1px solid map.get($colors, 'medium-gray');
+            border: 1px solid var(--medium-gray);
             border-radius: $base-border-radius;
             gap: $gap-mini;
 

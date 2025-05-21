@@ -1,8 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/display' as *;
 
-@use 'sass:map';
-
 .mainPart {
     display: grid;
     grid-template-columns: 8fr 4fr;
@@ -12,7 +10,7 @@
         @extend .column;
         .orderBlock {
             padding: $base-padding-8;
-            border: 1.75px solid map.get($colors, 'secondary');
+            border: 1.75px solid var(--secondary);
             border-radius: $base-border-radius-3;
 
             .blockTitle, .blockTitleGray {
@@ -21,7 +19,7 @@
             }
 
             .blockTitleGray {
-                color: map.get($colors, 'gray');
+                color: var(--gray);
                 padding-bottom: 0;
             }
         }

@@ -3,8 +3,6 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .productImages {
     grid-area: 'img';
     @extend .column;
@@ -36,7 +34,7 @@
             }
 
             img[data-selected='true'] {
-                border: 3px solid map.get($colors, 'primary');
+                border: 3px solid var(--primary);
                 border-radius: $base-border-radius;
             }
         }

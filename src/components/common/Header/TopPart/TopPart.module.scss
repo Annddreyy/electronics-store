@@ -2,8 +2,6 @@
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .header {
     @extend .row-center;
     gap: $base-gap-2;
@@ -21,7 +19,7 @@
             .phones {
                 @extend .row;
                 .phone {
-                    color: map.get($colors, 'black');
+                    color: var(--black);
                     font-weight: 500;
                 }
             }
@@ -45,7 +43,7 @@
                     left: 0;
                     right: 0;
                     bottom: -$base-padding-2;
-                    border-bottom: 1px solid map.get($colors, 'medium-gray');
+                    border-bottom: 1px solid var(--medium-gray);
                 }
             }
 
@@ -57,7 +55,7 @@
 
         .searchFull {
             width: 100%;
-            border: 1px solid map.get($colors, 'medium-gray');
+            border: 1px solidvar(--medium-gray);
             .searchBlock {
                 &::after {
                     border: none;
@@ -72,15 +70,15 @@
         .quit {
             margin-left: $gap-mini;
             font-size: $font-size-xl;
-            color: map.get($colors, 'red');
+            color: var(--red);
         }
     }
 }
 
 @include breakpoint(1450px) {
     .header {
-        border-bottom: 1px solid map.get($colors, 'light-gray');
-        box-shadow: 2px 2px 4px map.get($colors, 'light-gray');
+        border-bottom: 1px solid var(--light-gray);
+        box-shadow: 2px 2px 4px var(--light-gray);
         .topPart {
             .information {
                 display: none;

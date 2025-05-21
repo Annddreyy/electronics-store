@@ -1,5 +1,4 @@
 @use './../../../../scss/variables' as *;
-@use 'sass:map';
 
 .tableWrapper {
     border-radius: $base-border-radius-2;
@@ -33,7 +32,7 @@
             }
         }
         .highlight {
-            background-color: map.get($colors, 'secondary');
+            background-color: var(--secondary);
         }
     }
 }

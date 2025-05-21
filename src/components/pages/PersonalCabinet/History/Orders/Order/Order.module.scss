@@ -23,7 +23,7 @@
             left: 0;
             right: 0;
             top: math.div(-$base-gap, 2);
-            border-top: 1px solid map.get($colors, 'gray');
+            border-top: 1px solid var(--gray);
         }
 
         &::after {
@@ -38,7 +38,7 @@
         .title {
             &::before {
                 bottom: math.div(-$base-gap, 2);
-                border-bottom: 1px solid map.get($colors, 'gray');
+                border-bottom: 1px solid var(--gray);
             }
         }
     }
@@ -88,15 +88,15 @@
     }
 
     .status {
-        color: map.get($colors, 'yellow');
+        color: var(--yellow);
     }
 
     .status[data-status='Выполнен'] {
-        color: map.get($colors, 'green');
+        color: var(--green);
     }
 
     .date {
-        color: map.get($colors, 'gray');
+        color: var(--gray);
     }
 }
 

@@ -1,8 +1,6 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .bottomNav {
     width: 100%;
     display: none;
@@ -17,7 +15,7 @@
 
     padding: $base-padding-4;
 
-    background-color: map.get($colors, 'primary');
+    background-color: var(--primary);
 
     button {
         display: flex;
@@ -30,7 +28,7 @@
         }
 
         span {
-            color: map.get($colors, 'white');
+            color: var(--white);
         }
     }
 }

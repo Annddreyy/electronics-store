@@ -1,7 +1,5 @@
 @use './../../../../scss/variables' as *;
 
-@use 'sass:map';
-
 .form {
     height: max-content;
     padding: $base-padding-8;
@@ -9,6 +7,6 @@
     flex-direction: column;
     gap: $base-gap;
 
-    border: 1px solid map.get($colors, 'medium-gray');
+    border: 1px solid var(--medium-gray);
     border-radius: $base-border-radius-2;
 }

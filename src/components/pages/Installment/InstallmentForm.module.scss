@@ -1,11 +1,9 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .form {
     width: max-content;
-    background-color: map.get($colors, 'secondary');
+    background-color: var(--secondary);
     padding: $base-padding-8;
     padding-top: $base-padding-4;
 

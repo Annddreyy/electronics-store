@@ -2,7 +2,6 @@
 @use './../../../../../scss/display' as *;
 
 @use 'sass:math';
-@use 'sass:map';
 
 .promotion {
     @extend .row-mini;
@@ -11,7 +10,7 @@
     padding-right: $base-padding-2;
 
     border-radius: $base-border-radius-9;
-    background-color: map.get($colors, 'orange');
+    background-color: var(--orange);
 
     .percentCount {
         font-size: $font-size-sm * 1.25;
@@ -21,11 +20,11 @@
         padding: math.div($base-padding, 4) $base-padding-2;
         border-radius: $base-border-radius-9;
 
-        background-color: map.get($colors, 'white');
+        background-color: var(--white);
     }
 
     .promotionValue {
         font-size: $font-size-sm * 1.25;
-        color: map.get($colors, 'white');
+        color: var(--white);
     }
 }

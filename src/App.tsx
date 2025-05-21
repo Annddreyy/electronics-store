@@ -31,7 +31,6 @@ const App: React.FC = () => {
         <Routes>
             <Route path="/" element={<Main />} />
 
-
             <Route
                 path="/news"
                 element={
@@ -48,7 +47,6 @@ const App: React.FC = () => {
                     </React.Suspense>
                 }
             />
-
 
             <Route
                 path="/offers"
@@ -67,7 +65,6 @@ const App: React.FC = () => {
                 }
             />
 
-
             <Route
                 path="products/:productId"
                 element={
@@ -77,7 +74,6 @@ const App: React.FC = () => {
                 }
             />
 
-
             <Route
                 path="/personal-cabinet/*"
                 element={
@@ -86,7 +82,6 @@ const App: React.FC = () => {
                     </React.Suspense>
                 }
             />
-
 
             <Route
                 path="/about-us"
@@ -145,7 +140,6 @@ const App: React.FC = () => {
                 }
             />
 
-
             <Route
                 path="/bin"
                 element={
@@ -178,7 +172,6 @@ const App: React.FC = () => {
                     </React.Suspense>
                 }
             />
-
 
             <Route path="*" element={<Page404 />} />
         </Routes>

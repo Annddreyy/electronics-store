@@ -1,6 +1,5 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
-@use 'sass:map';
 
 .card {
     width: 100%;
@@ -13,7 +12,7 @@
     padding: $base-padding-6;
     border-radius: $base-border-radius-2;
 
-    background-color: map.get($colors, 'secondary');
+    background-color: var(--secondary);
 
     .title {
         font-size: $font-size-lg;

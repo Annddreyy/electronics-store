@@ -5,7 +5,7 @@
 .footer {
     margin-top: $base-margin-8;
     padding: $base-padding-6;
-    background-color: map.get($colors, 'secondary');
+    background-color: var(--secondary);
 }
 
 @include breakpoint(1450px) {

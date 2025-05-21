@@ -1,8 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/display' as *;
 
-@use 'sass:map';
-
 .paginator {
     @extend .row-mini;
 
@@ -13,13 +11,13 @@
         width: 48px;
         height: 48px;
 
-        border: 1px solid map.get($colors, 'gray');
+        border: 1px solid var(--gray);
         border-radius: $base-border-radius;
     }
 
     .buttonStyleBase,
     .buttonStyleDisabled {
-        color: map.get($colors, 'gray');
+        color: var(--gray);
     }
 
     .elipsiss {

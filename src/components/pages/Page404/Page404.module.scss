@@ -1,8 +1,6 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .top {
     margin-bottom: -$base-gap-2;
     display: flex;
@@ -19,7 +17,7 @@
         gap: $base-gap-2;
         .title {
             font-size: 64px;
-            color: map.get($colors, 'gray');
+            color: var(--gray);
         }
     }
 }

@@ -16,7 +16,7 @@
         border-radius: $base-border-radius-2;
         height: 100%;
         padding: $base-padding-8;
-        background-color: map.get($colors, 'secondary');
+        background-color: var(--secondary);
         display: flex;
         flex-direction: column;
 
@@ -25,14 +25,14 @@
             justify-content: space-between;
 
             button {
-                color: map.get($colors, 'red');
+                color: var(--red);
                 font-size: $font-size-xl;
             }
         }
 
         input {
             padding: $base-padding-4;
-            border: 1.5px solid map.get($colors, 'primary');
+            border: 1.5px solid var(--primary);
             border-radius: $base-border-radius;
         }
     }
