@@ -1,0 +1,45 @@
+@use './../../../../scss/variables' as *;
+@use 'sass:map';
+@use 'sass:color';
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: color.change(map.get($colors, 'primary'), $alpha: 0.7);
+    left: 0;
+    top: 0;
+    z-index: 99;
+    .catalog {
+        margin-top: $base-margin-8;
+        margin-inline: $base-margin-4;
+        border-radius: $base-border-radius-2;
+        height: 100%;
+        padding: $base-padding-8;
+        background-color: map.get($colors, 'secondary');
+        display: flex;
+        flex-direction: column;
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                color: map.get($colors, 'red');
+                font-size: $font-size-xl;
+            }
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: $base-gap;
+
+            .link {
+                display: flex;
+                gap: $base-gap;
+                align-items: center;
+            }
+        }
+    }
+}

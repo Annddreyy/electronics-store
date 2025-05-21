@@ -10,6 +10,6 @@
 
 @include breakpoint(1450px) {
     .footer {
-        margin-bottom: calc($base-padding-4 * 2 + 1rem);
+        margin-bottom: calc($base-padding-4 * 2 + 1rem + 8px + 24px);
     }
 }
