@@ -9,7 +9,7 @@ import { LinkType } from '../types';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
-export const Offer: React.FC = () => {
+const Offer: React.FC = () => {
     const oneOffer = useSelector(getOneOffer);
 
     const html = createNewHTML(oneOffer.html);
@@ -38,3 +38,5 @@ export const Offer: React.FC = () => {
         </>
     );
 };
+
+export default Offer;

@@ -41,7 +41,7 @@ const pages = {
     ],
 };
 
-export const PersonalCabinet: React.FC = () => {
+const PersonalCabinet: React.FC = () => {
     const location = useLocation();
     const currentPath = location.pathname as `/${string}`;
     const currentPage = `/${location.pathname.split('/').at(-1)}` as PagesEnum;
@@ -66,3 +66,5 @@ export const PersonalCabinet: React.FC = () => {
         </>
     );
 };
+
+export default PersonalCabinet;

@@ -7,7 +7,7 @@ import { Paginator } from '../components/common/Paginator/Paginator';
 import { getNews } from '../redux/news/newsSelector';
 import { LinkType } from '../types';
 
-export const News: React.FC = () => {
+const News: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/news', title: 'Новости' },
@@ -26,3 +26,5 @@ export const News: React.FC = () => {
         </>
     );
 };
+
+export default News;

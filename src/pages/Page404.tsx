@@ -4,7 +4,7 @@ import classes from './../components/pages/Page404/Page404.module.scss';
 import okak from './../assets/okak.png';
 import { NavLink } from 'react-router-dom';
 
-export const Page404: React.FC = () => {
+const Page404: React.FC = () => {
     return (
         <div style={{ backgroundColor: 'black' }}>
             <Header />
@@ -25,3 +25,5 @@ export const Page404: React.FC = () => {
         </div>
     );
 };
+
+export default Page404;

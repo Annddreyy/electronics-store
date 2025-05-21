@@ -13,7 +13,7 @@ import { LinkType } from '../types';
 import classes from './../components/pages/FeatureComporasion/FeatureComporasion.module.scss';
 import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 
-export const FeatureComporasion: React.FC = () => {
+const FeatureComporasion: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/compare', title: 'Сравнение товаров' },
@@ -129,3 +129,5 @@ export const FeatureComporasion: React.FC = () => {
         </>
     );
 };
+
+export default FeatureComporasion;

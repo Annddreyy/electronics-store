@@ -6,7 +6,7 @@ import { VacanciesList } from '../components/pages/Vacancies/VacanciesList/Vacan
 import { LinkType } from '../types';
 import classes from './../components/pages/Vacancies/Vacancies.module.scss';
 
-export const Vacancies: React.FC = () => {
+const Vacancies: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/vacancies', title: 'Вакансии' },
@@ -120,3 +120,5 @@ export const Vacancies: React.FC = () => {
         </>
     );
 };
+
+export default Vacancies;

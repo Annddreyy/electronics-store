@@ -5,7 +5,7 @@ import { LinkType } from '../types';
 import { Products } from '../components/pages/AboutUs/Products/Products';
 import { Addresses } from '../components/pages/AboutUs/Addresses/Addresses';
 
-export const AboutUs: React.FC = () => {
+const AboutUs: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/about-us', title: 'О нас' },
@@ -116,3 +116,5 @@ export const AboutUs: React.FC = () => {
         </>
     );
 };
+
+export default AboutUs;

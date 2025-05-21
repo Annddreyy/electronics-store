@@ -5,7 +5,7 @@ import { ProductCardsWithSorting } from '../components/common/ProductCardsWithSo
 import { getViewedProducts } from '../redux/products/productsSelectors';
 import { LinkType } from '../types';
 
-export const Viewed: React.FC = () => {
+const Viewed: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/viewed', title: 'Просмотренные товары' },
@@ -23,3 +23,5 @@ export const Viewed: React.FC = () => {
         </>
     );
 };
+
+export default Viewed;

@@ -8,7 +8,7 @@ import imgBottom from './../assets/installment/img_2.png';
 import classes from './../components/pages/Installment/Installment.module.scss';
 import cn from 'classnames';
 
-export const Installment: React.FC = () => {
+const Installment: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/installment', title: 'Рассрочка 0|0|18' },
@@ -72,3 +72,5 @@ export const Installment: React.FC = () => {
         </>
     );
 };
+
+export default Installment;

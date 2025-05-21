@@ -9,7 +9,7 @@ import {
     getProductsByType,
 } from '../redux/products/productsSelectors';
 
-export const Main: React.FC = () => {
+const Main: React.FC = () => {
     return (
         <>
             <Header />
@@ -44,3 +44,5 @@ export const Main: React.FC = () => {
         </>
     );
 };
+
+export default Main;
