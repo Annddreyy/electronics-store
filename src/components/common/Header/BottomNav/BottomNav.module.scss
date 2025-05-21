@@ -1,0 +1,30 @@
+@use './../../../../scss/variables' as *;
+@use './../../../../scss/breakpoints' as *;
+
+@use 'sass:map';
+
+.bottomNav {
+    width: 100%;
+    display: none;
+
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+
+    justify-content: center;
+
+    padding: $base-padding-4;
+
+    background-color: map.get($colors, 'primary');
+
+    button {
+        color: map.get($colors, 'white');
+    }
+}
+
+@include breakpoint(1450px) {
+    .bottomNav {
+        display: flex;
+        gap: $base-gap-3;
+    }
+}

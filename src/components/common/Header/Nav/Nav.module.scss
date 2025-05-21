@@ -1,6 +1,7 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/colors' as *;
 @use './../../../../scss/display' as *;
+@use './../../../../scss/breakpoints' as *;
 
 @use 'sass:map';
 
@@ -44,5 +45,11 @@
                 background-color: map.get($colors, 'primary');
             }
         }
+    }
+}
+
+@include breakpoint(1450px) {
+    .nav {
+        display: none;
     }
 }
