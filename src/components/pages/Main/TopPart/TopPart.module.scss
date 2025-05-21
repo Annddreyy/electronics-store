@@ -1,4 +1,12 @@
+@use './../../../../scss/breakpoints' as *;
+
 .topPart {
     display: grid;
     grid-template-columns: 2fr 8fr;
+}
+
+@include breakpoint(1450px) {
+    .topPart {
+        grid-template-columns: 1fr;
+    }
 }

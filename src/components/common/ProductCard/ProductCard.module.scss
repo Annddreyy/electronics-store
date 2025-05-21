@@ -6,17 +6,16 @@
 @use 'sass:math';
 
 .card {
+    @extend .column;
+    justify-content: space-between;
+
     width: 326px;
     position: relative;
-
-    @extend .column;
-    gap: $gap-mini * 1.5;
+    padding: $base-padding-4;
 
     border-width: 1px;
     border-style: solid;
     border-radius: $base-border-radius-2;
-
-    padding: $base-padding-4;
 
     &:hover {
         box-shadow: 2px 4px 8px map.get($colors, 'gray');
@@ -31,11 +30,11 @@
 
         .status {
             width: max-content;
-            
+
             border-width: 1px;
             border-radius: $base-border-radius;
             padding: $base-padding $base-padding-2;
-            
+
             color: map.get($colors, 'white');
             background-color: map.get($colors, 'red');
         }
@@ -45,25 +44,34 @@
         }
     }
 
-    .title {
-        font-size: $font-size-md;
-        font-weight: normal;
+    .top {
+        @extend .column;
+        gap: $gap-mini * 1.5;
+
+        .title {
+            font-size: $font-size-md;
+            font-weight: normal;
+        }
+
+        img {
+            max-width: 100%;
+        }
     }
 
-    img {
-        max-width: 100%;
-    }
+    .bottom {
+        @extend .column;
+        gap: $gap-mini * 1.5;
+        .bottomInformation {
+            @extend .row-center;
+        }
 
-    .bottomInformation {
-        @extend .row-center;
-    }
+        .buttons {
+            @extend .row;
+        }
 
-    .buttons {
-        @extend .row;
-    }
-
-    .buttonsInf {
-        @extend .row-mini;
+        .buttonsInf {
+            @extend .row-mini;
+        }
     }
 }
 

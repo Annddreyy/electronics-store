@@ -1,14 +1,17 @@
 @use './../../../../../scss/variables' as *;
+@use './../../../../../scss/breakpoints' as *;
+
 @use 'sass:math';
 
 .images {
     padding: $base-padding-4;
 
     .img {
+        height: 550px;
         img {
             border-radius: $base-border-radius-2;
             width: 100%;
-            height: 524px;
+            max-height: 550px;
             object-fit: cover;
         }
     }
@@ -22,6 +25,35 @@
         .sliderElem {
             border-radius: $base-border-radius;
             height: 3px;
+        }
+    }
+}
+
+@include breakpoint(900px) {
+    .images {
+        .img {
+            height: 350px;
+            img {
+                border-radius: $base-border-radius-2;
+                width: 100%;
+                max-height: 350px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+@include breakpoint(600px) {
+    .images {
+        padding: 0;
+        margin-left: -$base-gap;
+        margin-right: -$base-gap;
+
+        .img {
+            height: 200px;
+            img {
+                max-height: 200px;
+                border-radius: 0;
+            }
         }
     }
 }
