@@ -17,8 +17,27 @@ import compare from './../../../../assets/header/compare.png';
 import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
 import { getProducts } from '../../../../redux/order/orderSelectors';
+import { useEffect, useState } from 'react';
+import { AuthorizationForm } from '../../AuthorizationForm/AuthorizationForm';
 
 export const TopPart: React.FC = () => {
+    const [authFormOpen, setAuthFormOpen] = useState(false);
+
+    const setAuthOpen = () => {
+        setAuthFormOpen(true);
+    };
+
+    const setAuthClose = () => {
+        setAuthFormOpen(false);
+    };
+
+    useEffect(() => {
+        document.body.style.overflow = authFormOpen ? 'hidden' : 'auto';
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [authFormOpen]);
+
     return (
         <header className={`${classes.header} bg-white`}>
             <div className="container">
@@ -62,12 +81,16 @@ export const TopPart: React.FC = () => {
                             link="/bin"
                             iconBase={bin}
                         />
-                        <button className={cn('button-primary', classes.login)}>
+                        <button
+                            className={cn('button-primary', classes.login)}
+                            onClick={setAuthOpen}
+                        >
                             Войти
                         </button>
                     </div>
                 </div>
             </div>
+            {authFormOpen && <AuthorizationForm setAuthClose={setAuthClose} />}
         </header>
     );
 };

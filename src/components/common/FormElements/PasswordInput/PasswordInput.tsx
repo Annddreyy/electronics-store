@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import classes from './PasswordInput.module.scss';
 import eye from './../../../../assets/input/eye.png';
 import eyeOff from './../../../../assets/input/eye-off.png';
 import lock from './../../../../assets/input/lock.png';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 
-export const PasswordInput: React.FC = () => {
+type PasswordInputType = {
+    id: string;
+    name: string;
+    placeholder?: string | undefined;
+    register: UseFormRegister<any>;
+    options?: RegisterOptions<any>;
+    icon?: string;
+    className?: string;
+    style?: CSSProperties;
+};
+
+export const PasswordInput: React.FC<PasswordInputType> = (props) => {
     const [showingPassword, setShowingPassword] = useState(false);
     const [passwordValue, setPasswordValue] = useState('');
 
@@ -13,6 +25,7 @@ export const PasswordInput: React.FC = () => {
     };
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        props.register(props.name, props.options);
         setPasswordValue(event.target.value);
     };
 
