@@ -3,6 +3,7 @@ import { LinkType } from '../../../../types';
 import logo from './../../../../assets/logo.png';
 import classes from './Information.module.scss';
 import cn from 'classnames';
+import { v4 } from 'uuid';
 
 type FooterLinksType = {
     group: string;
@@ -47,13 +48,13 @@ const links: FooterLinksType[] = [
 
 export const Information: React.FC = () => {
     const linksGroups = links.map((group) => (
-        <div className={classes.linksGroup}>
+        <div className={classes.linksGroup} key={v4()}>
             <h3 className={cn(classes.groupTitle, 'text-gray')}>
                 {group.group}
             </h3>
             <div className={classes.links}>
                 {group.links.map((link) => (
-                    <NavLink to={link.link} className={'text-black'}>
+                    <NavLink to={link.link} className={'text-black'} key={v4()}>
                         {link.title}
                     </NavLink>
                 ))}

@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 import { SliderImagesType } from '../TopPart';
 import classes from './ImagesSlider.module.scss';
 import cn from 'classnames';
+import { v4 } from 'uuid';
 
 export const ImagesSlider: React.FC<SliderImagesType> = ({ images }) => {
-    const imagesElem = images.map((image) => <img src={image.img} />);
+    const imagesElem = images.map((image) => (
+        <img src={image.img} key={v4()} />
+    ));
 
     const [currentImage, setCurrentImage] = useState<number>(1);
     const totalImagesCount = images.length;
@@ -21,6 +24,7 @@ export const ImagesSlider: React.FC<SliderImagesType> = ({ images }) => {
                     width: `calc(100% / ${totalImagesCount})`,
                     opacity: `${i > currentImage ? 0.4 : 1}`,
                 }}
+                key={v4()}
             ></div>,
         );
     }

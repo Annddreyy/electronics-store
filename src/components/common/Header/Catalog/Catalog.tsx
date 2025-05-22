@@ -1,5 +1,5 @@
+import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { Navigation } from '../../../pages/Main/TopPart/Navigation/Navigation';
 import { TopLinksType } from '../../../pages/Main/TopPart/TopPart';
 import type7 from './../../../../assets/menu-icons/electric skate.png';
 import type11 from './../../../../assets/menu-icons/smart watch.png';
@@ -12,9 +12,9 @@ import type6 from './../../../../assets/menu-icons/электровелосип�
 import type8 from './../../../../assets/menu-icons/электромобили.png';
 import type2 from './../../../../assets/menu-icons/электросамокаты.png';
 import type5 from './../../../../assets/menu-icons/электроскутеры.png';
-import cn from 'classnames';
 
 import classes from './Catalog.module.scss';
+import { v4 } from 'uuid';
 
 const linksArray: TopLinksType = {
     links: [
@@ -47,7 +47,7 @@ export const Catalog: React.FC<PropsType> = ({ closeBlock }) => {
                 <div className={cn(classes.links, 'navigation')}>
                     {linksArray.links.map((link) => (
                         <NavLink
-                            key={link.link}
+                            key={v4()}
                             to={link.link}
                             className={classes.link}
                         >

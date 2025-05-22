@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import classes from './ProductImages.module.scss';
 import cn from 'classnames';
+import { v4 } from 'uuid';
 
 type PropsType = {
     images: string[];
@@ -13,6 +14,7 @@ export const ProductImages: React.FC<PropsType> = ({ images }) => {
             src={img}
             alt=""
             data-selected={index === imageIndex || undefined}
+            key={v4()}
         />
     ));
 

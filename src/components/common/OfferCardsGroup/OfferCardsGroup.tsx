@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { getOfferById } from '../../../redux/offers/offersSelectors';
 import { OfferCard } from '../OfferCard/OfferCard';
 import classes from './OfferCardsGroup.module.scss';
+import { v4 } from 'uuid';
 
 type PropsType = {
     id1: number;
@@ -14,8 +15,8 @@ export const OfferCardsGroup: React.FC<PropsType> = ({ id1, id2 }) => {
 
     return (
         <div className={classes.offerCards}>
-            <OfferCard {...offer1} />
-            <OfferCard {...offer2} />
+            <OfferCard {...offer1} key={v4()} />
+            <OfferCard {...offer2} key={v4()} />
         </div>
     );
 };

@@ -7,6 +7,7 @@ import {
 import { AppStateType } from '../../../redux/store';
 import { ProductCard } from '../ProductCard/ProductCard';
 import classes from './ProductCardsWithSorting.module.scss';
+import { v4 } from 'uuid';
 
 type PropsType = {
     selector: (state: AppStateType) => ProductType[];
@@ -36,7 +37,7 @@ export const ProductCardsWithSorting: React.FC<PropsType> = ({ selector }) => {
     const [products, setProducts] = useState(initialProducts);
 
     const productsElem = products.map((product) => (
-        <ProductCard {...product} />
+        <ProductCard {...product} key={v4()} />
     ));
 
     useEffect(() => {

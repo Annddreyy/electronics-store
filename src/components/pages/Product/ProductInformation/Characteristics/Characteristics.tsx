@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import classes from './Characteristics.module.scss';
 import cn from 'classnames';
 
@@ -22,7 +23,7 @@ export const Characteristics: React.FC<PropsType> = ({
         }
 
         return (
-            <tr className={classes.characteristic}>
+            <tr className={classes.characteristic} key={v4()}>
                 <td className={classes.title}>{characteristic[0]}</td>
                 <td className={classes.value}>{characteristic[1]}</td>
             </tr>

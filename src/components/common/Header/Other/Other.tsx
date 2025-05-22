@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import classes from './Other.module.scss';
 import cn from 'classnames';
 import { LinkType } from '../../../../types';
+import { v4 } from 'uuid';
 
 const links: LinkType[] = [
     { link: '/about-us', title: 'О компании' },
@@ -18,7 +19,7 @@ type PropsType = {
 
 export const Other: React.FC<PropsType> = ({ closeBlock }) => {
     const linksElements = links.map((link) => (
-        <div className={classes.link}>
+        <div className={classes.link} key={v4()}>
             <NavLink to={link.link}>{link.title}</NavLink>
         </div>
     ));

@@ -12,6 +12,7 @@ import { getCompareProducts } from '../redux/products/productsSelectors';
 import { LinkType } from '../types';
 import classes from './../components/pages/FeatureComporasion/FeatureComporasion.module.scss';
 import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
+import { v4 } from 'uuid';
 
 const FeatureComporasion: React.FC = () => {
     const path: LinkType[] = [
@@ -72,7 +73,7 @@ const FeatureComporasion: React.FC = () => {
     );
 
     const compareCards = productInformation.map((product) => (
-        <ProductCard {...product} />
+        <ProductCard {...product} key={v4()} />
     ));
 
     // Создание списка характеристик

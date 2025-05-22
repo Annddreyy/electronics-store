@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import { ReviewType } from '../../../../../redux/products/productsReducer';
 import { Review } from '../../../../common/Review/Review';
 import classes from './Reviews.module.scss';
@@ -8,7 +9,7 @@ type PropsType = {
 };
 
 export const Reviews: React.FC<PropsType> = ({ reviews, title }) => {
-    const reviewsElem = reviews.map((review) => <Review {...review} />);
+    const reviewsElem = reviews.map((review) => <Review {...review} key={v4()} />);
 
     return (
         <div>

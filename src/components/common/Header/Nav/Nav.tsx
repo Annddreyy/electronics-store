@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import menu from './../../../../assets/header/menu-icon.png';
 import classes from './Nav.module.scss';
 import { LinkType } from '../../../../types';
+import { v4 } from 'uuid';
 
 const links: LinkType[] = [
     { link: '/catalog', title: 'Каталог товаров' },
@@ -15,7 +16,7 @@ const links: LinkType[] = [
 
 export const Nav: React.FC = () => {
     const linksElements = links.map((link) => (
-        <li>
+        <li key={v4()}>
             <NavLink to={link.link}>{link.title}</NavLink>
         </li>
     ));

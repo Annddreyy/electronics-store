@@ -1,6 +1,7 @@
 import { LinkType } from '../../../types';
 import { AccoutMenuButton } from './AccoutMenuButton/AccoutMenuButton';
 import classes from './AccoutMenu.module.scss';
+import { v4 } from 'uuid';
 
 export const AccoutMenu: React.FC = () => {
     const buttonsLinks: LinkType[] = [
@@ -12,7 +13,7 @@ export const AccoutMenu: React.FC = () => {
         { link: '/logot', title: 'Выйти' },
     ];
     const buttonsElem = buttonsLinks.map((button) => (
-        <AccoutMenuButton {...button} />
+        <AccoutMenuButton {...button} key={v4()} />
     ));
     return <section className={classes.links}>{buttonsElem}</section>;
 };

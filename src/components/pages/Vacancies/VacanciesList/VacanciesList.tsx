@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import { VacancieCard } from './VacancieCard/VacancieCard';
 
 export type VacancieType = {
@@ -13,7 +14,7 @@ export type VacanciesType = {
 
 export const VacanciesList: React.FC<VacanciesType> = ({ vacancies }) => {
     const vacanciesElem = vacancies.map((vacancie) => (
-        <VacancieCard {...vacancie} />
+        <VacancieCard {...vacancie} key={v4()} />
     ));
     return <section>{vacanciesElem}</section>;
 };

@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import { VacancieType } from '../VacanciesList';
 import classes from './VacancieCard.module.scss';
 
@@ -7,9 +8,9 @@ export const VacancieCard: React.FC<VacancieType> = ({
     requirements,
     conditions,
 }) => {
-    const thooseWhoElem = thooseWho.map((t) => <li>{t}</li>);
-    const requirementsElem = requirements.map((r) => <li>{r}</li>);
-    const conditionsElem = conditions.map((c) => <li>{c}</li>);
+    const thooseWhoElem = thooseWho.map((t) => <li key={v4()}>{t}</li>);
+    const requirementsElem = requirements.map((r) => <li key={v4()}>{r}</li>);
+    const conditionsElem = conditions.map((c) => <li key={v4()}>{c}</li>);
     return (
         <details className={classes.vacancieCard}>
             <summary className={classes.title}>{title}</summary>

@@ -6,6 +6,7 @@ import { NextButton } from '../NextButton/NextButton';
 import classes from './../PlacingAnOrder.module.scss';
 import { ProductCard } from './ProductCard/ProductCard';
 import { actions } from '../../../../redux/order/orderReducer';
+import { v4 } from 'uuid';
 
 export type ProductCardType = {
     img: string;
@@ -31,6 +32,7 @@ export const BinProducts: React.FC<OrderBlockProps> = ({
             increase={actions.increaseProduct}
             decrease={actions.decreaseProduct}
             deleteProduct={actions.deleteProduct}
+            key={v4()}
         />
     ));
 

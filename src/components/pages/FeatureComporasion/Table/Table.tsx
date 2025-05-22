@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { CharacteristicsType } from '../../../../redux/products/productsReducer';
 import classes from './Table.module.scss';
+import { v4 } from 'uuid';
+import React from 'react';
 
 type PropsType = {
     isDifferent: boolean;
@@ -27,17 +29,16 @@ export const Table: React.FC<PropsType> = ({
         });
 
         const allSame = values.every((v) => v === values[0]);
-        const cells = values.map((value, index) => (
-            <div key={index} className={classes.td}>
+        const cells = values.map((value) => (
+            <div key={v4()} className={classes.td}>
                 {value}
             </div>
         ));
 
         return (
-            <>
+            <React.Fragment key={v4()}>
                 {!isDifferent ? (
                     <div
-                        key={key}
                         className={cn(classes.line, 'bg-yellow-light-8', {
                             [classes.highlight]: allSame,
                         })}
@@ -49,7 +50,6 @@ export const Table: React.FC<PropsType> = ({
                     </div>
                 ) : !allSame ? (
                     <div
-                        key={key}
                         className={cn(classes.line, 'bg-yellow-light-8', {
                             [classes.highlight]: allSame,
                         })}
@@ -62,7 +62,7 @@ export const Table: React.FC<PropsType> = ({
                 ) : (
                     <></>
                 )}
-            </>
+            </React.Fragment>
         );
     });
     return (
