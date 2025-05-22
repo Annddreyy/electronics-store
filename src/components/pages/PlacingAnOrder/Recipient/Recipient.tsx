@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { actions } from '../../../../redux/order/orderReducer';
 import { NextButton } from '../NextButton/NextButton';
 
-export type RecipientType = {
+export type Recipient = {
     name: string;
     surname: string;
     phone: string;
@@ -22,11 +22,11 @@ export const Recipient: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<RecipientType>();
+    } = useForm<Recipient>();
 
     const dispatch = useDispatch();
 
-    const onSubmit = (formData: RecipientType) => {
+    const onSubmit = (formData: Recipient) => {
         dispatch(actions.setRecipient(formData));
         dispatch(actions.setIsCompleted());
     };

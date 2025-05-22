@@ -1,18 +1,18 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { LinkStringType, SelectorType } from '../../../../../types';
+import { LinkString, Selector } from '../../../../../types';
 import classes from './ProductsCount.module.scss';
 import cn from 'classnames';
 
-type PropsType = {
-    selector: SelectorType<any>;
-    link: LinkStringType;
+type Props = {
+    selector: Selector<any>;
+    link: LinkString;
     iconBase: string;
     iconActive?: string;
     className?: string;
 };
 
-export const ProductsCount: React.FC<PropsType> = ({
+export const ProductsCount: React.FC<Props> = ({
     selector,
     link,
     iconBase,

@@ -1,6 +1,6 @@
 import { ReceivingMethod, User } from '../../api/authAPI';
 import { PayMethod } from '../../api/orderAPI';
-import { InferActionsType } from '../store';
+import { InferActions } from '../store';
 
 const initialState: User & { isAuth: boolean } = {
     isAuth: false,
@@ -72,4 +72,4 @@ export const actions = {
         }) as const,
 };
 
-export type Actions = InferActionsType<typeof actions>;
+export type Actions = InferActions<typeof actions>;

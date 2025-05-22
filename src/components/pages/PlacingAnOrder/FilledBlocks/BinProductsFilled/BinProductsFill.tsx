@@ -1,15 +1,14 @@
 import { v4 } from 'uuid';
-import { Stage } from '../../../../../pages/PlacingAnOrder';
 import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './BinProductsFill.module.scss';
 
-type PropsType = {
+type Props = {
     images: string[];
     changeStage: () => void;
 };
 
-export const BinProductsFill: React.FC<PropsType> = ({
+export const BinProductsFill: React.FC<Props> = ({
     images,
     changeStage,
 }) => {

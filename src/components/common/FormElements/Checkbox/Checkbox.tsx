@@ -5,7 +5,7 @@ import classes from './Checkbox.module.scss';
 import checkedImg from './../../../../assets/input/check.png';
 import uncheckedImg from './../../../../assets/input/uncheck.png';
 
-type PropsType = {
+type Props = {
     text: string;
     style?: CSSProperties;
     name: string;
@@ -14,7 +14,7 @@ type PropsType = {
     className?: string;
 };
 
-export const Checkbox: React.FC<PropsType> = ({
+export const Checkbox: React.FC<Props> = ({
     text,
     style,
     register,

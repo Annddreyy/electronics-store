@@ -4,11 +4,11 @@ import classes from './../../PlacingAnOrder.module.scss';
 import styles from './PayMethodFill.module.scss';
 import { getPayMethod } from '../../../../../redux/order/orderSelectors';
 
-type PropsType = {
+type Props = {
     changeStage: () => void;
 };
 
-export const PayMethodFill: React.FC<PropsType> = ({ changeStage }) => {
+export const PayMethodFill: React.FC<Props> = ({ changeStage }) => {
     const type = useSelector(getPayMethod);
     return (
         <section className={classes.orderBlock}>

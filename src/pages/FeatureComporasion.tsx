@@ -8,14 +8,14 @@ import { Buttons } from '../components/pages/FeatureComporasion/Buttons/Buttons'
 import { Table } from '../components/pages/FeatureComporasion/Table/Table';
 import { TopPart } from '../components/pages/FeatureComporasion/TopPart/TopPart';
 import { getCompareProducts } from '../redux/products/productsSelectors';
-import { LinkType } from '../types';
+import { Link } from '../types';
 import classes from './../components/pages/FeatureComporasion/FeatureComporasion.module.scss';
 import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { v4 } from 'uuid';
 import { Product, Status } from '../api/productsAPI';
 
 const FeatureComporasion: React.FC = () => {
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/compare', title: 'Сравнение товаров' },
     ];

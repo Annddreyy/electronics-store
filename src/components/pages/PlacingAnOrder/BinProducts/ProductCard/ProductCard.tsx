@@ -6,13 +6,13 @@ import {
 import deleteProductImg from './../../../../../assets/product/delete.png';
 import classes from './ProductCard.module.scss';
 
-type PropsType = OrderProductsInformation & {
+type Props = OrderProductsInformation & {
     increase: (id: number) => Actions;
     decrease: (id: number) => Actions;
     deleteProduct: (id: number) => Actions;
 };
 
-export const ProductCard: React.FC<PropsType> = ({
+export const ProductCard: React.FC<Props> = ({
     id,
     img,
     title,

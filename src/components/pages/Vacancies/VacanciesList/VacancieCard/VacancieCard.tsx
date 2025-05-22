@@ -1,8 +1,8 @@
 import { v4 } from 'uuid';
-import { VacancieType } from '../VacanciesList';
+import { Vacancie } from '../VacanciesList';
 import classes from './VacancieCard.module.scss';
 
-export const VacancieCard: React.FC<VacancieType> = ({
+export const VacancieCard: React.FC<Vacancie> = ({
     title,
     thooseWho,
     requirements,

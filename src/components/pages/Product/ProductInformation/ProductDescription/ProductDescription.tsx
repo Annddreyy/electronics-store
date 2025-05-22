@@ -1,9 +1,9 @@
-type PropsType = {
+type Props = {
     title: string;
     html: string;
 };
 
-export const ProductDescription: React.FC<PropsType> = ({ title, html }) => {
+export const ProductDescription: React.FC<Props> = ({ title, html }) => {
     return (
         <>
             <h2 className="sectionTitle">{title}</h2>

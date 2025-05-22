@@ -1,11 +1,11 @@
 import classes from './NextButton.module.scss';
 import cn from 'classnames';
 
-type PropsType = {
+type Props = {
     setNextOrderStage?: () => void;
 };
 
-export const NextButton: React.FC<PropsType> = ({ setNextOrderStage }) => {
+export const NextButton: React.FC<Props> = ({ setNextOrderStage }) => {
     return (
         <>
             {setNextOrderStage ? (

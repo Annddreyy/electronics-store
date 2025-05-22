@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom';
-import { LinkType } from '../../../../types';
+import { Link } from '../../../../types';
 import logo from './../../../../assets/logo.png';
 import classes from './Information.module.scss';
 import cn from 'classnames';
 import { v4 } from 'uuid';
 
-type FooterLinksType = {
+type FooterLinks = {
     group: string;
-    links: LinkType[];
+    links: Link[];
 };
 
-const links: FooterLinksType[] = [
+const links: FooterLinks[] = [
     {
         group: 'Для клиента',
         links: [

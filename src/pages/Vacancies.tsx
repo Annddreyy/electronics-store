@@ -3,11 +3,11 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { VacancieForm } from '../components/pages/Vacancies/VacancieForm/VacancieForm';
 import { VacanciesList } from '../components/pages/Vacancies/VacanciesList/VacanciesList';
-import { LinkType } from '../types';
+import { Link } from '../types';
 import classes from './../components/pages/Vacancies/Vacancies.module.scss';
 
 const Vacancies: React.FC = () => {
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/vacancies', title: 'Вакансии' },
     ];

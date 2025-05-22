@@ -4,13 +4,13 @@ import emailIcon from './../../../../../assets/contacts/mail.png';
 import { AddressCard } from './AddressCard/AddressCard';
 import classes from './ContactsInformation.module.scss';
 
-export type AddressType = {
+export type Address = {
     address: string;
     phone: string;
 };
 
 export const ContactsInformation: React.FC = () => {
-    const addresses: AddressType[] = [
+    const addresses: Address[] = [
         { address: 'СПб, Ул. Дыбенко, д.23 к.1', phone: '+7 (812) 509-23-43' },
         { address: 'СПб, Пр. Энгельса д.113 к.2', phone: '+7 (812) 509-23-43' },
         { address: 'СПб, Ул. Ленсовета д.81', phone: '+7 (812) 602-74-02' },

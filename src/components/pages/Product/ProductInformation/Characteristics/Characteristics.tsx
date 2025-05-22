@@ -4,12 +4,12 @@ import cn from 'classnames';
 
 type Characteristic = [title: string, value: number | string | boolean | null];
 
-type PropsType = {
+type Props = {
     title: string;
     characteristics: Characteristic[];
 };
 
-export const Characteristics: React.FC<PropsType> = ({
+export const Characteristics: React.FC<Props> = ({
     title,
     characteristics,
 }) => {

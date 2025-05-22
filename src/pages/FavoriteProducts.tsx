@@ -3,12 +3,12 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { ProductCardsWithSorting } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { getFavoriteProducts } from '../redux/products/productsSelectors';
-import { LinkType } from '../types';
+import { Link } from '../types';
 import { FavoriteProductForm } from '../components/pages/FavoriteProduct/FavoriteProductForm/FavoriteProductForm';
 import classes from './../components/pages/FavoriteProduct/FavoriteProducts.module.scss';
 
 const FavoriteProducts: React.FC = () => {
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/favorite', title: 'Избранное' },
     ];

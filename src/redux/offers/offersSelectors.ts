@@ -1,19 +1,19 @@
 import { createSelector } from 'reselect';
-import { AppStateType } from '../store';
+import { AppState } from '../store';
 
-export const getOffersSelector = (state: AppStateType) => {
+export const getOffersSelector = (state: AppState) => {
     return state.offers.offers;
 };
 
-export const getOneOffer = (state: AppStateType) => {
+export const getOneOffer = (state: AppState) => {
     return state.offers.selectedOffer;
 };
 
-export const getCurrentPage = (state: AppStateType) => {
+export const getCurrentPage = (state: AppState) => {
     return state.offers.currentPage;
 };
 
-export const getPageSize = (state: AppStateType) => {
+export const getPageSize = (state: AppState) => {
     return state.offers.pageSize;
 };
 

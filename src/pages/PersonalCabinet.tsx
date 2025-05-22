@@ -8,7 +8,7 @@ import { History } from '../components/pages/PersonalCabinet/History/History';
 import { Main } from '../components/pages/PersonalCabinet/Main/Main';
 import { NewPssword } from '../components/pages/PersonalCabinet/NewPassword/NewPassword';
 import { PersonalData } from '../components/pages/PersonalCabinet/PersonalData/PersonalData';
-import { LinkType } from '../types';
+import { Link } from '../types';
 import classes from './../components/pages/PersonalCabinet/PersonalCabinet.module.scss';
 
 enum PagesEnum {
@@ -46,7 +46,7 @@ const PersonalCabinet: React.FC = () => {
     const currentPath = location.pathname as `/${string}`;
     const currentPage = `/${location.pathname.split('/').at(-1)}` as PagesEnum;
 
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/personal-cabinet/main', title: 'Личный кабинет' },
         { link: currentPath, title: pages[currentPage][0] as string },

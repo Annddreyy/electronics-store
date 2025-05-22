@@ -8,7 +8,7 @@ enum PaymentMethodEnum {}
 
 enum DeliveryMethodEnum {}
 
-type FormDataType = {
+type FormData = {
     name: string;
     email: string;
     phone: string;
@@ -25,9 +25,9 @@ export const PersonalData: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormData) => {
         console.log(formData);
     };
 

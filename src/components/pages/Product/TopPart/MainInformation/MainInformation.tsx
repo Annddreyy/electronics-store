@@ -7,11 +7,11 @@ import { Promotion } from '../../../../common/ProductCard/Price/Promotion/Promot
 import { Statistics } from '../../../../common/ProductCard/Statistics/Statistics';
 import classes from './MainInformation.module.scss';
 
-type PropsType = {
+type Props = {
     product: Product;
 };
 
-export const MainInformation: React.FC<PropsType> = ({ product }) => {
+export const MainInformation: React.FC<Props> = ({ product }) => {
     return (
         <div className={classes.mainInformation}>
             <div className={classes.top}>

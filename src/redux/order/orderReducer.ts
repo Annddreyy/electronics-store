@@ -7,8 +7,7 @@ import {
     SelfPickUp,
 } from '../../api/orderAPI';
 import { Product, ProductTypes } from '../../api/productsAPI';
-import { RecipientType } from '../../components/pages/PlacingAnOrder/Recipient/Recipient';
-import { InferActionsType } from '../store';
+import { InferActions } from '../store';
 import productImg from './../../assets/card/productDefault.png';
 
 export type OrderProductsInformation = Product & { count: number };
@@ -87,7 +86,7 @@ const initialState = {
 };
 
 type InitialState = typeof initialState;
-export type Actions = InferActionsType<typeof actions>;
+export type Actions = InferActions<typeof actions>;
 
 export const orderReducer = (
     state = initialState,
@@ -221,7 +220,7 @@ export const actions = {
             type: 'electronic-store/order/SET_PAY_METHOD',
             payload: { payMethod },
         }) as const,
-    setRecipient: (recipient: RecipientType) =>
+    setRecipient: (recipient: Recipient) =>
         ({
             type: 'electronic-store/order/SET_RECIPIENT',
             payload: { recipient },

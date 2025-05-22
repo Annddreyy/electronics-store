@@ -8,7 +8,7 @@ import { actions } from '../../../../../../redux/order/orderReducer';
 import { NextButton } from '../../../NextButton/NextButton';
 import { Delivery } from '../../../../../../api/orderAPI';
 
-type FormDataType = {
+type FormData = {
     date: string;
     addressDelivery: string;
     apartament: string;
@@ -16,20 +16,20 @@ type FormDataType = {
     comment: string;
 };
 
-type PropsType = {
+type Props = {
     changeNextOrderStep: () => void;
 };
 
-export const DeliveryBlock: React.FC<PropsType> = ({ changeNextOrderStep }) => {
+export const DeliveryBlock: React.FC<Props> = ({ changeNextOrderStep }) => {
     const {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
     const dispatch = useDispatch();
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormData) => {
         const data: Delivery = {
             ...formData,
             method: 'Доставка',

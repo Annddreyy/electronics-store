@@ -1,9 +1,9 @@
 import classes from './Price.module.scss';
 
-type PropsType = {
+type Props = {
     price: number;
 };
 
-export const Price: React.FC<PropsType> = ({ price }) => {
+export const Price: React.FC<Props> = ({ price }) => {
     return <p className={classes.price}>{price}₽</p>;
 };

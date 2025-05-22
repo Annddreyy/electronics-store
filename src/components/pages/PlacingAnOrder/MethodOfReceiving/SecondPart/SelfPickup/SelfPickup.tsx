@@ -13,11 +13,11 @@ type FormDataValues = {
     magazine: string;
 };
 
-type PropsType = {
+type Props = {
     changeNextOrderStep: () => void;
 };
 
-export const SelfPickup: React.FC<PropsType> = ({ changeNextOrderStep }) => {
+export const SelfPickup: React.FC<Props> = ({ changeNextOrderStep }) => {
     const {
         register,
         handleSubmit,

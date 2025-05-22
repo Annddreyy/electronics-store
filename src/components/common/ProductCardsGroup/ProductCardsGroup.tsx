@@ -1,16 +1,16 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { SelectorType } from '../../../types';
+import { Selector } from '../../../types';
 import { ProductCard } from '../ProductCard/ProductCard';
 import classes from './ProductCardsGroup.module.scss';
 import { Product } from '../../../api/productsAPI';
 
-type PropsType = {
+type Props = {
     title: string;
-    selector: SelectorType<Product[]>;
+    selector: Selector<Product[]>;
 };
 
-export const ProductCardsGroup: React.FC<PropsType> = ({ title, selector }) => {
+export const ProductCardsGroup: React.FC<Props> = ({ title, selector }) => {
     const products = useSelector(selector).slice(0, 4);
 
     const productsElem = products.map((product) => (

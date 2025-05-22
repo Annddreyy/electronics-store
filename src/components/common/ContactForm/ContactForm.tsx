@@ -5,25 +5,25 @@ import { Checkbox } from '../FormElements/Checkbox/Checkbox';
 import { Field } from '../FormElements/Field';
 import classes from './Contact.module.scss';
 
-type FormValuesType = {
+type FormData = {
     name: string;
     phone: string;
     message: string;
     agree: boolean;
 };
 
-type PropsType = {
+type Props = {
     formTitle: string;
 };
 
-export const ContactForm: React.FC<PropsType> = ({ formTitle }) => {
+export const ContactForm: React.FC<Props> = ({ formTitle }) => {
     const {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (data: FormValuesType) => {
+    const onSubmit = (data: FormData) => {
         console.log(data);
     };
 

@@ -6,16 +6,16 @@ import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { getIsCompleted } from '../../../../redux/order/orderSelectors';
 
-type PropsType = {
+type Props = {
     productsCount: number;
     sum: number;
 };
 
-type FormValuesType = {
+type FormValues = {
     agree: boolean;
 };
 
-export const OrderForm: React.FC<PropsType> = ({ productsCount, sum }) => {
+export const OrderForm: React.FC<Props> = ({ productsCount, sum }) => {
     const isCompleted = useSelector(getIsCompleted);
 
     let deliveryCost;
@@ -32,9 +32,9 @@ export const OrderForm: React.FC<PropsType> = ({ productsCount, sum }) => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
+    } = useForm<FormValues>();
 
-    const onSubmit = (data: FormValuesType) => {
+    const onSubmit = (data: FormValues) => {
         console.log(data);
     };
 

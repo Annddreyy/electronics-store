@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { getOneNews } from '../redux/news/newsSelector';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { useParams } from 'react-router-dom';
-import { LinkType } from '../types';
+import { Link } from '../types';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
@@ -17,7 +17,7 @@ const OneNews: React.FC = () => {
     const params = useParams();
     const newsId = params.newsId;
 
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/news', title: 'Новости' },
         { link: `/news/${newsId}`, title: oneNews.title },

@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { v4 } from 'uuid';
-import { TopLinksType } from '../TopPart';
+import { TopLinks } from '../TopPart';
 import classes from './Navigation.module.scss';
 
-export const Navigation: React.FC<TopLinksType> = ({ links }) => {
+export const Navigation: React.FC<TopLinks> = ({ links }) => {
     return (
         <div className={cn(classes.links, 'navigation')}>
             {links.map((link) => (

@@ -1,25 +1,25 @@
-import { AppStateType } from '../store';
+import { AppState } from '../store';
 
-export const getOrders = (state: AppStateType) => {
+export const getOrders = (state: AppState) => {
     return state.order.orders;
 };
 
-export const getProducts = (state: AppStateType) => {
+export const getProducts = (state: AppState) => {
     return state.order.currentOrder.products;
 };
 
-export const getReceivingMethod = (state: AppStateType) => {
+export const getReceivingMethod = (state: AppState) => {
     return state.order.currentOrder.receivingMethod;
 };
 
-export const getPayMethod = (state: AppStateType) => {
+export const getPayMethod = (state: AppState) => {
     return state.order.currentOrder.payMethod;
 };
 
-export const getRecipient = (state: AppStateType) => {
+export const getRecipient = (state: AppState) => {
     return state.order.currentOrder.recipient;
 };
 
-export const getIsCompleted = (state: AppStateType) => {
+export const getIsCompleted = (state: AppState) => {
     return state.order.isCompleted;
 };

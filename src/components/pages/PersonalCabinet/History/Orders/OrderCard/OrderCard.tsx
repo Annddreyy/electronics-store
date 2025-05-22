@@ -1,9 +1,9 @@
 import { v4 } from 'uuid';
 import { formatDate } from '../../../../../../utils/formatDate';
-import { OrderType } from '../Orders';
 import classes from './Order.module.scss';
+import { Order } from '../../../../../../api/orderAPI';
 
-export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
+export const OrderCard: React.FC<Order> = ({ id, date, history, products }) => {
     const stringDate = formatDate(date, { month: '2-digit' });
 
     const productsCount = products.length;

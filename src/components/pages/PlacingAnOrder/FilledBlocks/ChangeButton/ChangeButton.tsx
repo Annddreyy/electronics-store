@@ -1,12 +1,11 @@
-import { Stage } from '../../../../../pages/PlacingAnOrder';
-import classes from './ChangeButton.module.scss';
 import cn from 'classnames';
+import classes from './ChangeButton.module.scss';
 
-type PropsType = {
+type Props = {
     changeStage: () => void;
 };
 
-export const ChangeButton: React.FC<PropsType> = ({ changeStage }) => {
+export const ChangeButton: React.FC<Props> = ({ changeStage }) => {
     return (
         <button
             className={cn('button-primary-outlined', classes.button)}

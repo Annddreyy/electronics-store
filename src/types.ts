@@ -1,10 +1,10 @@
-import { AppStateType } from './redux/store';
+import { AppState } from './redux/store';
 
-export type LinkType = {
-    link: LinkStringType;
+export type Link = {
+    link: LinkString;
     title: string;
 };
 
-export type LinkStringType = `/${string}`;
+export type LinkString = `/${string}`;
 
-export type SelectorType<T> = (state: AppStateType) => T;
+export type Selector<T> = (state: AppState) => T;

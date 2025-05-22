@@ -3,10 +3,10 @@ import cardHover from './../../../../assets/card/card_hover.png';
 import cardDefault from './../../../../assets/card/card.png';
 import { useState } from 'react';
 
-type BinButtonStatusType = 'default' | 'added' | 'hover';
+type BinButtonStatus = 'default' | 'added' | 'hover';
 
 export const BinButton: React.FC = () => {
-    const [binStatus, setBinStatus] = useState<BinButtonStatusType>('default');
+    const [binStatus, setBinStatus] = useState<BinButtonStatus>('default');
 
     const clickHandler = () => {
         setBinStatus((prev) => (prev !== 'added' ? 'added' : 'default'));
@@ -20,7 +20,7 @@ export const BinButton: React.FC = () => {
         setBinStatus((prev) => (prev !== 'added' ? 'default' : 'added'));
     };
 
-    const switchBinButtonImage = (status: BinButtonStatusType) => {
+    const switchBinButtonImage = (status: BinButtonStatus) => {
         switch (status) {
             case 'added':
                 return cardAdded;

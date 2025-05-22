@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { LinkType } from '../../../types';
+import { Link } from '../../../types';
 import classes from './BreadCrumbs.module.scss';
 import { v4 } from 'uuid';
 
-type PropsType = {
-    path: LinkType[];
+type Props = {
+    path: Link[];
 };
 
-export const BreadCrumbs: React.FC<PropsType> = ({ path }) => {
+export const BreadCrumbs: React.FC<Props> = ({ path }) => {
     const linkElems = path.map((link, index) => (
         <NavLink
             to={link.link}

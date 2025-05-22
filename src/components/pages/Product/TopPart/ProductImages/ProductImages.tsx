@@ -3,11 +3,11 @@ import classes from './ProductImages.module.scss';
 import cn from 'classnames';
 import { v4 } from 'uuid';
 
-type PropsType = {
+type Props = {
     images: string[];
 };
 
-export const ProductImages: React.FC<PropsType> = ({ images }) => {
+export const ProductImages: React.FC<Props> = ({ images }) => {
     const [imageIndex, setImageIndex] = useState<number>(0);
     const imagesElem = images.map((img, index) => (
         <img

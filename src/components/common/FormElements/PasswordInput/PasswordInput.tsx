@@ -5,7 +5,7 @@ import eyeOff from './../../../../assets/input/eye-off.png';
 import lock from './../../../../assets/input/lock.png';
 import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 
-type PasswordInputType = {
+type PasswordInput = {
     id: string;
     name: string;
     placeholder?: string | undefined;
@@ -16,7 +16,7 @@ type PasswordInputType = {
     style?: CSSProperties;
 };
 
-export const PasswordInput: React.FC<PasswordInputType> = (props) => {
+export const PasswordInput: React.FC<PasswordInput> = (props) => {
     const [showingPassword, setShowingPassword] = useState(false);
     const [passwordValue, setPasswordValue] = useState('');
 

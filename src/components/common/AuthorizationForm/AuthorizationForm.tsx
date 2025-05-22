@@ -5,23 +5,23 @@ import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import cn from 'classnames';
 import { PasswordInput } from '../FormElements/PasswordInput/PasswordInput';
 
-type FormDataType = {
+type FormData = {
     login: string;
     password: string;
 };
 
-type PropsType = {
+type Props = {
     setAuthClose: () => void;
 };
 
-export const AuthorizationForm: React.FC<PropsType> = ({ setAuthClose }) => {
+export const AuthorizationForm: React.FC<Props> = ({ setAuthClose }) => {
     const {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormData) => {
         console.log(formData);
     };
 

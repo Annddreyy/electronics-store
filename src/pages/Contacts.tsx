@@ -3,10 +3,10 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { ContactForm } from '../components/common/ContactForm/ContactForm';
 import { Information } from '../components/pages/Contacts/Information/Information';
-import { LinkType } from '../types';
+import { Link } from '../types';
 
 const Contacts: React.FC = () => {
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/contacts', title: 'Контакты' },
     ];

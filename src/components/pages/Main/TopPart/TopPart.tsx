@@ -1,4 +1,4 @@
-import { LinkType } from '../../../../types';
+import { Link } from '../../../../types';
 import { ImagesSlider } from './ImagesSlider/ImagesSlider';
 import { Navigation } from './Navigation/Navigation';
 
@@ -19,11 +19,11 @@ import type5 from './../../../../assets/menu-icons/электроскутеры.
 import img2 from './../../../../assets/slider/i.webp';
 import img1 from './../../../../assets/slider/slider.png';
 
-export type TopLinksType = {
-    links: (LinkType & { img: string })[];
+export type TopLinks = {
+    links: (Link & { img: string })[];
 };
 
-const linksArray: TopLinksType = {
+const linksArray: TopLinks = {
     links: [
         { img: type1, title: 'Гироскутеры', link: '/' },
         { img: type2, title: 'Электросамокаты', link: '/' },
@@ -39,15 +39,15 @@ const linksArray: TopLinksType = {
     ],
 };
 
-type SliderImageType = {
+type SliderImage = {
     img: string;
 };
 
-export type SliderImagesType = {
-    images: SliderImageType[];
+export type SliderImages = {
+    images: SliderImage[];
 };
 
-const imagesArray: SliderImagesType = {
+const imagesArray: SliderImages = {
     images: [
         { img: img1 },
         { img: img2 },

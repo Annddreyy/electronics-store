@@ -1,23 +1,21 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Catalog } from '../Catalog/Catalog';
-import classes from './BottomNav.module.scss';
-import { useEffect, useState } from 'react';
 import { Other } from '../Other/Other';
+import classes from './BottomNav.module.scss';
 
+import cartIcon from './../../../../assets/header/bottom_nav/cart-icon.png';
 import homeIcon from './../../../../assets/header/bottom_nav/home-icon.png';
 import catalogIcon from './../../../../assets/header/bottom_nav/menu-icon.png';
-import cartIcon from './../../../../assets/header/bottom_nav/cart-icon.png';
-import searchIcon from './../../../../assets/header/bottom_nav/search-icon.png';
 import moreIcon from './../../../../assets/header/bottom_nav/more-icon.png';
+import searchIcon from './../../../../assets/header/bottom_nav/search-icon.png';
 
-import homeIconActive from './../../../../assets/header/bottom_nav_active/home-icon.png';
-import catalogIconActive from './../../../../assets/header/bottom_nav_active/menu-icon.png';
-import cartIconActive from './../../../../assets/header/bottom_nav_active/cart-icon.png';
-import searchIconActive from './../../../../assets/header/bottom_nav_active/search-icon.png';
-import moreIconActive from './../../../../assets/header/bottom_nav_active/more-icon.png';
 import { Search } from '../Search/Search';
+import catalogIconActive from './../../../../assets/header/bottom_nav_active/menu-icon.png';
+import moreIconActive from './../../../../assets/header/bottom_nav_active/more-icon.png';
+import searchIconActive from './../../../../assets/header/bottom_nav_active/search-icon.png';
 
-enum CurrentBlockType {
+enum CurrentBlock {
     NONE,
     CATALOG,
     SEARCH,
@@ -25,25 +23,25 @@ enum CurrentBlockType {
 }
 
 export const BottomNav: React.FC = () => {
-    const [currentBlock, setCurrentBlock] = useState(CurrentBlockType.NONE);
+    const [currentBlock, setCurrentBlock] = useState(CurrentBlock.NONE);
     const blocks = {
-        [CurrentBlockType.CATALOG]: (
+        [CurrentBlock.CATALOG]: (
             <Catalog
-                closeBlock={() => setCurrentBlock(CurrentBlockType.NONE)}
+                closeBlock={() => setCurrentBlock(CurrentBlock.NONE)}
             />
         ),
-        [CurrentBlockType.OTHER]: (
-            <Other closeBlock={() => setCurrentBlock(CurrentBlockType.NONE)} />
+        [CurrentBlock.OTHER]: (
+            <Other closeBlock={() => setCurrentBlock(CurrentBlock.NONE)} />
         ),
-        [CurrentBlockType.SEARCH]: (
-            <Search closeBlock={() => setCurrentBlock(CurrentBlockType.NONE)} />
+        [CurrentBlock.SEARCH]: (
+            <Search closeBlock={() => setCurrentBlock(CurrentBlock.NONE)} />
         ),
-        [CurrentBlockType.NONE]: <></>,
+        [CurrentBlock.NONE]: <></>,
     };
 
     useEffect(() => {
         document.body.style.overflow =
-            currentBlock !== CurrentBlockType.NONE ? 'hidden' : 'auto';
+            currentBlock !== CurrentBlock.NONE ? 'hidden' : 'auto';
         return () => {
             document.body.style.overflow = 'auto';
         };
@@ -54,18 +52,18 @@ export const BottomNav: React.FC = () => {
             <nav className={classes.bottomNav}>
                 <NavLink to="/">
                     <button
-                        onClick={() => setCurrentBlock(CurrentBlockType.NONE)}
+                        onClick={() => setCurrentBlock(CurrentBlock.NONE)}
                     >
                         <img src={homeIcon} alt="" />
                         <span>Главная</span>
                     </button>
                 </NavLink>
                 <button
-                    onClick={() => setCurrentBlock(CurrentBlockType.CATALOG)}
+                    onClick={() => setCurrentBlock(CurrentBlock.CATALOG)}
                 >
                     <img
                         src={
-                            currentBlock === CurrentBlockType.CATALOG
+                            currentBlock === CurrentBlock.CATALOG
                                 ? catalogIconActive
                                 : catalogIcon
                         }
@@ -75,18 +73,18 @@ export const BottomNav: React.FC = () => {
                 </button>
                 <NavLink to="/bin">
                     <button
-                        onClick={() => setCurrentBlock(CurrentBlockType.NONE)}
+                        onClick={() => setCurrentBlock(CurrentBlock.NONE)}
                     >
                         <img src={cartIcon} alt="" />
                         <span>Корзина</span>
                     </button>
                 </NavLink>
                 <button
-                    onClick={() => setCurrentBlock(CurrentBlockType.SEARCH)}
+                    onClick={() => setCurrentBlock(CurrentBlock.SEARCH)}
                 >
                     <img
                         src={
-                            currentBlock === CurrentBlockType.SEARCH
+                            currentBlock === CurrentBlock.SEARCH
                                 ? searchIconActive
                                 : searchIcon
                         }
@@ -94,10 +92,10 @@ export const BottomNav: React.FC = () => {
                     />
                     <span>Поиск</span>
                 </button>
-                <button onClick={() => setCurrentBlock(CurrentBlockType.OTHER)}>
+                <button onClick={() => setCurrentBlock(CurrentBlock.OTHER)}>
                     <img
                         src={
-                            currentBlock === CurrentBlockType.OTHER
+                            currentBlock === CurrentBlock.OTHER
                                 ? moreIconActive
                                 : moreIcon
                         }

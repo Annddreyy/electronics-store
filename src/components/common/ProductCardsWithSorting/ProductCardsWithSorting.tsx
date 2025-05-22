@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AppStateType } from '../../../redux/store';
+import { AppState } from '../../../redux/store';
 import { ProductCard } from '../ProductCard/ProductCard';
 import classes from './ProductCardsWithSorting.module.scss';
 import { v4 } from 'uuid';
 import { Product, Status } from '../../../api/productsAPI';
 
-type PropsType = {
-    selector: (state: AppStateType) => Product[];
+type Props = {
+    selector: (state: AppState) => Product[];
 };
 
 enum SortTypes {
@@ -23,7 +23,7 @@ export enum ProductTypes {
     BESTSELLER = 'Хиты продаж',
 }
 
-export const ProductCardsWithSorting: React.FC<PropsType> = ({ selector }) => {
+export const ProductCardsWithSorting: React.FC<Props> = ({ selector }) => {
     const [selectedProductType, setSelectedProductType] = useState(
         ProductTypes.ALL,
     );

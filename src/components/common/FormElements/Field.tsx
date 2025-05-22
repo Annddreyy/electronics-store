@@ -5,7 +5,7 @@ import cn from 'classnames';
 import correct from './../../../assets/input/icon-right-correct.png';
 import error from './../../../assets/input/icon-right-error.png';
 
-type FieldType = {
+type Field = {
     type: React.HTMLInputTypeAttribute | 'textarea';
     id: string;
     name: string;
@@ -21,7 +21,7 @@ type FieldType = {
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Field: React.FC<FieldType> = ({
+export const Field: React.FC<Field> = ({
     id,
     type,
     name,

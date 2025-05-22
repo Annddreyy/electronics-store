@@ -1,33 +1,12 @@
 import { v4 } from 'uuid';
+import { Order, OrderStatus } from '../../../../../api/orderAPI';
+import { ProductTypes } from '../../../../../api/productsAPI';
 import productImg from './../../../../../assets/card/productDefault.png';
-import { Order } from './Order/Order';
+import { OrderCard } from './OrderCard/OrderCard';
 import classes from './Orders.module.scss';
-import { Product, ProductTypes } from '../../../../../api/productsAPI';
-
-enum OrderStatus {
-    CREATED = 'Создан',
-    ACCEPTED_FOR_PROCESSING = 'Принят в обработку',
-    IS_GOING_TO = 'Собирается',
-    ACCEPTED_FOR_DELIVERY = 'Принят в доставку',
-    IS_DELIVERED = 'Доставляется',
-    DELIVERED = 'Доставлен',
-    COMPLETED = 'Выполнен',
-}
-
-type OrderStageType = {
-    date: Date;
-    status: OrderStatus;
-};
-
-export type OrderType = {
-    id: number;
-    date: Date;
-    history: OrderStageType[];
-    products: Product[]; // хранятся id купленных продуктов
-};
 
 export const Orders: React.FC = () => {
-    const orders: OrderType[] = [
+    const orders: Order[] = [
         {
             id: 1,
             date: new Date(2021, 5, 12),
@@ -1179,6 +1158,6 @@ export const Orders: React.FC = () => {
             ],
         },
     ];
-    const ordersElem = orders.map((order) => <Order {...order} key={v4()} />);
+    const ordersElem = orders.map((order) => <OrderCard {...order} key={v4()} />);
     return <div className={classes.orders}>{ordersElem}</div>;
 };

@@ -3,12 +3,12 @@ import { ReviewCard } from '../../../../common/ReviewCard/Review';
 import classes from './Reviews.module.scss';
 import { Review } from '../../../../../api/productsAPI';
 
-type PropsType = {
+type Props = {
     title: string;
     reviews: Review[];
 };
 
-export const Reviews: React.FC<PropsType> = ({ reviews, title }) => {
+export const Reviews: React.FC<Props> = ({ reviews, title }) => {
     const reviewsElem = reviews.map((review) => (
         <ReviewCard {...review} key={v4()} />
     ));

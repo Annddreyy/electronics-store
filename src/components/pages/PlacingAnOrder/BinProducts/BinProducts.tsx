@@ -8,7 +8,7 @@ import { ProductCard } from './ProductCard/ProductCard';
 import { actions } from '../../../../redux/order/orderReducer';
 import { v4 } from 'uuid';
 
-export type ProductCardType = {
+export type ProductCard = {
     img: string;
     title: string;
     count: number;

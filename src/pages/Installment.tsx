@@ -2,14 +2,14 @@ import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { InstallmentForm } from './../components/pages/Installment/InstallmentForm';
-import { LinkType } from '../types';
+import { Link } from '../types';
 import imgTop from './../assets/installment/img.png';
 import imgBottom from './../assets/installment/img_2.png';
 import classes from './../components/pages/Installment/Installment.module.scss';
 import cn from 'classnames';
 
 const Installment: React.FC = () => {
-    const path: LinkType[] = [
+    const path: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/installment', title: 'Рассрочка 0|0|18' },
     ];

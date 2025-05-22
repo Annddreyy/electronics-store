@@ -1,9 +1,9 @@
 import { ResponseStatuses } from '../../api/api';
 import { authAPI } from '../../api/authAPI';
-import { BaseThunkType } from '../store';
+import { BaseThunk } from '../store';
 import { Actions, actions } from './authReducer';
 
-export const auth = (): BaseThunkType<Actions> => async (dispath) => {
+export const auth = (): BaseThunk<Actions> => async (dispath) => {
     const response = await authAPI.auth();
     if (response.status === ResponseStatuses.OK) {
         dispath(actions.setUser(response.user));
@@ -12,7 +12,7 @@ export const auth = (): BaseThunkType<Actions> => async (dispath) => {
     }
 };
 
-export const logout = (): BaseThunkType<Actions> => async (dispatch) => {
+export const logout = (): BaseThunk<Actions> => async (dispatch) => {
     const response = await authAPI.logout();
     if (response.status === ResponseStatuses.OK) {
         dispatch(actions.logout());

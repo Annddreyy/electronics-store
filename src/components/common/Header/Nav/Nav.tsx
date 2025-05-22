@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import menu from './../../../../assets/header/menu-icon.png';
 import classes from './Nav.module.scss';
-import { LinkType } from '../../../../types';
+import { Link } from '../../../../types';
 import { v4 } from 'uuid';
 
-const links: LinkType[] = [
+const links: Link[] = [
     { link: '/catalog', title: 'Каталог товаров' },
     { link: '/about-us', title: 'О компании' },
     { link: '/offers', title: 'Акции' },

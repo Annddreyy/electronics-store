@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
 
-type FormValuesType = {
+type FormValues = {
     surname: string;
     name: string;
     patronymic?: string | undefined;
@@ -20,9 +20,9 @@ export const VacancieForm: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
+    } = useForm<FormValues>();
 
-    const onSubmit = (formData: FormValuesType) => {
+    const onSubmit = (formData: FormValues) => {
         console.log(onSubmit);
     };
 

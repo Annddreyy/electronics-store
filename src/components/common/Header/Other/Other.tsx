@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import classes from './Other.module.scss';
 import cn from 'classnames';
-import { LinkType } from '../../../../types';
+import { Link } from '../../../../types';
 import { v4 } from 'uuid';
 
-const links: LinkType[] = [
+const links: Link[] = [
     { link: '/about-us', title: 'О компании' },
     { link: '/offers', title: 'Акции' },
     { link: '/installment', title: 'Рассрочка 0|0|18' },
@@ -13,11 +13,11 @@ const links: LinkType[] = [
     { link: '/contacts', title: 'Контакты' },
 ];
 
-type PropsType = {
+type Props = {
     closeBlock: () => void;
 };
 
-export const Other: React.FC<PropsType> = ({ closeBlock }) => {
+export const Other: React.FC<Props> = ({ closeBlock }) => {
     const linksElements = links.map((link) => (
         <div className={classes.link} key={v4()}>
             <NavLink to={link.link}>{link.title}</NavLink>

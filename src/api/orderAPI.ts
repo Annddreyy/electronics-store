@@ -3,7 +3,7 @@ import { Product } from './productsAPI';
 
 export type OrderProductsInformation = Product & { count: number };
 
-enum OrderStatus {
+export enum OrderStatus {
     CREATED = 'Создан',
     ACCEPTED_FOR_PROCESSING = 'Принят в обработку',
     IS_GOING_TO = 'Собирается',

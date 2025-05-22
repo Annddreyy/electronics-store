@@ -2,10 +2,10 @@ import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { CategoryTable } from '../components/pages/WarrantyConditions/CategoryTable/CategoryTable';
-import { LinkType } from '../types';
+import { Link } from '../types';
 
 const WarrantyConditions: React.FC = () => {
-    const links: LinkType[] = [
+    const links: Link[] = [
         { link: '/', title: 'Главная' },
         { link: '/warranty-conditions', title: 'Гарантийные условия' },
     ];

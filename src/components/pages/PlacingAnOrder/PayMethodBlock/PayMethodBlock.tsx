@@ -10,7 +10,7 @@ import { actions } from '../../../../redux/order/orderReducer';
 import { useDispatch } from 'react-redux';
 import { PayMethod } from '../../../../api/orderAPI';
 
-type FormValuesType = {
+type FormValues = {
     paymentMethod: PayMethod;
 };
 
@@ -23,7 +23,7 @@ export const PayMethodBlock: React.FC<OrderBlockProps> = ({
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
+    } = useForm<FormValues>();
 
     const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ export const PayMethodBlock: React.FC<OrderBlockProps> = ({
         setCurrentOrderStep(OrderSteps.PAYMENT_METHOD);
     };
 
-    const onSubmit = (formData: FormValuesType) => {
+    const onSubmit = (formData: FormValues) => {
         dispatch(actions.setPayMethod(formData.paymentMethod));
     };
 

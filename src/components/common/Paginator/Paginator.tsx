@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import classes from './Paginator.module.scss';
 import { v4 } from 'uuid';
 
-type PropsType = {
+type Props = {
     totalItemsCount: number;
     pageSize: number;
     pagesPerGroup?: number;
 };
 
-export const Paginator: React.FC<PropsType> = ({
+export const Paginator: React.FC<Props> = ({
     totalItemsCount,
     pageSize,
     pagesPerGroup = 3,

@@ -1,5 +1,5 @@
-import { AppStateType } from '../store';
+import { AppState } from '../store';
 
-export const getUser = (state: AppStateType) => {
+export const getUser = (state: AppState) => {
     return state.auth;
 };
