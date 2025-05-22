@@ -2,8 +2,7 @@
 @use './../../../../scss/display' as *;
 
 .top {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    @extend .grid-4;
 
     .left {
         @extend .column;

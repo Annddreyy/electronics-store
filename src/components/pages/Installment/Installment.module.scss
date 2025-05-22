@@ -4,8 +4,7 @@
 
 .installment {
     .bottom {
-        display: flex;
-        align-items: center;
+        @extend .row-ac;
         gap: $base-gap-3;
 
         h2 {

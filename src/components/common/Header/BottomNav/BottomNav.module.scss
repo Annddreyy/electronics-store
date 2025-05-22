@@ -18,8 +18,7 @@
     background-color: var(--primary);
 
     button {
-        @extend .column-mini;
-        align-items: center;
+        @extend .column-ac-mini;
 
         img {
             width: max-content;

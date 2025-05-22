@@ -6,8 +6,7 @@
 @use 'sass:math';
 
 .information {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    @extend .grid-4;
     gap: $base-gap-6;
 
     border-bottom: 1px solid var(--black);

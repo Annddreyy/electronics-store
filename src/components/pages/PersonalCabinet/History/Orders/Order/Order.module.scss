@@ -12,8 +12,7 @@
         padding: $base-padding-2 0;
 
         .left {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            @extend .grid-3;
             gap: $base-gap;
         }
 
@@ -51,8 +50,7 @@
             @extend .column;
 
             .products {
-                @extend .row;
-                flex-wrap: wrap;
+                @extend .row-wrap;
 
                 .product {
                     @extend .column;

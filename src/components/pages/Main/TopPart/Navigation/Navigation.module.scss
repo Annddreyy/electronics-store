@@ -5,8 +5,7 @@
 
 .links {
     .link {
-        @extend .row;
-        align-items: center;
+        @extend .row-ac;
         padding: $base-padding-2;
         background-color: var(--secondary);
 

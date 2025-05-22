@@ -9,8 +9,8 @@
 
     ul {
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
+        align-items: center;
         list-style: none;
 
         li {
@@ -18,8 +18,7 @@
                 width: 20%;
 
                 a {
-                    @extend .row;
-                    align-items: center;
+                    @extend .row-ac;
 
                     span {
                         color: var(--white);

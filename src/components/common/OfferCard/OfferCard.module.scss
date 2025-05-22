@@ -1,12 +1,12 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
+@use './../../../scss/display' as *;
 
 .card {
     width: 100%;
     height: 100%;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    @extend .grid-3;
     align-items: center;
 
     padding: $base-padding-6;

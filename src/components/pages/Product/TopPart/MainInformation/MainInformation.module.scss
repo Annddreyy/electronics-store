@@ -28,8 +28,7 @@
             @extend .column-mini;
 
             .top {
-                @extend .row-mini;
-                align-items: center;
+                @extend .row-ac-mini;
                 width: max-content;
             }
         }

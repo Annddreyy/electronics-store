@@ -5,8 +5,8 @@
     @extend .row-center;
 
     .images {
-        @extend .row;
-        flex-wrap: wrap;
+        @extend .row-wrap;
+        
         img {
             width: 70px;
             height: 70px;

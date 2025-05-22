@@ -1,9 +1,10 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/display' as *;
 
 .links {
-    display: flex;
-    flex-wrap: wrap;
+    @extend .row-wrap;
     gap: $base-gap-2;
+    
     margin-top: $base-margin-8;
     padding-left: $base-padding-4;
 
