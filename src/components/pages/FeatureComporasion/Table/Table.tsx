@@ -1,13 +1,13 @@
 import cn from 'classnames';
-import { CharacteristicsType } from '../../../../redux/products/productsReducer';
 import classes from './Table.module.scss';
 import { v4 } from 'uuid';
 import React from 'react';
+import { Characteristics } from '../../../../api/productsAPI';
 
 type PropsType = {
     isDifferent: boolean;
     characteristics: {
-        characteristics: CharacteristicsType;
+        characteristics: Characteristics;
     }[];
     characteristicsSet: Set<string>;
 };

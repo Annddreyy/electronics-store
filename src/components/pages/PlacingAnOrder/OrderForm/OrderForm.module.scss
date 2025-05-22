@@ -6,27 +6,27 @@
     .order {
         @extend .column;
         gap: $base-gap-4;
-    
+
         width: 400px;
         height: max-content;
-    
+
         padding: $base-padding-8;
         padding-top: 0;
-    
+
         border-radius: $base-border-radius-2;
         background-color: var(--secondary);
-        
+
         .informationRow {
             @extend .row-center;
             .information {
                 color: var(--gray);
             }
         }
-    
+
         .top {
             @extend .column-mini;
             position: relative;
-    
+
             &::before {
                 position: absolute;
                 content: '';
@@ -36,10 +36,10 @@
                 border-bottom: 1.5px solid #c8cacb;
             }
         }
-    
+
         .bottom {
             @extend .column;
-    
+
             .informationRow {
                 align-items: flex-end;
                 .information {
@@ -47,7 +47,7 @@
                     font-weight: 600;
                     color: var(--black);
                 }
-        
+
                 .totalSum {
                     font-size: $font-size-xl;
                     font-weight: 700;

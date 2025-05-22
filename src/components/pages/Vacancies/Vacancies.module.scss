@@ -7,7 +7,6 @@
     gap: $base-gap-6;
 }
 
-
 @include breakpoint(1500px) {
     .mainPart {
         grid-template-columns: repeat(2, 1fr);

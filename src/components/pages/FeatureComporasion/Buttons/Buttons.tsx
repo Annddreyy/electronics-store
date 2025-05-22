@@ -1,4 +1,4 @@
-import { CompareProductType } from '../../../../redux/products/productsReducer';
+import { CompareProduct } from '../../../../api/productsAPI';
 import classes from './Buttons.module.scss';
 import cn from 'classnames';
 
@@ -6,7 +6,7 @@ type PropsType = {
     setPreviousStartIndex: () => void;
     setNextStartIndex: () => void;
     startIndex: number;
-    compareProducts: CompareProductType[];
+    compareProducts: CompareProduct[];
 };
 
 export const Buttons: React.FC<PropsType> = ({

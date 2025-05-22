@@ -1,9 +1,9 @@
+import { ProductTypes } from '../api/productsAPI';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { OfferCardsGroup } from '../components/common/OfferCardsGroup/OfferCardsGroup';
 import { ProductCardsGroup } from '../components/common/ProductCardsGroup/ProductCardsGroup';
 import { TopPart } from '../components/pages/Main/TopPart/TopPart';
-import { ProductTypeEnum } from '../redux/products/productsReducer';
 import {
     getProductsByStatus,
     getProductsByType,
@@ -26,18 +26,16 @@ const Main: React.FC = () => {
                 <OfferCardsGroup id1={1} id2={2} />
                 <ProductCardsGroup
                     title={'Сигвеи'}
-                    selector={getProductsByType(ProductTypeEnum.SEGWAY)}
+                    selector={getProductsByType(ProductTypes.SEGWAY)}
                 />
                 <ProductCardsGroup
                     title={'Моноколеса'}
-                    selector={getProductsByType(ProductTypeEnum.UNICYCLE)}
+                    selector={getProductsByType(ProductTypes.UNICYCLE)}
                 />
                 <OfferCardsGroup id1={3} id2={4} />
                 <ProductCardsGroup
                     title={'Электровелосипеды'}
-                    selector={getProductsByType(
-                        ProductTypeEnum.ELECTRIC_BICYCLE,
-                    )}
+                    selector={getProductsByType(ProductTypes.ELECTRIC_BICYCLE)}
                 />
             </div>
             <Footer />

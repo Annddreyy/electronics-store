@@ -1,4 +1,4 @@
-import { ProductType, ProductTypeEnum } from '../products/productsReducer';
+import { Product, ProductTypes } from '../../api/productsAPI';
 import {
     SelfPickUpType,
     DeliveryType,
@@ -7,7 +7,7 @@ import { RecipientType } from '../../components/pages/PlacingAnOrder/Recipient/R
 import { InferActionsType } from '../store';
 import productImg from './../../assets/card/productDefault.png';
 
-export type OrderProductsInformation = ProductType & { count: number };
+export type OrderProductsInformation = Product & { count: number };
 
 export type PayMethodType = 'Картой' | 'Наличными';
 
@@ -18,7 +18,7 @@ const initialState = {
             id: 1,
             title: 'product1',
             img: productImg,
-            type: ProductTypeEnum.ACCESSORIES,
+            type: ProductTypes.ACCESSORIES,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -30,7 +30,7 @@ const initialState = {
             id: 2,
             title: 'product2',
             img: productImg,
-            type: ProductTypeEnum.ELECTRIC_BICYCLE,
+            type: ProductTypes.ELECTRIC_BICYCLE,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -42,7 +42,7 @@ const initialState = {
             id: 3,
             title: 'product3',
             img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
+            type: ProductTypes.ELECTRIC_CAR,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -54,7 +54,7 @@ const initialState = {
             id: 4,
             title: 'product4',
             img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
+            type: ProductTypes.ELECTRIC_CAR,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -66,7 +66,7 @@ const initialState = {
             id: 5,
             title: 'product5',
             img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
+            type: ProductTypes.ELECTRIC_CAR,
             grade: 2,
             price: 1000,
             commentsCount: 12,

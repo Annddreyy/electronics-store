@@ -1,10 +1,10 @@
-import { ReviewType } from '../../../redux/products/productsReducer';
+import { Review } from '../../../api/productsAPI';
 import { formatDate } from '../../../utils/formatDate';
 import { Stars } from '../ProductCard/Statistics/Stars/Stars';
 import classes from './Review.module.scss';
 import cn from 'classnames';
 
-export const Review: React.FC<ReviewType> = ({
+export const ReviewCard: React.FC<Review> = ({
     img,
     author,
     date,

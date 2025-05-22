@@ -2,16 +2,14 @@ import { useState } from 'react';
 import like from './../../../../assets/card/like.png';
 import likeAdded from './../../../../assets/card/like_added.png';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    actions,
-    ProductType,
-} from '../../../../redux/products/productsReducer';
+import { actions } from '../../../../redux/products/productsReducer';
 import { getFavoriteProductById } from '../../../../redux/products/productsSelectors';
+import { Product } from '../../../../api/productsAPI';
 
 type LikeStatusType = 'like' | 'no-like';
 
 type PropsType = {
-    product: ProductType;
+    product: Product;
 };
 
 export const LikeButton: React.FC<PropsType> = ({ product }) => {

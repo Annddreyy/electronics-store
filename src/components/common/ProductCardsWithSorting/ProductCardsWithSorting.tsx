@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import {
-    ProductType,
-    StatusType,
-} from '../../../redux/products/productsReducer';
 import { AppStateType } from '../../../redux/store';
 import { ProductCard } from '../ProductCard/ProductCard';
 import classes from './ProductCardsWithSorting.module.scss';
 import { v4 } from 'uuid';
+import { Product, Status } from '../../../api/productsAPI';
 
 type PropsType = {
-    selector: (state: AppStateType) => ProductType[];
+    selector: (state: AppStateType) => Product[];
 };
 
 enum SortTypes {
@@ -41,7 +38,7 @@ export const ProductCardsWithSorting: React.FC<PropsType> = ({ selector }) => {
     ));
 
     useEffect(() => {
-        let filterString: StatusType | undefined;
+        let filterString: Status | undefined;
         switch (selectedProductType) {
             case ProductTypes.NEW:
                 filterString = 'Новинка';
@@ -53,7 +50,7 @@ export const ProductCardsWithSorting: React.FC<PropsType> = ({ selector }) => {
         if (filterString) {
             setProducts(
                 products.filter((product) =>
-                    product.statusList?.includes(filterString as StatusType),
+                    product.statusList?.includes(filterString as Status),
                 ),
             );
         } else {
@@ -62,9 +59,7 @@ export const ProductCardsWithSorting: React.FC<PropsType> = ({ selector }) => {
     }, [selectedProductType]);
 
     useEffect(() => {
-        let sortingFunction:
-            | ((a: ProductType, b: ProductType) => number)
-            | undefined;
+        let sortingFunction: ((a: Product, b: Product) => number) | undefined;
         switch (selectedSortType) {
             case SortTypes.FIRST_EXPENSIVE:
                 sortingFunction = (a, b) => a.price - b.price;
