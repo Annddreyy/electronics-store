@@ -1,24 +1,8 @@
+import { News, SelectedNews } from '../../api/newsAPI';
+import { InferActionsType } from '../store';
 import img from './../../assets/news/img.png';
 
-export type NewsType = {
-    id: number;
-    title: string;
-    text: string;
-    date: Date;
-    img?: string;
-};
-
-type SelectedNewsType = {
-    id: number;
-    title: string;
-    html: string;
-    img: string;
-};
-
-const initialState: {
-    news: NewsType[];
-    selectedNews: SelectedNewsType;
-} = {
+const initialState = {
     news: [
         {
             id: 1,
@@ -97,7 +81,7 @@ const initialState: {
             date: new Date(2025, 5, 12),
             img: img,
         },
-    ],
+    ] as News[],
     selectedNews: {
         id: 1,
         title: 'News',
@@ -120,14 +104,67 @@ const initialState: {
             </абзац>
         `,
         img: img,
-    },
+    } as SelectedNews,
+    currentPage: 0,
+    pageSize: 0,
 };
 
 type InitialStateType = typeof initialState;
 
 export const newsReducer = (
     state = initialState,
-    action: any,
+    action: Actions,
 ): InitialStateType => {
-    return state;
+    switch (action.type) {
+        case 'electronics-store/news/SET_NEWS':
+            return {
+                ...state,
+                news: action.payload.news,
+            };
+        case 'electronics-store/news/SET_SELECTED_NEWS':
+            return {
+                ...state,
+                selectedNews: action.payload.selectedNews,
+            };
+        case 'electronics-store/news/SET_CURRENT_PAGE':
+            return {
+                ...state,
+                currentPage: action.payload.currentPage,
+            };
+        case 'electronics-store/news/SET_PAGE_SIZE':
+            return {
+                ...state,
+                pageSize: action.payload.pageSize,
+            };
+        default:
+            return state;
+    }
 };
+
+export const actions = {
+    setNews: (news: News[]) =>
+        ({
+            type: 'electronics-store/news/SET_NEWS',
+            payload: { news },
+        }) as const,
+
+    setSelectedNews: (selectedNews: SelectedNews) =>
+        ({
+            type: 'electronics-store/news/SET_SELECTED_NEWS',
+            payload: { selectedNews },
+        }) as const,
+
+    setCurrentPage: (currentPage: number) =>
+        ({
+            type: 'electronics-store/news/SET_CURRENT_PAGE',
+            payload: { currentPage },
+        }) as const,
+
+    setPageSize: (pageSize: number) =>
+        ({
+            type: 'electronics-store/news/SET_PAGE_SIZE',
+            payload: { pageSize },
+        }) as const,
+};
+
+export type Actions = InferActionsType<typeof actions>;
