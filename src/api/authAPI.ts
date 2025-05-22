@@ -16,8 +16,8 @@ export type User = {
     address: string | undefined;
     index: number | undefined;
 
-    payMethod: PayMethodType;
-    receivingMethod: ReceivingMethod;
+    payMethod: PayMethodType | undefined;
+    receivingMethod: ReceivingMethod | undefined;
 };
 export type UserResponse = DefaultResponse & { user: User };
 

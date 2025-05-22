@@ -1,75 +1,19 @@
-import { GradeType } from '../../types';
+import {
+    CompareProduct,
+    Product,
+    ProductTypes,
+    SelectedProduct,
+} from '../../api/productsAPI';
 import { InferActionsType } from '../store';
 import productImg from './../../assets/card/productDefault.png';
 
-export enum ProductTypeEnum {
-    GYRO_SCOOTER = 'Гироскутер',
-    ELECTRIC_SCOOTER = 'Электросамокат',
-    UNICYCLE = 'Моноколесо',
-    SEGWAY = 'Сигвей',
-    ELECTRO_SCOOTER = 'Электроскутер',
-    ELECTRIC_BICYCLE = 'Электровелосипеды',
-    ELECTRO_SKATEBOARD = 'Электроскейт',
-    ELECTRIC_CAR = 'Электромобили',
-    ACCESSORIES = 'Аксессуары',
-    SMART_TOYS = 'Умные игрушки',
-    SMART_WATCH = 'Умные часы',
-}
-
-export type StatusType = 'Новинка' | 'Хит продаж';
-
-export type ProductType = {
-    id: number;
-    title: string;
-    img: string;
-    type: ProductTypeEnum;
-    grade: GradeType;
-    price: number;
-    commentsCount: number;
-    promotionPercent?: number;
-    statusList?: StatusType[];
-};
-
-export type CharacteristicType = string | number | boolean | null;
-export type CharacteristicsType = Record<string, CharacteristicType>;
-
-export type ReviewType = {
-    id: number;
-    img: string | null;
-    author: string;
-    date: Date;
-    grade: GradeType;
-    title: string;
-    text: string;
-};
-
-export type SelectedProductType = ProductType & {
-    description: string;
-    characteristics: CharacteristicsType;
-    reviews: ReviewType[];
-    images: string[];
-    descriptionTabTitle: `Описание ${string}`;
-    characteristicsTabTitle: `Характеристики ${string}`;
-    reviewsTabTitle: `Отзывы на ${string}`;
-};
-
-export type CompareProductType = ProductType & {
-    characteristics: CharacteristicsType;
-};
-
-const initialState: {
-    products: ProductType[];
-    viewed: Map<number, ProductType>;
-    favorite: Map<number, ProductType>;
-    compare: CompareProductType[];
-    selectedProduct: SelectedProductType;
-} = {
+const initialState = {
     products: [
         {
             id: 1,
             title: 'product1',
             img: productImg,
-            type: ProductTypeEnum.ACCESSORIES,
+            type: ProductTypes.ACCESSORIES,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -80,7 +24,7 @@ const initialState: {
             id: 2,
             title: 'product2',
             img: productImg,
-            type: ProductTypeEnum.ELECTRIC_BICYCLE,
+            type: ProductTypes.ELECTRIC_BICYCLE,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -91,7 +35,7 @@ const initialState: {
             id: 3,
             title: 'product3',
             img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
+            type: ProductTypes.ELECTRIC_CAR,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -102,7 +46,7 @@ const initialState: {
             id: 4,
             title: 'product4',
             img: productImg,
-            type: ProductTypeEnum.SEGWAY,
+            type: ProductTypes.SEGWAY,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -113,7 +57,7 @@ const initialState: {
             id: 5,
             title: 'product5',
             img: productImg,
-            type: ProductTypeEnum.SEGWAY,
+            type: ProductTypes.SEGWAY,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -124,7 +68,7 @@ const initialState: {
             id: 6,
             title: 'product6',
             img: productImg,
-            type: ProductTypeEnum.SEGWAY,
+            type: ProductTypes.SEGWAY,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -134,7 +78,7 @@ const initialState: {
             id: 7,
             title: 'product7',
             img: productImg,
-            type: ProductTypeEnum.SEGWAY,
+            type: ProductTypes.SEGWAY,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -143,7 +87,7 @@ const initialState: {
             id: 8,
             title: 'product8',
             img: productImg,
-            type: ProductTypeEnum.SEGWAY,
+            type: ProductTypes.SEGWAY,
             grade: 2,
             price: 1000,
             commentsCount: 12,
@@ -154,21 +98,21 @@ const initialState: {
             id: 9,
             title: 'product9',
             img: productImg,
-            type: ProductTypeEnum.SEGWAY,
+            type: ProductTypes.SEGWAY,
             grade: 2,
             price: 1000,
             commentsCount: 13,
             promotionPercent: 20,
         },
-    ],
-    viewed: new Map<number, ProductType>([
+    ] as Product[],
+    viewed: new Map<number, Product>([
         [
             1,
             {
                 id: 1,
                 title: 'product1',
                 img: productImg,
-                type: ProductTypeEnum.ACCESSORIES,
+                type: ProductTypes.ACCESSORIES,
                 grade: 4,
                 price: 1300,
                 commentsCount: 12,
@@ -182,7 +126,7 @@ const initialState: {
                 id: 2,
                 title: 'product2',
                 img: productImg,
-                type: ProductTypeEnum.ELECTRIC_BICYCLE,
+                type: ProductTypes.ELECTRIC_BICYCLE,
                 grade: 2,
                 price: 1500,
                 commentsCount: 12,
@@ -196,7 +140,7 @@ const initialState: {
                 id: 3,
                 title: 'product3',
                 img: productImg,
-                type: ProductTypeEnum.ELECTRIC_CAR,
+                type: ProductTypes.ELECTRIC_CAR,
                 grade: 3,
                 price: 1200,
                 commentsCount: 12,
@@ -205,14 +149,14 @@ const initialState: {
             },
         ],
     ]),
-    favorite: new Map<number, ProductType>([
+    favorite: new Map<number, Product>([
         [
             1,
             {
                 id: 1,
                 title: 'product1',
                 img: productImg,
-                type: ProductTypeEnum.ACCESSORIES,
+                type: ProductTypes.ACCESSORIES,
                 grade: 4,
                 price: 1300,
                 commentsCount: 12,
@@ -226,7 +170,7 @@ const initialState: {
                 id: 2,
                 title: 'product2',
                 img: productImg,
-                type: ProductTypeEnum.ELECTRIC_BICYCLE,
+                type: ProductTypes.ELECTRIC_BICYCLE,
                 grade: 2,
                 price: 1500,
                 commentsCount: 12,
@@ -240,7 +184,7 @@ const initialState: {
                 id: 3,
                 title: 'product3',
                 img: productImg,
-                type: ProductTypeEnum.ELECTRIC_CAR,
+                type: ProductTypes.ELECTRIC_CAR,
                 grade: 3,
                 price: 1200,
                 commentsCount: 12,
@@ -249,127 +193,145 @@ const initialState: {
             },
         ],
     ]),
-    compare: [
-        {
-            id: 1,
-            title: 'product1',
-            img: productImg,
-            type: ProductTypeEnum.ACCESSORIES,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 30,
-            statusList: ['Новинка'],
-            characteristics: {
-                'Тип:': 'Сигвей',
-                'Макс. скорость до (км/ч)': 25,
-                'Мощность двигателя': 300,
-                'Пробег на одном заряде': 36,
-                'Тип переднего тормоза': 'Дисковый маханический',
-                'Круиз-контроль': true,
+    compare: new Map<number, CompareProduct>([
+        [
+            1,
+            {
+                id: 1,
+                title: 'product1',
+                img: productImg,
+                type: ProductTypes.ACCESSORIES,
+                grade: 2,
+                price: 1000,
+                commentsCount: 12,
+                promotionPercent: 30,
+                statusList: ['Новинка'],
+                characteristics: {
+                    'Тип:': 'Сигвей',
+                    'Макс. скорость до (км/ч)': 25,
+                    'Мощность двигателя': 300,
+                    'Пробег на одном заряде': 36,
+                    'Тип переднего тормоза': 'Дисковый маханический',
+                    'Круиз-контроль': true,
+                },
             },
-        },
-        {
-            id: 2,
-            title: 'product2',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_BICYCLE,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка', 'Хит продаж'],
-            characteristics: {
-                'Тип:': 'Сигвей',
-                'Макс. скорость до (км/ч)': 25,
-                'Мощность двигателя': 300,
-                'Пробег на одном заряде': 36,
-                'Тип переднего тормоза': 'Дисковый маханический',
-                'Круиз-контроль': true,
+        ],
+        [
+            2,
+            {
+                id: 2,
+                title: 'product2',
+                img: productImg,
+                type: ProductTypes.ELECTRIC_BICYCLE,
+                grade: 2,
+                price: 1000,
+                commentsCount: 12,
+                promotionPercent: 20,
+                statusList: ['Новинка', 'Хит продаж'],
+                characteristics: {
+                    'Тип:': 'Сигвей',
+                    'Макс. скорость до (км/ч)': 25,
+                    'Мощность двигателя': 300,
+                    'Пробег на одном заряде': 36,
+                    'Тип переднего тормоза': 'Дисковый маханический',
+                    'Круиз-контроль': true,
+                },
             },
-        },
-        {
-            id: 3,
-            title: 'product3',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка'],
-            characteristics: {
-                'Тип:': 'Сигвей',
-                'Макс. скорость до (км/ч)': 25,
-                'Мощность двигателя': 350,
-                'Пробег на одном заряде': 36,
-                'Тип переднего тормоза': 'Дисковый маханический',
-                'Круиз-контроль': true,
+        ],
+        [
+            3,
+            {
+                id: 3,
+                title: 'product3',
+                img: productImg,
+                type: ProductTypes.ELECTRIC_CAR,
+                grade: 2,
+                price: 1000,
+                commentsCount: 12,
+                promotionPercent: 20,
+                statusList: ['Новинка'],
+                characteristics: {
+                    'Тип:': 'Сигвей',
+                    'Макс. скорость до (км/ч)': 25,
+                    'Мощность двигателя': 350,
+                    'Пробег на одном заряде': 36,
+                    'Тип переднего тормоза': 'Дисковый маханический',
+                    'Круиз-контроль': true,
+                },
             },
-        },
-        {
-            id: 4,
-            title: 'product4',
-            img: productImg,
-            type: ProductTypeEnum.ACCESSORIES,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 30,
-            statusList: ['Новинка'],
-            characteristics: {
-                'Тип:': 'Сигвей',
-                'Макс. скорость до (км/ч)': 25,
-                'Мощность двигателя': 500,
-                'Пробег на одном заряде': 36,
-                'Тип переднего тормоза': 'Дисковый маханический',
-                'Круиз-контроль': true,
+        ],
+        [
+            4,
+            {
+                id: 4,
+                title: 'product4',
+                img: productImg,
+                type: ProductTypes.ACCESSORIES,
+                grade: 2,
+                price: 1000,
+                commentsCount: 12,
+                promotionPercent: 30,
+                statusList: ['Новинка'],
+                characteristics: {
+                    'Тип:': 'Сигвей',
+                    'Макс. скорость до (км/ч)': 25,
+                    'Мощность двигателя': 500,
+                    'Пробег на одном заряде': 36,
+                    'Тип переднего тормоза': 'Дисковый маханический',
+                    'Круиз-контроль': true,
+                },
             },
-        },
-        {
-            id: 5,
-            title: 'product5',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_BICYCLE,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка', 'Хит продаж'],
-            characteristics: {
-                'Тип:': 'Сигвей',
-                'Макс. скорость до (км/ч)': 25,
-                'Мощность двигателя': 700,
-                'Пробег на одном заряде': 36,
-                'Тип переднего тормоза': 'Дисковый маханический',
-                'Круиз-контроль': true,
+        ],
+        [
+            5,
+            {
+                id: 5,
+                title: 'product5',
+                img: productImg,
+                type: ProductTypes.ELECTRIC_BICYCLE,
+                grade: 2,
+                price: 1000,
+                commentsCount: 12,
+                promotionPercent: 20,
+                statusList: ['Новинка', 'Хит продаж'],
+                characteristics: {
+                    'Тип:': 'Сигвей',
+                    'Макс. скорость до (км/ч)': 25,
+                    'Мощность двигателя': 700,
+                    'Пробег на одном заряде': 36,
+                    'Тип переднего тормоза': 'Дисковый маханический',
+                    'Круиз-контроль': true,
+                },
             },
-        },
-        {
-            id: 6,
-            title: 'product6',
-            img: productImg,
-            type: ProductTypeEnum.ELECTRIC_CAR,
-            grade: 2,
-            price: 1000,
-            commentsCount: 12,
-            promotionPercent: 20,
-            statusList: ['Новинка'],
-            characteristics: {
-                'Тип:': 'Сигвей',
-                'Макс. скорость до (км/ч)': 25,
-                'Мощность двигателя': 850,
-                'Пробег на одном заряде': 36,
-                'Тип переднего тормоза': 'Дисковый маханический',
-                'Круиз-контроль': true,
+        ],
+        [
+            6,
+            {
+                id: 6,
+                title: 'product6',
+                img: productImg,
+                type: ProductTypes.ELECTRIC_CAR,
+                grade: 2,
+                price: 1000,
+                commentsCount: 12,
+                promotionPercent: 20,
+                statusList: ['Новинка'],
+                characteristics: {
+                    'Тип:': 'Сигвей',
+                    'Макс. скорость до (км/ч)': 25,
+                    'Мощность двигателя': 850,
+                    'Пробег на одном заряде': 36,
+                    'Тип переднего тормоза': 'Дисковый маханический',
+                    'Круиз-контроль': true,
+                },
             },
-        },
-    ],
+        ],
+    ]),
     selectedProduct: {
         id: 1,
         title: 'Гироскутер Smart Balance Well 6.5 Хип-Хоп (АКВАЗАЩИТА)',
         img: productImg,
-        type: ProductTypeEnum.GYRO_SCOOTER,
+        type: ProductTypes.GYRO_SCOOTER,
         grade: 3,
         price: 12000,
         commentsCount: 3,
@@ -464,16 +426,39 @@ const initialState: {
             'Тип переднего тормоза': 'Дисковый маханический',
             'Круиз-контроль': true,
         },
-    },
+    } as SelectedProduct,
+    currentPage: 0,
+    pageSize: 0,
 };
 
-export type InitialStateType = typeof initialState;
+export type InitialState = typeof initialState;
 
 export const productsReducer = (
     state = initialState,
-    action: ActionTypes,
-): InitialStateType => {
+    action: Actions,
+): InitialState => {
     switch (action.type) {
+        case 'electronics-store/products/SET_PRODUCTS':
+            return {
+                ...state,
+                products: action.payload.products,
+            };
+
+        case 'electronics-store/products/SET_SELECTED_PRODUCT':
+            return {
+                ...state,
+                selectedProduct: action.payload.product,
+            };
+
+        case 'electronics-store/products/SET_VIEWED_PRODUCTS':
+            const viewedMap = new Map<number, Product>(
+                action.payload.products.map((product) => [product.id, product]),
+            );
+            return {
+                ...state,
+                viewed: viewedMap,
+            };
+
         case 'electronics-store/products/SET_VIEWED_PRODUCT':
             return {
                 ...state,
@@ -482,6 +467,16 @@ export const productsReducer = (
                     action.payload.product,
                 ),
             };
+
+        case 'electronics-store/products/SET_FAVORITE_PRODUCTS':
+            const favoriteMap = new Map<number, Product>(
+                action.payload.products.map((product) => [product.id, product]),
+            );
+            return {
+                ...state,
+                favorite: favoriteMap,
+            };
+
         case 'electronics-store/products/SET_FAVORITE_PRODUCT':
             return {
                 ...state,
@@ -490,6 +485,7 @@ export const productsReducer = (
                     action.payload.product,
                 ),
             };
+
         case 'electronics-store/products/DELETE_FAVORITE_PRODUCT':
             const newFavorite = state.favorite;
             newFavorite.delete(action.payload.product.id);
@@ -497,27 +493,98 @@ export const productsReducer = (
                 ...state,
                 favorite: newFavorite,
             };
+
+        case 'electronics-store/products/SET_COMPARE_PRODUCTS':
+            const compareMap = new Map<number, CompareProduct>(
+                action.payload.products.map((product) => [product.id, product]),
+            );
+            return {
+                ...state,
+                compare: compareMap,
+            };
+
+        case 'electronics-store/products/SET_COMPARE_PRODUCT':
+            return {
+                ...state,
+                compare: state.compare.set(
+                    action.payload.product.id,
+                    action.payload.product,
+                ),
+            };
+
+        case 'electronics-store/products/DELETE_COMPARE_PRODUCT':
+            const newCompare = state.compare;
+            newCompare.delete(action.payload.product.id);
+            return {
+                ...state,
+                compare: newCompare,
+            };
+
         default:
             return state;
     }
 };
 
 export const actions = {
-    setViewedProduct: (product: ProductType) =>
+    setProducts: (products: Product[]) =>
+        ({
+            type: 'electronics-store/products/SET_PRODUCTS',
+            payload: { products },
+        }) as const,
+
+    setSelectedProduct: (product: SelectedProduct) =>
+        ({
+            type: 'electronics-store/products/SET_SELECTED_PRODUCT',
+            payload: { product },
+        }) as const,
+
+    setViewedProducts: (products: Product[]) =>
+        ({
+            type: 'electronics-store/products/SET_VIEWED_PRODUCTS',
+            payload: { products },
+        }) as const,
+
+    setViewedProduct: (product: Product) =>
         ({
             type: 'electronics-store/products/SET_VIEWED_PRODUCT',
             payload: { product },
         }) as const,
-    setFavoriteProduct: (product: ProductType) =>
+
+    setFavoriteProducts: (products: Product[]) =>
+        ({
+            type: 'electronics-store/products/SET_FAVORITE_PRODUCTS',
+            payload: { products },
+        }) as const,
+
+    setFavoriteProduct: (product: Product) =>
         ({
             type: 'electronics-store/products/SET_FAVORITE_PRODUCT',
             payload: { product },
         }) as const,
-    deleteFavoriteProduct: (product: ProductType) =>
+
+    deleteFavoriteProduct: (product: Product) =>
         ({
             type: 'electronics-store/products/DELETE_FAVORITE_PRODUCT',
             payload: { product },
         }) as const,
+
+    setCompareProducts: (products: CompareProduct[]) =>
+        ({
+            type: 'electronics-store/products/SET_COMPARE_PRODUCTS',
+            payload: { products },
+        }) as const,
+
+    setCompareProduct: (product: CompareProduct) =>
+        ({
+            type: 'electronics-store/products/SET_COMPARE_PRODUCT',
+            payload: { product },
+        }) as const,
+
+    deleteCompareProduct: (product: CompareProduct) =>
+        ({
+            type: 'electronics-store/products/DELETE_COMPARE_PRODUCT',
+            payload: { product },
+        }) as const,
 };
 
-export type ActionTypes = InferActionsType<typeof actions>;
+export type Actions = InferActionsType<typeof actions>;

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { AppStateType } from '../store';
-import { StatusType } from './productsReducer';
+import { Status } from '../../api/productsAPI';
 
 export const getProductsSelector = (state: AppStateType) => {
     return state.products.products;
@@ -10,7 +10,7 @@ export const getProductById = (id: number) => (state: AppStateType) => {
     return state.products.products.find((product) => product.id === id);
 };
 
-export const getProductsByStatus = (status: StatusType) =>
+export const getProductsByStatus = (status: Status) =>
     createSelector(getProductsSelector, (products) =>
         products.filter((product) => product.statusList?.includes(status)),
     );

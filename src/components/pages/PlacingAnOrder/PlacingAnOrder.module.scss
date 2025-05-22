@@ -13,7 +13,8 @@
             border: 1.75px solid var(--secondary);
             border-radius: $base-border-radius-3;
 
-            .blockTitle, .blockTitleGray {
+            .blockTitle,
+            .blockTitleGray {
                 font-size: $font-size-lg;
                 padding-bottom: $base-padding-4;
             }

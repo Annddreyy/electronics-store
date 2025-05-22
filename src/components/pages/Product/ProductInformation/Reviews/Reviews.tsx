@@ -1,16 +1,16 @@
 import { v4 } from 'uuid';
-import { ReviewType } from '../../../../../redux/products/productsReducer';
-import { Review } from '../../../../common/Review/Review';
+import { ReviewCard } from '../../../../common/ReviewCard/Review';
 import classes from './Reviews.module.scss';
+import { Review } from '../../../../../api/productsAPI';
 
 type PropsType = {
     title: string;
-    reviews: ReviewType[];
+    reviews: Review[];
 };
 
 export const Reviews: React.FC<PropsType> = ({ reviews, title }) => {
     const reviewsElem = reviews.map((review) => (
-        <Review {...review} key={v4()} />
+        <ReviewCard {...review} key={v4()} />
     ));
 
     return (

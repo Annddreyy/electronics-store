@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { actions, ProductType } from '../../../redux/products/productsReducer';
+import { actions } from '../../../redux/products/productsReducer';
 import { BinButton } from './BinButton/BinButton';
 import { CompareButton } from './CompareButton/CompareButton';
 import { LikeButton } from './LikeButton/LikeButton';
@@ -11,8 +11,9 @@ import { Price } from './Price/Price';
 import { Promotion } from './Price/Promotion/Promotion';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
+import { Product } from '../../../api/productsAPI';
 
-export const ProductCard: React.FC<ProductType> = (product) => {
+export const ProductCard: React.FC<Product> = (product) => {
     const dispatch = useDispatch();
 
     const setViewedProduct = () => {

@@ -20,9 +20,9 @@
 @include breakpoint(1350px) {
     .topPart {
         grid-template-areas:
-        'title'
-        'img'
-        'information'
-        'mini-information';
+            'title'
+            'img'
+            'information'
+            'mini-information';
     }
 }

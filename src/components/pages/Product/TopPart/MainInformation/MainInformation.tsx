@@ -1,5 +1,4 @@
-import { ProductType } from '../../../../../redux/products/productsReducer';
-import { GradeType } from '../../../../../types';
+import { Product } from '../../../../../api/productsAPI';
 import { CompareButton } from '../../../../common/ProductCard/CompareButton/CompareButton';
 import { LikeButton } from '../../../../common/ProductCard/LikeButton/LikeButton';
 import { OldPrice } from '../../../../common/ProductCard/OldPrice/OldPrice';
@@ -9,7 +8,7 @@ import { Statistics } from '../../../../common/ProductCard/Statistics/Statistics
 import classes from './MainInformation.module.scss';
 
 type PropsType = {
-    product: ProductType;
+    product: Product;
 };
 
 export const MainInformation: React.FC<PropsType> = ({ product }) => {

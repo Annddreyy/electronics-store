@@ -3,8 +3,7 @@
 
 .footerBottom {
     display: grid;
-    grid-template-areas: 
-        'rightsReceived socialLinks author';
+    grid-template-areas: 'rightsReceived socialLinks author';
     align-items: center;
     gap: $gap-mini;
     justify-content: space-between;
@@ -31,7 +30,7 @@
 
 @include breakpoint(1000px) {
     .footerBottom {
-        grid-template-areas: 
+        grid-template-areas:
             'rightsReceived socialLinks'
             'author socialLinks';
     }
@@ -39,7 +38,7 @@
 
 @include breakpoint(650px) {
     .footerBottom {
-        grid-template-areas: 
+        grid-template-areas:
             'socialLinks'
             'rightsReceived'
             'author';

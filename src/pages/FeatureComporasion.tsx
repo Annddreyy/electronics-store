@@ -7,12 +7,12 @@ import { ProductCard } from '../components/common/ProductCard/ProductCard';
 import { Buttons } from '../components/pages/FeatureComporasion/Buttons/Buttons';
 import { Table } from '../components/pages/FeatureComporasion/Table/Table';
 import { TopPart } from '../components/pages/FeatureComporasion/TopPart/TopPart';
-import { ProductType, StatusType } from '../redux/products/productsReducer';
 import { getCompareProducts } from '../redux/products/productsSelectors';
 import { LinkType } from '../types';
 import classes from './../components/pages/FeatureComporasion/FeatureComporasion.module.scss';
 import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { v4 } from 'uuid';
+import { Product, Status } from '../api/productsAPI';
 
 const FeatureComporasion: React.FC = () => {
     const path: LinkType[] = [
@@ -20,7 +20,9 @@ const FeatureComporasion: React.FC = () => {
         { link: '/compare', title: 'Сравнение товаров' },
     ];
 
-    const initialProducts = useSelector(getCompareProducts);
+    const initialProducts = Array.from(
+        useSelector(getCompareProducts).values(),
+    );
     const [startIndex, setStartIndex] = useState(0);
     const [isDifferent, setIsDifferent] = useState(false);
 
@@ -32,7 +34,7 @@ const FeatureComporasion: React.FC = () => {
     let compareProducts = products.slice(startIndex, startIndex + 3);
 
     useEffect(() => {
-        let filterString: StatusType | undefined;
+        let filterString: Status | undefined;
         switch (selectedProductType) {
             case ProductTypes.NEW:
                 filterString = 'Новинка';
@@ -44,7 +46,7 @@ const FeatureComporasion: React.FC = () => {
         if (filterString) {
             setProducts(
                 products.filter((product) =>
-                    product.statusList?.includes(filterString as StatusType),
+                    product.statusList?.includes(filterString as Status),
                 ),
             );
         } else {
@@ -58,7 +60,7 @@ const FeatureComporasion: React.FC = () => {
     };
 
     // Создание карточек товаров
-    const productInformation: ProductType[] = compareProducts.map(
+    const productInformation: Product[] = compareProducts.map(
         (compareProduct) => ({
             id: compareProduct.id,
             title: compareProduct.title,

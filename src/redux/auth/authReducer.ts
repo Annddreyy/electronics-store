@@ -2,7 +2,9 @@ import { ReceivingMethod, User } from '../../api/authAPI';
 import { PayMethodType } from '../order/orderReducer';
 import { InferActionsType } from '../store';
 
-const initialState: User = {
+const initialState: User & { isAuth: boolean } = {
+    isAuth: false,
+
     email: '',
     phone: '',
     name: '',
@@ -29,19 +31,26 @@ export const authReducer = (
             return {
                 ...state,
                 ...action.payload,
+                isAuth: true,
             };
         case 'elecronics-store/auth/LOGOUT': {
             return {
                 ...state,
+
+                isAuth: false,
+
                 email: '',
                 phone: '',
                 name: '',
+
                 dateOfRegistration: new Date(),
                 ordersCount: 0,
+
                 avatar: undefined,
                 city: undefined,
                 address: undefined,
                 index: undefined,
+
                 payMethod: '' as PayMethodType,
                 receivingMethod: '' as ReceivingMethod,
             };
