@@ -1,15 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { NewsType } from '../../../redux/news/newsReducer';
 import { formatDate } from '../../../utils/formatDate';
 import classes from './NewsCard.module.scss';
+import { News } from '../../../api/newsAPI';
 
-export const NewsCard: React.FC<NewsType> = ({
-    id,
-    title,
-    text,
-    date,
-    img,
-}) => {
+export const NewsCard: React.FC<News> = ({ id, title, text, date, img }) => {
     const dateString = formatDate(date);
     return (
         <NavLink to={`/news/${id}`}>
