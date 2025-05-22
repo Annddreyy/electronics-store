@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { OfferType } from '../../../redux/offers/offersReducer';
 import classes from './OfferCard.module.scss';
+import { Offer } from '../../../api/offersAPI';
 
-export const OfferCard: React.FC<OfferType> = ({ id, title, img }) => {
+export const OfferCard: React.FC<Offer> = ({ id, title, img }) => {
     return (
         <NavLink
             to={`/offers/${id}`}
