@@ -1,5 +1,5 @@
-import { PayMethodType } from '../redux/order/orderReducer';
 import { DefaultResponse, instance } from './api';
+import { PayMethod } from './orderAPI';
 
 export type ReceivingMethod = 'Доставка' | 'Самовывоз';
 export type User = {
@@ -16,7 +16,7 @@ export type User = {
     address: string | undefined;
     index: number | undefined;
 
-    payMethod: PayMethodType | undefined;
+    payMethod: PayMethod | undefined;
     receivingMethod: ReceivingMethod | undefined;
 };
 export type UserResponse = DefaultResponse & { user: User };

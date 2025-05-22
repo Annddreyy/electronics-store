@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import styles from './MethodOfReceiving.module.scss';
 import cn from 'classnames';
-import { Delivery } from './SecondPart/Delivery/Delivery';
+import { DeliveryBlock } from './SecondPart/DeliveryBlock/DeliveryBlock';
 import { SelfPickup } from './SecondPart/SelfPickup/SelfPickup';
 import { useState } from 'react';
 
@@ -153,7 +153,7 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
                         </div>
                         {formType !== FormType.NOT_CHANGE ? (
                             formType === FormType.DELIVERY ? (
-                                <Delivery
+                                <DeliveryBlock
                                     changeNextOrderStep={changeNextOrderStep}
                                 />
                             ) : (

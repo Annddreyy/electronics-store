@@ -6,10 +6,10 @@ import { BinProducts } from '../components/pages/PlacingAnOrder/BinProducts/BinP
 import { BlockDisabled } from '../components/pages/PlacingAnOrder/BlockDisabled/BlockDisabled';
 import { MethodOfReceiving } from '../components/pages/PlacingAnOrder/MethodOfReceiving/MethodOfReceiving';
 import { OrderForm } from '../components/pages/PlacingAnOrder/OrderForm/OrderForm';
-import { PayMethod } from '../components/pages/PlacingAnOrder/PayMethod/PayMethod';
 import { Recipient } from '../components/pages/PlacingAnOrder/Recipient/Recipient';
 import { getProducts } from '../redux/order/orderSelectors';
 import classes from './../components/pages/PlacingAnOrder/PlacingAnOrder.module.scss';
+import { PayMethodBlock } from '../components/pages/PlacingAnOrder/PayMethodBlock/PayMethodBlock';
 
 export enum OrderSteps {
     ORDER,
@@ -46,7 +46,7 @@ const PlacingAnOrder: React.FC = () => {
     const ActiveBlocks = {
         [OrderSteps.ORDER]: BinProducts,
         [OrderSteps.METHOD_OF_RECEIVING]: MethodOfReceiving,
-        [OrderSteps.PAYMENT_METHOD]: PayMethod,
+        [OrderSteps.PAYMENT_METHOD]: PayMethodBlock,
         [OrderSteps.RECIPIENT]: Recipient,
     };
 
@@ -65,7 +65,7 @@ const PlacingAnOrder: React.FC = () => {
 
     const OrderBlock = ActiveBlocks[OrderSteps.ORDER];
     const MethodOfReceivingBlock = ActiveBlocks[OrderSteps.METHOD_OF_RECEIVING];
-    const PayMethodBlock = ActiveBlocks[OrderSteps.PAYMENT_METHOD];
+    const PayMethodBlockComponent = ActiveBlocks[OrderSteps.PAYMENT_METHOD];
     const RecipientBlock = ActiveBlocks[OrderSteps.RECIPIENT];
 
     return (
@@ -112,7 +112,7 @@ const PlacingAnOrder: React.FC = () => {
                         {currentOrderState >= OrderSteps.PAYMENT_METHOD ? (
                             <div>
                                 {
-                                    <PayMethodBlock
+                                    <PayMethodBlockComponent
                                         changeNextOrderStep={
                                             changeNextOrderStep
                                         }

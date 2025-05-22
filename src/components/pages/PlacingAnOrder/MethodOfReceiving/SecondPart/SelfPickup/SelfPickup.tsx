@@ -6,8 +6,8 @@ import { MapComponent } from './../../../../Contacts/Information/Map/Map';
 import styles from './SelfPickup.module.scss';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../../../../redux/order/orderReducer';
-import { SelfPickUpType } from '../../../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
 import { NextButton } from '../../../NextButton/NextButton';
+import { SelfPickUp } from '../../../../../../api/orderAPI';
 
 type FormDataValues = {
     magazine: string;
@@ -28,7 +28,7 @@ export const SelfPickup: React.FC<PropsType> = ({ changeNextOrderStep }) => {
 
     const onSubmit = (formData: FormDataValues) => {
         const [addressSelfPickUp, workingTime] = formData.magazine.split('***');
-        const data: SelfPickUpType = {
+        const data: SelfPickUp = {
             method: 'Самовывоз',
             addressSelfPickUp,
             workingTime,

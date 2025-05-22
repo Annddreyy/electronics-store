@@ -4,21 +4,6 @@ import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './MethodOfReceivingFill.module.scss';
 
-export type SelfPickUpType = {
-    method: 'Самовывоз';
-    addressSelfPickUp: string;
-    workingTime: string;
-};
-
-export type DeliveryType = {
-    method: 'Доставка';
-    date: string;
-    addressDelivery: string;
-    apartament: string;
-    time: string;
-    comment?: string;
-};
-
 type PropsType = {
     changeStage: () => void;
 };

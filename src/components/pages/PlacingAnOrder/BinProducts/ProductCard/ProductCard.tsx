@@ -1,15 +1,15 @@
 import { useDispatch } from 'react-redux';
 import {
-    ActionsType,
+    Actions,
     OrderProductsInformation,
 } from '../../../../../redux/order/orderReducer';
 import deleteProductImg from './../../../../../assets/product/delete.png';
 import classes from './ProductCard.module.scss';
 
 type PropsType = OrderProductsInformation & {
-    increase: (id: number) => ActionsType;
-    decrease: (id: number) => ActionsType;
-    deleteProduct: (id: number) => ActionsType;
+    increase: (id: number) => Actions;
+    decrease: (id: number) => Actions;
+    deleteProduct: (id: number) => Actions;
 };
 
 export const ProductCard: React.FC<PropsType> = ({

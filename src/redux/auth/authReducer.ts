@@ -1,5 +1,5 @@
 import { ReceivingMethod, User } from '../../api/authAPI';
-import { PayMethodType } from '../order/orderReducer';
+import { PayMethod } from '../../api/orderAPI';
 import { InferActionsType } from '../store';
 
 const initialState: User & { isAuth: boolean } = {
@@ -16,7 +16,7 @@ const initialState: User & { isAuth: boolean } = {
     address: undefined,
     index: undefined,
 
-    payMethod: '' as PayMethodType,
+    payMethod: '' as PayMethod,
     receivingMethod: '' as ReceivingMethod,
 };
 
@@ -51,7 +51,7 @@ export const authReducer = (
                 address: undefined,
                 index: undefined,
 
-                payMethod: '' as PayMethodType,
+                payMethod: '' as PayMethod,
                 receivingMethod: '' as ReceivingMethod,
             };
         }
