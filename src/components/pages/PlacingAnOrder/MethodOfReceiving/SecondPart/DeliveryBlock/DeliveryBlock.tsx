@@ -5,8 +5,8 @@ import { ErrorMessage } from '../../../../../common/ErrorMessage/ErrorMessage';
 import classes from './Delivery.module.scss';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../../../../redux/order/orderReducer';
-import { DeliveryType } from '../../../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
 import { NextButton } from '../../../NextButton/NextButton';
+import { Delivery } from '../../../../../../api/orderAPI';
 
 type FormDataType = {
     date: string;
@@ -20,7 +20,7 @@ type PropsType = {
     changeNextOrderStep: () => void;
 };
 
-export const Delivery: React.FC<PropsType> = ({ changeNextOrderStep }) => {
+export const DeliveryBlock: React.FC<PropsType> = ({ changeNextOrderStep }) => {
     const {
         register,
         handleSubmit,
@@ -30,7 +30,7 @@ export const Delivery: React.FC<PropsType> = ({ changeNextOrderStep }) => {
     const dispatch = useDispatch();
 
     const onSubmit = (formData: FormDataType) => {
-        const data: DeliveryType = {
+        const data: Delivery = {
             ...formData,
             method: 'Доставка',
         };

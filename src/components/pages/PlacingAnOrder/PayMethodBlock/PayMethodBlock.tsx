@@ -6,14 +6,15 @@ import classes from './../PlacingAnOrder.module.scss';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
-import { actions, PayMethodType } from '../../../../redux/order/orderReducer';
+import { actions } from '../../../../redux/order/orderReducer';
 import { useDispatch } from 'react-redux';
+import { PayMethod } from '../../../../api/orderAPI';
 
 type FormValuesType = {
-    paymentMethod: PayMethodType;
+    paymentMethod: PayMethod;
 };
 
-export const PayMethod: React.FC<OrderBlockProps> = ({
+export const PayMethodBlock: React.FC<OrderBlockProps> = ({
     changeNextOrderStep,
     setCurrentOrderStep,
     currentOrderState,
