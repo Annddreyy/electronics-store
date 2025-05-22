@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import { formatDate } from '../../../../../../utils/formatDate';
 import { OrderType } from '../Orders';
 import classes from './Order.module.scss';
@@ -12,7 +13,7 @@ export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
     );
 
     const productsElem = products.map((product) => (
-        <div className={classes.product}>
+        <div className={classes.product} key={v4()}>
             <h3>{product.title}</h3>
             <img src={product.img} alt="" />
             <p>
@@ -22,7 +23,7 @@ export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
     ));
 
     const historyElem = history.map((history) => (
-        <div className={classes.stage}>
+        <div className={classes.stage} key={v4()}>
             <span className={classes.date}>
                 {formatDate(history.date, { month: '2-digit' })}
             </span>

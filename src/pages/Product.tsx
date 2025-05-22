@@ -5,7 +5,7 @@ import { ProductInformation } from '../components/pages/Product/ProductInformati
 import { TopPart } from '../components/pages/Product/TopPart/TopPart';
 import { LinkType } from '../types';
 
-export const Product: React.FC = () => {
+const Product: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/gyroscuters', title: 'Гироскутеры' },
@@ -27,3 +27,5 @@ export const Product: React.FC = () => {
         </>
     );
 };
+
+export default Product;

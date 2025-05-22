@@ -2,8 +2,6 @@
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .data {
     @extend .column;
 
@@ -23,7 +21,7 @@
         }
 
         .link {
-            color: map.get($colors, 'primary');
+            color: var(--primary);
         }
     }
 

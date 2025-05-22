@@ -1,7 +1,8 @@
+import { v4 } from 'uuid';
+import clockIcon from './../../../../../assets/contacts/clock.png';
+import emailIcon from './../../../../../assets/contacts/mail.png';
 import { AddressCard } from './AddressCard/AddressCard';
 import classes from './ContactsInformation.module.scss';
-import emailIcon from './../../../../../assets/contacts/mail.png';
-import clockIcon from './../../../../../assets/contacts/clock.png';
 
 export type AddressType = {
     address: string;
@@ -17,8 +18,13 @@ export const ContactsInformation: React.FC = () => {
     ];
 
     const addressesElem = addresses.map((address) => (
-        <AddressCard phone={address.phone} address={address.address} />
+        <AddressCard
+            phone={address.phone}
+            address={address.address}
+            key={v4()}
+        />
     ));
+
     return (
         <div className={classes.contactsInformation}>
             {addressesElem}

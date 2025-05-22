@@ -4,7 +4,7 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { LinkType } from '../types';
 
-export const Dropshipping: React.FC = () => {
+const Dropshipping: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/wholesale', title: 'Оптом' },
@@ -66,3 +66,5 @@ export const Dropshipping: React.FC = () => {
         </>
     );
 };
+
+export default Dropshipping;

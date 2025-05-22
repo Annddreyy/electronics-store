@@ -1,12 +1,12 @@
 @use './../../../../../../scss/variables' as *;
+@use './../../../../../../scss/display' as *;
 
 .information {
     display: flex;
     .magazines {
+        @extend .column;
+
         margin-top: $base-margin-6;
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
         height: 300px;
         overflow-y: auto;
         .radio {
@@ -14,9 +14,7 @@
             align-items: flex-start;
 
             .radioInformation {
-                display: flex;
-                flex-direction: column;
-                gap: $gap-mini;
+                @extend .column-mini;
             }
             
             * {

@@ -1,24 +1,20 @@
 @use './../../../../scss/variables' as *;
-@use 'sass:map';
+@use './../../../../scss/display' as *;
 
 .top {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    @extend .grid-4;
 
     .left {
-        display: flex;
-        flex-direction: column;
-        gap: $base-gap;
+        @extend .column;
 
         .check {
-            display: flex;
-            gap: $gap-mini;
+            @extend .row-mini;
         }
 
         .field {
             width: max-content;
             padding: $base-padding-4;
-            border: 1px solid map.get($colors, 'medium-gray');
+            border: 1px solid var(--medium-gray);
             border-radius: $base-border-radius;
             gap: $gap-mini;
 

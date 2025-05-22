@@ -1,5 +1,4 @@
 @use './../../../../scss/variables' as *;
-@use 'sass:map';
 
 .tableWrapper {
     width: 100%;
@@ -8,15 +7,15 @@
     .categoryTable {
         td,
         th {
-            border: 1px solid map.get($colors, 'gray');
+            border: 1px solid var(--gray);
             padding: $base-padding-4;
         }
 
         td {
-            color: map.get($colors, 'gray');
+            color: var(--gray);
 
             &:first-child {
-                color: map.get($colors, 'black');
+                color: var(--black);
                 font-weight: bolder;
             }
         }

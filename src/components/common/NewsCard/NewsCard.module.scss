@@ -2,8 +2,6 @@
 @use './../../../scss/breakpoints' as *;
 @use './../../../scss/display' as *;
 
-@use 'sass:map';
-
 .news {
     width: 100%;
 
@@ -13,7 +11,7 @@
     padding: $base-padding-6;
     border-radius: $base-border-radius-2;
 
-    background-color: map.get($colors, 'secondary');
+    background-color: var(--secondary);
 
     img {
         width: 150px;
@@ -31,7 +29,7 @@
             @extend .row-center;
 
             time {
-                color: map.get($colors, 'gray');
+                color: var(--gray);
             }
         }
     }

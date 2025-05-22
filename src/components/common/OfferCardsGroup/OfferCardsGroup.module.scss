@@ -1,9 +1,9 @@
 @use './../../../scss/variables' as *;
 @use './../../../scss/breakpoints' as *;
+@use './../../../scss/display' as *;
 
 .offerCards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    @extend .grid-2;
     gap: $base-gap-2;
 }
 

@@ -1,15 +1,14 @@
 @use './../../../../scss/variables' as *;
-@use 'sass:map';
+@use './../../../../scss/display' as *;
 
 .buttons {
+    @extend .row-mini;
     align-self: flex-end;
-    display: flex;
-    gap: $gap-mini;
 
     button {
         width: 50px;
         height: 50px;
-        border: 1px solid map.get($colors, 'secondary');
+        border: 1px solid var(--secondary);
         border-radius: 50%;
     }
 }

@@ -16,7 +16,7 @@
             bottom: -$base-gap-3;
             left: 0;
             right: 0;
-            border: 1px solid map.get($colors, 'secondary');
+            border: 1px solid var(--secondary);
         }
 
         .methodOfReceivingForm {
@@ -30,7 +30,7 @@
                     width: 500px;
                     flex-direction: row;
                     align-items: center;
-                    border: 1.5px solid map.get($colors, 'secondary');
+                    border: 1.5px solid var(--secondary);
                     border-radius: $base-border-radius-2;
                     div {
                         border: none !important;

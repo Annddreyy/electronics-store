@@ -3,16 +3,14 @@
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .nav {
     width: 100%;
     @extend .bg-primary-dark-7;
 
     ul {
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
+        align-items: center;
         list-style: none;
 
         li {
@@ -20,11 +18,10 @@
                 width: 20%;
 
                 a {
-                    @extend .row;
-                    align-items: center;
+                    @extend .row-ac;
 
                     span {
-                        color: map.get($colors, 'white');
+                        color: var(--white);
                     }
 
                     img {
@@ -37,12 +34,12 @@
         a {
             display: inline-block;
 
-            color: map.get($colors, 'white');
+            color: var(--white);
             text-decoration: none;
             padding: $base-padding-4;
 
             &:hover {
-                background-color: map.get($colors, 'primary');
+                background-color: var(--primary);
             }
         }
     }

@@ -9,7 +9,7 @@ import { LinkType } from '../types';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
-export const OneNews: React.FC = () => {
+const OneNews: React.FC = () => {
     const oneNews = useSelector(getOneNews);
 
     let html = createNewHTML(oneNews.html);
@@ -38,3 +38,5 @@ export const OneNews: React.FC = () => {
         </>
     );
 };
+
+export default OneNews;

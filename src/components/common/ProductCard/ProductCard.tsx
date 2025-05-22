@@ -10,6 +10,7 @@ import { OldPrice } from './OldPrice/OldPrice';
 import { Price } from './Price/Price';
 import { Promotion } from './Price/Promotion/Promotion';
 import { useDispatch } from 'react-redux';
+import { v4 } from 'uuid';
 
 export const ProductCard: React.FC<ProductType> = (product) => {
     const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export const ProductCard: React.FC<ProductType> = (product) => {
         <article className={cn(classes.card, 'border-gray-light-6')}>
             <div className={classes.statuses}>
                 {product.statusList?.map((status) => (
-                    <div data-status={status} className={classes.status}>
+                    <div data-status={status} className={classes.status} key={v4()}>
                         {status}
                     </div>
                 ))}

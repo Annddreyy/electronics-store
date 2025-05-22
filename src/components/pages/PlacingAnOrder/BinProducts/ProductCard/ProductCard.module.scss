@@ -1,8 +1,6 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/variables' as *;
 
-@use 'sass:map';
-
 .productCard {
     td {
         padding: $base-padding-6;
@@ -18,19 +16,16 @@
     }
 
     .countInformation {
-        @extend .row-mini;
-        align-items: center;
+        @extend .row-ac-mini;
         width: max-content;
 
         .count {
+            @extend .row-center;
+            
             width: 35px;
             height: 35px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border: 1px solid map.get($colors, 'secondary');
+            border: 1px solid var(--secondary);
             border-radius: $base-border-radius;
 
             font-size: $font-size-sm;
@@ -49,7 +44,7 @@
 
         .button:disabled {
             span {
-                color: map.get($colors, 'medium-gray');
+                color: var(--medium-gray);
             }
         }
     }
@@ -59,7 +54,7 @@
         gap: 0;
 
         .oldPrice {
-            color: map.get($colors, 'gray');
+            color: var(--gray);
 
             font-size: $font-size-sm;
             font-weight: 600;

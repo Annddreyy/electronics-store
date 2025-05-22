@@ -2,14 +2,13 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .mainInformation {
-    grid-area: 'information';
     @extend .column;
+    
+    grid-area: 'information';
     padding: $base-padding-4;
 
-    border: 1px solid map.get($colors, 'secondary');
+    border: 1px solid var(--secondary);
     border-radius: $base-border-radius-3;
 
     .top {
@@ -29,8 +28,7 @@
             @extend .column-mini;
 
             .top {
-                @extend .row-mini;
-                align-items: center;
+                @extend .row-ac-mini;
                 width: max-content;
             }
         }

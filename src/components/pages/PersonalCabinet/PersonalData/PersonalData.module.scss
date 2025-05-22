@@ -1,9 +1,10 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
 @use './../../../../scss/breakpoints' as *;
+@use './../../../../scss/display' as *;
 
 .personalData {
-    display: grid;
+    @extend .grid-2;
     grid-template-areas:
         'name address'
         'email paymentMethod'
@@ -11,7 +12,6 @@
         'city avatar'
         'index button';
     gap: $base-gap;
-    grid-template-columns: repeat(2, 1fr);
 
     .form-block,
     button {
@@ -19,10 +19,8 @@
     }
 
     button {
+        @extend .row-center;
         padding-block: calc($base-padding-6 + 2px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }
 

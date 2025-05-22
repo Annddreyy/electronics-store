@@ -4,6 +4,7 @@ import instagram from './../../../../assets/social/instagram.png';
 import twitter from './../../../../assets/social/twitter.png';
 import vk from './../../../../assets/social/vk.png';
 import classes from './FooterBottom.module.scss';
+import { v4 } from 'uuid';
 
 type SocialLink = {
     icon: string;
@@ -25,7 +26,7 @@ export const FooterBottom: React.FC = () => {
             </span>
             <div className={classes.socialLinks}>
                 {socialLinks.map((link) => (
-                    <NavLink to={link.link}>
+                    <NavLink to={link.link} key={v4()}>
                         <img src={link.icon} alt={link.link} />
                     </NavLink>
                 ))}

@@ -18,7 +18,7 @@
     border-radius: $base-border-radius-2;
 
     &:hover {
-        box-shadow: 2px 4px 8px map.get($colors, 'gray');
+        box-shadow: 2px 4px 8px var(--gray);
     }
 
     .statuses {
@@ -35,12 +35,12 @@
             border-radius: $base-border-radius;
             padding: $base-padding $base-padding-2;
 
-            color: map.get($colors, 'white');
-            background-color: map.get($colors, 'red');
+            color: var(--white);
+            background-color: var(--red);
         }
 
         .status[data-status='Новинка'] {
-            background-color: map.get($colors, 'green');
+            background-color: var(--green);
         }
     }
 

@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import { Stage } from '../../../../../pages/PlacingAnOrder';
 import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
@@ -12,7 +13,7 @@ export const BinProductsFill: React.FC<PropsType> = ({
     images,
     changeStage,
 }) => {
-    const imagesElem = images.map((img) => <img src={img} alt="" />);
+    const imagesElem = images.map((img) => <img src={img} alt="" key={v4()} />);
     return (
         <section className={classes.orderBlock}>
             <h2 className={classes.blockTitle}>Ваш заказ</h2>

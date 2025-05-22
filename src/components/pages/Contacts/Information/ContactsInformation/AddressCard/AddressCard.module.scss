@@ -1,11 +1,10 @@
 @use './../../../../../../scss/variables' as *;
 @use './../../../../../../scss/display' as *;
-@use 'sass:map';
 
 .addressCard {
     @extend .column-mini;
     padding: $base-padding-4 $base-padding-6;
-    background-color: map.get($colors, 'secondary');
+    background-color: var(--secondary);
 
     &:hover {
         position: relative;
@@ -14,7 +13,7 @@
         &::after {
             position: absolute;
             content: '▶';
-            color: map.get($colors, 'black');
+            color: var(--black);
             right: $base-padding-6;
             top: $base-padding-8;
         }
@@ -28,6 +27,6 @@
     .phone {
         font-size: $font-size-lg;
         font-weight: 600;
-        color: map.get($colors, 'primary');
+        color: var(--primary);
     }
 }

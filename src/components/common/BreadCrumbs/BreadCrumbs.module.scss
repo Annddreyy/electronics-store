@@ -1,16 +1,15 @@
 @use './../../../scss/variables' as *;
-@use './../../../scss/colors' as *;
-@use 'sass:map';
+@use './../../../scss/display' as *;
 
 .links {
-    display: flex;
-    flex-wrap: wrap;
+    @extend .row-wrap;
     gap: $base-gap-2;
+    
     margin-top: $base-margin-8;
     padding-left: $base-padding-4;
 
     .link[data-active] {
-        color: map.get($colors, 'gray');
+        color: var(--gray);
     }
 
     .link + .link {

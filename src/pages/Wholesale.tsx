@@ -4,7 +4,7 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { LinkType } from '../types';
 
-export const Wholesale: React.FC = () => {
+const Wholesale: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/wholesale', title: 'Оптом' },
@@ -56,3 +56,5 @@ export const Wholesale: React.FC = () => {
         </>
     );
 };
+
+export default Wholesale;

@@ -5,6 +5,7 @@ import img3 from './../../../../assets/menu-icons/icons for menu 5.png';
 import img4 from './../../../../assets/menu-icons/icons for menu 2.png';
 import img5 from './../../../../assets/menu-icons/icons for menu 4.png';
 import img6 from './../../../../assets/menu-icons/icon-more.png';
+import { v4 } from 'uuid';
 
 export const Products: React.FC = () => {
     const products = [
@@ -17,7 +18,7 @@ export const Products: React.FC = () => {
     ];
 
     const productsElem = products.map((product) => (
-        <div className={classes.product}>
+        <div className={classes.product} key={v4()}>
             <img src={product.img} alt="" />
             <span>{product.title}</span>
         </div>

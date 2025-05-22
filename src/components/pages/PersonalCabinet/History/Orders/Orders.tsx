@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import {
     ProductType,
     ProductTypeEnum,
@@ -1181,6 +1182,6 @@ export const Orders: React.FC = () => {
             ],
         },
     ];
-    const ordersElem = orders.map((order) => <Order {...order}></Order>);
+    const ordersElem = orders.map((order) => <Order {...order} key={v4()} />);
     return <div className={classes.orders}>{ordersElem}</div>;
 };

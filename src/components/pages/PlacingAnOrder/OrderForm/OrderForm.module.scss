@@ -1,8 +1,6 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/display' as *;
 
-@use 'sass:map';
-
 .orderForm {
     @extend .column;
     .order {
@@ -16,12 +14,12 @@
         padding-top: 0;
     
         border-radius: $base-border-radius-2;
-        background-color: map.get($colors, 'secondary');
+        background-color: var(--secondary);
         
         .informationRow {
             @extend .row-center;
             .information {
-                color: map.get($colors, 'gray');
+                color: var(--gray);
             }
         }
     
@@ -47,7 +45,7 @@
                 .information {
                     font-size: $font-size-md;
                     font-weight: 600;
-                    color: map.get($colors, 'black');
+                    color: var(--black);
                 }
         
                 .totalSum {

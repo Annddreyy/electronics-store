@@ -3,14 +3,11 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .links {
     .link {
-        @extend .row;
-        align-items: center;
+        @extend .row-ac;
         padding: $base-padding-2;
-        background-color: map.get($colors, 'secondary');
+        background-color: var(--secondary);
 
         &:last-of-type {
             border-bottom-left-radius: $base-padding-2;

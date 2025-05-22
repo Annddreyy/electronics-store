@@ -1,6 +1,6 @@
 @use './../../../scss/variables' as *;
+@use './../../../scss/display' as *;
 
 .mainPart {
-    display: flex;
-    gap: $base-gap;
+    @extend .row;
 }

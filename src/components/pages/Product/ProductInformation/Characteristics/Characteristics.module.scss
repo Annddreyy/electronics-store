@@ -1,8 +1,7 @@
 @use './../../../../../scss/variables' as *;
-@use 'sass:map';
 
 .characteristic {
-    border-bottom: 1px solid map.get($colors, 'secondary');
+    border-bottom: 1px solid var(--secondary);
 
     td {
         padding: $base-padding-4;
@@ -13,6 +12,6 @@
     }
 
     .value {
-        color: map.get($colors, 'gray');
+        color: var(--gray);
     }
 }

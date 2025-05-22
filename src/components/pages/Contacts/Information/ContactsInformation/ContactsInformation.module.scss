@@ -10,7 +10,7 @@
             @extend .row-mini;
             align-items: flex-start;
 
-            background-color: map.get($colors, 'secondary');
+            background-color: var(--secondary);
             padding: $base-padding-4 $base-padding-6;
 
             &:first-child {
@@ -22,7 +22,7 @@
                     top: 0;
                     left: $base-padding-6;
                     right: $base-padding-6;
-                    border-bottom: 1px solid map.get($colors, 'gray');
+                    border-bottom: 1px solid var(--gray);
                 }
             }
 
@@ -32,13 +32,13 @@
             }
 
             .email {
-                color: map.get($colors, 'primary');
+                color: var(--primary);
                 font-size: $font-size-md;
                 font-weight: 600;
             }
 
             .workTime {
-                color: map.get($colors, 'gray');
+                color: var(--gray);
             }
 
             .time {

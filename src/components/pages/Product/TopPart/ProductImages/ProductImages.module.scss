@@ -3,19 +3,17 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .productImages {
-    grid-area: 'img';
     @extend .column;
+    
+    grid-area: 'img';
 
     .selectedImg {
         width: 100%;
     }
 
     .slider {
-        display: flex;
-        align-items: center;
+        @extend .row-ac;
         gap: $base-gap-4;
 
         button {
@@ -36,7 +34,7 @@
             }
 
             img[data-selected='true'] {
-                border: 3px solid map.get($colors, 'primary');
+                border: 3px solid var(--primary);
                 border-radius: $base-border-radius;
             }
         }

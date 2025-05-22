@@ -10,7 +10,7 @@
         'phone message'
         'button checkbox';
     grid-template-columns: 3fr 7fr;
-    gap: 1rem;
+    gap: $base-gap;
 
     .message {
         width: 100%;

@@ -7,7 +7,7 @@ import { LinkType } from '../types';
 import { FavoriteProductForm } from '../components/pages/FavoriteProduct/FavoriteProductForm/FavoriteProductForm';
 import classes from './../components/pages/FavoriteProduct/FavoriteProducts.module.scss';
 
-export const FavoriteProducts: React.FC = () => {
+const FavoriteProducts: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/favorite', title: 'Избранное' },
@@ -28,3 +28,5 @@ export const FavoriteProducts: React.FC = () => {
         </>
     );
 };
+
+export default FavoriteProducts;

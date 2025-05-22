@@ -5,7 +5,7 @@ import { ContactForm } from '../components/common/ContactForm/ContactForm';
 import { Information } from '../components/pages/Contacts/Information/Information';
 import { LinkType } from '../types';
 
-export const Contacts: React.FC = () => {
+const Contacts: React.FC = () => {
     const path: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/contacts', title: 'Контакты' },
@@ -24,3 +24,5 @@ export const Contacts: React.FC = () => {
         </>
     );
 };
+
+export default Contacts;

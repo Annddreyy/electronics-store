@@ -1,12 +1,11 @@
 @use './../../../../../scss/variables' as *;
-@use 'sass:map';
 
 .vacancieCard {
     .title {
         position: relative;
         display: flex;
         justify-content: space-between;
-        background-color: map.get($colors, 'secondary');
+        background-color: var(--secondary);
         padding: $base-padding-6;
 
         &::before {
@@ -15,7 +14,7 @@
             left: $base-padding-6;
             right: $base-padding-6;
             bottom: 0;
-            border-bottom: 0.5px solid map.get($colors, 'gray');
+            border-bottom: 0.5px solid var(--gray);
         }
 
         &::after {
@@ -26,7 +25,7 @@
 
     &:open {
         .title {
-            color: map.get($colors, 'primary');
+            color: var(--primary);
 
             &::before {
                 border-bottom: none;
@@ -41,7 +40,7 @@
     .information {
         padding: 0 $base-padding-6;
         padding-bottom: $base-padding-6;
-        border: 1.5px solid map.get($colors, 'light-gray');
+        border: 1.5px solid var(--light-gray);
     }
 
     li {

@@ -4,7 +4,7 @@ import { Header } from '../components/common/Header/Header';
 import { CategoryTable } from '../components/pages/WarrantyConditions/CategoryTable/CategoryTable';
 import { LinkType } from '../types';
 
-export const WarrantyConditions: React.FC = () => {
+const WarrantyConditions: React.FC = () => {
     const links: LinkType[] = [
         { link: '/', title: 'Главная' },
         { link: '/warranty-conditions', title: 'Гарантийные условия' },
@@ -594,3 +594,5 @@ export const WarrantyConditions: React.FC = () => {
         </>
     );
 };
+
+export default WarrantyConditions;

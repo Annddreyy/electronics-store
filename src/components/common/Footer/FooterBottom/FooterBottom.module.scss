@@ -1,8 +1,6 @@
 @use './../../../../scss/variables' as *;
 @use './../../../../scss/breakpoints' as *;
 
-@use 'sass:map';
-
 .footerBottom {
     display: grid;
     grid-template-areas: 
@@ -14,7 +12,7 @@
 
     .rightsReceived,
     .author {
-        color: map.get($colors, 'gray');
+        color: var(--gray);
     }
 
     .rightsReceived {

@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './Paginator.module.scss';
+import { v4 } from 'uuid';
 
 type PropsType = {
     totalItemsCount: number;
@@ -85,7 +86,7 @@ export const Paginator: React.FC<PropsType> = ({
     };
 
     const pagesElems = pages.map((page) => (
-        <>
+        <React.Fragment key={v4()}>
             {page !== 0 ? (
                 <button
                     className={
@@ -100,7 +101,7 @@ export const Paginator: React.FC<PropsType> = ({
             ) : (
                 elipsiss
             )}
-        </>
+        </React.Fragment>
     ));
 
     return (

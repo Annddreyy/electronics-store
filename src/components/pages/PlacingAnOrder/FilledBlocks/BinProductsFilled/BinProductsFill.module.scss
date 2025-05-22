@@ -1,19 +1,17 @@
 @use './../../../../../scss/display' as *;
 @use './../../../../../scss/variables' as *;
 
-@use 'sass:map';
-
 .selectedInformation {
     @extend .row-center;
 
     .images {
-        @extend .row;
-        flex-wrap: wrap;
+        @extend .row-wrap;
+        
         img {
             width: 70px;
             height: 70px;
 
-            border: 1.5px solid map.get($colors, 'secondary');
+            border: 1.5px solid var(--secondary);
             border-radius: $base-border-radius;
         }
     }

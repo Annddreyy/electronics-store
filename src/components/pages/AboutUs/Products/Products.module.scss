@@ -3,15 +3,14 @@
 @use './../../../../scss/display' as *;
 
 .products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding-bottom: $base-padding-6;
+    @extend .grid-3;
     gap: $base-gap;
     row-gap: $base-gap-2;
 
+    padding-bottom: $base-padding-6;
+
     .product {
-        @extend .row;
-        align-items: center;
+        @extend .row-ac;
     }
 }
 
