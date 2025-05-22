@@ -9,7 +9,9 @@ type PropsType = {
 };
 
 export const Reviews: React.FC<PropsType> = ({ reviews, title }) => {
-    const reviewsElem = reviews.map((review) => <Review {...review} key={v4()} />);
+    const reviewsElem = reviews.map((review) => (
+        <Review {...review} key={v4()} />
+    ));
 
     return (
         <div>

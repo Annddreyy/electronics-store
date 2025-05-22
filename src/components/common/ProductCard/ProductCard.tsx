@@ -23,7 +23,11 @@ export const ProductCard: React.FC<ProductType> = (product) => {
         <article className={cn(classes.card, 'border-gray-light-6')}>
             <div className={classes.statuses}>
                 {product.statusList?.map((status) => (
-                    <div data-status={status} className={classes.status} key={v4()}>
+                    <div
+                        data-status={status}
+                        className={classes.status}
+                        key={v4()}
+                    >
                         {status}
                     </div>
                 ))}
