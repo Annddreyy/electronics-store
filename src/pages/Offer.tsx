@@ -2,12 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { getOneOffer } from '../redux/offers/offersSelectors';
 import { root } from '../utils/breadCrumbsPaths';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const Offer: React.FC = () => {
     const oneOffer = useSelector(getOneOffer);
@@ -24,18 +23,14 @@ const Offer: React.FC = () => {
     ];
 
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">{oneOffer.title}</h1>
-                <div className={classes.article}>
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
-                    <img src={oneOffer.img} alt="" />
-                </div>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">{oneOffer.title}</h1>
+            <div className={classes.article}>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <img src={oneOffer.img} alt="" />
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

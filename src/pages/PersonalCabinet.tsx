@@ -1,8 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { AccoutMenu } from '../components/common/AccountMenu/AccoutMenu';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { Favorites } from '../components/pages/PersonalCabinet/Favorites/Favorites';
 import { History } from '../components/pages/PersonalCabinet/History/History';
 import { Main } from '../components/pages/PersonalCabinet/Main/Main';
@@ -10,6 +8,7 @@ import { NewPssword } from '../components/pages/PersonalCabinet/NewPassword/NewP
 import { PersonalData } from '../components/pages/PersonalCabinet/PersonalData/PersonalData';
 import { root } from '../utils/breadCrumbsPaths';
 import classes from './../components/pages/PersonalCabinet/PersonalCabinet.module.scss';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const Pages = {
     MAIN: root.main.personalCabinet.main.path.link,
@@ -47,18 +46,14 @@ const PersonalCabinet: React.FC = () => {
     ];
 
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">{pages[currentPage][0]}</h1>
-                <div className={classes.information}>
-                    <AccoutMenu />
-                    {pages[currentPage][1]}
-                </div>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">{pages[currentPage][0]}</h1>
+            <div className={classes.information}>
+                <AccoutMenu />
+                {pages[currentPage][1]}
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

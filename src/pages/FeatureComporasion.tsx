@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import { v4 } from 'uuid';
 import { Product, Status } from '../api/productsAPI';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { ProductCard } from '../components/common/ProductCard/ProductCard';
 import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { Buttons } from '../components/pages/FeatureComporasion/Buttons/Buttons';
@@ -13,6 +11,8 @@ import { TopPart } from '../components/pages/FeatureComporasion/TopPart/TopPart'
 import { getCompareProducts } from '../redux/products/productsSelectors';
 import { root } from '../utils/breadCrumbsPaths';
 import classes from './../components/pages/FeatureComporasion/FeatureComporasion.module.scss';
+import { BasePage } from './BasePage';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const FeatureComporasion: React.FC = () => {
     const path = [root.main.path, root.main.compare.path];
@@ -100,32 +100,28 @@ const FeatureComporasion: React.FC = () => {
     };
 
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">Сравнение товаров</h1>
-                <div className={classes.information}>
-                    <Buttons
-                        setNextStartIndex={setNextStartIndex}
-                        setPreviousStartIndex={setPreviousStartIndex}
-                        startIndex={startIndex}
-                        compareProducts={compareProducts}
-                    />
-                    <TopPart
-                        changeProductType={changeProductType}
-                        compareCards={compareCards}
-                        setDifferentProducts={setDifferentProducts}
-                    />
-                    <Table
-                        characteristics={characteristics}
-                        characteristicsSet={characteristicsSet}
-                        isDifferent={isDifferent}
-                    />
-                </div>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">Сравнение товаров</h1>
+            <div className={classes.information}>
+                <Buttons
+                    setNextStartIndex={setNextStartIndex}
+                    setPreviousStartIndex={setPreviousStartIndex}
+                    startIndex={startIndex}
+                    compareProducts={compareProducts}
+                />
+                <TopPart
+                    changeProductType={changeProductType}
+                    compareCards={compareCards}
+                    setDifferentProducts={setDifferentProducts}
+                />
+                <Table
+                    characteristics={characteristics}
+                    characteristicsSet={characteristicsSet}
+                    isDifferent={isDifferent}
+                />
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

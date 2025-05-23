@@ -1,25 +1,21 @@
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { CardsBlock } from '../components/common/CardsBlock/CardsBlock';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { NewsCard } from '../components/common/NewsCard/NewsCard';
 import { Paginator } from '../components/common/Paginator/Paginator';
 import { getNews } from '../redux/news/newsSelector';
 import { root } from '../utils/breadCrumbsPaths';
+import { BasePage } from './BasePage';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const News: React.FC = () => {
     const path = [root.main.path, root.main.news.path];
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h2 className="pageTitle">Новости</h2>
-                <CardsBlock selector={getNews} Card={NewsCard} />
-                <Paginator totalItemsCount={100} pageSize={10} />
-            </div>
-            <Footer />
-        </>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h2 className="pageTitle">Новости</h2>
+            <CardsBlock selector={getNews} Card={NewsCard} />
+            <Paginator totalItemsCount={100} pageSize={10} />
+        </BasePageWithContainer>
     );
 };
 

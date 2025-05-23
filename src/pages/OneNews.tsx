@@ -8,6 +8,7 @@ import { getOneNews } from '../redux/news/newsSelector';
 import { root } from '../utils/breadCrumbsPaths';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const OneNews: React.FC = () => {
     const oneNews = useSelector(getOneNews);
@@ -24,18 +25,14 @@ const OneNews: React.FC = () => {
     ];
 
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">{oneNews.title}</h1>
-                <div className={classes.article}>
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
-                    <img src={oneNews.img} alt="" />
-                </div>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">{oneNews.title}</h1>
+            <div className={classes.article}>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <img src={oneNews.img} alt="" />
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

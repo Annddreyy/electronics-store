@@ -5,6 +5,7 @@ import { VacancieForm } from '../components/pages/Vacancies/VacancieForm/Vacanci
 import { VacanciesList } from '../components/pages/Vacancies/VacanciesList/VacanciesList';
 import { root } from '../utils/breadCrumbsPaths';
 import classes from './../components/pages/Vacancies/Vacancies.module.scss';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const Vacancies: React.FC = () => {
     const path = [root.main.path, root.main.vacancies.path];
@@ -103,18 +104,14 @@ const Vacancies: React.FC = () => {
         },
     ];
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">Вакансии</h1>
-                <div className={classes.mainPart}>
-                    <VacanciesList vacancies={vacancies} />
-                    <VacancieForm />
-                </div>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">Вакансии</h1>
+            <div className={classes.mainPart}>
+                <VacanciesList vacancies={vacancies} />
+                <VacancieForm />
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

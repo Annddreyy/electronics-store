@@ -1,18 +1,16 @@
 import cn from 'classnames';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { root } from '../utils/breadCrumbsPaths';
 import imgTop from './../assets/installment/img.png';
 import imgBottom from './../assets/installment/img_2.png';
 import classes from './../components/pages/Installment/Installment.module.scss';
 import { InstallmentForm } from './../components/pages/Installment/InstallmentForm';
+import { BasePage } from './BasePage';
 
 const Installment: React.FC = () => {
     const path = [root.main.path, root.main.installment.path];
     return (
-        <>
-            <Header />
+        <BasePage>
             <div className={cn('container', classes.installment)}>
                 <BreadCrumbs path={path} />
                 <h1 className="pageTitle">Рассрочка 0|0|18</h1>
@@ -64,8 +62,7 @@ const Installment: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
-        </>
+        </BasePage>
     );
 };
 
