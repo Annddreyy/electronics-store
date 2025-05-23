@@ -3,14 +3,10 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { ProductCardsWithSorting } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { getViewedProducts } from '../redux/products/productsSelectors';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 
 const Viewed: React.FC = () => {
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/viewed', title: 'Просмотренные товары' },
-    ];
-
+    const path = [root.main.path, root.main.viewed.path];
     return (
         <>
             <Header />

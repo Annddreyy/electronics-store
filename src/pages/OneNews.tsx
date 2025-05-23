@@ -1,11 +1,11 @@
 import React from 'react';
-import { Header } from '../components/common/Header/Header';
-import { Footer } from '../components/common/Footer/Footer';
 import { useSelector } from 'react-redux';
-import { getOneNews } from '../redux/news/newsSelector';
-import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { useParams } from 'react-router-dom';
-import { Link } from '../types';
+import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
+import { Footer } from '../components/common/Footer/Footer';
+import { Header } from '../components/common/Header/Header';
+import { getOneNews } from '../redux/news/newsSelector';
+import { root } from '../utils/breadCrumbsPaths';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
@@ -17,10 +17,10 @@ const OneNews: React.FC = () => {
     const params = useParams();
     const newsId = params.newsId;
 
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/news', title: 'Новости' },
-        { link: `/news/${newsId}`, title: oneNews.title },
+    const path = [
+        root.main.path,
+        root.main.news.path,
+        root.main.news.oneNews(+newsId!, oneNews.title),
     ];
 
     return (

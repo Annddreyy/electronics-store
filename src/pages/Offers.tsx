@@ -5,14 +5,10 @@ import { Header } from '../components/common/Header/Header';
 import { OfferCard } from '../components/common/OfferCard/OfferCard';
 import { Paginator } from '../components/common/Paginator/Paginator';
 import { getOffersSelector } from '../redux/offers/offersSelectors';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 
 const Offers: React.FC = () => {
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/offers', title: 'Акции' },
-    ];
-
+    const path = [root.main.path, root.main.offers.path];
     return (
         <>
             <Header />

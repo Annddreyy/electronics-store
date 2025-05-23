@@ -1158,6 +1158,8 @@ export const Orders: React.FC = () => {
             ],
         },
     ];
-    const ordersElem = orders.map((order) => <OrderCard {...order} key={v4()} />);
+    const ordersElem = orders.map((order) => (
+        <OrderCard {...order} key={v4()} />
+    ));
     return <div className={classes.orders}>{ordersElem}</div>;
 };

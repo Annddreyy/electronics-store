@@ -5,7 +5,7 @@ import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { getOneOffer } from '../redux/offers/offersSelectors';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 import { createNewHTML } from '../utils/createNewHTML';
 import classes from './../components/pages/ArticlePage/ArticlePage.module.scss';
 
@@ -17,10 +17,10 @@ const Offer: React.FC = () => {
     const params = useParams();
     const offerId = params.offerId;
 
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/offers', title: 'Акции' },
-        { link: `/offers/${offerId}`, title: oneOffer.title },
+    const path = [
+        root.main.path,
+        root.main.offers.path,
+        root.main.offers.offer(+offerId!, oneOffer.title),
     ];
 
     return (

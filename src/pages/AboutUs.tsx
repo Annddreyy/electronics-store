@@ -1,16 +1,12 @@
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
-import { Link } from '../types';
-import { Products } from '../components/pages/AboutUs/Products/Products';
 import { Addresses } from '../components/pages/AboutUs/Addresses/Addresses';
+import { Products } from '../components/pages/AboutUs/Products/Products';
+import { root } from '../utils/breadCrumbsPaths';
 
 const AboutUs: React.FC = () => {
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/about-us', title: 'О нас' },
-    ];
-
+    const path = [root.main.path, root.main.aboutUs.path];
     return (
         <>
             <Header />

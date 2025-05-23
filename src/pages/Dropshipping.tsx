@@ -2,14 +2,10 @@ import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { ContactForm } from '../components/common/ContactForm/ContactForm';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 
 const Dropshipping: React.FC = () => {
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/wholesale', title: 'Оптом' },
-    ];
-
+    const path = [root.main.path, root.main.dropshipping.path];
     return (
         <>
             <Header />

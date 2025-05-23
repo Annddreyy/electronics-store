@@ -8,49 +8,44 @@ import { History } from '../components/pages/PersonalCabinet/History/History';
 import { Main } from '../components/pages/PersonalCabinet/Main/Main';
 import { NewPssword } from '../components/pages/PersonalCabinet/NewPassword/NewPassword';
 import { PersonalData } from '../components/pages/PersonalCabinet/PersonalData/PersonalData';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 import classes from './../components/pages/PersonalCabinet/PersonalCabinet.module.scss';
 
-enum PagesEnum {
-    MAIN = '/main',
-    FAVORITES = '/favorites',
-    HISTORY = '/history',
-    NEW_PASSWORD = '/pass',
-    PERSONAL_DATA = '/personal-data',
-}
+const Pages = {
+    MAIN: root.main.personalCabinet.main.path.link,
+    FAVORITES: root.main.personalCabinet.favorites.path.link,
+    HISTORY: root.main.personalCabinet.history.path.link,
+    NEW_PASSWORD: root.main.personalCabinet.pass.path.link,
+    PERSONAL_DATA: root.main.personalCabinet.personalData.path.link,
+} as const;
 
 const pagesElem = {
-    [PagesEnum.MAIN]: <Main />,
-    [PagesEnum.FAVORITES]: <Favorites />,
-    [PagesEnum.HISTORY]: <History />,
-    [PagesEnum.NEW_PASSWORD]: <NewPssword />,
-    [PagesEnum.PERSONAL_DATA]: <PersonalData />,
+    [Pages.MAIN]: <Main />,
+    [Pages.FAVORITES]: <Favorites />,
+    [Pages.HISTORY]: <History />,
+    [Pages.NEW_PASSWORD]: <NewPssword />,
+    [Pages.PERSONAL_DATA]: <PersonalData />,
 };
 
 const pages = {
-    [PagesEnum.MAIN]: ['Общие сведения', pagesElem[PagesEnum.MAIN]],
-    [PagesEnum.FAVORITES]: ['Избранное', pagesElem[PagesEnum.FAVORITES]],
-    [PagesEnum.HISTORY]: ['История покупок', pagesElem[PagesEnum.HISTORY]],
-    [PagesEnum.NEW_PASSWORD]: [
-        'Смена пароля',
-        pagesElem[PagesEnum.NEW_PASSWORD],
-    ],
-    [PagesEnum.PERSONAL_DATA]: [
-        'Личные данные',
-        pagesElem[PagesEnum.PERSONAL_DATA],
-    ],
+    [Pages.MAIN]: ['Общие сведения', pagesElem[Pages.MAIN]],
+    [Pages.FAVORITES]: ['Избранное', pagesElem[Pages.FAVORITES]],
+    [Pages.HISTORY]: ['История покупок', pagesElem[Pages.HISTORY]],
+    [Pages.NEW_PASSWORD]: ['Смена пароля', pagesElem[Pages.NEW_PASSWORD]],
+    [Pages.PERSONAL_DATA]: ['Личные данные', pagesElem[Pages.PERSONAL_DATA]],
 };
 
 const PersonalCabinet: React.FC = () => {
     const location = useLocation();
     const currentPath = location.pathname as `/${string}`;
-    const currentPage = `/${location.pathname.split('/').at(-1)}` as PagesEnum;
+    const currentPage = `${location.pathname}`;
 
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/personal-cabinet/main', title: 'Личный кабинет' },
+    const path = [
+        root.main.path,
+        root.main.personalCabinet.path,
         { link: currentPath, title: pages[currentPage][0] as string },
     ];
+
     return (
         <>
             <Header />

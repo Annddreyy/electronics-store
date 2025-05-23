@@ -5,14 +5,10 @@ import { Header } from '../components/common/Header/Header';
 import { NewsCard } from '../components/common/NewsCard/NewsCard';
 import { Paginator } from '../components/common/Paginator/Paginator';
 import { getNews } from '../redux/news/newsSelector';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 
 const News: React.FC = () => {
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/news', title: 'Новости' },
-    ];
-
+    const path = [root.main.path, root.main.news.path];
     return (
         <>
             <Header />

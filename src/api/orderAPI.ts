@@ -62,7 +62,9 @@ export type OrdersResponse = DefaultResponse & { orders: Order[] };
 
 export const orderAPI = {
     async getOrders(userId: number) {
-        const response = await instance.get<OrdersResponse>(`/orders/${userId}`);
+        const response = await instance.get<OrdersResponse>(
+            `/orders/${userId}`,
+        );
         return response.data;
     },
 

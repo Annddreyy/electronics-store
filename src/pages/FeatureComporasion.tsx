@@ -1,25 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { v4 } from 'uuid';
+import { Product, Status } from '../api/productsAPI';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { ProductCard } from '../components/common/ProductCard/ProductCard';
+import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { Buttons } from '../components/pages/FeatureComporasion/Buttons/Buttons';
 import { Table } from '../components/pages/FeatureComporasion/Table/Table';
 import { TopPart } from '../components/pages/FeatureComporasion/TopPart/TopPart';
 import { getCompareProducts } from '../redux/products/productsSelectors';
-import { Link } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 import classes from './../components/pages/FeatureComporasion/FeatureComporasion.module.scss';
-import { ProductTypes } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
-import { v4 } from 'uuid';
-import { Product, Status } from '../api/productsAPI';
 
 const FeatureComporasion: React.FC = () => {
-    const path: Link[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/compare', title: 'Сравнение товаров' },
-    ];
-
+    const path = [root.main.path, root.main.compare.path];
     const initialProducts = Array.from(
         useSelector(getCompareProducts).values(),
     );

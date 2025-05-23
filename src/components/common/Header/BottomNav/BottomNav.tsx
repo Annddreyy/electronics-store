@@ -26,9 +26,7 @@ export const BottomNav: React.FC = () => {
     const [currentBlock, setCurrentBlock] = useState(CurrentBlock.NONE);
     const blocks = {
         [CurrentBlock.CATALOG]: (
-            <Catalog
-                closeBlock={() => setCurrentBlock(CurrentBlock.NONE)}
-            />
+            <Catalog closeBlock={() => setCurrentBlock(CurrentBlock.NONE)} />
         ),
         [CurrentBlock.OTHER]: (
             <Other closeBlock={() => setCurrentBlock(CurrentBlock.NONE)} />
@@ -51,16 +49,12 @@ export const BottomNav: React.FC = () => {
         <>
             <nav className={classes.bottomNav}>
                 <NavLink to="/">
-                    <button
-                        onClick={() => setCurrentBlock(CurrentBlock.NONE)}
-                    >
+                    <button onClick={() => setCurrentBlock(CurrentBlock.NONE)}>
                         <img src={homeIcon} alt="" />
                         <span>Главная</span>
                     </button>
                 </NavLink>
-                <button
-                    onClick={() => setCurrentBlock(CurrentBlock.CATALOG)}
-                >
+                <button onClick={() => setCurrentBlock(CurrentBlock.CATALOG)}>
                     <img
                         src={
                             currentBlock === CurrentBlock.CATALOG
@@ -72,16 +66,12 @@ export const BottomNav: React.FC = () => {
                     <span>Каталог</span>
                 </button>
                 <NavLink to="/bin">
-                    <button
-                        onClick={() => setCurrentBlock(CurrentBlock.NONE)}
-                    >
+                    <button onClick={() => setCurrentBlock(CurrentBlock.NONE)}>
                         <img src={cartIcon} alt="" />
                         <span>Корзина</span>
                     </button>
                 </NavLink>
-                <button
-                    onClick={() => setCurrentBlock(CurrentBlock.SEARCH)}
-                >
+                <button onClick={() => setCurrentBlock(CurrentBlock.SEARCH)}>
                     <img
                         src={
                             currentBlock === CurrentBlock.SEARCH

@@ -8,10 +8,7 @@ type Props = {
     changeStage: () => void;
 };
 
-export const BinProductsFill: React.FC<Props> = ({
-    images,
-    changeStage,
-}) => {
+export const BinProductsFill: React.FC<Props> = ({ images, changeStage }) => {
     const imagesElem = images.map((img) => <img src={img} alt="" key={v4()} />);
     return (
         <section className={classes.orderBlock}>
