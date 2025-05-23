@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getProducts } from '../../../../redux/order/orderSelectors';
+import { getIsAuth } from '../../../../redux/auth/authSelectors';
 
 import { AuthorizationForm } from '../../AuthorizationForm/AuthorizationForm';
 import { ProductsCount } from './ProductsCount/ProductsCount';
@@ -20,7 +23,8 @@ import compare from './../../../../assets/header/compare.png';
 import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
 import search from './../../../../assets/header/search-icon.png';
-import { getProducts } from '../../../../redux/order/orderSelectors';
+import profile from './../../../../assets/header/profile.png';
+import { AccountButton } from './AccountButton/AccountButton';
 
 export const TopPart: React.FC = () => {
     const [isSearch, setIsSearch] = useState(false);
@@ -41,8 +45,10 @@ export const TopPart: React.FC = () => {
         };
     }, [authFormOpen]);
 
+    const isAuth = useSelector(getIsAuth);
+
     return (
-        <header className={`${classes.header} bg-white`}>
+        <header className={classes.header}>
             <div className="container">
                 <div className={classes.topPart}>
                     <NavLink
@@ -101,7 +107,7 @@ export const TopPart: React.FC = () => {
                             selector={getViewedProducts}
                             link="/viewed"
                             iconBase={eye}
-                            className={cn({
+                            className={cn('counter', {
                                 [classes.invisible]: isSearch,
                             })}
                         />
@@ -118,7 +124,7 @@ export const TopPart: React.FC = () => {
                             selector={getCompareProducts}
                             link="/compare"
                             iconBase={compare}
-                            className={cn({
+                            className={cn('counter', {
                                 [classes.invisible]: isSearch,
                             })}
                         />
@@ -126,18 +132,22 @@ export const TopPart: React.FC = () => {
                             selector={getProducts}
                             link="/bin"
                             iconBase={bin}
-                            className={cn({
+                            className={cn('counter', {
                                 [classes.invisible]: isSearch,
                             })}
                         />
-                        <button
-                            className={cn('button-primary', classes.login, {
-                                [classes.invisible]: isSearch,
-                            })}
-                            onClick={setAuthOpen}
-                        >
-                            Войти
-                        </button>
+                        {isAuth ? (
+                            <AccountButton />
+                        ) : (
+                            <button
+                                className={cn('button-primary', classes.login, {
+                                    [classes.invisible]: isSearch,
+                                })}
+                                onClick={setAuthOpen}
+                            >
+                                Войти
+                            </button>
+                        )}
                     </div>
                     <button
                         onClick={() => setIsSearch(false)}

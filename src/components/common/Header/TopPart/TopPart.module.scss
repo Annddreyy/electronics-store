@@ -6,6 +6,7 @@
     @extend .row-center;
     gap: $base-gap-2;
     padding: $base-padding-3;
+    color: var(--white);
 
     .invisible {
         display: none !important;
@@ -89,7 +90,7 @@
                     display: none;
                 }
 
-                a {
+                .counter {
                     &:last-of-type {
                         background-color: red;
                         display: none;
