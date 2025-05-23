@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
-import classes from './AuthorizationForm.module.scss';
 import { Field } from '../FormElements/Field';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
-import cn from 'classnames';
 import { PasswordInput } from '../FormElements/PasswordInput/PasswordInput';
+import classes from './AuthorizationForm.module.scss';
+import cn from 'classnames';
 
 type FormData = {
     login: string;

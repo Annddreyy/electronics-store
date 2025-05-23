@@ -1,6 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import classes from './Main.module.scss';
 import img from './../../../../assets/img.png';
-import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 export const Main: React.FC = () => {

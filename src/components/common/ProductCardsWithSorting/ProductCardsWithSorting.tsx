@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../redux/store';
-import { ProductCard } from '../ProductCard/ProductCard';
-import classes from './ProductCardsWithSorting.module.scss';
-import { v4 } from 'uuid';
 import { Product, Status } from '../../../api/productsAPI';
+import { Selector } from '../../../types';
+import { ProductCard } from '../ProductCard/ProductCard';
+import { v4 } from 'uuid';
+import classes from './ProductCardsWithSorting.module.scss';
 
 type Props = {
-    selector: (state: AppState) => Product[];
+    selector: Selector<Product[]>;
 };
 
 enum SortTypes {

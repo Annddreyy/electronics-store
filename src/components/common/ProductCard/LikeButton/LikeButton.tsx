@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Product } from '../../../../api/productsAPI';
+import { getFavoriteProductById } from '../../../../redux/products/productsSelectors';
 import like from './../../../../assets/card/like.png';
 import likeAdded from './../../../../assets/card/like_added.png';
-import { useDispatch, useSelector } from 'react-redux';
 import { actions } from '../../../../redux/products/productsReducer';
-import { getFavoriteProductById } from '../../../../redux/products/productsSelectors';
-import { Product } from '../../../../api/productsAPI';
 
 type LikeStatus = 'like' | 'no-like';
 

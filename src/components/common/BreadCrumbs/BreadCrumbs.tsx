@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import { Link } from '../../../types';
 import classes from './BreadCrumbs.module.scss';
+import { Link } from '../../../types';
 import { v4 } from 'uuid';
 
 type Props = {

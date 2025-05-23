@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { getOfferById } from '../../../redux/offers/offersSelectors';
 import { OfferCard } from '../OfferCard/OfferCard';
-import classes from './OfferCardsGroup.module.scss';
 import { v4 } from 'uuid';
+import classes from './OfferCardsGroup.module.scss';
 
 type Props = {
     id1: number;

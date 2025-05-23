@@ -1,9 +1,9 @@
-import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
 import { Checkbox } from '../FormElements/Checkbox/Checkbox';
 import { Field } from '../FormElements/Field';
 import classes from './Contact.module.scss';
+import cn from 'classnames';
 
 type FormData = {
     name: string;

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import classes from './OfferCard.module.scss';
 import { Offer } from '../../../api/offersAPI';
+import classes from './OfferCard.module.scss';
 
 export const OfferCard: React.FC<Offer> = ({ id, title, img }) => {
     return (

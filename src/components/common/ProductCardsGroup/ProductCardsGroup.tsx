@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { Product } from '../../../api/productsAPI';
 import { Selector } from '../../../types';
 import { ProductCard } from '../ProductCard/ProductCard';
 import classes from './ProductCardsGroup.module.scss';
-import { Product } from '../../../api/productsAPI';
 
 type Props = {
     title: string;

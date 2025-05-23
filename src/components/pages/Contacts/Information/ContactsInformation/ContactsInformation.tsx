@@ -1,7 +1,7 @@
+import { AddressCard } from './AddressCard/AddressCard';
 import { v4 } from 'uuid';
 import clockIcon from './../../../../../assets/contacts/clock.png';
 import emailIcon from './../../../../../assets/contacts/mail.png';
-import { AddressCard } from './AddressCard/AddressCard';
 import classes from './ContactsInformation.module.scss';
 
 export type Address = {

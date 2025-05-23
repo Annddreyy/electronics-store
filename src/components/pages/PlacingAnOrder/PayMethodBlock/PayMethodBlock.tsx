@@ -1,14 +1,14 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { PayMethod } from '../../../../api/orderAPI';
+import { actions } from '../../../../redux/order/orderReducer';
 import { Field } from '../../../common/FormElements/Field';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
-import cn from 'classnames';
-import classes from './../PlacingAnOrder.module.scss';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
-import { actions } from '../../../../redux/order/orderReducer';
-import { useDispatch } from 'react-redux';
-import { PayMethod } from '../../../../api/orderAPI';
+import classes from './../PlacingAnOrder.module.scss';
+import cn from 'classnames';
 
 type FormValues = {
     paymentMethod: PayMethod;

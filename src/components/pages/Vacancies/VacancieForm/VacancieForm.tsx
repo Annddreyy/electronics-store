@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { Field } from '../../../common/FormElements/Field';
-import classes from './VacancieForm.module.scss';
-import cn from 'classnames';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
+import classes from './VacancieForm.module.scss';
+import cn from 'classnames';
 
 type FormValues = {
     surname: string;

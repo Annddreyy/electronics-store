@@ -1,17 +1,17 @@
-import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Product } from '../../../api/productsAPI';
 import { actions } from '../../../redux/products/productsReducer';
 import { BinButton } from './BinButton/BinButton';
 import { CompareButton } from './CompareButton/CompareButton';
 import { LikeButton } from './LikeButton/LikeButton';
-import classes from './ProductCard.module.scss';
 import { Statistics } from './Statistics/Statistics';
 import { OldPrice } from './OldPrice/OldPrice';
 import { Price } from './Price/Price';
 import { Promotion } from './Price/Promotion/Promotion';
-import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
-import { Product } from '../../../api/productsAPI';
+import classes from './ProductCard.module.scss';
+import cn from 'classnames';
 
 export const ProductCard: React.FC<Product> = (product) => {
     const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { v4 } from 'uuid';
 import classes from './ProductImages.module.scss';
 import cn from 'classnames';
-import { v4 } from 'uuid';
 
 type Props = {
     images: string[];

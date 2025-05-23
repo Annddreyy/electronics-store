@@ -1,14 +1,14 @@
-import cn from 'classnames';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import { Field } from '../../../common/FormElements/Field';
 import { MethodOfReceivingFill } from '../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
-import classes from './../PlacingAnOrder.module.scss';
-import styles from './MethodOfReceiving.module.scss';
 import { DeliveryBlock } from './SecondPart/DeliveryBlock/DeliveryBlock';
 import { SelfPickup } from './SecondPart/SelfPickup/SelfPickup';
+import classes from './../PlacingAnOrder.module.scss';
+import styles from './MethodOfReceiving.module.scss';
+import cn from 'classnames';
 
 type FormData = {
     city: string;

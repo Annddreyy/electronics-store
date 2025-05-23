@@ -1,9 +1,9 @@
 import { CSSProperties, useState } from 'react';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 import classes from './PasswordInput.module.scss';
 import eye from './../../../../assets/input/eye.png';
 import eyeOff from './../../../../assets/input/eye-off.png';
 import lock from './../../../../assets/input/lock.png';
-import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 type PasswordInput = {
     id: string;

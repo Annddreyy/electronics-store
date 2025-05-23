@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
+import { getPayMethod } from '../../../../../redux/order/orderSelectors';
 import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './PayMethodFill.module.scss';
-import { getPayMethod } from '../../../../../redux/order/orderSelectors';
 
 type Props = {
     changeStage: () => void;

@@ -1,7 +1,7 @@
+import { Review } from '../../../../../api/productsAPI';
 import { v4 } from 'uuid';
 import { ReviewCard } from '../../../../common/ReviewCard/Review';
 import classes from './Reviews.module.scss';
-import { Review } from '../../../../../api/productsAPI';
 
 type Props = {
     title: string;

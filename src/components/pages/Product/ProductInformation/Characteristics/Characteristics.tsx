@@ -1,6 +1,5 @@
 import { v4 } from 'uuid';
 import classes from './Characteristics.module.scss';
-import cn from 'classnames';
 
 type Characteristic = [title: string, value: number | string | boolean | null];
 

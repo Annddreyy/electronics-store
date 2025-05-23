@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { formatDate } from '../../../utils/formatDate';
-import classes from './NewsCard.module.scss';
 import { News } from '../../../api/newsAPI';
+import classes from './NewsCard.module.scss';
 
 export const NewsCard: React.FC<News> = ({ id, title, text, date, img }) => {
     const dateString = formatDate(date);

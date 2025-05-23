@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+
+import { AuthorizationForm } from '../../AuthorizationForm/AuthorizationForm';
 import { ProductsCount } from './ProductsCount/ProductsCount';
 import {
     getCompareProducts,
@@ -18,8 +21,6 @@ import bin from './../../../../assets/header/bin.png';
 import logo from './../../../../assets/logo.png';
 import search from './../../../../assets/header/search-icon.png';
 import { getProducts } from '../../../../redux/order/orderSelectors';
-import { useEffect, useState } from 'react';
-import { AuthorizationForm } from '../../AuthorizationForm/AuthorizationForm';
 
 export const TopPart: React.FC = () => {
     const [isSearch, setIsSearch] = useState(false);

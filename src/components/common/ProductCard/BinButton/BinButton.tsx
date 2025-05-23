@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import cardAdded from './../../../../assets/card/card_added.png';
 import cardHover from './../../../../assets/card/card_hover.png';
 import cardDefault from './../../../../assets/card/card.png';
-import { useState } from 'react';
 
 type BinButtonStatus = 'default' | 'added' | 'hover';
 

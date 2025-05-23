@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
-import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
-import classes from './OrderForm.module.scss';
-import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
-import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { getIsCompleted } from '../../../../redux/order/orderSelectors';
+import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
+import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
+import classes from './OrderForm.module.scss';
+import cn from 'classnames';
 
 type Props = {
     productsCount: number;

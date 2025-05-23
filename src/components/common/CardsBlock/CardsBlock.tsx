@@ -1,6 +1,6 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../redux/store';
-import React from 'react';
 import classes from './CardsBlock.module.scss';
 import { v4 } from 'uuid';
 

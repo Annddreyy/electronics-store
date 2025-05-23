@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import menu from './../../../../assets/header/menu-icon.png';
-import classes from './Nav.module.scss';
 import { Link } from '../../../../types';
+import classes from './Nav.module.scss';
 import { v4 } from 'uuid';
 
 const links: Link[] = [

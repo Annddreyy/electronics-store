@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { Link } from '../../../../types';
-import logo from './../../../../assets/logo.png';
 import classes from './Information.module.scss';
 import cn from 'classnames';
+import logo from './../../../../assets/logo.png';
 import { v4 } from 'uuid';
 
 type FooterLinks = {

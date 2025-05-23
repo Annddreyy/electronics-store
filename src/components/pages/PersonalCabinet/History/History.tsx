@@ -1,6 +1,6 @@
 import { Orders } from './Orders/Orders';
-import classes from './History.module.scss';
 import { Paginator } from '../../../common/Paginator/Paginator';
+import classes from './History.module.scss';
 
 export const History: React.FC = () => {
     return (

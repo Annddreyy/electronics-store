@@ -1,9 +1,9 @@
-import { v4 } from 'uuid';
 import { Order, OrderStatus } from '../../../../../api/orderAPI';
 import { ProductTypes } from '../../../../../api/productsAPI';
-import productImg from './../../../../../assets/card/productDefault.png';
+import { v4 } from 'uuid';
 import { OrderCard } from './OrderCard/OrderCard';
 import classes from './Orders.module.scss';
+import productImg from './../../../../../assets/card/productDefault.png';
 
 export const Orders: React.FC = () => {
     const orders: Order[] = [

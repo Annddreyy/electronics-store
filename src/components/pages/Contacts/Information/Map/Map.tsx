@@ -1,5 +1,5 @@
-import { Map, Marker } from '@vis.gl/react-google-maps';
 import React from 'react';
+import { Map, Marker } from '@vis.gl/react-google-maps';
 import classes from './Map.module.scss';
 
 export const MapComponent: React.FC = () => {

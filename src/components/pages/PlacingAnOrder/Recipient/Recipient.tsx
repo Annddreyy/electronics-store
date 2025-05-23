@@ -1,13 +1,13 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { actions } from '../../../../redux/order/orderReducer';
 import { Field } from '../../../common/FormElements/Field';
-import cn from 'classnames';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
+import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
+import { NextButton } from '../NextButton/NextButton';
 import classes from './../PlacingAnOrder.module.scss';
 import styles from './Recipient.module.scss';
-import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
-import { useDispatch } from 'react-redux';
-import { actions } from '../../../../redux/order/orderReducer';
-import { NextButton } from '../NextButton/NextButton';
+import cn from 'classnames';
 
 export type Recipient = {
     name: string;
