@@ -23,7 +23,7 @@ export const Other: React.FC<Props> = ({ closeBlock }) => {
             <NavLink to={link.link}>{link.title}</NavLink>
         </div>
     ));
-    
+
     return (
         <div className={classes.overlay}>
             <section className={classes.catalog}>

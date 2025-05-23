@@ -14,7 +14,7 @@ export const Nav: React.FC = () => {
         { link: '/opt-dropshipping', title: 'Опт/дропшиппинг' },
         { link: '/contacts', title: 'Контакты' },
     ];
-    
+
     const linksElements = links.map((link) => (
         <li key={v4()}>
             <NavLink to={link.link}>{link.title}</NavLink>

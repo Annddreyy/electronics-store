@@ -13,7 +13,9 @@ export const ReviewCard: React.FC<Review> = (review) => {
                         <img src="" alt="" className={classes.img} />
                     ) : (
                         <div className={cn(classes.img, 'bg-gray-light-6')}>
-                            <span className={classes.letter}>{review.author[0]}</span>
+                            <span className={classes.letter}>
+                                {review.author[0]}
+                            </span>
                         </div>
                     )}
                     <div className={classes.block}>

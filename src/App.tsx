@@ -31,7 +31,7 @@ const ArticleWrapper = React.lazy(() => import('./pages/ArticleWrapper'));
 const App: React.FC = () => {
     return (
         <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Loading />} />
 
             <Route
                 path="/news"
