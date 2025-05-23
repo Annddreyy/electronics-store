@@ -1,8 +1,8 @@
 import React from 'react';
-import { v4 } from 'uuid';
 import { Characteristics } from '../../../../api/productsAPI';
-import cn from 'classnames';
+import { v4 } from 'uuid';
 import classes from './Table.module.scss';
+import cn from 'classnames';
 
 type Props = {
     isDifferent: boolean;

@@ -5,12 +5,11 @@ import { v4 } from 'uuid';
 import classes from './CardsBlock.module.scss';
 
 type Props = {
-    selector: (state: AppState) => any[];
+    cards: any[];
     Card: React.FC<any>;
 };
 
-export const CardsBlock: React.FC<Props> = ({ selector, Card }) => {
-    const cards = useSelector(selector);
+export const CardsBlock: React.FC<Props> = ({ cards, Card }) => {
     const cardsElem = cards.map((card) => <Card {...card} key={v4()} />);
 
     return <section className={classes.cardsBlock}>{cardsElem}</section>;

@@ -6,6 +6,7 @@ type Props = {
     totalItemsCount: number;
     pageSize: number;
     pagesPerGroup?: number;
+    setCurrentPage: (currentPage: number) => void;
 };
 
 export const Paginator: React.FC<Props> = ({
@@ -16,7 +17,7 @@ export const Paginator: React.FC<Props> = ({
     const [currentPage, setCurrentPage] = useState<number>(1);
 
     useEffect(() => {
-        console.log(currentPage);
+        setCurrentPage(currentPage);
     }, [currentPage]);
 
     const totalPagesCount = Math.ceil(totalItemsCount / pageSize);

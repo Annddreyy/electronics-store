@@ -6,6 +6,7 @@
     gap: $base-gap-2;
 
     margin-top: $base-margin-8;
+    margin-left: $base-margin-4;
     padding-left: $base-padding-4;
 
     .link[data-active] {
@@ -14,7 +15,6 @@
 
     .link + .link {
         position: relative;
-        left: 1em;
     }
 
     .link + .link::before {

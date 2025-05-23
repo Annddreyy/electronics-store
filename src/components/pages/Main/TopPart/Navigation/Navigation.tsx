@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import { v4 } from 'uuid';
 import { TopLinks } from '../TopPart';
-import classes from './Navigation.module.scss';
+import { v4 } from 'uuid';
 import cn from 'classnames';
+import classes from './Navigation.module.scss';
 
 export const Navigation: React.FC<TopLinks> = ({ links }) => {
     return (

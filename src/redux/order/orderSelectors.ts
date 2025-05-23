@@ -23,3 +23,11 @@ export const getRecipient = (state: AppState) => {
 export const getIsCompleted = (state: AppState) => {
     return state.order.isCompleted;
 };
+
+export const getCurrentPage = (state: AppState) => {
+    return state.order.currentPage;
+};
+
+export const getPageSize = (state: AppState) => {
+    return state.order.pageSize;
+};

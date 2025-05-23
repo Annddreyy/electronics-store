@@ -3,21 +3,21 @@ import { Field } from '../../../common/FormElements/Field';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import cn from 'classnames';
 import classes from './PersonalData.module.scss';
-
-enum PaymentMethodEnum {}
-
-enum DeliveryMethodEnum {}
+import { PaymentMethods, ReceivingMethods } from '../../../../api/orderAPI';
 
 type FormData = {
-    name: string;
     email: string;
+    name: string;
     phone: string;
+
     address: string;
     city: string;
     index: number;
-    paymentMethod: PaymentMethodEnum;
-    deliveryMethod: DeliveryMethodEnum;
+
     avatar: File;
+
+    paymentMethod: PaymentMethods;
+    deliveryMethod: ReceivingMethods;
 };
 
 export const PersonalData: React.FC = () => {

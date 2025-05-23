@@ -6,7 +6,11 @@ import classes from './Delivery.module.scss';
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../../../../redux/order/orderReducer';
 import { NextButton } from '../../../NextButton/NextButton';
-import { Delivery } from '../../../../../../api/orderAPI';
+import {
+    Delivery,
+    PaymentMethods,
+    ReceivingMethods,
+} from '../../../../../../api/orderAPI';
 
 type FormData = {
     date: string;
@@ -32,7 +36,7 @@ export const DeliveryBlock: React.FC<Props> = ({ changeNextOrderStep }) => {
     const onSubmit = (formData: FormData) => {
         const data: Delivery = {
             ...formData,
-            method: 'Доставка',
+            method: ReceivingMethods.DELIVERY,
         };
         dispatch(actions.setReceivingMethod(data));
         changeNextOrderStep();

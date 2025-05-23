@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { PayMethod } from '../../../../api/orderAPI';
 import { actions } from '../../../../redux/order/orderReducer';
 import { Field } from '../../../common/FormElements/Field';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
@@ -9,9 +8,10 @@ import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
 import classes from './../PlacingAnOrder.module.scss';
 import cn from 'classnames';
+import { PaymentMethods } from '../../../../api/orderAPI';
 
 type FormValues = {
-    paymentMethod: PayMethod;
+    paymentMethod: PaymentMethods;
 };
 
 export const PayMethodBlock: React.FC<OrderBlockProps> = ({

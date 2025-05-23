@@ -106,7 +106,7 @@ const initialState = {
         img: img,
     } as SelectedNews,
     currentPage: 0,
-    pageSize: 0,
+    pageSize: 10,
 };
 
 type InitialState = typeof initialState;

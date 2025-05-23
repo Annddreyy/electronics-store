@@ -47,7 +47,7 @@ const initialState = {
         img: offer1,
     } as SelectedOffer,
     currentPage: 0,
-    pageSize: 0,
+    pageSize: 10,
 };
 
 type InitialState = typeof initialState;

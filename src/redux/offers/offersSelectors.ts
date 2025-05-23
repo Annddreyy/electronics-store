@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { AppState } from '../store';
 
-export const getOffersSelector = (state: AppState) => {
+export const getOffers = (state: AppState) => {
     return state.offers.offers;
 };
 
@@ -18,6 +18,6 @@ export const getPageSize = (state: AppState) => {
 };
 
 export const getOfferById = (id: number) =>
-    createSelector(getOffersSelector, (offers) =>
+    createSelector(getOffers, (offers) =>
         offers.find((offer) => offer.id === id),
     );
