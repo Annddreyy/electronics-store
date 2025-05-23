@@ -1,7 +1,7 @@
-import { AccoutMenuButton } from './AccoutMenuButton/AccoutMenuButton';
-import classes from './AccoutMenu.module.scss';
 import { Link } from '../../../types';
+import { AccoutMenuButton } from './AccoutMenuButton/AccoutMenuButton';
 import { v4 } from 'uuid';
+import classes from './AccoutMenu.module.scss';
 
 export const AccoutMenu: React.FC = () => {
     const buttonsLinks: Link[] = [

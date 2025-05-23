@@ -9,6 +9,8 @@
     @extend .grid-4;
     gap: $base-gap-6;
 
+    color: var(--gray);
+
     border-bottom: 1px solid var(--black);
     padding-bottom: $base-padding-6;
 
@@ -29,6 +31,7 @@
                 font-weight: 600;
             }
             .time {
+                color: var(--gray);
                 font-size: $font-size-sm * 1.1;
             }
         }
@@ -44,12 +47,17 @@
         @extend .column;
 
         .groupTitle {
+            color: var(--gray);
             font-size: $font-size-md;
             font-weight: 500;
         }
 
         .links {
             @extend .column-mini;
+
+            .link {
+                color: var(--black);
+            }
         }
     }
 }

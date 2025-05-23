@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loading } from './components/common/Loading/Loading';
-import { ArticleWrapper } from './pages/ArticleWrapper';
 import Main from './pages/Main';
 import { getOneNews } from './redux/news/newsSelector';
 import { root } from './utils/breadCrumbsPaths';
@@ -27,6 +26,7 @@ const FavoriteProducts = React.lazy(() => import('./pages/FavoriteProducts'));
 const FeatureComporasion = React.lazy(
     () => import('./pages/FeatureComporasion'),
 );
+const ArticleWrapper = React.lazy(() => import('./pages/ArticleWrapper'));
 
 const App: React.FC = () => {
     return (

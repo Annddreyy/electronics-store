@@ -5,11 +5,11 @@ import { Article } from './Article';
 import { Link, Selector } from './../types';
 
 type Props = {
-    selector: Selector<any>; // типизируй под свой state
+    selector: Selector<any>;
     pathBuilder: (id: number, title: string) => Link[];
 };
 
-export const ArticleWrapper: React.FC<Props> = ({ selector, pathBuilder }) => {
+const ArticleWrapper: React.FC<Props> = ({ selector, pathBuilder }) => {
     const { newsId, offerId } = useParams();
     const id = Number(newsId || offerId);
 
@@ -20,3 +20,5 @@ export const ArticleWrapper: React.FC<Props> = ({ selector, pathBuilder }) => {
 
     return <Article selector={selector} path={path} />;
 };
+
+export default ArticleWrapper;

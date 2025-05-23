@@ -4,42 +4,35 @@ import { Stars } from '../ProductCard/Statistics/Stars/Stars';
 import classes from './Review.module.scss';
 import cn from 'classnames';
 
-export const ReviewCard: React.FC<Review> = ({
-    img,
-    author,
-    date,
-    grade,
-    title,
-    text,
-}) => {
+export const ReviewCard: React.FC<Review> = (review) => {
     return (
         <article className={classes.review}>
             <div className={classes.top}>
                 <div className={classes.left}>
-                    {img ? (
+                    {review.img ? (
                         <img src="" alt="" className={classes.img} />
                     ) : (
                         <div className={cn(classes.img, 'bg-gray-light-6')}>
-                            <span className={classes.letter}>{author[0]}</span>
+                            <span className={classes.letter}>{review.author[0]}</span>
                         </div>
                     )}
                     <div className={classes.block}>
-                        <span className={classes.author}>{author}</span>
+                        <span className={classes.author}>{review.author}</span>
                         <time
-                            dateTime={date.toDateString()}
+                            dateTime={review.date.toDateString()}
                             className={classes.time}
                         >
-                            {formatDate(date)}
+                            {formatDate(review.date)}
                         </time>
                     </div>
                 </div>
                 <div className={classes.block}>
-                    {<Stars grade={grade} />}
-                    <span className={classes.grade}>({grade} из 5)</span>
+                    {<Stars grade={review.grade} />}
+                    <span className={classes.grade}>({review.grade} из 5)</span>
                 </div>
             </div>
-            <h3>{title}</h3>
-            <p>{text}</p>
+            <h3>{review.title}</h3>
+            <p>{review.text}</p>
         </article>
     );
 };
