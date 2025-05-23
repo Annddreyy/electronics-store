@@ -4,7 +4,6 @@ import { NewsCard } from '../components/common/NewsCard/NewsCard';
 import { Paginator } from '../components/common/Paginator/Paginator';
 import { getNews } from '../redux/news/newsSelector';
 import { root } from '../utils/breadCrumbsPaths';
-import { BasePage } from './BasePage';
 import { BasePageWithContainer } from './BasePageWithContainer';
 
 const News: React.FC = () => {
