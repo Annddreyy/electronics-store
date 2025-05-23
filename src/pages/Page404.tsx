@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import okak from './../assets/okak.png';
+import okak from './../assets/404/okak.png';
 import classes from './../components/pages/Page404/Page404.module.scss';
 import { BasePageWithContainer } from './BasePageWithContainer';
 

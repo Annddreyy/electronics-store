@@ -1,9 +1,9 @@
+import { BaseThunk } from '../store';
 import { ResponseStatuses } from '../../api/api';
 import { authAPI, User } from '../../api/authAPI';
-import { BaseThunk } from '../store';
-import { Actions, actions } from './authReducer';
-import photo from './../../assets/photo.jpg';
 import { PaymentMethods, ReceivingMethods } from '../../api/orderAPI';
+import { Actions, actions } from './authReducer';
+import photo from './../../assets/personal-cabinet/photo.jpg';
 
 export const auth = (): BaseThunk<Actions> => async (dispath) => {
     //const response = await authAPI.auth();
@@ -33,6 +33,17 @@ export const auth = (): BaseThunk<Actions> => async (dispath) => {
         console.error('Ошибка при авториации!');
     }
 };
+
+export const login =
+    (email: string, password: string, remember = false): BaseThunk<Actions> =>
+    async (dispath) => {
+        const response = await authAPI.login(email, password, remember);
+        if (response.status === ResponseStatuses.OK) {
+            dispath(actions.setUser(response.user));
+        } else {
+            console.error('Ошибка при авторизации!');
+        }
+    };
 
 export const logout = (): BaseThunk<Actions> => async (dispatch) => {
     const response = await authAPI.logout();

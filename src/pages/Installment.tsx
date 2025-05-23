@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
 import { root } from '../utils/breadCrumbsPaths';
-import imgTop from './../assets/installment/img.png';
-import imgBottom from './../assets/installment/img_2.png';
+import imgTop from './../assets/installment/img1.png';
+import imgBottom from './../assets/installment/img2.png';
 import classes from './../components/pages/Installment/Installment.module.scss';
 import { InstallmentForm } from './../components/pages/Installment/InstallmentForm';
 import { BasePage } from './BasePage';
