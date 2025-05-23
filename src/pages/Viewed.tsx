@@ -1,26 +1,17 @@
 import { BreadCrumbs } from '../components/common/BreadCrumbs/BreadCrumbs';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { ProductCardsWithSorting } from '../components/common/ProductCardsWithSorting/ProductCardsWithSorting';
 import { getViewedProducts } from '../redux/products/productsSelectors';
-import { LinkType } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const Viewed: React.FC = () => {
-    const path: LinkType[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/viewed', title: 'Просмотренные товары' },
-    ];
-
+    const path = [root.main.path, root.main.viewed.path];
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">Просмотренные товары</h1>
-                <ProductCardsWithSorting selector={getViewedProducts} />
-            </div>
-            <Footer />
-        </>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">Просмотренные товары</h1>
+            <ProductCardsWithSorting selector={getViewedProducts} />
+        </BasePageWithContainer>
     );
 };
 

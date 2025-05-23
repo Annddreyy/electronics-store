@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { SliderImagesType } from '../TopPart';
+import { SliderImages } from '../TopPart';
+import { v4 } from 'uuid';
 import classes from './ImagesSlider.module.scss';
 import cn from 'classnames';
-import { v4 } from 'uuid';
 
-export const ImagesSlider: React.FC<SliderImagesType> = ({ images }) => {
+export const ImagesSlider: React.FC<SliderImages> = ({ images }) => {
     const imagesElem = images.map((image) => (
         <img src={image.img} key={v4()} />
     ));

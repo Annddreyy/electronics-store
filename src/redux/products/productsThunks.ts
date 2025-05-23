@@ -1,10 +1,10 @@
 import { ResponseStatuses } from '../../api/api';
 import { Product, productsAPI } from '../../api/productsAPI';
-import { BaseThunkType } from '../store';
+import { BaseThunk } from '../store';
 import { actions, Actions } from './productsReducer';
 
 export const getProducts =
-    (page = 1, pageSize = 10): BaseThunkType<Actions> =>
+    (page = 1, pageSize = 10): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.getProducts(page, pageSize);
         if (response.status === ResponseStatuses.OK) {
@@ -15,7 +15,7 @@ export const getProducts =
     };
 
 export const getSelectedProduct =
-    (productId: number): BaseThunkType<Actions> =>
+    (productId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.getSelectedProduct(productId);
         if (response.status === ResponseStatuses.OK) {
@@ -26,7 +26,7 @@ export const getSelectedProduct =
     };
 
 export const getFavoriteProducts =
-    (userId: number): BaseThunkType<Actions> =>
+    (userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.getFavoriteProducts(userId);
         if (response.status === ResponseStatuses.OK) {
@@ -39,7 +39,7 @@ export const getFavoriteProducts =
     };
 
 export const getCompareProducts =
-    (userId: number): BaseThunkType<Actions> =>
+    (userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.getCompareProducts(userId);
         if (response.status === ResponseStatuses.OK) {
@@ -52,7 +52,7 @@ export const getCompareProducts =
     };
 
 export const getViewedProducts =
-    (userId: number): BaseThunkType<Actions> =>
+    (userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.getViewedProducts(userId);
         if (response.status === ResponseStatuses.OK) {
@@ -65,7 +65,7 @@ export const getViewedProducts =
     };
 
 export const postProduct =
-    (product: Product): BaseThunkType<Actions> =>
+    (product: Product): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.postProduct(product);
         if (response.status === ResponseStatuses.OK) {
@@ -76,7 +76,7 @@ export const postProduct =
     };
 
 export const postFavorite =
-    (productId: number, userId: number): BaseThunkType<Actions> =>
+    (productId: number, userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.postFavoriteProduct(
             productId,
@@ -90,7 +90,7 @@ export const postFavorite =
     };
 
 export const postCompare =
-    (productId: number, userId: number): BaseThunkType<Actions> =>
+    (productId: number, userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.postCompareProduct(
             productId,
@@ -104,7 +104,7 @@ export const postCompare =
     };
 
 export const postViewed =
-    (productId: number, userId: number): BaseThunkType<Actions> =>
+    (productId: number, userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await productsAPI.postViewedProduct(productId, userId);
         if (response.status === ResponseStatuses.OK) {

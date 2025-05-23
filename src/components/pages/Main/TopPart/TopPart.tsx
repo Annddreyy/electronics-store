@@ -1,4 +1,4 @@
-import { LinkType } from '../../../../types';
+import { Link } from '../../../../types';
 import { ImagesSlider } from './ImagesSlider/ImagesSlider';
 import { Navigation } from './Navigation/Navigation';
 
@@ -19,45 +19,45 @@ import type5 from './../../../../assets/menu-icons/электроскутеры.
 import img2 from './../../../../assets/slider/i.webp';
 import img1 from './../../../../assets/slider/slider.png';
 
-export type TopLinksType = {
-    links: (LinkType & { img: string })[];
+export type TopLinks = {
+    links: (Link & { img: string })[];
 };
 
-const linksArray: TopLinksType = {
-    links: [
-        { img: type1, title: 'Гироскутеры', link: '/' },
-        { img: type2, title: 'Электросамокаты', link: '/' },
-        { img: type3, title: 'Моноколеса', link: '/' },
-        { img: type4, title: 'Сигвеи и мини-сигвеи', link: '/' },
-        { img: type5, title: 'Электроскутеры', link: '/' },
-        { img: type6, title: 'Электровелосипеды', link: '/' },
-        { img: type7, title: 'Электроскейты', link: '/' },
-        { img: type8, title: 'Электромобили', link: '/' },
-        { img: type9, title: 'Аксессуары', link: '/' },
-        { img: type10, title: 'Умные игрушки', link: '/' },
-        { img: type11, title: 'Smart Watch', link: '/' },
-    ],
-};
-
-type SliderImageType = {
+type SliderImage = {
     img: string;
 };
 
-export type SliderImagesType = {
-    images: SliderImageType[];
-};
-
-const imagesArray: SliderImagesType = {
-    images: [
-        { img: img1 },
-        { img: img2 },
-        { img: img1 },
-        { img: img2 },
-        { img: img1 },
-    ],
+export type SliderImages = {
+    images: SliderImage[];
 };
 
 export const TopPart = () => {
+    const linksArray: TopLinks = {
+        links: [
+            { img: type1, title: 'Гироскутеры', link: '/' },
+            { img: type2, title: 'Электросамокаты', link: '/' },
+            { img: type3, title: 'Моноколеса', link: '/' },
+            { img: type4, title: 'Сигвеи и мини-сигвеи', link: '/' },
+            { img: type5, title: 'Электроскутеры', link: '/' },
+            { img: type6, title: 'Электровелосипеды', link: '/' },
+            { img: type7, title: 'Электроскейты', link: '/' },
+            { img: type8, title: 'Электромобили', link: '/' },
+            { img: type9, title: 'Аксессуары', link: '/' },
+            { img: type10, title: 'Умные игрушки', link: '/' },
+            { img: type11, title: 'Smart Watch', link: '/' },
+        ],
+    };
+
+    const imagesArray: SliderImages = {
+        images: [
+            { img: img1 },
+            { img: img2 },
+            { img: img1 },
+            { img: img2 },
+            { img: img1 },
+        ],
+    };
+
     return (
         <section className={classes.topPart}>
             <Navigation links={linksArray.links} />

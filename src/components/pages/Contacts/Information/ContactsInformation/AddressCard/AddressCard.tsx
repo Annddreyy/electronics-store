@@ -1,11 +1,11 @@
 import classes from './AddressCard.module.scss';
 
-type PropsType = {
+type Props = {
     address: string;
     phone: string;
 };
 
-export const AddressCard: React.FC<PropsType> = ({ address, phone }) => {
+export const AddressCard: React.FC<Props> = ({ address, phone }) => {
     return (
         <article className={classes.addressCard}>
             <address className={classes.address}>{address}</address>

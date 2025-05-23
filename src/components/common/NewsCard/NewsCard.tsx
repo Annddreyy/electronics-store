@@ -1,17 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import { formatDate } from '../../../utils/formatDate';
-import classes from './NewsCard.module.scss';
 import { News } from '../../../api/newsAPI';
+import classes from './NewsCard.module.scss';
 
-export const NewsCard: React.FC<News> = ({ id, title, text, date, img }) => {
-    const dateString = formatDate(date);
+export const NewsCard: React.FC<News> = (news) => {
+    const dateString = formatDate(news.date);
     return (
-        <NavLink to={`/news/${id}`}>
+        <NavLink to={`/news/${news.id}`}>
             <article className={classes.news}>
-                {img && <img src={img} alt="" />}
+                {news.img && <img src={news.img} alt="" />}
                 <div className={classes.information}>
-                    <h3 className={classes.title}>{title}</h3>
-                    <p>{text}</p>
+                    <h3 className={classes.title}>{news.title}</h3>
+                    <p>{news.text}</p>
                     <div className={classes.bottom}>
                         <button className={'text-primary-dark-4'}>
                             Подробнее ▶

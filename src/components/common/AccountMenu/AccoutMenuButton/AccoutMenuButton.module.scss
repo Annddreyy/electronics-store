@@ -2,6 +2,7 @@
 
 .button {
     padding: $base-padding-4;
+    background-color: var(--white);
 
     &:hover {
         background-color: var(--secondary);

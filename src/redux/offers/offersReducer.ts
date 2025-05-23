@@ -1,5 +1,5 @@
 import { Offer, SelectedOffer } from '../../api/offersAPI';
-import { InferActionsType } from '../store';
+import { InferActions } from '../store';
 import offer1 from './../../assets/offer_card/offer_1.png';
 import offer2 from './../../assets/offer_card/offer_2.png';
 import offer3 from './../../assets/offer_card/offer_3.png';
@@ -47,15 +47,15 @@ const initialState = {
         img: offer1,
     } as SelectedOffer,
     currentPage: 0,
-    pageSize: 0,
+    pageSize: 10,
 };
 
-type InitialStateType = typeof initialState;
+type InitialState = typeof initialState;
 
 export const offersReducer = (
     state = initialState,
     action: Actions,
-): InitialStateType => {
+): InitialState => {
     switch (action.type) {
         case 'electronics-store/offers/SET_OFFERS':
             return {
@@ -108,4 +108,4 @@ export const actions = {
         }) as const,
 };
 
-export type Actions = InferActionsType<typeof actions>;
+export type Actions = InferActions<typeof actions>;

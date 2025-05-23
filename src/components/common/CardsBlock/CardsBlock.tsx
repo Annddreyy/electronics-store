@@ -1,16 +1,15 @@
-import { useSelector } from 'react-redux';
-import { AppStateType } from '../../../redux/store';
 import React from 'react';
-import classes from './CardsBlock.module.scss';
+import { useSelector } from 'react-redux';
+import { AppState } from '../../../redux/store';
 import { v4 } from 'uuid';
+import classes from './CardsBlock.module.scss';
 
-type PropsType = {
-    selector: (state: AppStateType) => any[];
+type Props = {
+    cards: any[];
     Card: React.FC<any>;
 };
 
-export const CardsBlock: React.FC<PropsType> = ({ selector, Card }) => {
-    const cards = useSelector(selector);
+export const CardsBlock: React.FC<Props> = ({ cards, Card }) => {
     const cardsElem = cards.map((card) => <Card {...card} key={v4()} />);
 
     return <section className={classes.cardsBlock}>{cardsElem}</section>;

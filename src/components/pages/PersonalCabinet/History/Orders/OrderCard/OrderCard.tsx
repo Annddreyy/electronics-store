@@ -1,18 +1,18 @@
+import { Order } from '../../../../../../api/orderAPI';
 import { v4 } from 'uuid';
 import { formatDate } from '../../../../../../utils/formatDate';
-import { OrderType } from '../Orders';
 import classes from './Order.module.scss';
 
-export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
-    const stringDate = formatDate(date, { month: '2-digit' });
+export const OrderCard: React.FC<Order> = (order) => {
+    const stringDate = formatDate(order.date, { month: '2-digit' });
 
-    const productsCount = products.length;
-    const productsSum = products.reduce(
+    const productsCount = order.products.length;
+    const productsSum = order.products.reduce(
         (sum, product) => sum + product.price,
         0,
     );
 
-    const productsElem = products.map((product) => (
+    const productsElem = order.products.map((product) => (
         <div className={classes.product} key={v4()}>
             <h3>{product.title}</h3>
             <img src={product.img} alt="" />
@@ -22,7 +22,7 @@ export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
         </div>
     ));
 
-    const historyElem = history.map((history) => (
+    const historyElem = order.history.map((history) => (
         <div className={classes.stage} key={v4()}>
             <span className={classes.date}>
                 {formatDate(history.date, { month: '2-digit' })}
@@ -38,7 +38,7 @@ export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
             <summary className={classes.title}>
                 <div className={classes.left}>
                     <div className={classes.orderNumber}>
-                        <span>Заказ #{id} </span>
+                        <span>Заказ #{order.id} </span>
                         <span className={classes.date}>от {stringDate}</span>
                     </div>
                     <div>
@@ -46,9 +46,9 @@ export const Order: React.FC<OrderType> = ({ id, date, history, products }) => {
                     </div>
                     <div
                         className={classes.status}
-                        data-status={history.at(-1)?.status}
+                        data-status={order.history.at(-1)?.status}
                     >
-                        {history.at(-1)?.status}
+                        {order.history.at(-1)?.status}
                     </div>
                 </div>
             </summary>

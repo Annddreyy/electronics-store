@@ -1,28 +1,34 @@
 import { useForm } from 'react-hook-form';
-import classes from './AuthorizationForm.module.scss';
 import { Field } from '../FormElements/Field';
 import { ErrorMessage } from '../ErrorMessage/ErrorMessage';
-import cn from 'classnames';
 import { PasswordInput } from '../FormElements/PasswordInput/PasswordInput';
+import classes from './AuthorizationForm.module.scss';
+import cn from 'classnames';
+import { useDispatch } from 'react-redux';
+import { auth } from '../../../redux/auth/authThunks';
+import { AppDispatch } from '../../../redux/store';
 
-type FormDataType = {
+type FormData = {
     login: string;
     password: string;
 };
 
-type PropsType = {
+type Props = {
     setAuthClose: () => void;
 };
 
-export const AuthorizationForm: React.FC<PropsType> = ({ setAuthClose }) => {
+export const AuthorizationForm: React.FC<Props> = ({ setAuthClose }) => {
     const {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (formData: FormDataType) => {
-        console.log(formData);
+    const dispatch = useDispatch<AppDispatch>();
+
+    const onSubmit = (formData: FormData) => {
+        alert(1);
+        dispatch(auth());
     };
 
     return (
@@ -42,20 +48,16 @@ export const AuthorizationForm: React.FC<PropsType> = ({ setAuthClose }) => {
                 </div>
                 <div className={classes.bottom}>
                     <div className="form-block">
-                        <label htmlFor="phone">Телефон</label>
+                        <label htmlFor="login">Логин</label>
                         <Field
                             type="text"
-                            id="phone"
-                            name="phone"
-                            options={{
-                                required: 'Поле обязательное',
-                                pattern: {
-                                    value: /^\+7\(\d{3}\)(\d{3})-(\d{2})-(\d{2})$/,
-                                    message: 'Шаблон: +7(999)999-99-99',
-                                },
-                            }}
+                            id="login"
+                            name="login"
+                            // options={{
+                            //     required: 'Поле обязательное',
+                            // }}
                             register={register}
-                            placeholder="Введите номер телефона"
+                            placeholder="Введите логин"
                             className={cn({
                                 inputError: errors.login,
                                 inputCorrect:
@@ -65,26 +67,22 @@ export const AuthorizationForm: React.FC<PropsType> = ({ setAuthClose }) => {
                         <ErrorMessage error={errors.login} />
                     </div>
                     <div className="form-block">
-                        <label htmlFor="phone">Телефон</label>
+                        <label htmlFor="password">Пароль</label>
                         <PasswordInput
                             id="password"
                             name="password"
-                            options={{
-                                required: 'Поле обязательное',
-                                pattern: {
-                                    value: /^\+7\(\d{3}\)(\d{3})-(\d{2})-(\d{2})$/,
-                                    message: 'Шаблон: +7(999)999-99-99',
-                                },
-                            }}
+                            // options={{
+                            //     required: 'Поле обязательное 1',
+                            // }}
                             register={register}
-                            placeholder="Введите номер телефона"
+                            placeholder="Введите пароль"
                             className={cn({
-                                inputError: errors.login,
+                                inputError: errors.password,
                                 inputCorrect:
-                                    !errors.login && dirtyFields.login,
+                                    !errors.password && dirtyFields.password,
                             })}
                         />
-                        <ErrorMessage error={errors.login} />
+                        <ErrorMessage error={errors.password} />
                     </div>
                     <button
                         className={cn('text-primary', classes.forgotPassword)}

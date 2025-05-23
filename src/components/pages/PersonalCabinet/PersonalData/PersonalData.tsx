@@ -3,21 +3,21 @@ import { Field } from '../../../common/FormElements/Field';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import cn from 'classnames';
 import classes from './PersonalData.module.scss';
+import { PaymentMethods, ReceivingMethods } from '../../../../api/orderAPI';
 
-enum PaymentMethodEnum {}
-
-enum DeliveryMethodEnum {}
-
-type FormDataType = {
-    name: string;
+type FormData = {
     email: string;
+    name: string;
     phone: string;
+
     address: string;
     city: string;
     index: number;
-    paymentMethod: PaymentMethodEnum;
-    deliveryMethod: DeliveryMethodEnum;
+
     avatar: File;
+
+    paymentMethod: PaymentMethods;
+    deliveryMethod: ReceivingMethods;
 };
 
 export const PersonalData: React.FC = () => {
@@ -25,9 +25,9 @@ export const PersonalData: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormData) => {
         console.log(formData);
     };
 

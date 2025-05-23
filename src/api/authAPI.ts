@@ -1,7 +1,6 @@
 import { DefaultResponse, instance } from './api';
-import { PayMethod } from './orderAPI';
+import { PaymentMethods, ReceivingMethods } from './orderAPI';
 
-export type ReceivingMethod = 'Доставка' | 'Самовывоз';
 export type User = {
     email: string;
     phone: string;
@@ -16,19 +15,29 @@ export type User = {
     address: string | undefined;
     index: number | undefined;
 
-    payMethod: PayMethod | undefined;
-    receivingMethod: ReceivingMethod | undefined;
+    payMethod: PaymentMethods | undefined;
+    receivingMethod: ReceivingMethods | undefined;
 };
+
 export type UserResponse = DefaultResponse & { user: User };
 
 export const authAPI = {
     async auth() {
-        let response = await instance.get<UserResponse>('/auth');
+        const response = await instance.get<UserResponse>('/auth');
+        return response.data;
+    },
+
+    async login(email: string, password: string, remember: boolean) {
+        const response = await instance.post<UserResponse>('/login', {
+            email,
+            password,
+            remember,
+        });
         return response.data;
     },
 
     async logout() {
-        let response = await instance.delete<DefaultResponse>('/logout');
+        const response = await instance.delete<DefaultResponse>('/logout');
         return response.data;
     },
 };

@@ -1,0 +1,16 @@
+.button {
+    position: relative;
+    .menu {
+        position: absolute;
+        right: 0;
+        z-index: 10;
+
+        section {
+            width: 250px;
+        }
+    }
+
+    .invisible {
+        display: none;
+    }
+}

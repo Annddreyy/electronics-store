@@ -3,7 +3,17 @@ import { Product } from './productsAPI';
 
 export type OrderProductsInformation = Product & { count: number };
 
-enum OrderStatus {
+export enum PaymentMethods {
+    CARD = 'Картой',
+    IN_CASH = 'Наличными',
+}
+
+export enum ReceivingMethods {
+    DELIVERY = 'Доставка',
+    SELF_PICKUP = 'Самовывоз',
+}
+
+export enum OrderStatus {
     CREATED = 'Создан',
     ACCEPTED_FOR_PROCESSING = 'Принят в обработку',
     IS_GOING_TO = 'Собирается',
@@ -25,15 +35,13 @@ export type SelfPickUp = {
 };
 
 export type Delivery = {
-    method: 'Доставка';
+    method: ReceivingMethods.DELIVERY;
     date: string;
     addressDelivery: string;
     apartament: string;
     time: string;
     comment?: string;
 };
-
-export type PayMethod = 'Картой' | 'Наличными';
 
 export type Recipient = {
     name: string;
@@ -54,7 +62,7 @@ export type CurrentOrder = {
     products: OrderProductsInformation[];
     receivingMethod: SelfPickUp | Delivery;
     city: string;
-    payMethod: PayMethod;
+    payMethod: PaymentMethods;
     recipient: Recipient;
 };
 
@@ -62,7 +70,9 @@ export type OrdersResponse = DefaultResponse & { orders: Order[] };
 
 export const orderAPI = {
     async getOrders(userId: number) {
-        const response = await instance.get<OrdersResponse>(`/orders/${userId}`);
+        const response = await instance.get<OrdersResponse>(
+            `/orders/${userId}`,
+        );
         return response.data;
     },
 

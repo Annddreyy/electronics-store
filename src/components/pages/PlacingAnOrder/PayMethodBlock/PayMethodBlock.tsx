@@ -1,17 +1,17 @@
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { actions } from '../../../../redux/order/orderReducer';
 import { Field } from '../../../common/FormElements/Field';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
-import cn from 'classnames';
-import classes from './../PlacingAnOrder.module.scss';
 import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { PayMethodFill } from '../FilledBlocks/PayMethodFill/PayMethodFill';
 import { NextButton } from '../NextButton/NextButton';
-import { actions } from '../../../../redux/order/orderReducer';
-import { useDispatch } from 'react-redux';
-import { PayMethod } from '../../../../api/orderAPI';
+import classes from './../PlacingAnOrder.module.scss';
+import cn from 'classnames';
+import { PaymentMethods } from '../../../../api/orderAPI';
 
-type FormValuesType = {
-    paymentMethod: PayMethod;
+type FormValues = {
+    paymentMethod: PaymentMethods;
 };
 
 export const PayMethodBlock: React.FC<OrderBlockProps> = ({
@@ -23,7 +23,7 @@ export const PayMethodBlock: React.FC<OrderBlockProps> = ({
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
+    } = useForm<FormValues>();
 
     const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ export const PayMethodBlock: React.FC<OrderBlockProps> = ({
         setCurrentOrderStep(OrderSteps.PAYMENT_METHOD);
     };
 
-    const onSubmit = (formData: FormValuesType) => {
+    const onSubmit = (formData: FormValues) => {
         dispatch(actions.setPayMethod(formData.paymentMethod));
     };
 

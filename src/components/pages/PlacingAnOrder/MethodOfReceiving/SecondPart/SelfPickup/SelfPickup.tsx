@@ -1,23 +1,23 @@
-import cn from 'classnames';
+import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import { SelfPickUp } from '../../../../../../api/orderAPI';
+import { actions } from '../../../../../../redux/order/orderReducer';
 import { ErrorMessage } from '../../../../../common/ErrorMessage/ErrorMessage';
 import { Field } from '../../../../../common/FormElements/Field';
 import { MapComponent } from './../../../../Contacts/Information/Map/Map';
-import styles from './SelfPickup.module.scss';
-import { useDispatch } from 'react-redux';
-import { actions } from '../../../../../../redux/order/orderReducer';
 import { NextButton } from '../../../NextButton/NextButton';
-import { SelfPickUp } from '../../../../../../api/orderAPI';
+import styles from './SelfPickup.module.scss';
+import cn from 'classnames';
 
 type FormDataValues = {
     magazine: string;
 };
 
-type PropsType = {
+type Props = {
     changeNextOrderStep: () => void;
 };
 
-export const SelfPickup: React.FC<PropsType> = ({ changeNextOrderStep }) => {
+export const SelfPickup: React.FC<Props> = ({ changeNextOrderStep }) => {
     const {
         register,
         handleSubmit,

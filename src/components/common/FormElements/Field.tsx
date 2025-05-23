@@ -5,7 +5,7 @@ import cn from 'classnames';
 import correct from './../../../assets/input/icon-right-correct.png';
 import error from './../../../assets/input/icon-right-error.png';
 
-type FieldType = {
+type Field = {
     type: React.HTMLInputTypeAttribute | 'textarea';
     id: string;
     name: string;
@@ -21,52 +21,45 @@ type FieldType = {
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Field: React.FC<FieldType> = ({
-    id,
-    type,
-    name,
-    register,
-    options,
-    icon,
-    className,
-    placeholder,
-    style,
-    accept,
-    list,
-    onChange,
-    value,
-}) => {
+export const Field: React.FC<Field> = (field) => {
     return (
         <>
-            {type !== 'textarea' ? (
-                <div className={cn(classes.field, className)}>
-                    <img src={icon} alt="" />
+            {field.type !== 'textarea' ? (
+                <div className={cn(classes.field, field.className)}>
+                    <img src={field.icon} alt="" />
                     <input
-                        id={id}
-                        type={type}
-                        placeholder={placeholder}
-                        style={style}
-                        {...register(name, options)}
-                        accept={accept}
-                        list={list}
-                        onChange={onChange}
-                        value={value}
+                        id={field.id}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        style={field.style}
+                        {...field.register(field.name, field.options)}
+                        accept={field.accept}
+                        list={field.list}
+                        onChange={field.onChange}
+                        value={field.value}
                     />
-                    {className && (
+                    {field.className && (
                         <img
-                            src={className === 'inputCorrect' ? correct : error}
+                            src={
+                                field.className === 'inputCorrect'
+                                    ? correct
+                                    : error
+                            }
                             alt=""
                         />
                     )}
                 </div>
             ) : (
-                <div className={cn(classes.field, className)} style={style}>
-                    <img src={icon} alt="" />
+                <div
+                    className={cn(classes.field, field.className)}
+                    style={field.style}
+                >
+                    <img src={field.icon} alt="" />
                     <textarea
-                        id={id}
-                        placeholder={placeholder}
-                        style={style}
-                        {...register(name, options)}
+                        id={field.id}
+                        placeholder={field.placeholder}
+                        style={field.style}
+                        {...field.register(field.name, field.options)}
                     ></textarea>
                 </div>
             )}

@@ -1,5 +1,7 @@
 @use './variables' as *;
 @use './breakpoints' as *;
+@use './display' as *;
+
 @use 'sass:map';
 
 *,
@@ -10,33 +12,7 @@
     box-sizing: border-box;
     font-family: 'Exo 2', sans-serif;
     font-size: $base-font-size;
-    color: map.get($colors, 'black');
-}
-
-.container {
-    width: min(94%, 100em);
-    margin: 0 auto;
-}
-
-.pageTitle {
-    font-size: $font-size-xl;
-    padding: $base-padding-6 0;
-}
-
-.textLg {
-    font-size: 28px;
-}
-
-.sectionTitle {
-    font-size: $font-size-md;
-    padding: $base-padding-6 0;
-}
-
-@include md {
-    .pageTitle,
-    .textLg {
-        font-size: $font-size-md;
-    }
+    color: var(--black);
 }
 
 button {
@@ -62,69 +38,82 @@ address {
     font-style: normal;
 }
 
-.button-primary {
+.container {
+    width: min(94%, 100em);
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: $font-size-xl;
+    padding: $base-padding-6 0;
+}
+
+.sectionTitle {
+    font-size: $font-size-md;
+    padding: $base-padding-6 0;
+}
+
+.textLg {
+    font-size: 28px;
+}
+
+.button-primary, .button-primary-outlined {
     font-weight: 600;
     border-radius: $base-border-radius;
-    border: 1px solid map.get($colors, 'primary');
-    background-color: map.get($colors, 'primary');
-    color: map.get($colors, 'white');
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--white);
 
     width: 100%;
     height: 48px;
 
     &:hover {
-        background-color: map.get($colors, 'white');
-        color: map.get($colors, 'primary');
-    }
-}
-
-.button-primary:disabled {
-    border: 1px solid map.get($colors, 'gray');
-    background-color: map.get($colors, 'gray');
-
-    &:hover {
-        background-color: map.get($colors, 'white');
-        color: map.get($colors, 'gray');
+        background-color: var(--white);
+        color: var(--primary);
     }
 }
 
 .button-primary-outlined {
-    font-weight: 600;
-    border-radius: $base-border-radius;
-    border: 1px solid map.get($colors, 'primary');
-    background-color: map.get($colors, 'white');
-    color: map.get($colors, 'primary');
-    width: 100%;
-    height: 48px;
+    background-color: var(--white);
+    color: var(--primary);
 
     &:hover {
-        background-color: map.get($colors, 'primary');
-        color: map.get($colors, 'white');
+        background-color: var(--primary);
+        color: var(--white);
     }
 }
 
-.form-block {
-    display: flex;
-    flex-direction: column;
-    gap: $base-gap;
+.button-primary:disabled {
+    border: 1px solid var(--gray);
+    background-color: var(--gray);
+
+    &:hover {
+        background-color: var(--white);
+        color: var(--gray);
+    }
+}
+
+@include md {
+    .pageTitle,
+    .textLg {
+        font-size: $font-size-md;
+    }
+}
+
+.form-block, .formContainer {
+    @extend .column;
 }
 
 .inputError {
-    border-color: map.get($colors, 'error') !important;
+    border-color: var(--error) !important;
     input {
-        color: map.get($colors, 'error');
+        color: var(--error);
     }
 }
 
 .inputCorrect {
-    border-color: map.get($colors, 'green') !important;
+    border-color: var(--green) !important;
     input {
-        color: map.get($colors, 'green');
+        color: var(--green);
     }
-}
-
-.formContainer {
-    display: flex;
-    flex-direction: column;
-    gap: $base-gap;
 }

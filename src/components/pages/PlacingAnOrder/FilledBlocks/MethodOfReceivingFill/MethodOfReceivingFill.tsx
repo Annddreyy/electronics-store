@@ -4,11 +4,11 @@ import { ChangeButton } from '../ChangeButton/ChangeButton';
 import classes from './../../PlacingAnOrder.module.scss';
 import styles from './MethodOfReceivingFill.module.scss';
 
-type PropsType = {
+type Props = {
     changeStage: () => void;
 };
 
-export const MethodOfReceivingFill: React.FC<PropsType> = ({ changeStage }) => {
+export const MethodOfReceivingFill: React.FC<Props> = ({ changeStage }) => {
     const information = useSelector(getReceivingMethod);
     return (
         <section className={classes.orderBlock}>

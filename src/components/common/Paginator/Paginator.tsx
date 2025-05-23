@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import classes from './Paginator.module.scss';
 import { v4 } from 'uuid';
 
-type PropsType = {
+type Props = {
     totalItemsCount: number;
     pageSize: number;
     pagesPerGroup?: number;
+    setCurrentPage: (currentPage: number) => void;
 };
 
-export const Paginator: React.FC<PropsType> = ({
+export const Paginator: React.FC<Props> = ({
     totalItemsCount,
     pageSize,
     pagesPerGroup = 3,
@@ -16,7 +17,7 @@ export const Paginator: React.FC<PropsType> = ({
     const [currentPage, setCurrentPage] = useState<number>(1);
 
     useEffect(() => {
-        console.log(currentPage);
+        setCurrentPage(currentPage);
     }, [currentPage]);
 
     const totalPagesCount = Math.ceil(totalItemsCount / pageSize);

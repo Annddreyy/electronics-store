@@ -4,7 +4,7 @@ import { ErrorMessage } from '../../common/ErrorMessage/ErrorMessage';
 import cn from 'classnames';
 import classes from './InstallmentForm.module.scss';
 
-type FormDataType = {
+type FormData = {
     name: string;
     phone: string;
 };
@@ -14,9 +14,9 @@ export const InstallmentForm: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormData) => {
         console.log(formData);
     };
 

@@ -1,10 +1,10 @@
 import { ResponseStatuses } from '../../api/api';
 import { offersAPI, SelectedOffer } from '../../api/offersAPI';
-import { BaseThunkType } from '../store';
+import { BaseThunk } from '../store';
 import { actions, Actions } from './offersReducer';
 
 export const getOffers =
-    (page = 1, pageSize = 1): BaseThunkType<Actions> =>
+    (page = 1, pageSize = 1): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await offersAPI.getOffers(page, pageSize);
         if (response.status === ResponseStatuses.OK) {
@@ -15,7 +15,7 @@ export const getOffers =
     };
 
 export const getSelectedOffer =
-    (offerId: number): BaseThunkType<Actions> =>
+    (offerId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await offersAPI.getSelectedOffer(offerId);
         if (response.status === ResponseStatuses.OK) {
@@ -28,7 +28,7 @@ export const getSelectedOffer =
     };
 
 export const postOffer =
-    (offer: SelectedOffer): BaseThunkType<Actions> =>
+    (offer: SelectedOffer): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await offersAPI.postOffer(offer);
         if (response.status === ResponseStatuses.OK) {

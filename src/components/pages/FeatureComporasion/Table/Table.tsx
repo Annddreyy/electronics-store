@@ -1,10 +1,10 @@
-import cn from 'classnames';
-import classes from './Table.module.scss';
-import { v4 } from 'uuid';
 import React from 'react';
 import { Characteristics } from '../../../../api/productsAPI';
+import { v4 } from 'uuid';
+import classes from './Table.module.scss';
+import cn from 'classnames';
 
-type PropsType = {
+type Props = {
     isDifferent: boolean;
     characteristics: {
         characteristics: Characteristics;
@@ -12,7 +12,7 @@ type PropsType = {
     characteristicsSet: Set<string>;
 };
 
-export const Table: React.FC<PropsType> = ({
+export const Table: React.FC<Props> = ({
     characteristics,
     characteristicsSet,
     isDifferent,

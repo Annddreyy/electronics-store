@@ -1,11 +1,11 @@
 import { CSSProperties, useState } from 'react';
 import { RegisterOptions, UseFormRegister } from 'react-hook-form';
-import cn from 'classnames';
-import classes from './Checkbox.module.scss';
 import checkedImg from './../../../../assets/input/check.png';
 import uncheckedImg from './../../../../assets/input/uncheck.png';
+import classes from './Checkbox.module.scss';
+import cn from 'classnames';
 
-type PropsType = {
+type Props = {
     text: string;
     style?: CSSProperties;
     name: string;
@@ -14,7 +14,7 @@ type PropsType = {
     className?: string;
 };
 
-export const Checkbox: React.FC<PropsType> = ({
+export const Checkbox: React.FC<Props> = ({
     text,
     style,
     register,

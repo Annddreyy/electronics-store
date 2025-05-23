@@ -1,16 +1,17 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Main from './pages/Main';
 import { Loading } from './components/common/Loading/Loading';
+import Main from './pages/Main';
+import { getOneNews } from './redux/news/newsSelector';
+import { root } from './utils/breadCrumbsPaths';
+import { getOneOffer } from './redux/offers/offersSelectors';
 
 const AboutUs = React.lazy(() => import('./pages/AboutUs'));
 const WarrantyConditions = React.lazy(
     () => import('./pages/WarrantyConditons'),
 );
 const News = React.lazy(() => import('./pages/News'));
-const OneNews = React.lazy(() => import('./pages/OneNews'));
 const Offers = React.lazy(() => import('./pages/Offers'));
-const Offer = React.lazy(() => import('./pages/Offer'));
 const Product = React.lazy(() => import('./pages/Product'));
 const Contacts = React.lazy(() => import('./pages/Contacts'));
 const Wholesale = React.lazy(() => import('./pages/Wholesale'));
@@ -25,6 +26,7 @@ const FavoriteProducts = React.lazy(() => import('./pages/FavoriteProducts'));
 const FeatureComporasion = React.lazy(
     () => import('./pages/FeatureComporasion'),
 );
+const ArticleWrapper = React.lazy(() => import('./pages/ArticleWrapper'));
 
 const App: React.FC = () => {
     return (
@@ -43,7 +45,14 @@ const App: React.FC = () => {
                 path="/news/:newsId"
                 element={
                     <React.Suspense fallback={<Loading />}>
-                        <OneNews />
+                        <ArticleWrapper
+                            selector={getOneNews}
+                            pathBuilder={(id, title) => [
+                                root.main.path,
+                                root.main.news.path,
+                                root.main.news.oneNews(id, title),
+                            ]}
+                        />
                     </React.Suspense>
                 }
             />
@@ -60,7 +69,14 @@ const App: React.FC = () => {
                 path="offers/:offerId"
                 element={
                     <React.Suspense fallback={<Loading />}>
-                        <Offer />
+                        <ArticleWrapper
+                            selector={getOneOffer}
+                            pathBuilder={(id, title) => [
+                                root.main.path,
+                                root.main.offers.path,
+                                root.main.offers.offer(id, title),
+                            ]}
+                        />
                     </React.Suspense>
                 }
             />

@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { TopLinksType } from '../../../pages/Main/TopPart/TopPart';
+import { TopLinks } from '../../../pages/Main/TopPart/TopPart';
 import type7 from './../../../../assets/menu-icons/electric skate.png';
 import type11 from './../../../../assets/menu-icons/smart watch.png';
 import type9 from './../../../../assets/menu-icons/аксессуары.png';
@@ -16,27 +16,26 @@ import type5 from './../../../../assets/menu-icons/электроскутеры.
 import classes from './Catalog.module.scss';
 import { v4 } from 'uuid';
 
-const linksArray: TopLinksType = {
-    links: [
-        { img: type1, title: 'Гироскутеры', link: '/' },
-        { img: type2, title: 'Электросамокаты', link: '/' },
-        { img: type3, title: 'Моноколеса', link: '/' },
-        { img: type4, title: 'Сигвеи и мини-сигвеи', link: '/' },
-        { img: type5, title: 'Электроскутеры', link: '/' },
-        { img: type6, title: 'Электровелосипеды', link: '/' },
-        { img: type7, title: 'Электроскейты', link: '/' },
-        { img: type8, title: 'Электромобили', link: '/' },
-        { img: type9, title: 'Аксессуары', link: '/' },
-        { img: type10, title: 'Умные игрушки', link: '/' },
-        { img: type11, title: 'Smart Watch', link: '/' },
-    ],
-};
-
-type PropsType = {
+type Props = {
     closeBlock: () => void;
 };
 
-export const Catalog: React.FC<PropsType> = ({ closeBlock }) => {
+export const Catalog: React.FC<Props> = ({ closeBlock }) => {
+    const linksArray: TopLinks = {
+        links: [
+            { img: type1, title: 'Гироскутеры', link: '/' },
+            { img: type2, title: 'Электросамокаты', link: '/' },
+            { img: type3, title: 'Моноколеса', link: '/' },
+            { img: type4, title: 'Сигвеи и мини-сигвеи', link: '/' },
+            { img: type5, title: 'Электроскутеры', link: '/' },
+            { img: type6, title: 'Электровелосипеды', link: '/' },
+            { img: type7, title: 'Электроскейты', link: '/' },
+            { img: type8, title: 'Электромобили', link: '/' },
+            { img: type9, title: 'Аксессуары', link: '/' },
+            { img: type10, title: 'Умные игрушки', link: '/' },
+            { img: type11, title: 'Smart Watch', link: '/' },
+        ],
+    };
     return (
         <div className={classes.overlay}>
             <section className={classes.catalog}>

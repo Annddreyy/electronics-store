@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Footer } from '../components/common/Footer/Footer';
-import { Header } from '../components/common/Header/Header';
 import { BinProducts } from '../components/pages/PlacingAnOrder/BinProducts/BinProducts';
 import { BlockDisabled } from '../components/pages/PlacingAnOrder/BlockDisabled/BlockDisabled';
 import { MethodOfReceiving } from '../components/pages/PlacingAnOrder/MethodOfReceiving/MethodOfReceiving';
 import { OrderForm } from '../components/pages/PlacingAnOrder/OrderForm/OrderForm';
+import { PayMethodBlock } from '../components/pages/PlacingAnOrder/PayMethodBlock/PayMethodBlock';
 import { Recipient } from '../components/pages/PlacingAnOrder/Recipient/Recipient';
 import { getProducts } from '../redux/order/orderSelectors';
 import classes from './../components/pages/PlacingAnOrder/PlacingAnOrder.module.scss';
-import { PayMethodBlock } from '../components/pages/PlacingAnOrder/PayMethodBlock/PayMethodBlock';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 export enum OrderSteps {
     ORDER,
@@ -69,74 +68,58 @@ const PlacingAnOrder: React.FC = () => {
     const RecipientBlock = ActiveBlocks[OrderSteps.RECIPIENT];
 
     return (
-        <>
-            <Header />
-            <div className="container">
-                <h1 className="pageTitle">Оформление заказа</h1>
-                <div className={classes.mainPart}>
-                    <div className={classes.left}>
-                        {currentOrderState >= OrderSteps.ORDER ? (
-                            <div>
-                                {
-                                    <OrderBlock
-                                        changeNextOrderStep={
-                                            changeNextOrderStep
-                                        }
-                                        setCurrentOrderStep={
-                                            setCurrentOrderStep
-                                        }
-                                        currentOrderState={currentOrderState}
-                                    />
-                                }
-                            </div>
-                        ) : (
-                            DisabledBlocks[OrderSteps.ORDER]
-                        )}
-                        {currentOrderState >= OrderSteps.METHOD_OF_RECEIVING ? (
-                            <div>
-                                {
-                                    <MethodOfReceivingBlock
-                                        changeNextOrderStep={
-                                            changeNextOrderStep
-                                        }
-                                        setCurrentOrderStep={
-                                            setCurrentOrderStep
-                                        }
-                                        currentOrderState={currentOrderState}
-                                    />
-                                }
-                            </div>
-                        ) : (
-                            DisabledBlocks[OrderSteps.METHOD_OF_RECEIVING]
-                        )}
-                        {currentOrderState >= OrderSteps.PAYMENT_METHOD ? (
-                            <div>
-                                {
-                                    <PayMethodBlockComponent
-                                        changeNextOrderStep={
-                                            changeNextOrderStep
-                                        }
-                                        setCurrentOrderStep={
-                                            setCurrentOrderStep
-                                        }
-                                        currentOrderState={currentOrderState}
-                                    />
-                                }
-                            </div>
-                        ) : (
-                            DisabledBlocks[OrderSteps.PAYMENT_METHOD]
-                        )}
-                        {currentOrderState >= OrderSteps.RECIPIENT ? (
-                            <div>{<RecipientBlock />}</div>
-                        ) : (
-                            DisabledBlocks[OrderSteps.RECIPIENT]
-                        )}
-                    </div>
-                    <OrderForm productsCount={productsCount} sum={sum} />
+        <BasePageWithContainer>
+            <h1 className="pageTitle">Оформление заказа</h1>
+            <div className={classes.mainPart}>
+                <div className={classes.left}>
+                    {currentOrderState >= OrderSteps.ORDER ? (
+                        <div>
+                            {
+                                <OrderBlock
+                                    changeNextOrderStep={changeNextOrderStep}
+                                    setCurrentOrderStep={setCurrentOrderStep}
+                                    currentOrderState={currentOrderState}
+                                />
+                            }
+                        </div>
+                    ) : (
+                        DisabledBlocks[OrderSteps.ORDER]
+                    )}
+                    {currentOrderState >= OrderSteps.METHOD_OF_RECEIVING ? (
+                        <div>
+                            {
+                                <MethodOfReceivingBlock
+                                    changeNextOrderStep={changeNextOrderStep}
+                                    setCurrentOrderStep={setCurrentOrderStep}
+                                    currentOrderState={currentOrderState}
+                                />
+                            }
+                        </div>
+                    ) : (
+                        DisabledBlocks[OrderSteps.METHOD_OF_RECEIVING]
+                    )}
+                    {currentOrderState >= OrderSteps.PAYMENT_METHOD ? (
+                        <div>
+                            {
+                                <PayMethodBlockComponent
+                                    changeNextOrderStep={changeNextOrderStep}
+                                    setCurrentOrderStep={setCurrentOrderStep}
+                                    currentOrderState={currentOrderState}
+                                />
+                            }
+                        </div>
+                    ) : (
+                        DisabledBlocks[OrderSteps.PAYMENT_METHOD]
+                    )}
+                    {currentOrderState >= OrderSteps.RECIPIENT ? (
+                        <div>{<RecipientBlock />}</div>
+                    ) : (
+                        DisabledBlocks[OrderSteps.RECIPIENT]
+                    )}
                 </div>
+                <OrderForm productsCount={productsCount} sum={sum} />
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

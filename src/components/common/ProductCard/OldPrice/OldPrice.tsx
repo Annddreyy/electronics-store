@@ -1,12 +1,12 @@
 import classes from './OldPrice.module.scss';
 import cn from 'classnames';
 
-type PropsType = {
+type Props = {
     promotionPercent: number | undefined;
     price: number;
 };
 
-export const OldPrice: React.FC<PropsType> = ({ promotionPercent, price }) => {
+export const OldPrice: React.FC<Props> = ({ promotionPercent, price }) => {
     const oldPrice = promotionPercent
         ? price * (1 + promotionPercent / 100)
         : undefined;

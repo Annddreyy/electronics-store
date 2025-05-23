@@ -4,7 +4,7 @@ import {
     ProductTypes,
     SelectedProduct,
 } from '../../api/productsAPI';
-import { InferActionsType } from '../store';
+import { InferActions } from '../store';
 import productImg from './../../assets/card/productDefault.png';
 
 const initialState = {
@@ -587,4 +587,4 @@ export const actions = {
         }) as const,
 };
 
-export type Actions = InferActionsType<typeof actions>;
+export type Actions = InferActions<typeof actions>;

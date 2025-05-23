@@ -1,10 +1,10 @@
 import { ResponseStatuses } from '../../api/api';
 import { CurrentOrder, orderAPI } from '../../api/orderAPI';
-import { BaseThunkType } from '../store';
+import { BaseThunk } from '../store';
 import { actions, Actions } from './orderReducer';
 
 export const setOrders =
-    (userId: number): BaseThunkType<Actions> =>
+    (userId: number): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await orderAPI.getOrders(userId);
         if (response.status === ResponseStatuses.OK) {
@@ -15,7 +15,7 @@ export const setOrders =
     };
 
 export const postOrder =
-    (userId: number, order: CurrentOrder): BaseThunkType<Actions> =>
+    (userId: number, order: CurrentOrder): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await orderAPI.postOrder(userId, order);
         if (response.status === ResponseStatuses.OK) {

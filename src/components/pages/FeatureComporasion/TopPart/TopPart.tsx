@@ -2,13 +2,13 @@ import { JSX } from 'react';
 import { ProductTypes } from '../../../common/ProductCardsWithSorting/ProductCardsWithSorting';
 import classes from './TopPart.module.scss';
 
-type PropsType = {
+type Props = {
     compareCards: JSX.Element[];
     setDifferentProducts: () => void;
     changeProductType: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
-export const TopPart: React.FC<PropsType> = ({
+export const TopPart: React.FC<Props> = ({
     compareCards,
     setDifferentProducts,
     changeProductType,

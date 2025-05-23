@@ -1,17 +1,16 @@
-import classes from './../PlacingAnOrder.module.scss';
-import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
-import { NextButton } from '../NextButton/NextButton';
-import { MethodOfReceivingFill } from '../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
-import { Field } from '../../../common/FormElements/Field';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
-import styles from './MethodOfReceiving.module.scss';
-import cn from 'classnames';
+import { Field } from '../../../common/FormElements/Field';
+import { MethodOfReceivingFill } from '../FilledBlocks/MethodOfReceivingFill/MethodOfReceivingFill';
 import { DeliveryBlock } from './SecondPart/DeliveryBlock/DeliveryBlock';
 import { SelfPickup } from './SecondPart/SelfPickup/SelfPickup';
-import { useState } from 'react';
+import classes from './../PlacingAnOrder.module.scss';
+import styles from './MethodOfReceiving.module.scss';
+import cn from 'classnames';
 
-type FormDataType = {
+type FormData = {
     city: string;
     method: 'Доставка' | 'Самовывоз';
 };
@@ -35,9 +34,9 @@ export const MethodOfReceiving: React.FC<OrderBlockProps> = ({
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormDataType>();
+    } = useForm<FormData>();
 
-    const onSubmit = (formData: FormDataType) => {
+    const onSubmit = (formData: FormData) => {
         console.log(formData.city);
     };
 

@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { Field } from '../../../common/FormElements/Field';
-import classes from './VacancieForm.module.scss';
-import cn from 'classnames';
 import { ErrorMessage } from '../../../common/ErrorMessage/ErrorMessage';
 import { Checkbox } from '../../../common/FormElements/Checkbox/Checkbox';
+import classes from './VacancieForm.module.scss';
+import cn from 'classnames';
 
-type FormValuesType = {
+type FormValues = {
     surname: string;
     name: string;
     patronymic?: string | undefined;
@@ -20,9 +20,9 @@ export const VacancieForm: React.FC = () => {
         register,
         handleSubmit,
         formState: { errors, dirtyFields },
-    } = useForm<FormValuesType>();
+    } = useForm<FormValues>();
 
-    const onSubmit = (formData: FormValuesType) => {
+    const onSubmit = (formData: FormValues) => {
         console.log(onSubmit);
     };
 

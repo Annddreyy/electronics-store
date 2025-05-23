@@ -1,10 +1,10 @@
 import { ResponseStatuses } from '../../api/api';
 import { newsAPI } from '../../api/newsAPI';
-import { BaseThunkType } from '../store';
+import { BaseThunk } from '../store';
 import { actions, Actions } from './newsReducer';
 
 export const getNews =
-    (page = 1, pageSize = 1): BaseThunkType<Actions> =>
+    (page = 1, pageSize = 1): BaseThunk<Actions> =>
     async (dispatch) => {
         const response = await newsAPI.getNews(page, pageSize);
         if (response.status === ResponseStatuses.OK) {
@@ -15,7 +15,7 @@ export const getNews =
     };
 
 export const getOneNews =
-    (newsId: number): BaseThunkType<Actions> =>
+    (newsId: number): BaseThunk<Actions> =>
     async (disptch) => {
         const response = await newsAPI.getOneNews(newsId);
         if (response.status === ResponseStatuses.OK) {

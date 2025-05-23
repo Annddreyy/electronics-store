@@ -1,11 +1,11 @@
 import { FieldError } from 'react-hook-form';
 import classes from './ErrorMessage.module.scss';
 
-type PropsType = {
+type Props = {
     error: FieldError | undefined;
 };
 
-export const ErrorMessage: React.FC<PropsType> = ({ error }) => {
+export const ErrorMessage: React.FC<Props> = ({ error }) => {
     return (
         <>
             {error && (

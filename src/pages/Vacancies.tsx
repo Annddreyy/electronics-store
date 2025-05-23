@@ -3,14 +3,12 @@ import { Footer } from '../components/common/Footer/Footer';
 import { Header } from '../components/common/Header/Header';
 import { VacancieForm } from '../components/pages/Vacancies/VacancieForm/VacancieForm';
 import { VacanciesList } from '../components/pages/Vacancies/VacanciesList/VacanciesList';
-import { LinkType } from '../types';
+import { root } from '../utils/breadCrumbsPaths';
 import classes from './../components/pages/Vacancies/Vacancies.module.scss';
+import { BasePageWithContainer } from './BasePageWithContainer';
 
 const Vacancies: React.FC = () => {
-    const path: LinkType[] = [
-        { link: '/', title: 'Главная' },
-        { link: '/vacancies', title: 'Вакансии' },
-    ];
+    const path = [root.main.path, root.main.vacancies.path];
     const vacancies = [
         {
             title: 'Менеджер по продажам',
@@ -106,18 +104,14 @@ const Vacancies: React.FC = () => {
         },
     ];
     return (
-        <>
-            <Header />
-            <div className="container">
-                <BreadCrumbs path={path} />
-                <h1 className="pageTitle">Вакансии</h1>
-                <div className={classes.mainPart}>
-                    <VacanciesList vacancies={vacancies} />
-                    <VacancieForm />
-                </div>
+        <BasePageWithContainer>
+            <BreadCrumbs path={path} />
+            <h1 className="pageTitle">Вакансии</h1>
+            <div className={classes.mainPart}>
+                <VacanciesList vacancies={vacancies} />
+                <VacancieForm />
             </div>
-            <Footer />
-        </>
+        </BasePageWithContainer>
     );
 };
 

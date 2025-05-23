@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux';
-import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { getProducts } from '../../../../redux/order/orderSelectors';
+import { OrderBlockProps, OrderSteps } from '../../../../pages/PlacingAnOrder';
 import { BinProductsFill } from '../FilledBlocks/BinProductsFilled/BinProductsFill';
 import { NextButton } from '../NextButton/NextButton';
-import classes from './../PlacingAnOrder.module.scss';
 import { ProductCard } from './ProductCard/ProductCard';
 import { actions } from '../../../../redux/order/orderReducer';
 import { v4 } from 'uuid';
+import classes from './../PlacingAnOrder.module.scss';
 
-export type ProductCardType = {
+export type ProductCard = {
     img: string;
     title: string;
     count: number;

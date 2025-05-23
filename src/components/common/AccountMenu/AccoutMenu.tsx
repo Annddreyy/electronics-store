@@ -1,10 +1,10 @@
-import { LinkType } from '../../../types';
+import { Link } from '../../../types';
 import { AccoutMenuButton } from './AccoutMenuButton/AccoutMenuButton';
-import classes from './AccoutMenu.module.scss';
 import { v4 } from 'uuid';
+import classes from './AccoutMenu.module.scss';
 
 export const AccoutMenu: React.FC = () => {
-    const buttonsLinks: LinkType[] = [
+    const buttonsLinks: Link[] = [
         { link: '/main', title: 'Общие сведения' },
         { link: '/personal-data', title: 'Личные данные' },
         { link: '/history', title: 'История покупок' },

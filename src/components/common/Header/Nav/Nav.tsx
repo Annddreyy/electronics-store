@@ -1,20 +1,20 @@
 import { NavLink } from 'react-router-dom';
-import menu from './../../../../assets/header/menu-icon.png';
-import classes from './Nav.module.scss';
-import { LinkType } from '../../../../types';
+import { Link } from '../../../../types';
 import { v4 } from 'uuid';
-
-const links: LinkType[] = [
-    { link: '/catalog', title: 'Каталог товаров' },
-    { link: '/about-us', title: 'О компании' },
-    { link: '/offers', title: 'Акции' },
-    { link: '/installment', title: 'Рассрочка 0|0|18' },
-    { link: '/warranty-conditions', title: 'Сервис и гарантия' },
-    { link: '/opt-dropshipping', title: 'Опт/дропшиппинг' },
-    { link: '/contacts', title: 'Контакты' },
-];
+import classes from './Nav.module.scss';
+import menu from './../../../../assets/header/menu-icon.png';
 
 export const Nav: React.FC = () => {
+    const links: Link[] = [
+        { link: '/catalog', title: 'Каталог товаров' },
+        { link: '/about-us', title: 'О компании' },
+        { link: '/offers', title: 'Акции' },
+        { link: '/installment', title: 'Рассрочка 0|0|18' },
+        { link: '/warranty-conditions', title: 'Сервис и гарантия' },
+        { link: '/opt-dropshipping', title: 'Опт/дропшиппинг' },
+        { link: '/contacts', title: 'Контакты' },
+    ];
+
     const linksElements = links.map((link) => (
         <li key={v4()}>
             <NavLink to={link.link}>{link.title}</NavLink>

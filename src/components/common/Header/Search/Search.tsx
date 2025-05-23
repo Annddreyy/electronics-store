@@ -1,10 +1,10 @@
 import classes from './Search.module.scss';
 
-type PropsType = {
+type Props = {
     closeBlock: () => void;
 };
 
-export const Search: React.FC<PropsType> = ({ closeBlock }) => {
+export const Search: React.FC<Props> = ({ closeBlock }) => {
     return (
         <div className={classes.overlay}>
             <section className={classes.catalog}>

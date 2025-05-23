@@ -1,9 +1,9 @@
-import { ReceivingMethod, User } from '../../api/authAPI';
-import { PayMethod } from '../../api/orderAPI';
-import { InferActionsType } from '../store';
+import { User } from '../../api/authAPI';
+import { PaymentMethods, ReceivingMethods } from '../../api/orderAPI';
+import { InferActions } from '../store';
 
 const initialState: User & { isAuth: boolean } = {
-    isAuth: false,
+    isAuth: true,
 
     email: '',
     phone: '',
@@ -16,8 +16,8 @@ const initialState: User & { isAuth: boolean } = {
     address: undefined,
     index: undefined,
 
-    payMethod: '' as PayMethod,
-    receivingMethod: '' as ReceivingMethod,
+    payMethod: '' as PaymentMethods,
+    receivingMethod: '' as ReceivingMethods,
 };
 
 export type InitialState = typeof initialState;
@@ -30,7 +30,7 @@ export const authReducer = (
         case 'electronics-store/auth/SET_USER':
             return {
                 ...state,
-                ...action.payload,
+                ...action.payload.user,
                 isAuth: true,
             };
         case 'elecronics-store/auth/LOGOUT': {
@@ -51,8 +51,8 @@ export const authReducer = (
                 address: undefined,
                 index: undefined,
 
-                payMethod: '' as PayMethod,
-                receivingMethod: '' as ReceivingMethod,
+                payMethod: '' as PaymentMethods,
+                receivingMethod: '' as ReceivingMethods,
             };
         }
         default:
@@ -72,4 +72,4 @@ export const actions = {
         }) as const,
 };
 
-export type Actions = InferActionsType<typeof actions>;
+export type Actions = InferActions<typeof actions>;

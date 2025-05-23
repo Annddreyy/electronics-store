@@ -1,11 +1,11 @@
 import classes from './Promotion.module.scss';
 
-type PropsType = {
+type Props = {
     price: number;
     promotionPercent: number | undefined;
 };
 
-export const Promotion: React.FC<PropsType> = ({ price, promotionPercent }) => {
+export const Promotion: React.FC<Props> = ({ price, promotionPercent }) => {
     return (
         <>
             {promotionPercent && (

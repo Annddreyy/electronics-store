@@ -2,14 +2,14 @@ import { CompareProduct } from '../../../../api/productsAPI';
 import classes from './Buttons.module.scss';
 import cn from 'classnames';
 
-type PropsType = {
+type Props = {
     setPreviousStartIndex: () => void;
     setNextStartIndex: () => void;
     startIndex: number;
     compareProducts: CompareProduct[];
 };
 
-export const Buttons: React.FC<PropsType> = ({
+export const Buttons: React.FC<Props> = ({
     setNextStartIndex,
     setPreviousStartIndex,
     startIndex,
