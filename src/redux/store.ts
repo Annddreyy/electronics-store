@@ -15,7 +15,6 @@ import { offersReducer } from './offers/offersReducer';
 import { newsReducer } from './news/newsReducer';
 import { orderReducer } from './order/orderReducer';
 import { authReducer } from './auth/authReducer';
-import { useDispatch } from 'react-redux';
 
 const rootReducer = combineReducers({
     products: productsReducer,

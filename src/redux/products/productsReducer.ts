@@ -525,13 +525,13 @@ export const productsReducer = (
                 ...state,
                 currentPage: action.payload.currentPage,
             };
-        
+
         case 'electronics-store/products/SET_PAGE_SIZE':
             return {
                 ...state,
                 pageSize: action.payload.pageSize,
             };
-        
+
         default:
             return state;
     }
@@ -597,16 +597,18 @@ export const actions = {
             type: 'electronics-store/products/DELETE_COMPARE_PRODUCT',
             payload: { product },
         }) as const,
-    
-    setCurrentPage: (currentPage: number) => ({
-        type: 'electronics-store/products/SET_CURRENT_PAGE',
-        payload: { currentPage },
-    }) as const,
 
-    setPageSize: (pageSize: number) => ({
-        type: 'electronics-store/products/SET_PAGE_SIZE',
-        payload: { pageSize },
-    }) as const,
+    setCurrentPage: (currentPage: number) =>
+        ({
+            type: 'electronics-store/products/SET_CURRENT_PAGE',
+            payload: { currentPage },
+        }) as const,
+
+    setPageSize: (pageSize: number) =>
+        ({
+            type: 'electronics-store/products/SET_PAGE_SIZE',
+            payload: { pageSize },
+        }) as const,
 };
 
 export type Actions = InferActions<typeof actions>;

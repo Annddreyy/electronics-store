@@ -1352,13 +1352,13 @@ export const actions = {
             type: 'electronic-store/order/SET_ORDERS',
             payload: { orders },
         }) as const,
-    
+
     setProducts: (products: OrderProductsInformation[]) =>
         ({
             type: 'electronic-store/order/SET_PRODUCTS',
             payload: { products },
         }) as const,
-    
+
     deleteProduct: (id: number) =>
         ({
             type: 'electronic-store/order/DELETE_PRODUCT',
@@ -1370,7 +1370,7 @@ export const actions = {
             type: 'electronic-store/order/INCREASE_PRODUCT',
             payload: { id },
         }) as const,
-    
+
     decreaseProduct: (id: number) =>
         ({
             type: 'electronic-store/order/DESCREASE_PRODUCT',
@@ -1382,19 +1382,19 @@ export const actions = {
             type: 'electronic-store/order/SET_RECEIVING_METHOD',
             payload: { receivingMethod },
         }) as const,
-    
+
     setPayMethod: (payMethod: PaymentMethods) =>
         ({
             type: 'electronic-store/order/SET_PAY_METHOD',
             payload: { payMethod },
         }) as const,
-    
+
     setRecipient: (recipient: Recipient) =>
         ({
             type: 'electronic-store/order/SET_RECIPIENT',
             payload: { recipient },
         }) as const,
-    
+
     setCity: (city: string) =>
         ({
             type: 'electronic-store/order/SET_CITY',
